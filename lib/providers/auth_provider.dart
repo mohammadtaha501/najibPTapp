@@ -4,7 +4,6 @@ import 'package:ptapp/models/user_model.dart';
 import 'package:ptapp/services/auth_service.dart';
 
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'dart:io';
 
 class AuthProvider with ChangeNotifier {
   final AuthService _authService = AuthService();
