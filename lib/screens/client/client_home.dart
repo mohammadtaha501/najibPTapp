@@ -1,15 +1,15 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:untitled3/providers/auth_provider.dart';
-import 'package:untitled3/utils/theme.dart';
+import 'package:ptapp/providers/auth_provider.dart';
+import 'package:ptapp/utils/theme.dart';
 import 'package:intl/intl.dart';
-import 'package:untitled3/screens/common/nutrition_screen.dart';
-import 'package:untitled3/screens/common/chat_screen.dart';
-import 'package:untitled3/models/program_model.dart';
-import 'package:untitled3/services/database_service.dart';
-import 'package:untitled3/screens/client/workout_progression_screen.dart';
-import 'package:untitled3/screens/client/assigned_programs_screen.dart';
+import 'package:ptapp/screens/common/nutrition_screen.dart';
+import 'package:ptapp/screens/common/chat_screen.dart';
+import 'package:ptapp/models/program_model.dart';
+import 'package:ptapp/services/database_service.dart';
+import 'package:ptapp/screens/client/workout_progression_screen.dart';
+import 'package:ptapp/screens/client/assigned_programs_screen.dart';
 
 import '../../models/nutrition_plan_model.dart';
 
@@ -236,7 +236,7 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
     
     // Calculate simple progress (mocked for now or based on completed days vs total days)
     // In a real app, we'd count documents in 'logs' vs total workout days
-    final double progress = 0.65; // Placeholder: 65%
+    // final double progress = 0.65; // Placeholder: 65%
 
     if (isCompleted) return const SizedBox.shrink();
     
@@ -277,7 +277,7 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
                       ),
                     ),
                     Text(
-                      'Week ${activeProgram.currentWeek ?? 1}',
+                      'Week ${activeProgram.currentWeek}',
                       style: const TextStyle(color: AppTheme.mutedTextColor, fontWeight: FontWeight.bold, fontSize: 12),
                     ),
                   ],
@@ -286,7 +286,7 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
                 Text(activeProgram.name, style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w900, color: Colors.white)),
                 const SizedBox(height: 8),
                 Text(
-                  isAssigned ? 'New program assigned by coach' : 'Ready for Day ${activeProgram.currentDay ?? 1}',
+                  isAssigned ? 'New program assigned by coach' : 'Ready for Day ${activeProgram.currentDay}',
                   style: const TextStyle(color: AppTheme.mutedTextColor, fontSize: 14),
                 ),
                 const SizedBox(height: 24),

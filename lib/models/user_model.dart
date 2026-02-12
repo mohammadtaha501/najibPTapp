@@ -9,8 +9,7 @@ class AppUser {
   final String? phone;
   final String? notes;
   final bool isBlocked;
-  final String? fcmToken;
-  final String? apnsToken;
+  final String? pushToken;
 
   AppUser({
     required this.uid,
@@ -21,8 +20,7 @@ class AppUser {
     this.phone,
     this.notes,
     this.isBlocked = false,
-    this.fcmToken,
-    this.apnsToken,
+    this.pushToken,
   });
 
   Map<String, dynamic> toMap() {
@@ -35,8 +33,7 @@ class AppUser {
       'phone': phone,
       'notes': notes,
       'isBlocked': isBlocked,
-      'fcmToken': fcmToken,
-      'apnsToken': apnsToken,
+      'pushToken': pushToken,
     };
   }
 
@@ -50,8 +47,7 @@ class AppUser {
       phone: map['phone'],
       notes: map['notes'],
       isBlocked: map['isBlocked'] ?? false,
-      fcmToken: map['fcmToken'],
-      apnsToken: map['apnsToken'],
+      pushToken: map['pushToken'] ?? map['fcmToken'],
     );
   }
 }

@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:untitled3/models/program_model.dart';
-import 'package:untitled3/models/log_model.dart';
-import 'package:untitled3/utils/theme.dart';
+import 'package:ptapp/models/program_model.dart';
+import 'package:ptapp/models/log_model.dart';
+import 'package:ptapp/utils/theme.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:untitled3/screens/client/exercise_detail_logging_screen.dart';
-
-import '../../services/database_service.dart';
+import 'package:ptapp/screens/client/exercise_detail_logging_screen.dart';
 
 class ExerciseTrackingScreen extends StatefulWidget {
   final Program program;
@@ -71,80 +69,80 @@ class _ExerciseTrackingScreenState extends State<ExerciseTrackingScreen> {
     );
   }
 
-  void _confirmFinishWorkout() {
-    final notesController = TextEditingController();
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        backgroundColor: AppTheme.surfaceColor,
-        title: const Text('Finish Workout?', style: TextStyle(color: Colors.white)),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text('Great job! Add any notes for your coach:', style: TextStyle(color: AppTheme.mutedTextColor)),
-            const SizedBox(height: 16),
-            TextField(
-              controller: notesController,
-              maxLines: 3,
-              style: const TextStyle(color: Colors.white),
-              decoration: InputDecoration(
-                hintText: 'e.g. Squats felt heavy today...',
-                hintStyle: TextStyle(color: Colors.white.withOpacity(0.3)),
-                filled: true,
-                fillColor: Colors.black12,
-                border: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: BorderSide.none),
-              ),
-            ),
-          ],
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('CANCEL', style: TextStyle(color: AppTheme.mutedTextColor)),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.pop(context);
-              _finishWorkout(notesController.text);
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: AppTheme.primaryColor,
-              foregroundColor: Colors.black,
-            ),
-            child: const Text('FINISH', style: TextStyle(fontWeight: FontWeight.bold)),
-          ),
-        ],
-      ),
-    );
-  }
+  // void _confirmFinishWorkout() {
+  //   final notesController = TextEditingController();
+  //   showDialog(
+  //     context: context,
+  //     builder: (context) => AlertDialog(
+  //       backgroundColor: AppTheme.surfaceColor,
+  //       title: const Text('Finish Workout?', style: TextStyle(color: Colors.white)),
+  //       content: Column(
+  //         mainAxisSize: MainAxisSize.min,
+  //         crossAxisAlignment: CrossAxisAlignment.start,
+  //         children: [
+  //           const Text('Great job! Add any notes for your coach:', style: TextStyle(color: AppTheme.mutedTextColor)),
+  //           const SizedBox(height: 16),
+  //           TextField(
+  //             controller: notesController,
+  //             maxLines: 3,
+  //             style: const TextStyle(color: Colors.white),
+  //             decoration: InputDecoration(
+  //               hintText: 'e.g. Squats felt heavy today...',
+  //               hintStyle: TextStyle(color: Colors.white.withOpacity(0.3)),
+  //               filled: true,
+  //               fillColor: Colors.black12,
+  //               border: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: BorderSide.none),
+  //             ),
+  //           ),
+  //         ],
+  //       ),
+  //       actions: [
+  //         TextButton(
+  //           onPressed: () => Navigator.pop(context),
+  //           child: const Text('CANCEL', style: TextStyle(color: AppTheme.mutedTextColor)),
+  //         ),
+  //         ElevatedButton(
+  //           onPressed: () {
+  //             Navigator.pop(context);
+  //             _finishWorkout(notesController.text);
+  //           },
+  //           style: ElevatedButton.styleFrom(
+  //             backgroundColor: AppTheme.primaryColor,
+  //             foregroundColor: Colors.black,
+  //           ),
+  //           child: const Text('FINISH', style: TextStyle(fontWeight: FontWeight.bold)),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 
-  Future<void> _finishWorkout(String notes) async {
-    setState(() => _isLoading = true);
-    
-    final dbService = DatabaseService(); 
-    final log = WorkoutLog(
-      clientId: widget.program.assignedClientId!,
-      programId: widget.program.id!,
-      workoutDayId: widget.workoutDay.id ?? widget.workoutDay.muscleGroup,
-      date: DateTime.now(),
-      exerciseLogs: _logs.values.toList(),
-      notes: notes,
-    );
-
-    try {
-      await dbService.logWorkout(log);
-      if (mounted) {
-        Navigator.pop(context); // Go back to progression screen
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Workout logged successfully!')));
-      }
-    } catch (e) {
-      if (mounted) {
-        setState(() => _isLoading = false);
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Error logging workout: $e')));
-      }
-    }
-  }
+  // Future<void> _finishWorkout(String notes) async {
+  //   setState(() => _isLoading = true);
+  //
+  //   final dbService = DatabaseService();
+  //   final log = WorkoutLog(
+  //     clientId: widget.program.assignedClientId!,
+  //     programId: widget.program.id!,
+  //     workoutDayId: widget.workoutDay.id ?? widget.workoutDay.muscleGroup,
+  //     date: DateTime.now(),
+  //     exerciseLogs: _logs.values.toList(),
+  //     notes: notes,
+  //   );
+  //
+  //   try {
+  //     await dbService.logWorkout(log);
+  //     if (mounted) {
+  //       Navigator.pop(context); // Go back to progression screen
+  //       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Workout logged successfully!')));
+  //     }
+  //   } catch (e) {
+  //     if (mounted) {
+  //       setState(() => _isLoading = false);
+  //       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Error logging workout: $e')));
+  //     }
+  //   }
+  // }
 
   Widget _buildExerciseCard(dynamic ex, ExerciseLog? log) {
     final bool isCompleted = log?.status == ExerciseStatus.completed;

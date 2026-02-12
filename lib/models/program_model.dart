@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:untitled3/models/exercise_model.dart';
+import 'package:ptapp/models/exercise_model.dart';
 
 enum ProgramStatus { assigned, active, replaced, completed }
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:untitled3/models/message_model.dart';
-import 'package:untitled3/services/database_service.dart';
-import 'package:untitled3/utils/theme.dart';
+import 'package:ptapp/models/message_model.dart';
+import 'package:ptapp/services/database_service.dart';
+import 'package:ptapp/utils/theme.dart';
 
 class ChatScreen extends StatefulWidget {
   final String currentUserId;

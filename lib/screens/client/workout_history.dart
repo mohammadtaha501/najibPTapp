@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:untitled3/widgets/common_widgets.dart';
-import 'package:untitled3/models/log_model.dart';
-import 'package:untitled3/services/database_service.dart';
-import 'package:untitled3/utils/theme.dart';
+import 'package:ptapp/widgets/common_widgets.dart';
+import 'package:ptapp/models/log_model.dart';
+import 'package:ptapp/services/database_service.dart';
+import 'package:ptapp/utils/theme.dart';
 import 'package:intl/intl.dart';
-import 'package:untitled3/screens/common/workout_detail.dart';
+import 'package:ptapp/screens/common/workout_detail.dart';
 
-import 'package:untitled3/screens/client/completed_programs_screen.dart';
+import 'package:ptapp/screens/client/completed_programs_screen.dart';
 
 class WorkoutHistoryScreen extends StatefulWidget {
   final String clientId;

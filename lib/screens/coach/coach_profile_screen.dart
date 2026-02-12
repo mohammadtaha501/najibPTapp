@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:untitled3/providers/auth_provider.dart';
-import 'package:untitled3/utils/theme.dart';
-import 'package:untitled3/screens/common/change_password_screen.dart';
+import 'package:ptapp/providers/auth_provider.dart';
+import 'package:ptapp/utils/theme.dart';
+import 'package:ptapp/screens/common/change_password_screen.dart';
 
 class CoachProfileScreen extends StatefulWidget {
   const CoachProfileScreen({super.key});

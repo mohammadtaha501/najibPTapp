@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:untitled3/screens/coach/coach_home.dart';
-import 'package:untitled3/screens/common/exercise_library.dart';
-import 'package:untitled3/screens/coach/coach_profile_screen.dart';
-import 'package:untitled3/utils/theme.dart';
+import 'package:ptapp/screens/coach/coach_home.dart';
+import 'package:ptapp/screens/common/exercise_library.dart';
+import 'package:ptapp/screens/coach/coach_profile_screen.dart';
+import 'package:ptapp/utils/theme.dart';
 
-import 'package:untitled3/screens/coach/coach_chat_list_screen.dart';
-import 'package:untitled3/providers/auth_provider.dart';
+import 'package:ptapp/screens/coach/coach_chat_list_screen.dart';
+import 'package:ptapp/providers/auth_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:untitled3/services/database_service.dart';
+import 'package:ptapp/services/database_service.dart';
 
 class CoachNavigationWrapper extends StatefulWidget {
   const CoachNavigationWrapper({super.key});

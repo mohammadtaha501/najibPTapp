@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:untitled3/models/program_model.dart';
-import 'package:untitled3/services/database_service.dart';
-import 'package:untitled3/utils/theme.dart';
-import 'package:untitled3/screens/client/workout_progression_screen.dart';
+import 'package:ptapp/models/program_model.dart';
+import 'package:ptapp/services/database_service.dart';
+import 'package:ptapp/utils/theme.dart';
+import 'package:ptapp/screens/client/workout_progression_screen.dart';
 import 'package:provider/provider.dart';
-import 'package:untitled3/providers/auth_provider.dart';
+import 'package:ptapp/providers/auth_provider.dart';
 
 class CompletedProgramsScreen extends StatefulWidget {
   const CompletedProgramsScreen({super.key});

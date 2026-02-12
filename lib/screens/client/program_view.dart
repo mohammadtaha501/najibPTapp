@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:untitled3/models/program_model.dart';
-import 'package:untitled3/services/database_service.dart';
-import 'package:untitled3/screens/client/workout_view.dart';
-import 'package:untitled3/utils/theme.dart';
-import 'package:untitled3/widgets/common_widgets.dart';
+import 'package:ptapp/models/program_model.dart';
+import 'package:ptapp/services/database_service.dart';
+import 'package:ptapp/screens/client/workout_view.dart';
+import 'package:ptapp/utils/theme.dart';
+import 'package:ptapp/widgets/common_widgets.dart';
 
 class ProgramViewScreen extends StatefulWidget {
   final String clientId;

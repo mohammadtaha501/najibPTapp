@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:provider/provider.dart';
-import 'package:untitled3/models/user_model.dart';
-import 'package:untitled3/providers/auth_provider.dart';
-import 'package:untitled3/services/database_service.dart';
-import 'package:untitled3/models/program_model.dart';
-import 'package:untitled3/utils/theme.dart';
-import 'package:untitled3/screens/coach/program_editor.dart';
-import 'package:untitled3/screens/coach/client_detail.dart';
-import 'package:untitled3/screens/coach/client_creation_screen.dart';
+import 'package:ptapp/models/user_model.dart';
+import 'package:ptapp/providers/auth_provider.dart';
+import 'package:ptapp/services/database_service.dart';
+import 'package:ptapp/models/program_model.dart';
+import 'package:ptapp/utils/theme.dart';
+import 'package:ptapp/screens/coach/program_editor.dart';
+import 'package:ptapp/screens/coach/client_detail.dart';
+import 'package:ptapp/screens/coach/client_creation_screen.dart';
 
 class CoachHomeScreen extends StatefulWidget {
   const CoachHomeScreen({super.key});
@@ -26,15 +25,8 @@ class _CoachHomeScreenState extends State<CoachHomeScreen> {
   late Stream<List<AppUser>> _clientsStream;
   late Stream<List<Program>> _programsStream;
   late Stream<List<Program>> _publicProgramsStream;
-  final Map<String, Stream<int>> _unreadCountStreams = {};
+  late Stream<Map<String, int>> _unreadCountsStream;
   bool _streamsInitialized = false;
-
-  Stream<int> _getUnreadCountStream(String clientId, String coachId) {
-    return _unreadCountStreams.putIfAbsent(
-      clientId,
-      () => _dbService.getUnreadCount(clientId, coachId),
-    );
-  }
 
   @override
   void initState() {
@@ -49,8 +41,9 @@ class _CoachHomeScreenState extends State<CoachHomeScreen> {
       final coachId = authProvider.userProfile?.uid;
       if (coachId != null) {
         _clientsStream = _dbService.getClients(coachId);
-        _programsStream = _dbService.getCoachPrograms(coachId);
+        _programsStream = _dbService.getActiveCoachPrograms(coachId);
         _publicProgramsStream = _dbService.getPublicPrograms(coachId);
+        _unreadCountsStream = _dbService.getUnreadCountsPerClient(coachId);
         _streamsInitialized = true;
       }
     }
@@ -73,22 +66,36 @@ class _CoachHomeScreenState extends State<CoachHomeScreen> {
         stream: _clientsStream,
         builder: (context, snapshot) {
           final totalClients = snapshot.data?.length ?? 0;
-          
+
           return StreamBuilder<List<Program>>(
             stream: _programsStream,
             builder: (context, progSnapshot) {
               final programs = progSnapshot.data ?? [];
               final activeClientsCount = programs
-                .where((p) => p.status == ProgramStatus.active && p.assignedClientId != null)
-                .map((p) => p.assignedClientId)
-                .toSet()
-                .length;
-              
+                  .where(
+                    (p) =>
+                        p.status == ProgramStatus.active &&
+                        p.assignedClientId != null,
+                  )
+                  .map((p) => p.assignedClientId)
+                  .toSet()
+                  .length;
+
               return Row(
                 children: [
-                  _statsBox('CLIENTS', '$totalClients', Icons.people_outline, const Color(0xFF5856D6)),
+                  _statsBox(
+                    'CLIENTS',
+                    '$totalClients',
+                    Icons.people_outline,
+                    const Color(0xFF5856D6),
+                  ),
                   const SizedBox(width: 12),
-                  _statsBox('ACTIVE', '$activeClientsCount', Icons.bolt, const Color(0xFFFF2D55)),
+                  _statsBox(
+                    'ACTIVE',
+                    '$activeClientsCount',
+                    Icons.bolt,
+                    const Color(0xFFFF2D55),
+                  ),
                 ],
               );
             },
@@ -112,8 +119,23 @@ class _CoachHomeScreenState extends State<CoachHomeScreen> {
           children: [
             Icon(icon, color: color, size: 20),
             const SizedBox(height: 12),
-            Text(value, style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w900, color: Colors.white)),
-            Text(label, style: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: AppTheme.mutedTextColor, letterSpacing: 1)),
+            Text(
+              value,
+              style: const TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.w900,
+                color: Colors.white,
+              ),
+            ),
+            Text(
+              label,
+              style: const TextStyle(
+                fontSize: 10,
+                fontWeight: FontWeight.bold,
+                color: AppTheme.mutedTextColor,
+                letterSpacing: 1,
+              ),
+            ),
           ],
         ),
       ),
@@ -142,16 +164,22 @@ class _CoachHomeScreenState extends State<CoachHomeScreen> {
           _buildViewToggle(),
           if (!_showPublicPrograms) _buildClientFilter(),
           Expanded(
-            child: _showPublicPrograms 
-              ? _buildPublicProgramsList(_dbService, authProvider.userProfile!.uid)
-              : _buildClientsList(_dbService, authProvider.userProfile!.uid),
+            child: _showPublicPrograms
+                ? _buildPublicProgramsList(
+                    _dbService,
+                    authProvider.userProfile!.uid,
+                  )
+                : _buildClientsList(_dbService, authProvider.userProfile!.uid),
           ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.push(
-          context, 
-          MaterialPageRoute(builder: (_) => ProgramEditor(coachId: authProvider.userProfile!.uid))
+          context,
+          MaterialPageRoute(
+            builder: (_) =>
+                ProgramEditor(coachId: authProvider.userProfile!.uid),
+          ),
         ),
         backgroundColor: AppTheme.primaryColor,
         child: const Icon(Icons.add, color: Colors.black),
@@ -173,7 +201,11 @@ class _CoachHomeScreenState extends State<CoachHomeScreen> {
                 color: AppTheme.primaryColor,
                 borderRadius: BorderRadius.circular(12),
               ),
-              child: const Icon(Icons.person_add, color: Colors.black, size: 24),
+              child: const Icon(
+                Icons.person_add,
+                color: Colors.black,
+                size: 24,
+              ),
             ),
           ),
           const SizedBox(width: 12),
@@ -182,21 +214,37 @@ class _CoachHomeScreenState extends State<CoachHomeScreen> {
               controller: _searchController,
               onChanged: (value) => setState(() => _searchQuery = value),
               decoration: InputDecoration(
-                hintText: _showPublicPrograms ? 'Search programs...' : 'Search clients...',
-                prefixIcon: const Icon(Icons.search, size: 20, color: AppTheme.mutedTextColor),
-                suffixIcon: _searchQuery.isNotEmpty 
-                  ? IconButton(
-                      icon: const Icon(Icons.clear, size: 20, color: AppTheme.mutedTextColor),
-                      onPressed: () {
-                        _searchController.clear();
-                        setState(() => _searchQuery = '');
-                      },
-                    )
-                  : null,
+                hintText: _showPublicPrograms
+                    ? 'Search programs...'
+                    : 'Search clients...',
+                prefixIcon: const Icon(
+                  Icons.search,
+                  size: 20,
+                  color: AppTheme.mutedTextColor,
+                ),
+                suffixIcon: _searchQuery.isNotEmpty
+                    ? IconButton(
+                        icon: const Icon(
+                          Icons.clear,
+                          size: 20,
+                          color: AppTheme.mutedTextColor,
+                        ),
+                        onPressed: () {
+                          _searchController.clear();
+                          setState(() => _searchQuery = '');
+                        },
+                      )
+                    : null,
                 filled: true,
                 fillColor: Theme.of(context).cardTheme.color,
-                contentPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 16),
-                border: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: BorderSide.none),
+                contentPadding: const EdgeInsets.symmetric(
+                  vertical: 0,
+                  horizontal: 16,
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide.none,
+                ),
               ),
             ),
           ),
@@ -231,7 +279,9 @@ class _CoachHomeScreenState extends State<CoachHomeScreen> {
             color: isSelected ? AppTheme.primaryColor : AppTheme.surfaceColor,
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
-              color: isSelected ? AppTheme.primaryColor : Colors.white.withOpacity(0.1),
+              color: isSelected
+                  ? AppTheme.primaryColor
+                  : Colors.white.withOpacity(0.1),
             ),
           ),
           child: Row(
@@ -259,57 +309,86 @@ class _CoachHomeScreenState extends State<CoachHomeScreen> {
     );
   }
 
-  Widget _buildClientListItem(BuildContext context, AppUser client) {
+  Widget _buildClientListItem(
+    BuildContext context,
+    AppUser client,
+    int unreadCount,
+  ) {
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: Theme.of(context).cardTheme.color,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Theme.of(context).dividerColor.withOpacity(0.05)),
+        border: Border.all(
+          color: Theme.of(context).dividerColor.withOpacity(0.05),
+        ),
       ),
       child: InkWell(
-        onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => ClientDetailScreen(client: client))),
+        onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (_) => ClientDetailScreen(client: client)),
+        ),
         child: Row(
           children: [
             CircleAvatar(
               radius: 20,
               backgroundColor: Colors.white10,
-              child: Text(client.name[0], style: const TextStyle(color: Colors.white)),
+              child: Text(
+                client.name.isNotEmpty ? client.name[0] : '?',
+                style: const TextStyle(color: Colors.white),
+              ),
             ),
             const SizedBox(width: 14),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(client.name, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
-                  Text('${client.email} • 0 Notes', style: const TextStyle(color: AppTheme.mutedTextColor, fontSize: 12)),
+                  Text(
+                    client.name,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15,
+                    ),
+                  ),
+                  Text(
+                    '${client.email} • 0 Notes',
+                    style: const TextStyle(
+                      color: AppTheme.mutedTextColor,
+                      fontSize: 12,
+                    ),
+                  ),
                 ],
               ),
             ),
-            StreamBuilder<int>(
-              stream: _getUnreadCountStream(client.uid, Provider.of<AuthProvider>(context, listen: false).userProfile!.uid),
-              builder: (context, snapshot) {
-                final count = snapshot.data ?? 0;
-                if (client.isBlocked) return const Icon(Icons.cancel, color: Colors.redAccent, size: 18);
-                if (count == 0) return const Icon(Icons.check_circle, color: Color(0xFF4CD964), size: 18);
-                return Container(
-                  padding: const EdgeInsets.all(6),
-                  decoration: const BoxDecoration(color: AppTheme.primaryColor, shape: BoxShape.circle),
-                  child: Text(
-                    '$count',
-                    style: const TextStyle(color: Colors.black, fontSize: 10, fontWeight: FontWeight.bold),
-                  ),
-                );
-              },
-            ),
+            _buildStatusIcon(client, unreadCount),
           ],
         ),
       ),
     );
   }
 
-
+  Widget _buildStatusIcon(AppUser client, int unreadCount) {
+    if (client.isBlocked)
+      return const Icon(Icons.cancel, color: Colors.redAccent, size: 18);
+    if (unreadCount == 0)
+      return const Icon(Icons.check_circle, color: Color(0xFF4CD964), size: 18);
+    return Container(
+      padding: const EdgeInsets.all(6),
+      decoration: const BoxDecoration(
+        color: AppTheme.primaryColor,
+        shape: BoxShape.circle,
+      ),
+      child: Text(
+        '$unreadCount',
+        style: const TextStyle(
+          color: Colors.black,
+          fontSize: 10,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    );
+  }
 
   void _showLogoutConfirmation(BuildContext context, AuthProvider auth) {
     showDialog(
@@ -317,24 +396,35 @@ class _CoachHomeScreenState extends State<CoachHomeScreen> {
       builder: (context) => AlertDialog(
         backgroundColor: AppTheme.surfaceColor,
         title: const Text('Logout', style: TextStyle(color: Colors.white)),
-        content: const Text('Are you sure you want to log out?', style: TextStyle(color: AppTheme.mutedTextColor)),
+        content: const Text(
+          'Are you sure you want to log out?',
+          style: TextStyle(color: AppTheme.mutedTextColor),
+        ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('Cancel', style: TextStyle(color: AppTheme.mutedTextColor)),
+            child: const Text(
+              'Cancel',
+              style: TextStyle(color: AppTheme.mutedTextColor),
+            ),
           ),
           TextButton(
             onPressed: () {
               Navigator.pop(context);
               auth.signOut();
             },
-            child: const Text('Logout', style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold)),
+            child: const Text(
+              'Logout',
+              style: TextStyle(
+                color: Colors.redAccent,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ),
         ],
       ),
     );
   }
-
 
   void _showAddClientDialog(BuildContext context) {
     Navigator.push(
@@ -354,7 +444,9 @@ class _CoachHomeScreenState extends State<CoachHomeScreen> {
       child: Row(
         children: [
           Expanded(child: _toggleButton('Clients', !_showPublicPrograms)),
-          Expanded(child: _toggleButton('General Programs', _showPublicPrograms)),
+          Expanded(
+            child: _toggleButton('General Programs', _showPublicPrograms),
+          ),
         ],
       ),
     );
@@ -362,7 +454,8 @@ class _CoachHomeScreenState extends State<CoachHomeScreen> {
 
   Widget _toggleButton(String label, bool isSelected) {
     return GestureDetector(
-      onTap: () => setState(() => _showPublicPrograms = (label == 'General Programs')),
+      onTap: () =>
+          setState(() => _showPublicPrograms = (label == 'General Programs')),
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 10),
         decoration: BoxDecoration(
@@ -386,32 +479,65 @@ class _CoachHomeScreenState extends State<CoachHomeScreen> {
   Widget _buildClientsList(DatabaseService dbService, String coachId) {
     return StreamBuilder<List<AppUser>>(
       stream: _clientsStream,
-      builder: (context, snapshot) {
-        if (snapshot.hasError) {
-          return Center(child: Text('Error loading clients: ${snapshot.error}', style: const TextStyle(color: Colors.redAccent)));
+      builder: (context, clientsSnapshot) {
+        if (clientsSnapshot.hasError) {
+          return Center(
+            child: Text(
+              'Error loading clients: ${clientsSnapshot.error}',
+              style: const TextStyle(color: Colors.redAccent),
+            ),
+          );
         }
-        if (snapshot.connectionState == ConnectionState.waiting) return const Center(child: CircularProgressIndicator());
-        var clients = snapshot.data ?? [];
-        
-        // Apply status filter
-        if (_clientFilter == 'active') {
-          clients = clients.where((c) => !c.isBlocked).toList();
-        } else if (_clientFilter == 'blocked') {
-          clients = clients.where((c) => c.isBlocked).toList();
-        }
-        
-        // Apply search filter
-        if (_searchQuery.isNotEmpty) {
-          clients = clients.where((c) => c.name.toLowerCase().contains(_searchQuery.toLowerCase())).toList();
-        }
-        
-        if (clients.isEmpty) {
-          return Center(child: Text(_searchQuery.isEmpty ? 'No clients found.' : 'No clients found.', style: const TextStyle(color: AppTheme.mutedTextColor)));
-        }
-        return ListView.builder(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          itemCount: clients.length,
-          itemBuilder: (context, index) => _buildClientListItem(context, clients[index]),
+        if (clientsSnapshot.connectionState == ConnectionState.waiting)
+          return const Center(child: CircularProgressIndicator());
+
+        return StreamBuilder<Map<String, int>>(
+          stream: _unreadCountsStream,
+          builder: (context, unreadSnapshot) {
+            final unreadCounts = unreadSnapshot.data ?? {};
+            var clients = clientsSnapshot.data ?? [];
+
+            // Apply status filter
+            if (_clientFilter == 'active') {
+              clients = clients.where((c) => !c.isBlocked).toList();
+            } else if (_clientFilter == 'blocked') {
+              clients = clients.where((c) => c.isBlocked).toList();
+            }
+
+            // Apply search filter
+            if (_searchQuery.isNotEmpty) {
+              clients = clients
+                  .where(
+                    (c) => c.name.toLowerCase().contains(
+                      _searchQuery.toLowerCase(),
+                    ),
+                  )
+                  .toList();
+            }
+
+            if (clients.isEmpty) {
+              return Center(
+                child: Text(
+                  _searchQuery.isEmpty
+                      ? 'No clients found.'
+                      : 'No clients found.',
+                  style: const TextStyle(color: AppTheme.mutedTextColor),
+                ),
+              );
+            }
+            return ListView.builder(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              itemCount: clients.length,
+              itemBuilder: (context, index) {
+                final client = clients[index];
+                return _buildClientListItem(
+                  context,
+                  client,
+                  unreadCounts[client.uid] ?? 0,
+                );
+              },
+            );
+          },
         );
       },
     );
@@ -422,15 +548,33 @@ class _CoachHomeScreenState extends State<CoachHomeScreen> {
       stream: _publicProgramsStream,
       builder: (context, snapshot) {
         if (snapshot.hasError) {
-          return Center(child: Text('Error loading programs: ${snapshot.error}', style: const TextStyle(color: Colors.redAccent)));
+          return Center(
+            child: Text(
+              'Error loading programs: ${snapshot.error}',
+              style: const TextStyle(color: Colors.redAccent),
+            ),
+          );
         }
-        if (snapshot.connectionState == ConnectionState.waiting) return const Center(child: CircularProgressIndicator());
+        if (snapshot.connectionState == ConnectionState.waiting)
+          return const Center(child: CircularProgressIndicator());
         var programs = snapshot.data ?? [];
         if (_searchQuery.isNotEmpty) {
-          programs = programs.where((p) => p.name.toLowerCase().contains(_searchQuery.toLowerCase())).toList();
+          programs = programs
+              .where(
+                (p) =>
+                    p.name.toLowerCase().contains(_searchQuery.toLowerCase()),
+              )
+              .toList();
         }
         if (programs.isEmpty) {
-          return Center(child: Text(_searchQuery.isEmpty ? 'No general programs yet.' : 'No programs found.', style: const TextStyle(color: AppTheme.mutedTextColor)));
+          return Center(
+            child: Text(
+              _searchQuery.isEmpty
+                  ? 'No general programs yet.'
+                  : 'No programs found.',
+              style: const TextStyle(color: AppTheme.mutedTextColor),
+            ),
+          );
         }
         return ListView.builder(
           padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -443,20 +587,48 @@ class _CoachHomeScreenState extends State<CoachHomeScreen> {
               decoration: BoxDecoration(
                 color: Theme.of(context).cardTheme.color,
                 borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: Theme.of(context).dividerColor.withOpacity(0.05)),
+                border: Border.all(
+                  color: Theme.of(context).dividerColor.withOpacity(0.05),
+                ),
               ),
               child: ListTile(
-                title: Text(p.name, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
-                subtitle: Text('${p.totalWeeks} Weeks • Public', style: const TextStyle(color: AppTheme.mutedTextColor, fontSize: 12)),
+                title: Text(
+                  p.name,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                ),
+                subtitle: Text(
+                  '${p.totalWeeks} Weeks • Public',
+                  style: const TextStyle(
+                    color: AppTheme.mutedTextColor,
+                    fontSize: 12,
+                  ),
+                ),
                 trailing: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     IconButton(
-                      icon: const Icon(Icons.edit_outlined, color: AppTheme.primaryColor, size: 20),
-                      onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => ProgramEditor(coachId: coachId, programToEdit: p))),
+                      icon: const Icon(
+                        Icons.edit_outlined,
+                        color: AppTheme.primaryColor,
+                        size: 20,
+                      ),
+                      onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) =>
+                              ProgramEditor(coachId: coachId, programToEdit: p),
+                        ),
+                      ),
                     ),
                     IconButton(
-                      icon: const Icon(Icons.delete_outline, color: Colors.redAccent, size: 20),
+                      icon: const Icon(
+                        Icons.delete_outline,
+                        color: Colors.redAccent,
+                        size: 20,
+                      ),
                       onPressed: () => _confirmDeleteProgram(context, p),
                     ),
                   ],
@@ -475,23 +647,36 @@ class _CoachHomeScreenState extends State<CoachHomeScreen> {
       context: context,
       builder: (context) => AlertDialog(
         backgroundColor: AppTheme.surfaceColor,
-        title: const Text('Delete Program?', style: TextStyle(color: Colors.white)),
+        title: const Text(
+          'Delete Program?',
+          style: TextStyle(color: Colors.white),
+        ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Are you sure you want to delete "${program.name}"?', style: const TextStyle(color: Colors.white70)),
+            Text(
+              'Are you sure you want to delete "${program.name}"?',
+              style: const TextStyle(color: Colors.white70),
+            ),
             const SizedBox(height: 16),
             const Text(
               'WARNING: If you delete this program, it will also get deleted for all the users who are currently performing it and all their progress logs for this program will be lost.',
-              style: TextStyle(color: Colors.redAccent, fontSize: 13, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                color: Colors.redAccent,
+                fontSize: 13,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ],
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('CANCEL', style: TextStyle(color: AppTheme.mutedTextColor)),
+            child: const Text(
+              'CANCEL',
+              style: TextStyle(color: AppTheme.mutedTextColor),
+            ),
           ),
           ElevatedButton(
             onPressed: () async {
@@ -500,7 +685,9 @@ class _CoachHomeScreenState extends State<CoachHomeScreen> {
                 await _dbService.deleteProgramCompletely(program.id!);
                 if (context.mounted) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Program and all its instances deleted.')),
+                    const SnackBar(
+                      content: Text('Program and all its instances deleted.'),
+                    ),
                   );
                 }
               } catch (e) {
@@ -511,7 +698,10 @@ class _CoachHomeScreenState extends State<CoachHomeScreen> {
                 }
               }
             },
-            style: ElevatedButton.styleFrom(backgroundColor: Colors.redAccent, foregroundColor: Colors.white),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.redAccent,
+              foregroundColor: Colors.white,
+            ),
             child: const Text('DELETE EVERYWHERE'),
           ),
         ],

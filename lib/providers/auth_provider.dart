@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:untitled3/models/user_model.dart';
-import 'package:untitled3/services/auth_service.dart';
+import 'package:ptapp/models/user_model.dart';
+import 'package:ptapp/services/auth_service.dart';
 
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'dart:io';
@@ -32,40 +32,15 @@ class AuthProvider with ChangeNotifier {
           // User logged in, fetch profile
           try {
             _userProfile = await _authService.getProfile(user.uid);
-            
+
             if (_userProfile == null) {
               // "Zombie" User: Auth valid, but Firestore doc missing or unreadable
-              _authError = "Account setup incomplete. Please contact your coach.";
+              _authError =
+                  "Account setup incomplete. Please contact your coach.";
               await _authService.signOut(); // Force logout so they aren't stuck
               // The stream will fire again with user=null, triggering the else block
             } else {
-               _authError = null; // Clear any previous errors
-               
-               // --- FCM/APN Token Management ---
-               try {
-                 // Request permission
-                 NotificationSettings settings = await _fcm.requestPermission(
-                   alert: true,
-                   badge: true,
-                   sound: true,
-                 );
-
-                 if (settings.authorizationStatus == AuthorizationStatus.authorized) {
-                   String? fcmToken = await _fcm.getToken();
-                   String? apnsToken;
-                   
-                   if (Platform.isIOS) {
-                     apnsToken = await _fcm.getAPNSToken();
-                   }
-                   
-                   await _authService.updateTokens(user.uid, fcmToken: fcmToken, apnsToken: apnsToken);
-                   
-                   // Update local profile with tokens
-                   _userProfile = await _authService.getProfile(user.uid);
-                 }
-               } catch (e) {
-                 print("Error updating push tokens: $e");
-               }
+              _authError = null; // Clear any previous errors
             }
           } catch (e) {
             _authError = "Error loading profile: $e";
@@ -76,7 +51,8 @@ class AuthProvider with ChangeNotifier {
           // Do not clear _authError here, as it might have been set by the zombie logout above
         }
       } finally {
-        _isSigningIn = false; // Clear signing in state when initialization (login flow) completes
+        _isSigningIn =
+            false; // Clear signing in state when initialization (login flow) completes
         _isLoading = false;
         notifyListeners();
       }
@@ -99,12 +75,13 @@ class AuthProvider with ChangeNotifier {
     );
 
     // Note: _isSigningIn transition is handled by the initial profile fetch listener in _init()
-    if (result == null) {
-      _isSigningIn = false;
-      notifyListeners();
-      return false;
+    if (result != null && result.user != null) {
+      await _saveDeviceTokens(result.user!.uid);
+      return true;
     }
-    return true;
+    _isSigningIn = false;
+    notifyListeners();
+    return false;
   }
 
   Future<bool> signIn(String email, String password) async {
@@ -113,15 +90,16 @@ class AuthProvider with ChangeNotifier {
     notifyListeners();
     try {
       final result = await _authService.signIn(email, password);
-      
+
       // Note: _isSigningIn = false transition is handled by the initial profile fetch listener in _init()
-      if (result == null) {
-        _isSigningIn = false;
-        _authError = "Login failed. Please check your credentials.";
-        notifyListeners();
-        return false;
+      if (result != null && result.user != null) {
+        await _saveDeviceTokens(result.user!.uid);
+        return true;
       }
-      return true;
+      _isSigningIn = false;
+      _authError = "Login failed. Please check your credentials.";
+      notifyListeners();
+      return false;
     } on FirebaseAuthException catch (e) {
       _isSigningIn = false;
       _authError = _getFriendlyErrorMessage(e);
@@ -191,5 +169,35 @@ class AuthProvider with ChangeNotifier {
     if (_userProfile == null) return;
     await _authService.reauthenticate(_userProfile!.email, oldPassword);
     await _authService.updatePassword(newPassword);
+  }
+
+  Future<void> _saveDeviceTokens(String uid) async {
+    try {
+      // Request permission
+      NotificationSettings settings = await _fcm.requestPermission(
+        alert: true,
+        badge: true,
+        sound: true,
+      );
+
+      if (settings.authorizationStatus == AuthorizationStatus.authorized) {
+        String? fcmToken = await _fcm.getToken();
+
+        await _authService.updateTokens(uid, pushToken: fcmToken);
+
+        // Update local profile with tokens if it exists
+        if (_userProfile != null && _userProfile!.uid == uid) {
+          _userProfile = await _authService.getProfile(uid);
+          notifyListeners();
+        }
+
+        // Listen for token refresh
+        _fcm.onTokenRefresh.listen((newToken) {
+          _authService.updateTokens(uid, pushToken: newToken);
+        });
+      }
+    } catch (e) {
+      debugPrint("SYSTEM: Error saving tokens: $e");
+    }
   }
 }

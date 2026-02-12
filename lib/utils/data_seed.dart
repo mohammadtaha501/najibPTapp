@@ -1,4 +1,4 @@
-import 'package:untitled3/models/exercise_model.dart';
+import 'package:ptapp/models/exercise_model.dart';
 
 class DataSeed {
   static List<Exercise> getInitialExercises() {

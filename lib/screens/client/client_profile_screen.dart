@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:provider/provider.dart';
-import 'package:untitled3/utils/theme.dart';
-import 'package:untitled3/widgets/common_widgets.dart';
-import 'package:untitled3/screens/common/change_password_screen.dart';
-import 'package:untitled3/screens/client/completed_programs_screen.dart';
+import 'package:ptapp/utils/theme.dart';
+import 'package:ptapp/widgets/common_widgets.dart';
+import 'package:ptapp/screens/common/change_password_screen.dart';
+import 'package:ptapp/screens/client/completed_programs_screen.dart';
 
 import '../../providers/auth_provider.dart';
 

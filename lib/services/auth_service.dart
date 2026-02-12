@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:untitled3/models/user_model.dart';
+import 'package:ptapp/models/user_model.dart';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -18,7 +18,10 @@ class AuthService {
     required UserRole role,
   }) async {
     try {
-      UserCredential result = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+      UserCredential result = await _auth.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
       User? user = result.user;
 
       if (user != null) {
@@ -54,10 +57,13 @@ class AuthService {
   // Sign in with email/password
   Future<UserCredential?> signIn(String email, String password) async {
     try {
-      return await _auth.signInWithEmailAndPassword(email: email, password: password);
+      return await _auth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
     } catch (e) {
       print("Error signing in: $e");
-      rethrow; 
+      rethrow;
     }
   }
 
@@ -76,19 +82,19 @@ class AuthService {
       // This prevents the automatic sign-in on the main auth instance
       // We use the default app's options to modify the current project
       FirebaseApp defaultApp = Firebase.app();
-      
+
       tempApp = await Firebase.initializeApp(
         name: 'tempClientCreationApp',
         options: defaultApp.options,
       );
 
       FirebaseAuth tempAuth = FirebaseAuth.instanceFor(app: tempApp);
-      
+
       UserCredential result = await tempAuth.createUserWithEmailAndPassword(
-        email: email, 
-        password: password
+        email: email,
+        password: password,
       );
-      
+
       User? user = result.user;
 
       if (user != null) {
@@ -101,10 +107,10 @@ class AuthService {
           phone: phone,
           notes: notes,
         );
-        
+
         // Use the main DB instance to save the user data
         await _db.collection('users').doc(user.uid).set(newUser.toMap());
-        
+
         return user.uid;
       }
       return null;
@@ -125,13 +131,13 @@ class AuthService {
   }
 
   // Update FCM/APN tokens
-  Future<void> updateTokens(String uid, {String? fcmToken, String? apnsToken}) async {
-    final Map<String, dynamic> data = {};
-    if (fcmToken != null) data['fcmToken'] = fcmToken;
-    if (apnsToken != null) data['apnsToken'] = apnsToken;
-    
-    if (data.isNotEmpty) {
-      await _db.collection('users').doc(uid).update(data);
+  Future<void> updateTokens(String uid, {String? pushToken}) async {
+    if (pushToken != null) {
+      await _db.collection('users').doc(uid).update({
+        'pushToken': pushToken,
+        'fcmToken': FieldValue.delete(),
+        'apnsToken': FieldValue.delete(),
+      });
     }
   }
 
@@ -164,7 +170,10 @@ class AuthService {
   Future<void> reauthenticate(String email, String password) async {
     final user = _auth.currentUser;
     if (user != null) {
-      AuthCredential credential = EmailAuthProvider.credential(email: email, password: password);
+      AuthCredential credential = EmailAuthProvider.credential(
+        email: email,
+        password: password,
+      );
       await user.reauthenticateWithCredential(credential);
     } else {
       throw Exception('No user signed in');

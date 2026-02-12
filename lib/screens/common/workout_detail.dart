@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:untitled3/models/log_model.dart';
-import 'package:untitled3/utils/theme.dart';
-import 'package:untitled3/widgets/common_widgets.dart';
+import 'package:ptapp/models/log_model.dart';
+import 'package:ptapp/utils/theme.dart';
+import 'package:ptapp/widgets/common_widgets.dart';
 
 class WorkoutDetailScreen extends StatelessWidget {
   final WorkoutLog log;

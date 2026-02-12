@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-import 'package:untitled3/utils/theme.dart';
+import 'package:ptapp/utils/theme.dart';
 
 class YouTubeGuidanceDialog extends StatefulWidget {
   final String videoUrl;

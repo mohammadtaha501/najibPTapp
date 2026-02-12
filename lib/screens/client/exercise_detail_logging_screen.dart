@@ -2,10 +2,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-import 'package:untitled3/models/program_model.dart';
-import 'package:untitled3/models/log_model.dart';
-import 'package:untitled3/services/database_service.dart';
-import 'package:untitled3/utils/theme.dart';
+import 'package:ptapp/models/program_model.dart';
+import 'package:ptapp/models/log_model.dart';
+import 'package:ptapp/services/database_service.dart';
+import 'package:ptapp/utils/theme.dart';
 
 class ExerciseDetailLoggingScreen extends StatefulWidget {
   final Program program;

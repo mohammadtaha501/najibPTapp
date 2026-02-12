@@ -1,6 +1,6 @@
 import 'dart:io';
-import 'package:untitled3/models/exercise_model.dart';
-import 'package:untitled3/services/database_service.dart';
+import 'package:ptapp/models/exercise_model.dart';
+import 'package:ptapp/services/database_service.dart';
 
 class ExerciseSeeder {
   static Future<void> seedFromExtractedFile(String filePath) async {
@@ -26,7 +26,7 @@ class ExerciseSeeder {
     final headers = headerLine.split('\t');
     
     // Muscle groups are from index 4 onwards
-    final muscleGroups = headers.sublist(4).where((h) => h.trim().isNotEmpty).toList();
+    // final muscleGroups = headers.sublist(4).where((h) => h.trim().isNotEmpty).toList();
     final muscleGroupIndices = <String, int>{};
     for (var i = 0; i < headers.length; i++) {
       if (i >= 4 && headers[i].trim().isNotEmpty) {

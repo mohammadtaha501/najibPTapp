@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:untitled3/models/user_model.dart';
-import 'package:untitled3/providers/auth_provider.dart';
-import 'package:untitled3/services/database_service.dart';
-import 'package:untitled3/utils/theme.dart';
-import 'package:untitled3/screens/common/chat_screen.dart';
+import 'package:ptapp/models/user_model.dart';
+import 'package:ptapp/providers/auth_provider.dart';
+import 'package:ptapp/services/database_service.dart';
+import 'package:ptapp/utils/theme.dart';
+import 'package:ptapp/screens/common/chat_screen.dart';
 
 class CoachChatListScreen extends StatefulWidget {
   const CoachChatListScreen({super.key});
