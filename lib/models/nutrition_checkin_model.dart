@@ -34,7 +34,7 @@ class WeeklyNutritionCheckIn {
   final String? id;
   final String clientId;
   final String nutritionPlanId;
-  final DateTime weekStartDate; // Standardized to Monday 00:00
+  final DateTime weekStartDate;
   final AdherenceStatus status;
   final String notes;
   final DateTime createdAt;
