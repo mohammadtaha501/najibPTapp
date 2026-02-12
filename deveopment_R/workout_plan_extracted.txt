@@ -1,0 +1,1685 @@
+--- Sheet: DATA ---
+Sets	Reps	Rest_Seconds		Quadriceps	Glutes_Hamstrings	Calves	Chest	Back	Shoulders	Triceps	Biceps	Abs	Other	
+1	4 - 6	30		Barbell Box Squat	Barbell Deadlift	Barbell Calf Raise	Barbell Decline Bench Press	Barbell Bent Over Row	Barbell Front Raise	Barbell Close-Grip Bench Press	Barbell Close-Grip Biceps Curl	Barbell Plate Ab Twist	Barbell Wrist Curl	
+2	6 - 8	60		Barbell Bulgarian Split-Squat	Barbell Deadlifts from Blocks	Dumbbell Calf Raise	Barbell Flat Bench Press	Barbell Chest-Supported T-Bar Row	Barbell One-Arm Linear Jammer	Barbell Decline Bench Triceps Extension	Barbell Concentration Biceps Curl	Body Weight Ab Crunch	Dumbbell Wrist Curl	
+3	8 - 10	90		Barbell Front Squat	Barbell Deadlifts from Deficit	Machine Calf Extension (Seated)	Barbell Incline Bench Press	Barbell Incline Bench Row	Barbell Push Press	Barbell Flat Bench Triceps Extension	Barbell Preacher Biceps Curl	Body Weight Hanging Leg Raise	Neck Curl	
+4	8 - 12	120		Barbell Jump Squat	Barbell Glute Bridge	Machine Calf Raise	Body Weight Decline Push-Up	Barbell One-Arm Row	Barbell Seated Shoulder Press	Barbell Incline Bench Triceps Extension	Barbell Regular-Grip Biceps Curl	Body Weight Plank	Neck Extension	
+5	12 - 15	150		Barbell Squat	Barbell Hip Thrust	Machine Leg Press Calf Extension (Seated/Laying)	Body Weight Dip (Chest Variation)	Barbell Pendlay Row	Barbell Standing Shoulder Press	Barbell Overhead Triceps Extension	Barbell Reverse-Grip Biceps Curl	Dumbbell Ab Twist	ITB release via Foam roller	
+6	15 - 20	180		Barbell Standing Lunge	Barbell Romanian Deadlift	Single Leg Seated Calf Raise	Body Weight Incline Push-Up	Barbell Reverse Grip Bent Over	Barbell Upright Row	Body Weight Bench Dip	Barbell Wide-Grip Biceps Curl	Machine Ab Crunch	TFL release via Trigger ball	
+7	20 - 25	240		Barbell Step Up	Barbell Stiff-Legged Deadlift		Body Weight Push-Up	Barbell Shrug	Body Weight Handstand Push-Up	Body Weight Dips (Triceps Variation)	Body Weight Chin-Up	Weighted Hanging Leg Raise		
+8	25 - 30	300		Barbell Walking Lunge	Barbell Sumo Deadlift		Cable Chest Press (Seated)	Barbell T-Bar Row	Body Weight Pike Push-Up	Cable Decline Bench Triceps Extension	Cable Bar Biceps Curl	Weighted Plank		
+				Body Weight Bulgarian Split-Squat	Body Weight Glute-Ham Raise		Cable Chest Press (Standing)	Body Weight Back Extension	Cable Face Pull	Cable Flat Bench Triceps Extension	Cable Incline Bench Biceps Curl			
+				Body Weight Pistol Squat	Cable One-Legged Kickback		Cable Crossover	Body Weight Inverted Row	Cable Front Raise	Cable Incline Bench Triceps Extension	Cable One-Arm Biceps Curl			
+				Body Weight Squat	Cable Pull Through		Cable Crossover (High Angle)	Body Weight Pull-Up	Cable Lateral Raise	Cable One-Arm Overhead Triceps Extension	Cable Overhead Curl			
+				Body Weight Standing Lunge	Dumbbell Glute Bridge		Cable Crossover (Low Angle)	Cable Narrow-Grip Lat Pull-Down	Cable Rear Delt Fly	Cable Overhead Triceps Extension	Cable Rope Biceps Curl			
+				Body Weight Step Up	Dumbbell Hip Thrust		Cable Flat Bench Fly	Cable One-Arm Lat Pull-Down	Cable Shoulder Press (Seated)	Cable Reverse-Grip Triceps Push-Down	Dumbbell Alternate Biceps Curl			
+				Body Weight Walking Lunge	Dumbbell Romanian Deadlift		Cable Incline Bench Fly	Cable One-Arm Row (Seated)	Cable Standing Shoulder Press (Standing)	Cable Rope Triceps Push-Down	Dumbbell Concentration Biceps Curl			
+				Dumbbell Body Weight Squat	Dumbbell Stiff-Legged Deadlift		Cable Incline Bench Press	Cable Reverse-Grip Lat Pull-Down	Cable Upright Row	Cable Straight-Bar Triceps Push-Down	Dumbbell Hammer Biceps Curl			
+				Dumbbell Bulgarian Split-Squat	Machine Glute-Ham Raise		Dumbbell Decline Bench Fly	Cable Row (Seated)	Dumbbell Arnold Press	Cable Triceps Kickback	Dumbbell Incline Bench Biceps Curl			
+				Dumbbell Goblet Squat	Machine Laying Leg Curl		Dumbbell Decline Bench Press	Cable Straight-Arm Pull-Down	Dumbbell Front Raise	Cable V-Bar Triceps Push-Down	Dumbbell One-Arm Biceps Curl			
+				Dumbbell Standing Lunge	Machine Reverse Hyperextension		Dumbbell Flat Bench Fly	Cable V-Bar Lat Pull-Down	Dumbbell One-Arm Lateral Raise	Dumbbell Bent Over Triceps Extension	Dumbbell Preacher Biceps Curl			
+				Dumbbell Step Up	Machine Seated Leg Curl		Dumbbell Flat Bench Press	Cable Wide-Grip Lat Pull-Down	Dumbbell Rear Delt Raise	Dumbbell Close-Grip Bench Press	Dumbbell Reverse-Grip Biceps Curl			
+				Dumbbell Walking Lunge	Glute Bridge		Dumbbell Incline Bench Fly	Dumbbell Bent Over Row	Dumbbell Reverse Fly	Dumbbell Decline Bench Triceps Extension	Dumbbell Reverse-Grip Biceps Curl			
+				Machine Hack Squat	Machine Standing Leg Curl		Dumbbell Incline Bench Press	Dumbbell Incline Bench Row	Dumbbell Seated Shoulder Press	Dumbbell Flat Bench Triceps Extension	Machine Assisted Chin-Up			
+				Machine Laying Leg Press	Banded Leg Extension		Machine Assisted Dip (Chest Variation)	Dumbbell One-Arm Row	Dumbbell Side Lateral Raise	Dumbbell Incline Bench Triceps Extension	Machine Biceps Curl			
+				Machine Leg Press	Double Leg Hamstring Bridge		Machine Butterfly	Dumbbell Reverse Grip Bent Over	Dumbbell Standing One-Arm Press	Dumbbell One-Arm Overhead Triceps Extension	Machine Preacher Biceps Curl			
+				Machine Seated Leg Press			Machine Chest Press	Dumbbell Shrug	Dumbbell Standing Shoulder Press	Dumbbell Overhead Triceps Extension	Weighted Chin-Up			
+				Machine Single-Leg Press			Machine Decline Chest Press	Machine Assisted Pull-Up	Dumbbell Upright Row	Dumbbell Triceps Kickback				
+				Hip Ab/Adduction (Pulse)			Machine Incline Chest Press	Machine Back Extension	Machine Lateral Raise	Machine Assisted Dips (Triceps Variation)				
+							Smith Machine Bench Press	Machine Chest Supported Row	Machine Reverse Fly	Machine Triceps Extension				
+							Smith Machine Decline Chest Press	Machine Iso Row	Machine Shoulder Press	Smith Machine Close-Grip Bench Press				
+							Smith Machine Incline Bench Press	Machine Shrug	Machine Upright Row	Weighted Bench Dip				
+							Weighted Decline Push-Up	Smith Machine Bent Over Row	Smith Machine Shoulder Press	Weighted Dips (Triceps Variation)				
+							Weighted Dip (Chest Variation)	Weighted Pull-Up						
+							Weighted Incline Push-Up							
+							Weighted Push-Up							
+--- Sheet: Performance Tracker ---
+		Volume Tracker													Strength Tracker											
+		Week 1	Week 2	Week 3	Week 4	Week 5	Week 6	Week 7	Week 8	Week 9	Week 10	Week 11	Week 12		Week 1	Week 2	Week 3	Week 4	Week 5	Week 6	Week 7	Week 8	Week 9	Week 10	Week 11	Week 12
+Day 1	=IF('Workout Setup'!C2=0,"",'Workout Setup'!C2)	='Week 1'!I2	='Week 2'!I2	='Week 3'!I2	='Week 4'!I2	='Week 5'!I2	='Week 6'!I2	='Week 7'!I2	='Week 8'!I2	='Week 9'!I2	='Week 10'!I2	='Week 11'!I2	='Week 12'!I2		='Week 1'!G2	='Week 2'!G2	='Week 3'!G2	='Week 4'!G2	='Week 5'!G2	='Week 6'!G2	='Week 7'!G2	='Week 8'!G2	='Week 9'!G2	='Week 10'!G2	='Week 11'!G2	='Week 12'!G2
+		-	=IFERROR((D3-C3)/C3,"-")	=IFERROR((E3-D3)/D3,"-")	=IFERROR((F3-E3)/E3,"-")	=IFERROR((G3-F3)/F3,"-")	=IFERROR((H3-G3)/G3,"-")	=IFERROR((I3-H3)/H3,"-")	=IFERROR((J3-I3)/I3,"-")	=IFERROR((K3-J3)/J3,"-")	=IFERROR((L3-K3)/K3,"-")	=IFERROR((M3-L3)/L3,"-")	=IFERROR((N3-M3)/M3,"-")		-	=IFERROR((Q3-P3)/P3,"-")	=IFERROR((R3-Q3)/Q3,"-")	=IFERROR((S3-R3)/R3,"-")	=IFERROR((T3-S3)/S3,"-")	=IFERROR((U3-T3)/T3,"-")	=IFERROR((V3-U3)/U3,"-")	=IFERROR((W3-V3)/V3,"-")	=IFERROR((X3-W3)/W3,"-")	=IFERROR((Y3-X3)/X3,"-")	=IFERROR((Z3-Y3)/Y3,"-")	=IFERROR((AA3-Z3)/Z3,"-")
+	=IF('Workout Setup'!C3=0,"",'Workout Setup'!C3)	='Week 1'!I3	='Week 2'!I3	='Week 3'!I3	='Week 4'!I3	='Week 5'!I3	='Week 6'!I3	='Week 7'!I3	='Week 8'!I3	='Week 9'!I3	='Week 10'!I3	='Week 11'!I3	='Week 12'!I3		='Week 1'!G3	='Week 2'!G3	='Week 3'!G3	='Week 4'!G3	='Week 5'!G3	='Week 6'!G3	='Week 7'!G3	='Week 8'!G3	='Week 9'!G3	='Week 10'!G3	='Week 11'!G3	='Week 12'!G3
+		-	=IFERROR((D5-C5)/C5,"-")	=IFERROR((E5-D5)/D5,"-")	=IFERROR((F5-E5)/E5,"-")	=IFERROR((G5-F5)/F5,"-")	=IFERROR((H5-G5)/G5,"-")	=IFERROR((I5-H5)/H5,"-")	=IFERROR((J5-I5)/I5,"-")	=IFERROR((K5-J5)/J5,"-")	=IFERROR((L5-K5)/K5,"-")	=IFERROR((M5-L5)/L5,"-")	=IFERROR((N5-M5)/M5,"-")		-	=IFERROR((Q5-P5)/P5,"-")	=IFERROR((R5-Q5)/Q5,"-")	=IFERROR((S5-R5)/R5,"-")	=IFERROR((T5-S5)/S5,"-")	=IFERROR((U5-T5)/T5,"-")	=IFERROR((V5-U5)/U5,"-")	=IFERROR((W5-V5)/V5,"-")	=IFERROR((X5-W5)/W5,"-")	=IFERROR((Y5-X5)/X5,"-")	=IFERROR((Z5-Y5)/Y5,"-")	=IFERROR((AA5-Z5)/Z5,"-")
+	=IF('Workout Setup'!C4=0,"",'Workout Setup'!C4)	='Week 1'!I4	='Week 2'!I4	='Week 3'!I4	='Week 4'!I4	='Week 5'!I4	='Week 6'!I4	='Week 7'!I4	='Week 8'!I4	='Week 9'!I4	='Week 10'!I4	='Week 11'!I4	='Week 12'!I4		='Week 1'!G4	='Week 2'!G4	='Week 3'!G4	='Week 4'!G4	='Week 5'!G4	='Week 6'!G4	='Week 7'!G4	='Week 8'!G4	='Week 9'!G4	='Week 10'!G4	='Week 11'!G4	='Week 12'!G4
+		-	=IFERROR((D7-C7)/C7,"-")	=IFERROR((E7-D7)/D7,"-")	=IFERROR((F7-E7)/E7,"-")	=IFERROR((G7-F7)/F7,"-")	=IFERROR((H7-G7)/G7,"-")	=IFERROR((I7-H7)/H7,"-")	=IFERROR((J7-I7)/I7,"-")	=IFERROR((K7-J7)/J7,"-")	=IFERROR((L7-K7)/K7,"-")	=IFERROR((M7-L7)/L7,"-")	=IFERROR((N7-M7)/M7,"-")		-	=IFERROR((Q7-P7)/P7,"-")	=IFERROR((R7-Q7)/Q7,"-")	=IFERROR((S7-R7)/R7,"-")	=IFERROR((T7-S7)/S7,"-")	=IFERROR((U7-T7)/T7,"-")	=IFERROR((V7-U7)/U7,"-")	=IFERROR((W7-V7)/V7,"-")	=IFERROR((X7-W7)/W7,"-")	=IFERROR((Y7-X7)/X7,"-")	=IFERROR((Z7-Y7)/Y7,"-")	=IFERROR((AA7-Z7)/Z7,"-")
+	=IF('Workout Setup'!C5=0,"",'Workout Setup'!C5)	='Week 1'!I5	='Week 2'!I5	='Week 3'!I5	='Week 4'!I5	='Week 5'!I5	='Week 6'!I5	='Week 7'!I5	='Week 8'!I5	='Week 9'!I5	='Week 10'!I5	='Week 11'!I5	='Week 12'!I5		='Week 1'!G5	='Week 2'!G5	='Week 3'!G5	='Week 4'!G5	='Week 5'!G5	='Week 6'!G5	='Week 7'!G5	='Week 8'!G5	='Week 9'!G5	='Week 10'!G5	='Week 11'!G5	='Week 12'!G5
+		-	=IFERROR((D9-C9)/C9,"-")	=IFERROR((E9-D9)/D9,"-")	=IFERROR((F9-E9)/E9,"-")	=IFERROR((G9-F9)/F9,"-")	=IFERROR((H9-G9)/G9,"-")	=IFERROR((I9-H9)/H9,"-")	=IFERROR((J9-I9)/I9,"-")	=IFERROR((K9-J9)/J9,"-")	=IFERROR((L9-K9)/K9,"-")	=IFERROR((M9-L9)/L9,"-")	=IFERROR((N9-M9)/M9,"-")		-	=IFERROR((Q9-P9)/P9,"-")	=IFERROR((R9-Q9)/Q9,"-")	=IFERROR((S9-R9)/R9,"-")	=IFERROR((T9-S9)/S9,"-")	=IFERROR((U9-T9)/T9,"-")	=IFERROR((V9-U9)/U9,"-")	=IFERROR((W9-V9)/V9,"-")	=IFERROR((X9-W9)/W9,"-")	=IFERROR((Y9-X9)/X9,"-")	=IFERROR((Z9-Y9)/Y9,"-")	=IFERROR((AA9-Z9)/Z9,"-")
+	=IF('Workout Setup'!C6=0,"",'Workout Setup'!C6)	='Week 1'!I6	='Week 2'!I6	='Week 3'!I6	='Week 4'!I6	='Week 5'!I6	='Week 6'!I6	='Week 7'!I6	='Week 8'!I6	='Week 9'!I6	='Week 10'!I6	='Week 11'!I6	='Week 12'!I6		='Week 1'!G6	='Week 2'!G6	='Week 3'!G6	='Week 4'!G6	='Week 5'!G6	='Week 6'!G6	='Week 7'!G6	='Week 8'!G6	='Week 9'!G6	='Week 10'!G6	='Week 11'!G6	='Week 12'!G6
+		-	=IFERROR((D11-C11)/C11,"-")	=IFERROR((E11-D11)/D11,"-")	=IFERROR((F11-E11)/E11,"-")	=IFERROR((G11-F11)/F11,"-")	=IFERROR((H11-G11)/G11,"-")	=IFERROR((I11-H11)/H11,"-")	=IFERROR((J11-I11)/I11,"-")	=IFERROR((K11-J11)/J11,"-")	=IFERROR((L11-K11)/K11,"-")	=IFERROR((M11-L11)/L11,"-")	=IFERROR((N11-M11)/M11,"-")		-	=IFERROR((Q11-P11)/P11,"-")	=IFERROR((R11-Q11)/Q11,"-")	=IFERROR((S11-R11)/R11,"-")	=IFERROR((T11-S11)/S11,"-")	=IFERROR((U11-T11)/T11,"-")	=IFERROR((V11-U11)/U11,"-")	=IFERROR((W11-V11)/V11,"-")	=IFERROR((X11-W11)/W11,"-")	=IFERROR((Y11-X11)/X11,"-")	=IFERROR((Z11-Y11)/Y11,"-")	=IFERROR((AA11-Z11)/Z11,"-")
+	=IF('Workout Setup'!C7=0,"",'Workout Setup'!C7)	='Week 1'!I7	='Week 2'!I7	='Week 3'!I7	='Week 4'!I7	='Week 5'!I7	='Week 6'!I7	='Week 7'!I7	='Week 8'!I7	='Week 9'!I7	='Week 10'!I7	='Week 11'!I7	='Week 12'!I7		='Week 1'!G7	='Week 2'!G7	='Week 3'!G7	='Week 4'!G7	='Week 5'!G7	='Week 6'!G7	='Week 7'!G7	='Week 8'!G7	='Week 9'!G7	='Week 10'!G7	='Week 11'!G7	='Week 12'!G7
+		-	=IFERROR((D13-C13)/C13,"-")	=IFERROR((E13-D13)/D13,"-")	=IFERROR((F13-E13)/E13,"-")	=IFERROR((G13-F13)/F13,"-")	=IFERROR((H13-G13)/G13,"-")	=IFERROR((I13-H13)/H13,"-")	=IFERROR((J13-I13)/I13,"-")	=IFERROR((K13-J13)/J13,"-")	=IFERROR((L13-K13)/K13,"-")	=IFERROR((M13-L13)/L13,"-")	=IFERROR((N13-M13)/M13,"-")		-	=IFERROR((Q13-P13)/P13,"-")	=IFERROR((R13-Q13)/Q13,"-")	=IFERROR((S13-R13)/R13,"-")	=IFERROR((T13-S13)/S13,"-")	=IFERROR((U13-T13)/T13,"-")	=IFERROR((V13-U13)/U13,"-")	=IFERROR((W13-V13)/V13,"-")	=IFERROR((X13-W13)/W13,"-")	=IFERROR((Y13-X13)/X13,"-")	=IFERROR((Z13-Y13)/Y13,"-")	=IFERROR((AA13-Z13)/Z13,"-")
+	=IF('Workout Setup'!C8=0,"",'Workout Setup'!C8)	='Week 1'!I8	='Week 2'!I8	='Week 3'!I8	='Week 4'!I8	='Week 5'!I8	='Week 6'!I8	='Week 7'!I8	='Week 8'!I8	='Week 9'!I8	='Week 10'!I8	='Week 11'!I8	='Week 12'!I8		='Week 1'!G8	='Week 2'!G8	='Week 3'!G8	='Week 4'!G8	='Week 5'!G8	='Week 6'!G8	='Week 7'!G8	='Week 8'!G8	='Week 9'!G8	='Week 10'!G8	='Week 11'!G8	='Week 12'!G8
+		-	=IFERROR((D15-C15)/C15,"-")	=IFERROR((E15-D15)/D15,"-")	=IFERROR((F15-E15)/E15,"-")	=IFERROR((G15-F15)/F15,"-")	=IFERROR((H15-G15)/G15,"-")	=IFERROR((I15-H15)/H15,"-")	=IFERROR((J15-I15)/I15,"-")	=IFERROR((K15-J15)/J15,"-")	=IFERROR((L15-K15)/K15,"-")	=IFERROR((M15-L15)/L15,"-")	=IFERROR((N15-M15)/M15,"-")		-	=IFERROR((Q15-P15)/P15,"-")	=IFERROR((R15-Q15)/Q15,"-")	=IFERROR((S15-R15)/R15,"-")	=IFERROR((T15-S15)/S15,"-")	=IFERROR((U15-T15)/T15,"-")	=IFERROR((V15-U15)/U15,"-")	=IFERROR((W15-V15)/V15,"-")	=IFERROR((X15-W15)/W15,"-")	=IFERROR((Y15-X15)/X15,"-")	=IFERROR((Z15-Y15)/Y15,"-")	=IFERROR((AA15-Z15)/Z15,"-")
+	=IF('Workout Setup'!C9=0,"",'Workout Setup'!C9)	='Week 1'!I9	='Week 2'!I9	='Week 3'!I9	='Week 4'!I9	='Week 5'!I9	='Week 6'!I9	='Week 7'!I9	='Week 8'!I9	='Week 9'!I9	='Week 10'!I9	='Week 11'!I9	='Week 12'!I9		='Week 1'!G9	='Week 2'!G9	='Week 3'!G9	='Week 4'!G9	='Week 5'!G9	='Week 6'!G9	='Week 7'!G9	='Week 8'!G9	='Week 9'!G9	='Week 10'!G9	='Week 11'!G9	='Week 12'!G9
+		-	=IFERROR((D17-C17)/C17,"-")	=IFERROR((E17-D17)/D17,"-")	=IFERROR((F17-E17)/E17,"-")	=IFERROR((G17-F17)/F17,"-")	=IFERROR((H17-G17)/G17,"-")	=IFERROR((I17-H17)/H17,"-")	=IFERROR((J17-I17)/I17,"-")	=IFERROR((K17-J17)/J17,"-")	=IFERROR((L17-K17)/K17,"-")	=IFERROR((M17-L17)/L17,"-")	=IFERROR((N17-M17)/M17,"-")		-	=IFERROR((Q17-P17)/P17,"-")	=IFERROR((R17-Q17)/Q17,"-")	=IFERROR((S17-R17)/R17,"-")	=IFERROR((T17-S17)/S17,"-")	=IFERROR((U17-T17)/T17,"-")	=IFERROR((V17-U17)/U17,"-")	=IFERROR((W17-V17)/V17,"-")	=IFERROR((X17-W17)/W17,"-")	=IFERROR((Y17-X17)/X17,"-")	=IFERROR((Z17-Y17)/Y17,"-")	=IFERROR((AA17-Z17)/Z17,"-")
+																										
+																										
+Day 2	=IF('Workout Setup'!C13=0,"",'Workout Setup'!C13)	='Week 1'!I13	='Week 2'!I13	='Week 3'!I13	='Week 4'!I13	='Week 5'!I13	='Week 6'!I13	='Week 7'!I13	='Week 8'!I13	='Week 9'!I13	='Week 10'!I13	='Week 11'!I13	='Week 12'!I13		='Week 1'!G13	='Week 2'!G13	='Week 3'!G13	='Week 4'!G13	='Week 5'!G13	='Week 6'!G13	='Week 7'!G13	='Week 8'!G13	='Week 9'!G13	='Week 10'!G13	='Week 11'!G13	='Week 12'!G13
+		-	=IFERROR((D21-C21)/C21,"-")	=IFERROR((E21-D21)/D21,"-")	=IFERROR((F21-E21)/E21,"-")	=IFERROR((G21-F21)/F21,"-")	=IFERROR((H21-G21)/G21,"-")	=IFERROR((I21-H21)/H21,"-")	=IFERROR((J21-I21)/I21,"-")	=IFERROR((K21-J21)/J21,"-")	=IFERROR((L21-K21)/K21,"-")	=IFERROR((M21-L21)/L21,"-")	=IFERROR((N21-M21)/M21,"-")		-	=IFERROR((Q21-P21)/P21,"-")	=IFERROR((R21-Q21)/Q21,"-")	=IFERROR((S21-R21)/R21,"-")	=IFERROR((T21-S21)/S21,"-")	=IFERROR((U21-T21)/T21,"-")	=IFERROR((V21-U21)/U21,"-")	=IFERROR((W21-V21)/V21,"-")	=IFERROR((X21-W21)/W21,"-")	=IFERROR((Y21-X21)/X21,"-")	=IFERROR((Z21-Y21)/Y21,"-")	=IFERROR((AA21-Z21)/Z21,"-")
+	=IF('Workout Setup'!C14=0,"",'Workout Setup'!C14)	='Week 1'!I14	='Week 2'!I14	='Week 3'!I14	='Week 4'!I14	='Week 5'!I14	='Week 6'!I14	='Week 7'!I14	='Week 8'!I14	='Week 9'!I14	='Week 10'!I14	='Week 11'!I14	='Week 12'!I14		='Week 1'!G14	='Week 2'!G14	='Week 3'!G14	='Week 4'!G14	='Week 5'!G14	='Week 6'!G14	='Week 7'!G14	='Week 8'!G14	='Week 9'!G14	='Week 10'!G14	='Week 11'!G14	='Week 12'!G14
+		-	=IFERROR((D23-C23)/C23,"-")	=IFERROR((E23-D23)/D23,"-")	=IFERROR((F23-E23)/E23,"-")	=IFERROR((G23-F23)/F23,"-")	=IFERROR((H23-G23)/G23,"-")	=IFERROR((I23-H23)/H23,"-")	=IFERROR((J23-I23)/I23,"-")	=IFERROR((K23-J23)/J23,"-")	=IFERROR((L23-K23)/K23,"-")	=IFERROR((M23-L23)/L23,"-")	=IFERROR((N23-M23)/M23,"-")		-	=IFERROR((Q23-P23)/P23,"-")	=IFERROR((R23-Q23)/Q23,"-")	=IFERROR((S23-R23)/R23,"-")	=IFERROR((T23-S23)/S23,"-")	=IFERROR((U23-T23)/T23,"-")	=IFERROR((V23-U23)/U23,"-")	=IFERROR((W23-V23)/V23,"-")	=IFERROR((X23-W23)/W23,"-")	=IFERROR((Y23-X23)/X23,"-")	=IFERROR((Z23-Y23)/Y23,"-")	=IFERROR((AA23-Z23)/Z23,"-")
+	=IF('Workout Setup'!C15=0,"",'Workout Setup'!C15)	='Week 1'!I15	='Week 2'!I15	='Week 3'!I15	='Week 4'!I15	='Week 5'!I15	='Week 6'!I15	='Week 7'!I15	='Week 8'!I15	='Week 9'!I15	='Week 10'!I15	='Week 11'!I15	='Week 12'!I15		='Week 1'!G15	='Week 2'!G15	='Week 3'!G15	='Week 4'!G15	='Week 5'!G15	='Week 6'!G15	='Week 7'!G15	='Week 8'!G15	='Week 9'!G15	='Week 10'!G15	='Week 11'!G15	='Week 12'!G15
+		-	=IFERROR((D25-C25)/C25,"-")	=IFERROR((E25-D25)/D25,"-")	=IFERROR((F25-E25)/E25,"-")	=IFERROR((G25-F25)/F25,"-")	=IFERROR((H25-G25)/G25,"-")	=IFERROR((I25-H25)/H25,"-")	=IFERROR((J25-I25)/I25,"-")	=IFERROR((K25-J25)/J25,"-")	=IFERROR((L25-K25)/K25,"-")	=IFERROR((M25-L25)/L25,"-")	=IFERROR((N25-M25)/M25,"-")		-	=IFERROR((Q25-P25)/P25,"-")	=IFERROR((R25-Q25)/Q25,"-")	=IFERROR((S25-R25)/R25,"-")	=IFERROR((T25-S25)/S25,"-")	=IFERROR((U25-T25)/T25,"-")	=IFERROR((V25-U25)/U25,"-")	=IFERROR((W25-V25)/V25,"-")	=IFERROR((X25-W25)/W25,"-")	=IFERROR((Y25-X25)/X25,"-")	=IFERROR((Z25-Y25)/Y25,"-")	=IFERROR((AA25-Z25)/Z25,"-")
+	=IF('Workout Setup'!C16=0,"",'Workout Setup'!C16)	='Week 1'!I16	='Week 2'!I16	='Week 3'!I16	='Week 4'!I16	='Week 5'!I16	='Week 6'!I16	='Week 7'!I16	='Week 8'!I16	='Week 9'!I16	='Week 10'!I16	='Week 11'!I16	='Week 12'!I16		='Week 1'!G16	='Week 2'!G16	='Week 3'!G16	='Week 4'!G16	='Week 5'!G16	='Week 6'!G16	='Week 7'!G16	='Week 8'!G16	='Week 9'!G16	='Week 10'!G16	='Week 11'!G16	='Week 12'!G16
+		-	=IFERROR((D27-C27)/C27,"-")	=IFERROR((E27-D27)/D27,"-")	=IFERROR((F27-E27)/E27,"-")	=IFERROR((G27-F27)/F27,"-")	=IFERROR((H27-G27)/G27,"-")	=IFERROR((I27-H27)/H27,"-")	=IFERROR((J27-I27)/I27,"-")	=IFERROR((K27-J27)/J27,"-")	=IFERROR((L27-K27)/K27,"-")	=IFERROR((M27-L27)/L27,"-")	=IFERROR((N27-M27)/M27,"-")		-	=IFERROR((Q27-P27)/P27,"-")	=IFERROR((R27-Q27)/Q27,"-")	=IFERROR((S27-R27)/R27,"-")	=IFERROR((T27-S27)/S27,"-")	=IFERROR((U27-T27)/T27,"-")	=IFERROR((V27-U27)/U27,"-")	=IFERROR((W27-V27)/V27,"-")	=IFERROR((X27-W27)/W27,"-")	=IFERROR((Y27-X27)/X27,"-")	=IFERROR((Z27-Y27)/Y27,"-")	=IFERROR((AA27-Z27)/Z27,"-")
+	=IF('Workout Setup'!C17=0,"",'Workout Setup'!C17)	='Week 1'!I17	='Week 2'!I17	='Week 3'!I17	='Week 4'!I17	='Week 5'!I17	='Week 6'!I17	='Week 7'!I17	='Week 8'!I17	='Week 9'!I17	='Week 10'!I17	='Week 11'!I17	='Week 12'!I17		='Week 1'!G17	='Week 2'!G17	='Week 3'!G17	='Week 4'!G17	='Week 5'!G17	='Week 6'!G17	='Week 7'!G17	='Week 8'!G17	='Week 9'!G17	='Week 10'!G17	='Week 11'!G17	='Week 12'!G17
+		-	=IFERROR((D29-C29)/C29,"-")	=IFERROR((E29-D29)/D29,"-")	=IFERROR((F29-E29)/E29,"-")	=IFERROR((G29-F29)/F29,"-")	=IFERROR((H29-G29)/G29,"-")	=IFERROR((I29-H29)/H29,"-")	=IFERROR((J29-I29)/I29,"-")	=IFERROR((K29-J29)/J29,"-")	=IFERROR((L29-K29)/K29,"-")	=IFERROR((M29-L29)/L29,"-")	=IFERROR((N29-M29)/M29,"-")		-	=IFERROR((Q29-P29)/P29,"-")	=IFERROR((R29-Q29)/Q29,"-")	=IFERROR((S29-R29)/R29,"-")	=IFERROR((T29-S29)/S29,"-")	=IFERROR((U29-T29)/T29,"-")	=IFERROR((V29-U29)/U29,"-")	=IFERROR((W29-V29)/V29,"-")	=IFERROR((X29-W29)/W29,"-")	=IFERROR((Y29-X29)/X29,"-")	=IFERROR((Z29-Y29)/Y29,"-")	=IFERROR((AA29-Z29)/Z29,"-")
+	=IF('Workout Setup'!C18=0,"",'Workout Setup'!C18)	='Week 1'!I18	='Week 2'!I18	='Week 3'!I18	='Week 4'!I18	='Week 5'!I18	='Week 6'!I18	='Week 7'!I18	='Week 8'!I18	='Week 9'!I18	='Week 10'!I18	='Week 11'!I18	='Week 12'!I18		='Week 1'!G18	='Week 2'!G18	='Week 3'!G18	='Week 4'!G18	='Week 5'!G18	='Week 6'!G18	='Week 7'!G18	='Week 8'!G18	='Week 9'!G18	='Week 10'!G18	='Week 11'!G18	='Week 12'!G18
+		-	=IFERROR((D31-C31)/C31,"-")	=IFERROR((E31-D31)/D31,"-")	=IFERROR((F31-E31)/E31,"-")	=IFERROR((G31-F31)/F31,"-")	=IFERROR((H31-G31)/G31,"-")	=IFERROR((I31-H31)/H31,"-")	=IFERROR((J31-I31)/I31,"-")	=IFERROR((K31-J31)/J31,"-")	=IFERROR((L31-K31)/K31,"-")	=IFERROR((M31-L31)/L31,"-")	=IFERROR((N31-M31)/M31,"-")		-	=IFERROR((Q31-P31)/P31,"-")	=IFERROR((R31-Q31)/Q31,"-")	=IFERROR((S31-R31)/R31,"-")	=IFERROR((T31-S31)/S31,"-")	=IFERROR((U31-T31)/T31,"-")	=IFERROR((V31-U31)/U31,"-")	=IFERROR((W31-V31)/V31,"-")	=IFERROR((X31-W31)/W31,"-")	=IFERROR((Y31-X31)/X31,"-")	=IFERROR((Z31-Y31)/Y31,"-")	=IFERROR((AA31-Z31)/Z31,"-")
+	=IF('Workout Setup'!C19=0,"",'Workout Setup'!C19)	='Week 1'!I19	='Week 2'!I19	='Week 3'!I19	='Week 4'!I19	='Week 5'!I19	='Week 6'!I19	='Week 7'!I19	='Week 8'!I19	='Week 9'!I19	='Week 10'!I19	='Week 11'!I19	='Week 12'!I19		='Week 1'!G19	='Week 2'!G19	='Week 3'!G19	='Week 4'!G19	='Week 5'!G19	='Week 6'!G19	='Week 7'!G19	='Week 8'!G19	='Week 9'!G19	='Week 10'!G19	='Week 11'!G19	='Week 12'!G19
+		-	=IFERROR((D33-C33)/C33,"-")	=IFERROR((E33-D33)/D33,"-")	=IFERROR((F33-E33)/E33,"-")	=IFERROR((G33-F33)/F33,"-")	=IFERROR((H33-G33)/G33,"-")	=IFERROR((I33-H33)/H33,"-")	=IFERROR((J33-I33)/I33,"-")	=IFERROR((K33-J33)/J33,"-")	=IFERROR((L33-K33)/K33,"-")	=IFERROR((M33-L33)/L33,"-")	=IFERROR((N33-M33)/M33,"-")		-	=IFERROR((Q33-P33)/P33,"-")	=IFERROR((R33-Q33)/Q33,"-")	=IFERROR((S33-R33)/R33,"-")	=IFERROR((T33-S33)/S33,"-")	=IFERROR((U33-T33)/T33,"-")	=IFERROR((V33-U33)/U33,"-")	=IFERROR((W33-V33)/V33,"-")	=IFERROR((X33-W33)/W33,"-")	=IFERROR((Y33-X33)/X33,"-")	=IFERROR((Z33-Y33)/Y33,"-")	=IFERROR((AA33-Z33)/Z33,"-")
+	=IF('Workout Setup'!C20=0,"",'Workout Setup'!C20)	='Week 1'!I20	='Week 2'!I20	='Week 3'!I20	='Week 4'!I20	='Week 5'!I20	='Week 6'!I20	='Week 7'!I20	='Week 8'!I20	='Week 9'!I20	='Week 10'!I20	='Week 11'!I20	='Week 12'!I20		='Week 1'!G20	='Week 2'!G20	='Week 3'!G20	='Week 4'!G20	='Week 5'!G20	='Week 6'!G20	='Week 7'!G20	='Week 8'!G20	='Week 9'!G20	='Week 10'!G20	='Week 11'!G20	='Week 12'!G20
+		-	=IFERROR((D35-C35)/C35,"-")	=IFERROR((E35-D35)/D35,"-")	=IFERROR((F35-E35)/E35,"-")	=IFERROR((G35-F35)/F35,"-")	=IFERROR((H35-G35)/G35,"-")	=IFERROR((I35-H35)/H35,"-")	=IFERROR((J35-I35)/I35,"-")	=IFERROR((K35-J35)/J35,"-")	=IFERROR((L35-K35)/K35,"-")	=IFERROR((M35-L35)/L35,"-")	=IFERROR((N35-M35)/M35,"-")		-	=IFERROR((Q35-P35)/P35,"-")	=IFERROR((R35-Q35)/Q35,"-")	=IFERROR((S35-R35)/R35,"-")	=IFERROR((T35-S35)/S35,"-")	=IFERROR((U35-T35)/T35,"-")	=IFERROR((V35-U35)/U35,"-")	=IFERROR((W35-V35)/V35,"-")	=IFERROR((X35-W35)/W35,"-")	=IFERROR((Y35-X35)/X35,"-")	=IFERROR((Z35-Y35)/Y35,"-")	=IFERROR((AA35-Z35)/Z35,"-")
+																										
+																										
+Day 3	=IF('Workout Setup'!C24=0,"",'Workout Setup'!C24)	='Week 1'!I24	='Week 2'!I24	='Week 3'!I24	='Week 4'!I24	='Week 5'!I24	='Week 6'!I24	='Week 7'!I24	='Week 8'!I24	='Week 9'!I24	='Week 10'!I24	='Week 11'!I24	='Week 12'!I24		='Week 1'!G24	='Week 2'!G24	='Week 3'!G24	='Week 4'!G24	='Week 5'!G24	='Week 6'!G24	='Week 7'!G24	='Week 8'!G24	='Week 9'!G24	='Week 10'!G24	='Week 11'!G24	='Week 12'!G24
+		-	=IFERROR((D39-C39)/C39,"-")	=IFERROR((E39-D39)/D39,"-")	=IFERROR((F39-E39)/E39,"-")	=IFERROR((G39-F39)/F39,"-")	=IFERROR((H39-G39)/G39,"-")	=IFERROR((I39-H39)/H39,"-")	=IFERROR((J39-I39)/I39,"-")	=IFERROR((K39-J39)/J39,"-")	=IFERROR((L39-K39)/K39,"-")	=IFERROR((M39-L39)/L39,"-")	=IFERROR((N39-M39)/M39,"-")		-	=IFERROR((Q39-P39)/P39,"-")	=IFERROR((R39-Q39)/Q39,"-")	=IFERROR((S39-R39)/R39,"-")	=IFERROR((T39-S39)/S39,"-")	=IFERROR((U39-T39)/T39,"-")	=IFERROR((V39-U39)/U39,"-")	=IFERROR((W39-V39)/V39,"-")	=IFERROR((X39-W39)/W39,"-")	=IFERROR((Y39-X39)/X39,"-")	=IFERROR((Z39-Y39)/Y39,"-")	=IFERROR((AA39-Z39)/Z39,"-")
+	=IF('Workout Setup'!C25=0,"",'Workout Setup'!C25)	='Week 1'!I25	='Week 2'!I25	='Week 3'!I25	='Week 4'!I25	='Week 5'!I25	='Week 6'!I25	='Week 7'!I25	='Week 8'!I25	='Week 9'!I25	='Week 10'!I25	='Week 11'!I25	='Week 12'!I25		='Week 1'!G25	='Week 2'!G25	='Week 3'!G25	='Week 4'!G25	='Week 5'!G25	='Week 6'!G25	='Week 7'!G25	='Week 8'!G25	='Week 9'!G25	='Week 10'!G25	='Week 11'!G25	='Week 12'!G25
+		-	=IFERROR((D41-C41)/C41,"-")	=IFERROR((E41-D41)/D41,"-")	=IFERROR((F41-E41)/E41,"-")	=IFERROR((G41-F41)/F41,"-")	=IFERROR((H41-G41)/G41,"-")	=IFERROR((I41-H41)/H41,"-")	=IFERROR((J41-I41)/I41,"-")	=IFERROR((K41-J41)/J41,"-")	=IFERROR((L41-K41)/K41,"-")	=IFERROR((M41-L41)/L41,"-")	=IFERROR((N41-M41)/M41,"-")		-	=IFERROR((Q41-P41)/P41,"-")	=IFERROR((R41-Q41)/Q41,"-")	=IFERROR((S41-R41)/R41,"-")	=IFERROR((T41-S41)/S41,"-")	=IFERROR((U41-T41)/T41,"-")	=IFERROR((V41-U41)/U41,"-")	=IFERROR((W41-V41)/V41,"-")	=IFERROR((X41-W41)/W41,"-")	=IFERROR((Y41-X41)/X41,"-")	=IFERROR((Z41-Y41)/Y41,"-")	=IFERROR((AA41-Z41)/Z41,"-")
+	=IF('Workout Setup'!C26=0,"",'Workout Setup'!C26)	='Week 1'!I26	='Week 2'!I26	='Week 3'!I26	='Week 4'!I26	='Week 5'!I26	='Week 6'!I26	='Week 7'!I26	='Week 8'!I26	='Week 9'!I26	='Week 10'!I26	='Week 11'!I26	='Week 12'!I26		='Week 1'!G26	='Week 2'!G26	='Week 3'!G26	='Week 4'!G26	='Week 5'!G26	='Week 6'!G26	='Week 7'!G26	='Week 8'!G26	='Week 9'!G26	='Week 10'!G26	='Week 11'!G26	='Week 12'!G26
+		-	=IFERROR((D43-C43)/C43,"-")	=IFERROR((E43-D43)/D43,"-")	=IFERROR((F43-E43)/E43,"-")	=IFERROR((G43-F43)/F43,"-")	=IFERROR((H43-G43)/G43,"-")	=IFERROR((I43-H43)/H43,"-")	=IFERROR((J43-I43)/I43,"-")	=IFERROR((K43-J43)/J43,"-")	=IFERROR((L43-K43)/K43,"-")	=IFERROR((M43-L43)/L43,"-")	=IFERROR((N43-M43)/M43,"-")		-	=IFERROR((Q43-P43)/P43,"-")	=IFERROR((R43-Q43)/Q43,"-")	=IFERROR((S43-R43)/R43,"-")	=IFERROR((T43-S43)/S43,"-")	=IFERROR((U43-T43)/T43,"-")	=IFERROR((V43-U43)/U43,"-")	=IFERROR((W43-V43)/V43,"-")	=IFERROR((X43-W43)/W43,"-")	=IFERROR((Y43-X43)/X43,"-")	=IFERROR((Z43-Y43)/Y43,"-")	=IFERROR((AA43-Z43)/Z43,"-")
+	=IF('Workout Setup'!C27=0,"",'Workout Setup'!C27)	='Week 1'!I27	='Week 2'!I27	='Week 3'!I27	='Week 4'!I27	='Week 5'!I27	='Week 6'!I27	='Week 7'!I27	='Week 8'!I27	='Week 9'!I27	='Week 10'!I27	='Week 11'!I27	='Week 12'!I27		='Week 1'!G27	='Week 2'!G27	='Week 3'!G27	='Week 4'!G27	='Week 5'!G27	='Week 6'!G27	='Week 7'!G27	='Week 8'!G27	='Week 9'!G27	='Week 10'!G27	='Week 11'!G27	='Week 12'!G27
+		-	=IFERROR((D45-C45)/C45,"-")	=IFERROR((E45-D45)/D45,"-")	=IFERROR((F45-E45)/E45,"-")	=IFERROR((G45-F45)/F45,"-")	=IFERROR((H45-G45)/G45,"-")	=IFERROR((I45-H45)/H45,"-")	=IFERROR((J45-I45)/I45,"-")	=IFERROR((K45-J45)/J45,"-")	=IFERROR((L45-K45)/K45,"-")	=IFERROR((M45-L45)/L45,"-")	=IFERROR((N45-M45)/M45,"-")		-	=IFERROR((Q45-P45)/P45,"-")	=IFERROR((R45-Q45)/Q45,"-")	=IFERROR((S45-R45)/R45,"-")	=IFERROR((T45-S45)/S45,"-")	=IFERROR((U45-T45)/T45,"-")	=IFERROR((V45-U45)/U45,"-")	=IFERROR((W45-V45)/V45,"-")	=IFERROR((X45-W45)/W45,"-")	=IFERROR((Y45-X45)/X45,"-")	=IFERROR((Z45-Y45)/Y45,"-")	=IFERROR((AA45-Z45)/Z45,"-")
+	=IF('Workout Setup'!C28=0,"",'Workout Setup'!C28)	='Week 1'!I28	='Week 2'!I28	='Week 3'!I28	='Week 4'!I28	='Week 5'!I28	='Week 6'!I28	='Week 7'!I28	='Week 8'!I28	='Week 9'!I28	='Week 10'!I28	='Week 11'!I28	='Week 12'!I28		='Week 1'!G28	='Week 2'!G28	='Week 3'!G28	='Week 4'!G28	='Week 5'!G28	='Week 6'!G28	='Week 7'!G28	='Week 8'!G28	='Week 9'!G28	='Week 10'!G28	='Week 11'!G28	='Week 12'!G28
+		-	=IFERROR((D47-C47)/C47,"-")	=IFERROR((E47-D47)/D47,"-")	=IFERROR((F47-E47)/E47,"-")	=IFERROR((G47-F47)/F47,"-")	=IFERROR((H47-G47)/G47,"-")	=IFERROR((I47-H47)/H47,"-")	=IFERROR((J47-I47)/I47,"-")	=IFERROR((K47-J47)/J47,"-")	=IFERROR((L47-K47)/K47,"-")	=IFERROR((M47-L47)/L47,"-")	=IFERROR((N47-M47)/M47,"-")		-	=IFERROR((Q47-P47)/P47,"-")	=IFERROR((R47-Q47)/Q47,"-")	=IFERROR((S47-R47)/R47,"-")	=IFERROR((T47-S47)/S47,"-")	=IFERROR((U47-T47)/T47,"-")	=IFERROR((V47-U47)/U47,"-")	=IFERROR((W47-V47)/V47,"-")	=IFERROR((X47-W47)/W47,"-")	=IFERROR((Y47-X47)/X47,"-")	=IFERROR((Z47-Y47)/Y47,"-")	=IFERROR((AA47-Z47)/Z47,"-")
+	=IF('Workout Setup'!C29=0,"",'Workout Setup'!C29)	='Week 1'!I29	='Week 2'!I29	='Week 3'!I29	='Week 4'!I29	='Week 5'!I29	='Week 6'!I29	='Week 7'!I29	='Week 8'!I29	='Week 9'!I29	='Week 10'!I29	='Week 11'!I29	='Week 12'!I29		='Week 1'!G29	='Week 2'!G29	='Week 3'!G29	='Week 4'!G29	='Week 5'!G29	='Week 6'!G29	='Week 7'!G29	='Week 8'!G29	='Week 9'!G29	='Week 10'!G29	='Week 11'!G29	='Week 12'!G29
+		-	=IFERROR((D49-C49)/C49,"-")	=IFERROR((E49-D49)/D49,"-")	=IFERROR((F49-E49)/E49,"-")	=IFERROR((G49-F49)/F49,"-")	=IFERROR((H49-G49)/G49,"-")	=IFERROR((I49-H49)/H49,"-")	=IFERROR((J49-I49)/I49,"-")	=IFERROR((K49-J49)/J49,"-")	=IFERROR((L49-K49)/K49,"-")	=IFERROR((M49-L49)/L49,"-")	=IFERROR((N49-M49)/M49,"-")		-	=IFERROR((Q49-P49)/P49,"-")	=IFERROR((R49-Q49)/Q49,"-")	=IFERROR((S49-R49)/R49,"-")	=IFERROR((T49-S49)/S49,"-")	=IFERROR((U49-T49)/T49,"-")	=IFERROR((V49-U49)/U49,"-")	=IFERROR((W49-V49)/V49,"-")	=IFERROR((X49-W49)/W49,"-")	=IFERROR((Y49-X49)/X49,"-")	=IFERROR((Z49-Y49)/Y49,"-")	=IFERROR((AA49-Z49)/Z49,"-")
+	=IF('Workout Setup'!C30=0,"",'Workout Setup'!C30)	='Week 1'!I30	='Week 2'!I30	='Week 3'!I30	='Week 4'!I30	='Week 5'!I30	='Week 6'!I30	='Week 7'!I30	='Week 8'!I30	='Week 9'!I30	='Week 10'!I30	='Week 11'!I30	='Week 12'!I30		='Week 1'!G30	='Week 2'!G30	='Week 3'!G30	='Week 4'!G30	='Week 5'!G30	='Week 6'!G30	='Week 7'!G30	='Week 8'!G30	='Week 9'!G30	='Week 10'!G30	='Week 11'!G30	='Week 12'!G30
+		-	=IFERROR((D51-C51)/C51,"-")	=IFERROR((E51-D51)/D51,"-")	=IFERROR((F51-E51)/E51,"-")	=IFERROR((G51-F51)/F51,"-")	=IFERROR((H51-G51)/G51,"-")	=IFERROR((I51-H51)/H51,"-")	=IFERROR((J51-I51)/I51,"-")	=IFERROR((K51-J51)/J51,"-")	=IFERROR((L51-K51)/K51,"-")	=IFERROR((M51-L51)/L51,"-")	=IFERROR((N51-M51)/M51,"-")		-	=IFERROR((Q51-P51)/P51,"-")	=IFERROR((R51-Q51)/Q51,"-")	=IFERROR((S51-R51)/R51,"-")	=IFERROR((T51-S51)/S51,"-")	=IFERROR((U51-T51)/T51,"-")	=IFERROR((V51-U51)/U51,"-")	=IFERROR((W51-V51)/V51,"-")	=IFERROR((X51-W51)/W51,"-")	=IFERROR((Y51-X51)/X51,"-")	=IFERROR((Z51-Y51)/Y51,"-")	=IFERROR((AA51-Z51)/Z51,"-")
+	=IF('Workout Setup'!C31=0,"",'Workout Setup'!C31)	='Week 1'!I31	='Week 2'!I31	='Week 3'!I31	='Week 4'!I31	='Week 5'!I31	='Week 6'!I31	='Week 7'!I31	='Week 8'!I31	='Week 9'!I31	='Week 10'!I31	='Week 11'!I31	='Week 12'!I31		='Week 1'!G31	='Week 2'!G31	='Week 3'!G31	='Week 4'!G31	='Week 5'!G31	='Week 6'!G31	='Week 7'!G31	='Week 8'!G31	='Week 9'!G31	='Week 10'!G31	='Week 11'!G31	='Week 12'!G31
+		-	=IFERROR((D53-C53)/C53,"-")	=IFERROR((E53-D53)/D53,"-")	=IFERROR((F53-E53)/E53,"-")	=IFERROR((G53-F53)/F53,"-")	=IFERROR((H53-G53)/G53,"-")	=IFERROR((I53-H53)/H53,"-")	=IFERROR((J53-I53)/I53,"-")	=IFERROR((K53-J53)/J53,"-")	=IFERROR((L53-K53)/K53,"-")	=IFERROR((M53-L53)/L53,"-")	=IFERROR((N53-M53)/M53,"-")		-	=IFERROR((Q53-P53)/P53,"-")	=IFERROR((R53-Q53)/Q53,"-")	=IFERROR((S53-R53)/R53,"-")	=IFERROR((T53-S53)/S53,"-")	=IFERROR((U53-T53)/T53,"-")	=IFERROR((V53-U53)/U53,"-")	=IFERROR((W53-V53)/V53,"-")	=IFERROR((X53-W53)/W53,"-")	=IFERROR((Y53-X53)/X53,"-")	=IFERROR((Z53-Y53)/Y53,"-")	=IFERROR((AA53-Z53)/Z53,"-")
+																										
+																										
+Day 4	=IF('Workout Setup'!C35=0,"",'Workout Setup'!C35)	='Week 1'!I35	='Week 2'!I35	='Week 3'!I35	='Week 4'!I35	='Week 5'!I35	='Week 6'!I35	='Week 7'!I35	='Week 8'!I35	='Week 9'!I35	='Week 10'!I35	='Week 11'!I35	='Week 12'!I35		='Week 1'!G35	='Week 2'!G35	='Week 3'!G35	='Week 4'!G35	='Week 5'!G35	='Week 6'!G35	='Week 7'!G35	='Week 8'!G35	='Week 9'!G35	='Week 10'!G35	='Week 11'!G35	='Week 12'!G35
+		-	=IFERROR((D57-C57)/C57,"-")	=IFERROR((E57-D57)/D57,"-")	=IFERROR((F57-E57)/E57,"-")	=IFERROR((G57-F57)/F57,"-")	=IFERROR((H57-G57)/G57,"-")	=IFERROR((I57-H57)/H57,"-")	=IFERROR((J57-I57)/I57,"-")	=IFERROR((K57-J57)/J57,"-")	=IFERROR((L57-K57)/K57,"-")	=IFERROR((M57-L57)/L57,"-")	=IFERROR((N57-M57)/M57,"-")		-	=IFERROR((Q57-P57)/P57,"-")	=IFERROR((R57-Q57)/Q57,"-")	=IFERROR((S57-R57)/R57,"-")	=IFERROR((T57-S57)/S57,"-")	=IFERROR((U57-T57)/T57,"-")	=IFERROR((V57-U57)/U57,"-")	=IFERROR((W57-V57)/V57,"-")	=IFERROR((X57-W57)/W57,"-")	=IFERROR((Y57-X57)/X57,"-")	=IFERROR((Z57-Y57)/Y57,"-")	=IFERROR((AA57-Z57)/Z57,"-")
+	=IF('Workout Setup'!C36=0,"",'Workout Setup'!C36)	='Week 1'!I36	='Week 2'!I36	='Week 3'!I36	='Week 4'!I36	='Week 5'!I36	='Week 6'!I36	='Week 7'!I36	='Week 8'!I36	='Week 9'!I36	='Week 10'!I36	='Week 11'!I36	='Week 12'!I36		='Week 1'!G36	='Week 2'!G36	='Week 3'!G36	='Week 4'!G36	='Week 5'!G36	='Week 6'!G36	='Week 7'!G36	='Week 8'!G36	='Week 9'!G36	='Week 10'!G36	='Week 11'!G36	='Week 12'!G36
+		-	=IFERROR((D59-C59)/C59,"-")	=IFERROR((E59-D59)/D59,"-")	=IFERROR((F59-E59)/E59,"-")	=IFERROR((G59-F59)/F59,"-")	=IFERROR((H59-G59)/G59,"-")	=IFERROR((I59-H59)/H59,"-")	=IFERROR((J59-I59)/I59,"-")	=IFERROR((K59-J59)/J59,"-")	=IFERROR((L59-K59)/K59,"-")	=IFERROR((M59-L59)/L59,"-")	=IFERROR((N59-M59)/M59,"-")		-	=IFERROR((Q59-P59)/P59,"-")	=IFERROR((R59-Q59)/Q59,"-")	=IFERROR((S59-R59)/R59,"-")	=IFERROR((T59-S59)/S59,"-")	=IFERROR((U59-T59)/T59,"-")	=IFERROR((V59-U59)/U59,"-")	=IFERROR((W59-V59)/V59,"-")	=IFERROR((X59-W59)/W59,"-")	=IFERROR((Y59-X59)/X59,"-")	=IFERROR((Z59-Y59)/Y59,"-")	=IFERROR((AA59-Z59)/Z59,"-")
+	=IF('Workout Setup'!C37=0,"",'Workout Setup'!C37)	='Week 1'!I37	='Week 2'!I37	='Week 3'!I37	='Week 4'!I37	='Week 5'!I37	='Week 6'!I37	='Week 7'!I37	='Week 8'!I37	='Week 9'!I37	='Week 10'!I37	='Week 11'!I37	='Week 12'!I37		='Week 1'!G37	='Week 2'!G37	='Week 3'!G37	='Week 4'!G37	='Week 5'!G37	='Week 6'!G37	='Week 7'!G37	='Week 8'!G37	='Week 9'!G37	='Week 10'!G37	='Week 11'!G37	='Week 12'!G37
+		-	=IFERROR((D61-C61)/C61,"-")	=IFERROR((E61-D61)/D61,"-")	=IFERROR((F61-E61)/E61,"-")	=IFERROR((G61-F61)/F61,"-")	=IFERROR((H61-G61)/G61,"-")	=IFERROR((I61-H61)/H61,"-")	=IFERROR((J61-I61)/I61,"-")	=IFERROR((K61-J61)/J61,"-")	=IFERROR((L61-K61)/K61,"-")	=IFERROR((M61-L61)/L61,"-")	=IFERROR((N61-M61)/M61,"-")		-	=IFERROR((Q61-P61)/P61,"-")	=IFERROR((R61-Q61)/Q61,"-")	=IFERROR((S61-R61)/R61,"-")	=IFERROR((T61-S61)/S61,"-")	=IFERROR((U61-T61)/T61,"-")	=IFERROR((V61-U61)/U61,"-")	=IFERROR((W61-V61)/V61,"-")	=IFERROR((X61-W61)/W61,"-")	=IFERROR((Y61-X61)/X61,"-")	=IFERROR((Z61-Y61)/Y61,"-")	=IFERROR((AA61-Z61)/Z61,"-")
+	=IF('Workout Setup'!C38=0,"",'Workout Setup'!C38)	='Week 1'!I38	='Week 2'!I38	='Week 3'!I38	='Week 4'!I38	='Week 5'!I38	='Week 6'!I38	='Week 7'!I38	='Week 8'!I38	='Week 9'!I38	='Week 10'!I38	='Week 11'!I38	='Week 12'!I38		='Week 1'!G38	='Week 2'!G38	='Week 3'!G38	='Week 4'!G38	='Week 5'!G38	='Week 6'!G38	='Week 7'!G38	='Week 8'!G38	='Week 9'!G38	='Week 10'!G38	='Week 11'!G38	='Week 12'!G38
+		-	=IFERROR((D63-C63)/C63,"-")	=IFERROR((E63-D63)/D63,"-")	=IFERROR((F63-E63)/E63,"-")	=IFERROR((G63-F63)/F63,"-")	=IFERROR((H63-G63)/G63,"-")	=IFERROR((I63-H63)/H63,"-")	=IFERROR((J63-I63)/I63,"-")	=IFERROR((K63-J63)/J63,"-")	=IFERROR((L63-K63)/K63,"-")	=IFERROR((M63-L63)/L63,"-")	=IFERROR((N63-M63)/M63,"-")		-	=IFERROR((Q63-P63)/P63,"-")	=IFERROR((R63-Q63)/Q63,"-")	=IFERROR((S63-R63)/R63,"-")	=IFERROR((T63-S63)/S63,"-")	=IFERROR((U63-T63)/T63,"-")	=IFERROR((V63-U63)/U63,"-")	=IFERROR((W63-V63)/V63,"-")	=IFERROR((X63-W63)/W63,"-")	=IFERROR((Y63-X63)/X63,"-")	=IFERROR((Z63-Y63)/Y63,"-")	=IFERROR((AA63-Z63)/Z63,"-")
+	=IF('Workout Setup'!C39=0,"",'Workout Setup'!C39)	='Week 1'!I39	='Week 2'!I39	='Week 3'!I39	='Week 4'!I39	='Week 5'!I39	='Week 6'!I39	='Week 7'!I39	='Week 8'!I39	='Week 9'!I39	='Week 10'!I39	='Week 11'!I39	='Week 12'!I39		='Week 1'!G39	='Week 2'!G39	='Week 3'!G39	='Week 4'!G39	='Week 5'!G39	='Week 6'!G39	='Week 7'!G39	='Week 8'!G39	='Week 9'!G39	='Week 10'!G39	='Week 11'!G39	='Week 12'!G39
+		-	=IFERROR((D65-C65)/C65,"-")	=IFERROR((E65-D65)/D65,"-")	=IFERROR((F65-E65)/E65,"-")	=IFERROR((G65-F65)/F65,"-")	=IFERROR((H65-G65)/G65,"-")	=IFERROR((I65-H65)/H65,"-")	=IFERROR((J65-I65)/I65,"-")	=IFERROR((K65-J65)/J65,"-")	=IFERROR((L65-K65)/K65,"-")	=IFERROR((M65-L65)/L65,"-")	=IFERROR((N65-M65)/M65,"-")		-	=IFERROR((Q65-P65)/P65,"-")	=IFERROR((R65-Q65)/Q65,"-")	=IFERROR((S65-R65)/R65,"-")	=IFERROR((T65-S65)/S65,"-")	=IFERROR((U65-T65)/T65,"-")	=IFERROR((V65-U65)/U65,"-")	=IFERROR((W65-V65)/V65,"-")	=IFERROR((X65-W65)/W65,"-")	=IFERROR((Y65-X65)/X65,"-")	=IFERROR((Z65-Y65)/Y65,"-")	=IFERROR((AA65-Z65)/Z65,"-")
+	=IF('Workout Setup'!C40=0,"",'Workout Setup'!C40)	='Week 1'!I40	='Week 2'!I40	='Week 3'!I40	='Week 4'!I40	='Week 5'!I40	='Week 6'!I40	='Week 7'!I40	='Week 8'!I40	='Week 9'!I40	='Week 10'!I40	='Week 11'!I40	='Week 12'!I40		='Week 1'!G40	='Week 2'!G40	='Week 3'!G40	='Week 4'!G40	='Week 5'!G40	='Week 6'!G40	='Week 7'!G40	='Week 8'!G40	='Week 9'!G40	='Week 10'!G40	='Week 11'!G40	='Week 12'!G40
+		-	=IFERROR((D67-C67)/C67,"-")	=IFERROR((E67-D67)/D67,"-")	=IFERROR((F67-E67)/E67,"-")	=IFERROR((G67-F67)/F67,"-")	=IFERROR((H67-G67)/G67,"-")	=IFERROR((I67-H67)/H67,"-")	=IFERROR((J67-I67)/I67,"-")	=IFERROR((K67-J67)/J67,"-")	=IFERROR((L67-K67)/K67,"-")	=IFERROR((M67-L67)/L67,"-")	=IFERROR((N67-M67)/M67,"-")		-	=IFERROR((Q67-P67)/P67,"-")	=IFERROR((R67-Q67)/Q67,"-")	=IFERROR((S67-R67)/R67,"-")	=IFERROR((T67-S67)/S67,"-")	=IFERROR((U67-T67)/T67,"-")	=IFERROR((V67-U67)/U67,"-")	=IFERROR((W67-V67)/V67,"-")	=IFERROR((X67-W67)/W67,"-")	=IFERROR((Y67-X67)/X67,"-")	=IFERROR((Z67-Y67)/Y67,"-")	=IFERROR((AA67-Z67)/Z67,"-")
+	=IF('Workout Setup'!C41=0,"",'Workout Setup'!C41)	='Week 1'!I41	='Week 2'!I41	='Week 3'!I41	='Week 4'!I41	='Week 5'!I41	='Week 6'!I41	='Week 7'!I41	='Week 8'!I41	='Week 9'!I41	='Week 10'!I41	='Week 11'!I41	='Week 12'!I41		='Week 1'!G41	='Week 2'!G41	='Week 3'!G41	='Week 4'!G41	='Week 5'!G41	='Week 6'!G41	='Week 7'!G41	='Week 8'!G41	='Week 9'!G41	='Week 10'!G41	='Week 11'!G41	='Week 12'!G41
+		-	=IFERROR((D69-C69)/C69,"-")	=IFERROR((E69-D69)/D69,"-")	=IFERROR((F69-E69)/E69,"-")	=IFERROR((G69-F69)/F69,"-")	=IFERROR((H69-G69)/G69,"-")	=IFERROR((I69-H69)/H69,"-")	=IFERROR((J69-I69)/I69,"-")	=IFERROR((K69-J69)/J69,"-")	=IFERROR((L69-K69)/K69,"-")	=IFERROR((M69-L69)/L69,"-")	=IFERROR((N69-M69)/M69,"-")		-	=IFERROR((Q69-P69)/P69,"-")	=IFERROR((R69-Q69)/Q69,"-")	=IFERROR((S69-R69)/R69,"-")	=IFERROR((T69-S69)/S69,"-")	=IFERROR((U69-T69)/T69,"-")	=IFERROR((V69-U69)/U69,"-")	=IFERROR((W69-V69)/V69,"-")	=IFERROR((X69-W69)/W69,"-")	=IFERROR((Y69-X69)/X69,"-")	=IFERROR((Z69-Y69)/Y69,"-")	=IFERROR((AA69-Z69)/Z69,"-")
+	=IF('Workout Setup'!C42=0,"",'Workout Setup'!C42)	='Week 1'!I42	='Week 2'!I42	='Week 3'!I42	='Week 4'!I42	='Week 5'!I42	='Week 6'!I42	='Week 7'!I42	='Week 8'!I42	='Week 9'!I42	='Week 10'!I42	='Week 11'!I42	='Week 12'!I42		='Week 1'!G42	='Week 2'!G42	='Week 3'!G42	='Week 4'!G42	='Week 5'!G42	='Week 6'!G42	='Week 7'!G42	='Week 8'!G42	='Week 9'!G42	='Week 10'!G42	='Week 11'!G42	='Week 12'!G42
+		-	=IFERROR((D71-C71)/C71,"-")	=IFERROR((E71-D71)/D71,"-")	=IFERROR((F71-E71)/E71,"-")	=IFERROR((G71-F71)/F71,"-")	=IFERROR((H71-G71)/G71,"-")	=IFERROR((I71-H71)/H71,"-")	=IFERROR((J71-I71)/I71,"-")	=IFERROR((K71-J71)/J71,"-")	=IFERROR((L71-K71)/K71,"-")	=IFERROR((M71-L71)/L71,"-")	=IFERROR((N71-M71)/M71,"-")		-	=IFERROR((Q71-P71)/P71,"-")	=IFERROR((R71-Q71)/Q71,"-")	=IFERROR((S71-R71)/R71,"-")	=IFERROR((T71-S71)/S71,"-")	=IFERROR((U71-T71)/T71,"-")	=IFERROR((V71-U71)/U71,"-")	=IFERROR((W71-V71)/V71,"-")	=IFERROR((X71-W71)/W71,"-")	=IFERROR((Y71-X71)/X71,"-")	=IFERROR((Z71-Y71)/Y71,"-")	=IFERROR((AA71-Z71)/Z71,"-")
+																										
+																										
+Day 5	=IF('Workout Setup'!#REF!=0,"",'Workout Setup'!#REF!)	='Week 1'!#REF!	='Week 2'!#REF!	='Week 3'!#REF!	='Week 4'!#REF!	='Week 5'!#REF!	='Week 6'!#REF!	='Week 7'!#REF!	='Week 8'!#REF!	='Week 9'!#REF!	='Week 10'!#REF!	='Week 11'!#REF!	='Week 12'!#REF!		='Week 1'!#REF!	='Week 2'!#REF!	='Week 3'!#REF!	='Week 4'!#REF!	='Week 5'!#REF!	='Week 6'!#REF!	='Week 7'!#REF!	='Week 8'!#REF!	='Week 9'!#REF!	='Week 10'!#REF!	='Week 11'!#REF!	='Week 12'!#REF!
+		-	=IFERROR((D75-C75)/C75,"-")	=IFERROR((E75-D75)/D75,"-")	=IFERROR((F75-E75)/E75,"-")	=IFERROR((G75-F75)/F75,"-")	=IFERROR((H75-G75)/G75,"-")	=IFERROR((I75-H75)/H75,"-")	=IFERROR((J75-I75)/I75,"-")	=IFERROR((K75-J75)/J75,"-")	=IFERROR((L75-K75)/K75,"-")	=IFERROR((M75-L75)/L75,"-")	=IFERROR((N75-M75)/M75,"-")		-	=IFERROR((Q75-P75)/P75,"-")	=IFERROR((R75-Q75)/Q75,"-")	=IFERROR((S75-R75)/R75,"-")	=IFERROR((T75-S75)/S75,"-")	=IFERROR((U75-T75)/T75,"-")	=IFERROR((V75-U75)/U75,"-")	=IFERROR((W75-V75)/V75,"-")	=IFERROR((X75-W75)/W75,"-")	=IFERROR((Y75-X75)/X75,"-")	=IFERROR((Z75-Y75)/Y75,"-")	=IFERROR((AA75-Z75)/Z75,"-")
+	=IF('Workout Setup'!#REF!=0,"",'Workout Setup'!#REF!)	='Week 1'!#REF!	='Week 2'!#REF!	='Week 3'!#REF!	='Week 4'!#REF!	='Week 5'!#REF!	='Week 6'!#REF!	='Week 7'!#REF!	='Week 8'!#REF!	='Week 9'!#REF!	='Week 10'!#REF!	='Week 11'!#REF!	='Week 12'!#REF!		='Week 1'!#REF!	='Week 2'!#REF!	='Week 3'!#REF!	='Week 4'!#REF!	='Week 5'!#REF!	='Week 6'!#REF!	='Week 7'!#REF!	='Week 8'!#REF!	='Week 9'!#REF!	='Week 10'!#REF!	='Week 11'!#REF!	='Week 12'!#REF!
+		-	=IFERROR((D77-C77)/C77,"-")	=IFERROR((E77-D77)/D77,"-")	=IFERROR((F77-E77)/E77,"-")	=IFERROR((G77-F77)/F77,"-")	=IFERROR((H77-G77)/G77,"-")	=IFERROR((I77-H77)/H77,"-")	=IFERROR((J77-I77)/I77,"-")	=IFERROR((K77-J77)/J77,"-")	=IFERROR((L77-K77)/K77,"-")	=IFERROR((M77-L77)/L77,"-")	=IFERROR((N77-M77)/M77,"-")		-	=IFERROR((Q77-P77)/P77,"-")	=IFERROR((R77-Q77)/Q77,"-")	=IFERROR((S77-R77)/R77,"-")	=IFERROR((T77-S77)/S77,"-")	=IFERROR((U77-T77)/T77,"-")	=IFERROR((V77-U77)/U77,"-")	=IFERROR((W77-V77)/V77,"-")	=IFERROR((X77-W77)/W77,"-")	=IFERROR((Y77-X77)/X77,"-")	=IFERROR((Z77-Y77)/Y77,"-")	=IFERROR((AA77-Z77)/Z77,"-")
+	=IF('Workout Setup'!#REF!=0,"",'Workout Setup'!#REF!)	='Week 1'!#REF!	='Week 2'!#REF!	='Week 3'!#REF!	='Week 4'!#REF!	='Week 5'!#REF!	='Week 6'!#REF!	='Week 7'!#REF!	='Week 8'!#REF!	='Week 9'!#REF!	='Week 10'!#REF!	='Week 11'!#REF!	='Week 12'!#REF!		='Week 1'!#REF!	='Week 2'!#REF!	='Week 3'!#REF!	='Week 4'!#REF!	='Week 5'!#REF!	='Week 6'!#REF!	='Week 7'!#REF!	='Week 8'!#REF!	='Week 9'!#REF!	='Week 10'!#REF!	='Week 11'!#REF!	='Week 12'!#REF!
+		-	=IFERROR((D79-C79)/C79,"-")	=IFERROR((E79-D79)/D79,"-")	=IFERROR((F79-E79)/E79,"-")	=IFERROR((G79-F79)/F79,"-")	=IFERROR((H79-G79)/G79,"-")	=IFERROR((I79-H79)/H79,"-")	=IFERROR((J79-I79)/I79,"-")	=IFERROR((K79-J79)/J79,"-")	=IFERROR((L79-K79)/K79,"-")	=IFERROR((M79-L79)/L79,"-")	=IFERROR((N79-M79)/M79,"-")		-	=IFERROR((Q79-P79)/P79,"-")	=IFERROR((R79-Q79)/Q79,"-")	=IFERROR((S79-R79)/R79,"-")	=IFERROR((T79-S79)/S79,"-")	=IFERROR((U79-T79)/T79,"-")	=IFERROR((V79-U79)/U79,"-")	=IFERROR((W79-V79)/V79,"-")	=IFERROR((X79-W79)/W79,"-")	=IFERROR((Y79-X79)/X79,"-")	=IFERROR((Z79-Y79)/Y79,"-")	=IFERROR((AA79-Z79)/Z79,"-")
+	=IF('Workout Setup'!#REF!=0,"",'Workout Setup'!#REF!)	='Week 1'!#REF!	='Week 2'!#REF!	='Week 3'!#REF!	='Week 4'!#REF!	='Week 5'!#REF!	='Week 6'!#REF!	='Week 7'!#REF!	='Week 8'!#REF!	='Week 9'!#REF!	='Week 10'!#REF!	='Week 11'!#REF!	='Week 12'!#REF!		='Week 1'!#REF!	='Week 2'!#REF!	='Week 3'!#REF!	='Week 4'!#REF!	='Week 5'!#REF!	='Week 6'!#REF!	='Week 7'!#REF!	='Week 8'!#REF!	='Week 9'!#REF!	='Week 10'!#REF!	='Week 11'!#REF!	='Week 12'!#REF!
+		-	=IFERROR((D81-C81)/C81,"-")	=IFERROR((E81-D81)/D81,"-")	=IFERROR((F81-E81)/E81,"-")	=IFERROR((G81-F81)/F81,"-")	=IFERROR((H81-G81)/G81,"-")	=IFERROR((I81-H81)/H81,"-")	=IFERROR((J81-I81)/I81,"-")	=IFERROR((K81-J81)/J81,"-")	=IFERROR((L81-K81)/K81,"-")	=IFERROR((M81-L81)/L81,"-")	=IFERROR((N81-M81)/M81,"-")		-	=IFERROR((Q81-P81)/P81,"-")	=IFERROR((R81-Q81)/Q81,"-")	=IFERROR((S81-R81)/R81,"-")	=IFERROR((T81-S81)/S81,"-")	=IFERROR((U81-T81)/T81,"-")	=IFERROR((V81-U81)/U81,"-")	=IFERROR((W81-V81)/V81,"-")	=IFERROR((X81-W81)/W81,"-")	=IFERROR((Y81-X81)/X81,"-")	=IFERROR((Z81-Y81)/Y81,"-")	=IFERROR((AA81-Z81)/Z81,"-")
+	=IF('Workout Setup'!#REF!=0,"",'Workout Setup'!#REF!)	='Week 1'!#REF!	='Week 2'!#REF!	='Week 3'!#REF!	='Week 4'!#REF!	='Week 5'!#REF!	='Week 6'!#REF!	='Week 7'!#REF!	='Week 8'!#REF!	='Week 9'!#REF!	='Week 10'!#REF!	='Week 11'!#REF!	='Week 12'!#REF!		='Week 1'!#REF!	='Week 2'!#REF!	='Week 3'!#REF!	='Week 4'!#REF!	='Week 5'!#REF!	='Week 6'!#REF!	='Week 7'!#REF!	='Week 8'!#REF!	='Week 9'!#REF!	='Week 10'!#REF!	='Week 11'!#REF!	='Week 12'!#REF!
+		-	=IFERROR((D83-C83)/C83,"-")	=IFERROR((E83-D83)/D83,"-")	=IFERROR((F83-E83)/E83,"-")	=IFERROR((G83-F83)/F83,"-")	=IFERROR((H83-G83)/G83,"-")	=IFERROR((I83-H83)/H83,"-")	=IFERROR((J83-I83)/I83,"-")	=IFERROR((K83-J83)/J83,"-")	=IFERROR((L83-K83)/K83,"-")	=IFERROR((M83-L83)/L83,"-")	=IFERROR((N83-M83)/M83,"-")		-	=IFERROR((Q83-P83)/P83,"-")	=IFERROR((R83-Q83)/Q83,"-")	=IFERROR((S83-R83)/R83,"-")	=IFERROR((T83-S83)/S83,"-")	=IFERROR((U83-T83)/T83,"-")	=IFERROR((V83-U83)/U83,"-")	=IFERROR((W83-V83)/V83,"-")	=IFERROR((X83-W83)/W83,"-")	=IFERROR((Y83-X83)/X83,"-")	=IFERROR((Z83-Y83)/Y83,"-")	=IFERROR((AA83-Z83)/Z83,"-")
+	=IF('Workout Setup'!#REF!=0,"",'Workout Setup'!#REF!)	='Week 1'!#REF!	='Week 2'!#REF!	='Week 3'!#REF!	='Week 4'!#REF!	='Week 5'!#REF!	='Week 6'!#REF!	='Week 7'!#REF!	='Week 8'!#REF!	='Week 9'!#REF!	='Week 10'!#REF!	='Week 11'!#REF!	='Week 12'!#REF!		='Week 1'!#REF!	='Week 2'!#REF!	='Week 3'!#REF!	='Week 4'!#REF!	='Week 5'!#REF!	='Week 6'!#REF!	='Week 7'!#REF!	='Week 8'!#REF!	='Week 9'!#REF!	='Week 10'!#REF!	='Week 11'!#REF!	='Week 12'!#REF!
+		-	=IFERROR((D85-C85)/C85,"-")	=IFERROR((E85-D85)/D85,"-")	=IFERROR((F85-E85)/E85,"-")	=IFERROR((G85-F85)/F85,"-")	=IFERROR((H85-G85)/G85,"-")	=IFERROR((I85-H85)/H85,"-")	=IFERROR((J85-I85)/I85,"-")	=IFERROR((K85-J85)/J85,"-")	=IFERROR((L85-K85)/K85,"-")	=IFERROR((M85-L85)/L85,"-")	=IFERROR((N85-M85)/M85,"-")		-	=IFERROR((Q85-P85)/P85,"-")	=IFERROR((R85-Q85)/Q85,"-")	=IFERROR((S85-R85)/R85,"-")	=IFERROR((T85-S85)/S85,"-")	=IFERROR((U85-T85)/T85,"-")	=IFERROR((V85-U85)/U85,"-")	=IFERROR((W85-V85)/V85,"-")	=IFERROR((X85-W85)/W85,"-")	=IFERROR((Y85-X85)/X85,"-")	=IFERROR((Z85-Y85)/Y85,"-")	=IFERROR((AA85-Z85)/Z85,"-")
+	=IF('Workout Setup'!#REF!=0,"",'Workout Setup'!#REF!)	='Week 1'!#REF!	='Week 2'!#REF!	='Week 3'!#REF!	='Week 4'!#REF!	='Week 5'!#REF!	='Week 6'!#REF!	='Week 7'!#REF!	='Week 8'!#REF!	='Week 9'!#REF!	='Week 10'!#REF!	='Week 11'!#REF!	='Week 12'!#REF!		='Week 1'!#REF!	='Week 2'!#REF!	='Week 3'!#REF!	='Week 4'!#REF!	='Week 5'!#REF!	='Week 6'!#REF!	='Week 7'!#REF!	='Week 8'!#REF!	='Week 9'!#REF!	='Week 10'!#REF!	='Week 11'!#REF!	='Week 12'!#REF!
+		-	=IFERROR((D87-C87)/C87,"-")	=IFERROR((E87-D87)/D87,"-")	=IFERROR((F87-E87)/E87,"-")	=IFERROR((G87-F87)/F87,"-")	=IFERROR((H87-G87)/G87,"-")	=IFERROR((I87-H87)/H87,"-")	=IFERROR((J87-I87)/I87,"-")	=IFERROR((K87-J87)/J87,"-")	=IFERROR((L87-K87)/K87,"-")	=IFERROR((M87-L87)/L87,"-")	=IFERROR((N87-M87)/M87,"-")		-	=IFERROR((Q87-P87)/P87,"-")	=IFERROR((R87-Q87)/Q87,"-")	=IFERROR((S87-R87)/R87,"-")	=IFERROR((T87-S87)/S87,"-")	=IFERROR((U87-T87)/T87,"-")	=IFERROR((V87-U87)/U87,"-")	=IFERROR((W87-V87)/V87,"-")	=IFERROR((X87-W87)/W87,"-")	=IFERROR((Y87-X87)/X87,"-")	=IFERROR((Z87-Y87)/Y87,"-")	=IFERROR((AA87-Z87)/Z87,"-")
+	=IF('Workout Setup'!#REF!=0,"",'Workout Setup'!#REF!)	='Week 1'!#REF!	='Week 2'!#REF!	='Week 3'!#REF!	='Week 4'!#REF!	='Week 5'!#REF!	='Week 6'!#REF!	='Week 7'!#REF!	='Week 8'!#REF!	='Week 9'!#REF!	='Week 10'!#REF!	='Week 11'!#REF!	='Week 12'!#REF!		='Week 1'!#REF!	='Week 2'!#REF!	='Week 3'!#REF!	='Week 4'!#REF!	='Week 5'!#REF!	='Week 6'!#REF!	='Week 7'!#REF!	='Week 8'!#REF!	='Week 9'!#REF!	='Week 10'!#REF!	='Week 11'!#REF!	='Week 12'!#REF!
+		-	=IFERROR((D89-C89)/C89,"-")	=IFERROR((E89-D89)/D89,"-")	=IFERROR((F89-E89)/E89,"-")	=IFERROR((G89-F89)/F89,"-")	=IFERROR((H89-G89)/G89,"-")	=IFERROR((I89-H89)/H89,"-")	=IFERROR((J89-I89)/I89,"-")	=IFERROR((K89-J89)/J89,"-")	=IFERROR((L89-K89)/K89,"-")	=IFERROR((M89-L89)/L89,"-")	=IFERROR((N89-M89)/M89,"-")		-	=IFERROR((Q89-P89)/P89,"-")	=IFERROR((R89-Q89)/Q89,"-")	=IFERROR((S89-R89)/R89,"-")	=IFERROR((T89-S89)/S89,"-")	=IFERROR((U89-T89)/T89,"-")	=IFERROR((V89-U89)/U89,"-")	=IFERROR((W89-V89)/V89,"-")	=IFERROR((X89-W89)/W89,"-")	=IFERROR((Y89-X89)/X89,"-")	=IFERROR((Z89-Y89)/Y89,"-")	=IFERROR((AA89-Z89)/Z89,"-")
+																										
+																										
+Day 6	=IF('Workout Setup'!#REF!=0,"",'Workout Setup'!#REF!)	='Week 1'!#REF!	='Week 2'!#REF!	='Week 3'!#REF!	='Week 4'!#REF!	='Week 5'!#REF!	='Week 6'!#REF!	='Week 7'!#REF!	='Week 8'!#REF!	='Week 9'!#REF!	='Week 10'!#REF!	='Week 11'!#REF!	='Week 12'!#REF!		='Week 1'!#REF!	='Week 2'!#REF!	='Week 3'!#REF!	='Week 4'!#REF!	='Week 5'!#REF!	='Week 6'!#REF!	='Week 7'!#REF!	='Week 8'!#REF!	='Week 9'!#REF!	='Week 10'!#REF!	='Week 11'!#REF!	='Week 12'!#REF!
+		-	=IFERROR((D93-C93)/C93,"-")	=IFERROR((E93-D93)/D93,"-")	=IFERROR((F93-E93)/E93,"-")	=IFERROR((G93-F93)/F93,"-")	=IFERROR((H93-G93)/G93,"-")	=IFERROR((I93-H93)/H93,"-")	=IFERROR((J93-I93)/I93,"-")	=IFERROR((K93-J93)/J93,"-")	=IFERROR((L93-K93)/K93,"-")	=IFERROR((M93-L93)/L93,"-")	=IFERROR((N93-M93)/M93,"-")		-	=IFERROR((Q93-P93)/P93,"-")	=IFERROR((R93-Q93)/Q93,"-")	=IFERROR((S93-R93)/R93,"-")	=IFERROR((T93-S93)/S93,"-")	=IFERROR((U93-T93)/T93,"-")	=IFERROR((V93-U93)/U93,"-")	=IFERROR((W93-V93)/V93,"-")	=IFERROR((X93-W93)/W93,"-")	=IFERROR((Y93-X93)/X93,"-")	=IFERROR((Z93-Y93)/Y93,"-")	=IFERROR((AA93-Z93)/Z93,"-")
+	=IF('Workout Setup'!#REF!=0,"",'Workout Setup'!#REF!)	='Week 1'!#REF!	='Week 2'!#REF!	='Week 3'!#REF!	='Week 4'!#REF!	='Week 5'!#REF!	='Week 6'!#REF!	='Week 7'!#REF!	='Week 8'!#REF!	='Week 9'!#REF!	='Week 10'!#REF!	='Week 11'!#REF!	='Week 12'!#REF!		='Week 1'!#REF!	='Week 2'!#REF!	='Week 3'!#REF!	='Week 4'!#REF!	='Week 5'!#REF!	='Week 6'!#REF!	='Week 7'!#REF!	='Week 8'!#REF!	='Week 9'!#REF!	='Week 10'!#REF!	='Week 11'!#REF!	='Week 12'!#REF!
+		-	=IFERROR((D95-C95)/C95,"-")	=IFERROR((E95-D95)/D95,"-")	=IFERROR((F95-E95)/E95,"-")	=IFERROR((G95-F95)/F95,"-")	=IFERROR((H95-G95)/G95,"-")	=IFERROR((I95-H95)/H95,"-")	=IFERROR((J95-I95)/I95,"-")	=IFERROR((K95-J95)/J95,"-")	=IFERROR((L95-K95)/K95,"-")	=IFERROR((M95-L95)/L95,"-")	=IFERROR((N95-M95)/M95,"-")		-	=IFERROR((Q95-P95)/P95,"-")	=IFERROR((R95-Q95)/Q95,"-")	=IFERROR((S95-R95)/R95,"-")	=IFERROR((T95-S95)/S95,"-")	=IFERROR((U95-T95)/T95,"-")	=IFERROR((V95-U95)/U95,"-")	=IFERROR((W95-V95)/V95,"-")	=IFERROR((X95-W95)/W95,"-")	=IFERROR((Y95-X95)/X95,"-")	=IFERROR((Z95-Y95)/Y95,"-")	=IFERROR((AA95-Z95)/Z95,"-")
+	=IF('Workout Setup'!#REF!=0,"",'Workout Setup'!#REF!)	='Week 1'!#REF!	='Week 2'!#REF!	='Week 3'!#REF!	='Week 4'!#REF!	='Week 5'!#REF!	='Week 6'!#REF!	='Week 7'!#REF!	='Week 8'!#REF!	='Week 9'!#REF!	='Week 10'!#REF!	='Week 11'!#REF!	='Week 12'!#REF!		='Week 1'!#REF!	='Week 2'!#REF!	='Week 3'!#REF!	='Week 4'!#REF!	='Week 5'!#REF!	='Week 6'!#REF!	='Week 7'!#REF!	='Week 8'!#REF!	='Week 9'!#REF!	='Week 10'!#REF!	='Week 11'!#REF!	='Week 12'!#REF!
+		-	=IFERROR((D97-C97)/C97,"-")	=IFERROR((E97-D97)/D97,"-")	=IFERROR((F97-E97)/E97,"-")	=IFERROR((G97-F97)/F97,"-")	=IFERROR((H97-G97)/G97,"-")	=IFERROR((I97-H97)/H97,"-")	=IFERROR((J97-I97)/I97,"-")	=IFERROR((K97-J97)/J97,"-")	=IFERROR((L97-K97)/K97,"-")	=IFERROR((M97-L97)/L97,"-")	=IFERROR((N97-M97)/M97,"-")		-	=IFERROR((Q97-P97)/P97,"-")	=IFERROR((R97-Q97)/Q97,"-")	=IFERROR((S97-R97)/R97,"-")	=IFERROR((T97-S97)/S97,"-")	=IFERROR((U97-T97)/T97,"-")	=IFERROR((V97-U97)/U97,"-")	=IFERROR((W97-V97)/V97,"-")	=IFERROR((X97-W97)/W97,"-")	=IFERROR((Y97-X97)/X97,"-")	=IFERROR((Z97-Y97)/Y97,"-")	=IFERROR((AA97-Z97)/Z97,"-")
+	=IF('Workout Setup'!#REF!=0,"",'Workout Setup'!#REF!)	='Week 1'!#REF!	='Week 2'!#REF!	='Week 3'!#REF!	='Week 4'!#REF!	='Week 5'!#REF!	='Week 6'!#REF!	='Week 7'!#REF!	='Week 8'!#REF!	='Week 9'!#REF!	='Week 10'!#REF!	='Week 11'!#REF!	='Week 12'!#REF!		='Week 1'!#REF!	='Week 2'!#REF!	='Week 3'!#REF!	='Week 4'!#REF!	='Week 5'!#REF!	='Week 6'!#REF!	='Week 7'!#REF!	='Week 8'!#REF!	='Week 9'!#REF!	='Week 10'!#REF!	='Week 11'!#REF!	='Week 12'!#REF!
+		-	=IFERROR((D99-C99)/C99,"-")	=IFERROR((E99-D99)/D99,"-")	=IFERROR((F99-E99)/E99,"-")	=IFERROR((G99-F99)/F99,"-")	=IFERROR((H99-G99)/G99,"-")	=IFERROR((I99-H99)/H99,"-")	=IFERROR((J99-I99)/I99,"-")	=IFERROR((K99-J99)/J99,"-")	=IFERROR((L99-K99)/K99,"-")	=IFERROR((M99-L99)/L99,"-")	=IFERROR((N99-M99)/M99,"-")		-	=IFERROR((Q99-P99)/P99,"-")	=IFERROR((R99-Q99)/Q99,"-")	=IFERROR((S99-R99)/R99,"-")	=IFERROR((T99-S99)/S99,"-")	=IFERROR((U99-T99)/T99,"-")	=IFERROR((V99-U99)/U99,"-")	=IFERROR((W99-V99)/V99,"-")	=IFERROR((X99-W99)/W99,"-")	=IFERROR((Y99-X99)/X99,"-")	=IFERROR((Z99-Y99)/Y99,"-")	=IFERROR((AA99-Z99)/Z99,"-")
+	=IF('Workout Setup'!#REF!=0,"",'Workout Setup'!#REF!)	='Week 1'!#REF!	='Week 2'!#REF!	='Week 3'!#REF!	='Week 4'!#REF!	='Week 5'!#REF!	='Week 6'!#REF!	='Week 7'!#REF!	='Week 8'!#REF!	='Week 9'!#REF!	='Week 10'!#REF!	='Week 11'!#REF!	='Week 12'!#REF!		='Week 1'!#REF!	='Week 2'!#REF!	='Week 3'!#REF!	='Week 4'!#REF!	='Week 5'!#REF!	='Week 6'!#REF!	='Week 7'!#REF!	='Week 8'!#REF!	='Week 9'!#REF!	='Week 10'!#REF!	='Week 11'!#REF!	='Week 12'!#REF!
+		-	=IFERROR((D101-C101)/C101,"-")	=IFERROR((E101-D101)/D101,"-")	=IFERROR((F101-E101)/E101,"-")	=IFERROR((G101-F101)/F101,"-")	=IFERROR((H101-G101)/G101,"-")	=IFERROR((I101-H101)/H101,"-")	=IFERROR((J101-I101)/I101,"-")	=IFERROR((K101-J101)/J101,"-")	=IFERROR((L101-K101)/K101,"-")	=IFERROR((M101-L101)/L101,"-")	=IFERROR((N101-M101)/M101,"-")		-	=IFERROR((Q101-P101)/P101,"-")	=IFERROR((R101-Q101)/Q101,"-")	=IFERROR((S101-R101)/R101,"-")	=IFERROR((T101-S101)/S101,"-")	=IFERROR((U101-T101)/T101,"-")	=IFERROR((V101-U101)/U101,"-")	=IFERROR((W101-V101)/V101,"-")	=IFERROR((X101-W101)/W101,"-")	=IFERROR((Y101-X101)/X101,"-")	=IFERROR((Z101-Y101)/Y101,"-")	=IFERROR((AA101-Z101)/Z101,"-")
+	=IF('Workout Setup'!#REF!=0,"",'Workout Setup'!#REF!)	='Week 1'!#REF!	='Week 2'!#REF!	='Week 3'!#REF!	='Week 4'!#REF!	='Week 5'!#REF!	='Week 6'!#REF!	='Week 7'!#REF!	='Week 8'!#REF!	='Week 9'!#REF!	='Week 10'!#REF!	='Week 11'!#REF!	='Week 12'!#REF!		='Week 1'!#REF!	='Week 2'!#REF!	='Week 3'!#REF!	='Week 4'!#REF!	='Week 5'!#REF!	='Week 6'!#REF!	='Week 7'!#REF!	='Week 8'!#REF!	='Week 9'!#REF!	='Week 10'!#REF!	='Week 11'!#REF!	='Week 12'!#REF!
+		-	=IFERROR((D103-C103)/C103,"-")	=IFERROR((E103-D103)/D103,"-")	=IFERROR((F103-E103)/E103,"-")	=IFERROR((G103-F103)/F103,"-")	=IFERROR((H103-G103)/G103,"-")	=IFERROR((I103-H103)/H103,"-")	=IFERROR((J103-I103)/I103,"-")	=IFERROR((K103-J103)/J103,"-")	=IFERROR((L103-K103)/K103,"-")	=IFERROR((M103-L103)/L103,"-")	=IFERROR((N103-M103)/M103,"-")		-	=IFERROR((Q103-P103)/P103,"-")	=IFERROR((R103-Q103)/Q103,"-")	=IFERROR((S103-R103)/R103,"-")	=IFERROR((T103-S103)/S103,"-")	=IFERROR((U103-T103)/T103,"-")	=IFERROR((V103-U103)/U103,"-")	=IFERROR((W103-V103)/V103,"-")	=IFERROR((X103-W103)/W103,"-")	=IFERROR((Y103-X103)/X103,"-")	=IFERROR((Z103-Y103)/Y103,"-")	=IFERROR((AA103-Z103)/Z103,"-")
+	=IF('Workout Setup'!#REF!=0,"",'Workout Setup'!#REF!)	='Week 1'!#REF!	='Week 2'!#REF!	='Week 3'!#REF!	='Week 4'!#REF!	='Week 5'!#REF!	='Week 6'!#REF!	='Week 7'!#REF!	='Week 8'!#REF!	='Week 9'!#REF!	='Week 10'!#REF!	='Week 11'!#REF!	='Week 12'!#REF!		='Week 1'!#REF!	='Week 2'!#REF!	='Week 3'!#REF!	='Week 4'!#REF!	='Week 5'!#REF!	='Week 6'!#REF!	='Week 7'!#REF!	='Week 8'!#REF!	='Week 9'!#REF!	='Week 10'!#REF!	='Week 11'!#REF!	='Week 12'!#REF!
+		-	=IFERROR((D105-C105)/C105,"-")	=IFERROR((E105-D105)/D105,"-")	=IFERROR((F105-E105)/E105,"-")	=IFERROR((G105-F105)/F105,"-")	=IFERROR((H105-G105)/G105,"-")	=IFERROR((I105-H105)/H105,"-")	=IFERROR((J105-I105)/I105,"-")	=IFERROR((K105-J105)/J105,"-")	=IFERROR((L105-K105)/K105,"-")	=IFERROR((M105-L105)/L105,"-")	=IFERROR((N105-M105)/M105,"-")		-	=IFERROR((Q105-P105)/P105,"-")	=IFERROR((R105-Q105)/Q105,"-")	=IFERROR((S105-R105)/R105,"-")	=IFERROR((T105-S105)/S105,"-")	=IFERROR((U105-T105)/T105,"-")	=IFERROR((V105-U105)/U105,"-")	=IFERROR((W105-V105)/V105,"-")	=IFERROR((X105-W105)/W105,"-")	=IFERROR((Y105-X105)/X105,"-")	=IFERROR((Z105-Y105)/Y105,"-")	=IFERROR((AA105-Z105)/Z105,"-")
+	=IF('Workout Setup'!#REF!=0,"",'Workout Setup'!#REF!)	='Week 1'!#REF!	='Week 2'!#REF!	='Week 3'!#REF!	='Week 4'!#REF!	='Week 5'!#REF!	='Week 6'!#REF!	='Week 7'!#REF!	='Week 8'!#REF!	='Week 9'!#REF!	='Week 10'!#REF!	='Week 11'!#REF!	='Week 12'!#REF!		='Week 1'!#REF!	='Week 2'!#REF!	='Week 3'!#REF!	='Week 4'!#REF!	='Week 5'!#REF!	='Week 6'!#REF!	='Week 7'!#REF!	='Week 8'!#REF!	='Week 9'!#REF!	='Week 10'!#REF!	='Week 11'!#REF!	='Week 12'!#REF!
+		-	=IFERROR((D107-C107)/C107,"-")	=IFERROR((E107-D107)/D107,"-")	=IFERROR((F107-E107)/E107,"-")	=IFERROR((G107-F107)/F107,"-")	=IFERROR((H107-G107)/G107,"-")	=IFERROR((I107-H107)/H107,"-")	=IFERROR((J107-I107)/I107,"-")	=IFERROR((K107-J107)/J107,"-")	=IFERROR((L107-K107)/K107,"-")	=IFERROR((M107-L107)/L107,"-")	=IFERROR((N107-M107)/M107,"-")		-	=IFERROR((Q107-P107)/P107,"-")	=IFERROR((R107-Q107)/Q107,"-")	=IFERROR((S107-R107)/R107,"-")	=IFERROR((T107-S107)/S107,"-")	=IFERROR((U107-T107)/T107,"-")	=IFERROR((V107-U107)/U107,"-")	=IFERROR((W107-V107)/V107,"-")	=IFERROR((X107-W107)/W107,"-")	=IFERROR((Y107-X107)/X107,"-")	=IFERROR((Z107-Y107)/Y107,"-")	=IFERROR((AA107-Z107)/Z107,"-")
+--- Sheet: Workout Setup ---
+Day 1	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Note
+	Glutes_Hamstrings	Barbell Glute Bridge	3	8 - 12	30		
+	Glutes_Hamstrings	Barbell Hip Thrust	3	8 - 12	30		
+	Glutes_Hamstrings	Cable One-Legged Kickback	3	8 - 12	30		
+	Quadriceps	Barbell Squat	3	8 - 12	30		
+	Quadriceps	Machine Laying Leg Press	3	8 - 12	30		
+	Quadriceps	Body Weight Bulgarian Split-Squat	3	8 - 12	30		
+	Calves	Dumbbell Calf Raise	3	15 - 20	30		
+	Quadriceps	Machine Calf Raise	3	15 - 20	30		
+							
+							
+Day 2	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Note
+	Back	Cable Narrow-Grip Lat Pull-Down	3	8 - 12	30		
+	Back	Cable Wide-Grip Lat Pull-Down	3	8 - 12	30		
+	Back	Machine Back Extension	3	8 - 12	30		
+	Triceps	Body Weight Bench Dip	3	8 - 12	30		
+	Triceps	Cable Overhead Triceps Extension	3	8 - 12	30		
+	Triceps	Machine Triceps Extension	3	8 - 12	30		
+	Abs	Body Weight Hanging Leg Raise	3	15 - 20	30		
+	Abs	Body Weight Ab Crunch	3	15 - 20	30		
+							
+							
+Day 3	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Note
+	Biceps	Dumbbell Hammer Biceps Curl	3	8 - 12	30		
+	Biceps	Dumbbell Incline Bench Biceps Curl	3	8 - 12	30		
+	Biceps	Barbell Preacher Biceps Curl	3	8 - 12	30		
+	Shoulders	Dumbbell Side Lateral Raise	3	8 - 12	30		
+	Shoulders	Dumbbell Seated Shoulder Press	3	8 - 12	30		
+	Shoulders	Dumbbell Front Raise	3	8 - 12	30		
+	Chest	Machine Chest Press	3	8 - 12	30		
+	Chest	Weighted Dip (Chest Variation)	3	8 - 12	30		
+							
+							
+Day 4	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Note
+	Glutes_Hamstrings	Banded Leg Extension	3	20 - 25	30		
+	Quadriceps	Dumbbell Goblet Squat	3	8 - 10	30		
+	Quadriceps	Hip Ab/Adduction (Pulse)	3	6 - 8	30		
+	Other	ITB release via Foam roller	3	8 - 12	30		
+	Other	TFL release via Trigger ball	3	8 - 12	30		
+	Calves	Single Leg Seated Calf Raise	3	12 - 15	30		
+	Calves	Machine Calf Raise	3	12 - 15	30		
+	Glutes_Hamstrings	Double Leg Hamstring Bridge	3	15 - 20	30		
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+--- Sheet: Week 1 ---
+Day 1	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Workout Setup'!B2=0,"",'Workout Setup'!B2)	=IF('Workout Setup'!C2=0,"",'Workout Setup'!C2)	=IF('Workout Setup'!D2=0,"",'Workout Setup'!D2)	=IF('Workout Setup'!E2=0,"",'Workout Setup'!E2)	=IF('Workout Setup'!F2=0,"",'Workout Setup'!F2)	='Workout Setup'!G2		=IF(H2*G2=0,"",H2*G2)	=IF('Workout Setup'!H2=0,"",'Workout Setup'!H2)
+	=IF('Workout Setup'!B3=0,"",'Workout Setup'!B3)	=IF('Workout Setup'!C3=0,"",'Workout Setup'!C3)	=IF('Workout Setup'!D3=0,"",'Workout Setup'!D3)	=IF('Workout Setup'!E3=0,"",'Workout Setup'!E3)	=IF('Workout Setup'!F3=0,"",'Workout Setup'!F3)	='Workout Setup'!G3		=IF(H3*G3=0,"",H3*G3)	=IF('Workout Setup'!H3=0,"",'Workout Setup'!H3)
+	=IF('Workout Setup'!B4=0,"",'Workout Setup'!B4)	=IF('Workout Setup'!C4=0,"",'Workout Setup'!C4)	=IF('Workout Setup'!D4=0,"",'Workout Setup'!D4)	=IF('Workout Setup'!E4=0,"",'Workout Setup'!E4)	=IF('Workout Setup'!F4=0,"",'Workout Setup'!F4)	='Workout Setup'!G4		=IF(H4*G4=0,"",H4*G4)	=IF('Workout Setup'!H4=0,"",'Workout Setup'!H4)
+	=IF('Workout Setup'!B5=0,"",'Workout Setup'!B5)	=IF('Workout Setup'!C5=0,"",'Workout Setup'!C5)	=IF('Workout Setup'!D5=0,"",'Workout Setup'!D5)	=IF('Workout Setup'!E5=0,"",'Workout Setup'!E5)	=IF('Workout Setup'!F5=0,"",'Workout Setup'!F5)	='Workout Setup'!G5		=IF(H5*G5=0,"",H5*G5)	=IF('Workout Setup'!H5=0,"",'Workout Setup'!H5)
+	=IF('Workout Setup'!B6=0,"",'Workout Setup'!B6)	=IF('Workout Setup'!C6=0,"",'Workout Setup'!C6)	=IF('Workout Setup'!D6=0,"",'Workout Setup'!D6)	=IF('Workout Setup'!E6=0,"",'Workout Setup'!E6)	=IF('Workout Setup'!F6=0,"",'Workout Setup'!F6)	='Workout Setup'!G6		=IF(H6*G6=0,"",H6*G6)	=IF('Workout Setup'!H6=0,"",'Workout Setup'!H6)
+	=IF('Workout Setup'!B7=0,"",'Workout Setup'!B7)	=IF('Workout Setup'!C7=0,"",'Workout Setup'!C7)	=IF('Workout Setup'!D7=0,"",'Workout Setup'!D7)	=IF('Workout Setup'!E7=0,"",'Workout Setup'!E7)	=IF('Workout Setup'!F7=0,"",'Workout Setup'!F7)	='Workout Setup'!G7		=IF(H7*G7=0,"",H7*G7)	=IF('Workout Setup'!H7=0,"",'Workout Setup'!H7)
+	=IF('Workout Setup'!B8=0,"",'Workout Setup'!B8)	=IF('Workout Setup'!C8=0,"",'Workout Setup'!C8)	=IF('Workout Setup'!D8=0,"",'Workout Setup'!D8)	=IF('Workout Setup'!E8=0,"",'Workout Setup'!E8)	=IF('Workout Setup'!F8=0,"",'Workout Setup'!F8)	='Workout Setup'!G8		=IF(H8*G8=0,"",H8*G8)	=IF('Workout Setup'!H8=0,"",'Workout Setup'!H8)
+	=IF('Workout Setup'!B9=0,"",'Workout Setup'!B9)	=IF('Workout Setup'!C9=0,"",'Workout Setup'!C9)	=IF('Workout Setup'!D9=0,"",'Workout Setup'!D9)	=IF('Workout Setup'!E9=0,"",'Workout Setup'!E9)	=IF('Workout Setup'!F9=0,"",'Workout Setup'!F9)	='Workout Setup'!G9		=IF(H9*G9=0,"",H9*G9)	=IF('Workout Setup'!H9=0,"",'Workout Setup'!H9)
+									
+									
+Day 2	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Workout Setup'!B13=0,"",'Workout Setup'!B13)	=IF('Workout Setup'!C13=0,"",'Workout Setup'!C13)	=IF('Workout Setup'!D13=0,"",'Workout Setup'!D13)	=IF('Workout Setup'!E13=0,"",'Workout Setup'!E13)	=IF('Workout Setup'!F13=0,"",'Workout Setup'!F13)	='Workout Setup'!G13		=IF(H13*G13=0,"",H13*G13)	=IF('Workout Setup'!H13=0,"",'Workout Setup'!H13)
+	=IF('Workout Setup'!B14=0,"",'Workout Setup'!B14)	=IF('Workout Setup'!C14=0,"",'Workout Setup'!C14)	=IF('Workout Setup'!D14=0,"",'Workout Setup'!D14)	=IF('Workout Setup'!E14=0,"",'Workout Setup'!E14)	=IF('Workout Setup'!F14=0,"",'Workout Setup'!F14)	='Workout Setup'!G14		=IF(H14*G14=0,"",H14*G14)	=IF('Workout Setup'!H14=0,"",'Workout Setup'!H14)
+	=IF('Workout Setup'!B15=0,"",'Workout Setup'!B15)	=IF('Workout Setup'!C15=0,"",'Workout Setup'!C15)	=IF('Workout Setup'!D15=0,"",'Workout Setup'!D15)	=IF('Workout Setup'!E15=0,"",'Workout Setup'!E15)	=IF('Workout Setup'!F15=0,"",'Workout Setup'!F15)	='Workout Setup'!G15		=IF(H15*G15=0,"",H15*G15)	=IF('Workout Setup'!H15=0,"",'Workout Setup'!H15)
+	=IF('Workout Setup'!B16=0,"",'Workout Setup'!B16)	=IF('Workout Setup'!C16=0,"",'Workout Setup'!C16)	=IF('Workout Setup'!D16=0,"",'Workout Setup'!D16)	=IF('Workout Setup'!E16=0,"",'Workout Setup'!E16)	=IF('Workout Setup'!F16=0,"",'Workout Setup'!F16)	='Workout Setup'!G16		=IF(H16*G16=0,"",H16*G16)	=IF('Workout Setup'!H16=0,"",'Workout Setup'!H16)
+	=IF('Workout Setup'!B17=0,"",'Workout Setup'!B17)	=IF('Workout Setup'!C17=0,"",'Workout Setup'!C17)	=IF('Workout Setup'!D17=0,"",'Workout Setup'!D17)	=IF('Workout Setup'!E17=0,"",'Workout Setup'!E17)	=IF('Workout Setup'!F17=0,"",'Workout Setup'!F17)	='Workout Setup'!G17		=IF(H17*G17=0,"",H17*G17)	=IF('Workout Setup'!H17=0,"",'Workout Setup'!H17)
+	=IF('Workout Setup'!B18=0,"",'Workout Setup'!B18)	=IF('Workout Setup'!C18=0,"",'Workout Setup'!C18)	=IF('Workout Setup'!D18=0,"",'Workout Setup'!D18)	=IF('Workout Setup'!E18=0,"",'Workout Setup'!E18)	=IF('Workout Setup'!F18=0,"",'Workout Setup'!F18)	='Workout Setup'!G18		=IF(H18*G18=0,"",H18*G18)	=IF('Workout Setup'!H18=0,"",'Workout Setup'!H18)
+	=IF('Workout Setup'!B19=0,"",'Workout Setup'!B19)	=IF('Workout Setup'!C19=0,"",'Workout Setup'!C19)	=IF('Workout Setup'!D19=0,"",'Workout Setup'!D19)	=IF('Workout Setup'!E19=0,"",'Workout Setup'!E19)	=IF('Workout Setup'!F19=0,"",'Workout Setup'!F19)	='Workout Setup'!G19		=IF(H19*G19=0,"",H19*G19)	=IF('Workout Setup'!H19=0,"",'Workout Setup'!H19)
+	=IF('Workout Setup'!B20=0,"",'Workout Setup'!B20)	=IF('Workout Setup'!C20=0,"",'Workout Setup'!C20)	=IF('Workout Setup'!D20=0,"",'Workout Setup'!D20)	=IF('Workout Setup'!E20=0,"",'Workout Setup'!E20)	=IF('Workout Setup'!F20=0,"",'Workout Setup'!F20)	='Workout Setup'!G20		=IF(H20*G20=0,"",H20*G20)	=IF('Workout Setup'!H20=0,"",'Workout Setup'!H20)
+									
+									
+Day 3	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Workout Setup'!B24=0,"",'Workout Setup'!B24)	=IF('Workout Setup'!C24=0,"",'Workout Setup'!C24)	=IF('Workout Setup'!D24=0,"",'Workout Setup'!D24)	=IF('Workout Setup'!E24=0,"",'Workout Setup'!E24)	=IF('Workout Setup'!F24=0,"",'Workout Setup'!F24)	='Workout Setup'!G24		=IF(H24*G24=0,"",H24*G24)	=IF('Workout Setup'!H24=0,"",'Workout Setup'!H24)
+	=IF('Workout Setup'!B25=0,"",'Workout Setup'!B25)	=IF('Workout Setup'!C25=0,"",'Workout Setup'!C25)	=IF('Workout Setup'!D25=0,"",'Workout Setup'!D25)	=IF('Workout Setup'!E25=0,"",'Workout Setup'!E25)	=IF('Workout Setup'!F25=0,"",'Workout Setup'!F25)	='Workout Setup'!G25		=IF(H25*G25=0,"",H25*G25)	=IF('Workout Setup'!H25=0,"",'Workout Setup'!H25)
+	=IF('Workout Setup'!B26=0,"",'Workout Setup'!B26)	=IF('Workout Setup'!C26=0,"",'Workout Setup'!C26)	=IF('Workout Setup'!D26=0,"",'Workout Setup'!D26)	=IF('Workout Setup'!E26=0,"",'Workout Setup'!E26)	=IF('Workout Setup'!F26=0,"",'Workout Setup'!F26)	='Workout Setup'!G26		=IF(H26*G26=0,"",H26*G26)	=IF('Workout Setup'!H26=0,"",'Workout Setup'!H26)
+	=IF('Workout Setup'!B27=0,"",'Workout Setup'!B27)	=IF('Workout Setup'!C27=0,"",'Workout Setup'!C27)	=IF('Workout Setup'!D27=0,"",'Workout Setup'!D27)	=IF('Workout Setup'!E27=0,"",'Workout Setup'!E27)	=IF('Workout Setup'!F27=0,"",'Workout Setup'!F27)	='Workout Setup'!G27		=IF(H27*G27=0,"",H27*G27)	=IF('Workout Setup'!H27=0,"",'Workout Setup'!H27)
+	=IF('Workout Setup'!B28=0,"",'Workout Setup'!B28)	=IF('Workout Setup'!C28=0,"",'Workout Setup'!C28)	=IF('Workout Setup'!D28=0,"",'Workout Setup'!D28)	=IF('Workout Setup'!E28=0,"",'Workout Setup'!E28)	=IF('Workout Setup'!F28=0,"",'Workout Setup'!F28)	='Workout Setup'!G28		=IF(H28*G28=0,"",H28*G28)	=IF('Workout Setup'!H28=0,"",'Workout Setup'!H28)
+	=IF('Workout Setup'!B29=0,"",'Workout Setup'!B29)	=IF('Workout Setup'!C29=0,"",'Workout Setup'!C29)	=IF('Workout Setup'!D29=0,"",'Workout Setup'!D29)	=IF('Workout Setup'!E29=0,"",'Workout Setup'!E29)	=IF('Workout Setup'!F29=0,"",'Workout Setup'!F29)	='Workout Setup'!G29		=IF(H29*G29=0,"",H29*G29)	=IF('Workout Setup'!H29=0,"",'Workout Setup'!H29)
+	=IF('Workout Setup'!B30=0,"",'Workout Setup'!B30)	=IF('Workout Setup'!C30=0,"",'Workout Setup'!C30)	=IF('Workout Setup'!D30=0,"",'Workout Setup'!D30)	=IF('Workout Setup'!E30=0,"",'Workout Setup'!E30)	=IF('Workout Setup'!F30=0,"",'Workout Setup'!F30)	='Workout Setup'!G30		=IF(H30*G30=0,"",H30*G30)	=IF('Workout Setup'!H30=0,"",'Workout Setup'!H30)
+	=IF('Workout Setup'!B31=0,"",'Workout Setup'!B31)	=IF('Workout Setup'!C31=0,"",'Workout Setup'!C31)	=IF('Workout Setup'!D31=0,"",'Workout Setup'!D31)	=IF('Workout Setup'!E31=0,"",'Workout Setup'!E31)	=IF('Workout Setup'!F31=0,"",'Workout Setup'!F31)	='Workout Setup'!G31		=IF(H31*G31=0,"",H31*G31)	=IF('Workout Setup'!H31=0,"",'Workout Setup'!H31)
+									
+									
+Day 4	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Notes
+	=IF('Workout Setup'!B35=0,"",'Workout Setup'!B35)	=IF('Workout Setup'!C35=0,"",'Workout Setup'!C35)	=IF('Workout Setup'!D35=0,"",'Workout Setup'!D35)	=IF('Workout Setup'!E35=0,"",'Workout Setup'!E35)	=IF('Workout Setup'!F35=0,"",'Workout Setup'!F35)	='Workout Setup'!G35		=IF(H35*G35=0,"",H35*G35)	=IF('Workout Setup'!H35=0,"",'Workout Setup'!H35)
+	=IF('Workout Setup'!B36=0,"",'Workout Setup'!B36)	=IF('Workout Setup'!C36=0,"",'Workout Setup'!C36)	=IF('Workout Setup'!D36=0,"",'Workout Setup'!D36)	=IF('Workout Setup'!E36=0,"",'Workout Setup'!E36)	=IF('Workout Setup'!F36=0,"",'Workout Setup'!F36)	='Workout Setup'!G36		=IF(H36*G36=0,"",H36*G36)	=IF('Workout Setup'!H36=0,"",'Workout Setup'!H36)
+	=IF('Workout Setup'!B37=0,"",'Workout Setup'!B37)	=IF('Workout Setup'!C37=0,"",'Workout Setup'!C37)	=IF('Workout Setup'!D37=0,"",'Workout Setup'!D37)	=IF('Workout Setup'!E37=0,"",'Workout Setup'!E37)	=IF('Workout Setup'!F37=0,"",'Workout Setup'!F37)	='Workout Setup'!G37		=IF(H37*G37=0,"",H37*G37)	=IF('Workout Setup'!H37=0,"",'Workout Setup'!H37)
+	=IF('Workout Setup'!B38=0,"",'Workout Setup'!B38)	=IF('Workout Setup'!C38=0,"",'Workout Setup'!C38)	=IF('Workout Setup'!D38=0,"",'Workout Setup'!D38)	=IF('Workout Setup'!E38=0,"",'Workout Setup'!E38)	=IF('Workout Setup'!F38=0,"",'Workout Setup'!F38)	='Workout Setup'!G38		=IF(H38*G38=0,"",H38*G38)	=IF('Workout Setup'!H38=0,"",'Workout Setup'!H38)
+	=IF('Workout Setup'!B39=0,"",'Workout Setup'!B39)	=IF('Workout Setup'!C39=0,"",'Workout Setup'!C39)	=IF('Workout Setup'!D39=0,"",'Workout Setup'!D39)	=IF('Workout Setup'!E39=0,"",'Workout Setup'!E39)	=IF('Workout Setup'!F39=0,"",'Workout Setup'!F39)	='Workout Setup'!G39		=IF(H39*G39=0,"",H39*G39)	=IF('Workout Setup'!H39=0,"",'Workout Setup'!H39)
+	=IF('Workout Setup'!B40=0,"",'Workout Setup'!B40)	=IF('Workout Setup'!C40=0,"",'Workout Setup'!C40)	=IF('Workout Setup'!D40=0,"",'Workout Setup'!D40)	=IF('Workout Setup'!E40=0,"",'Workout Setup'!E40)	=IF('Workout Setup'!F40=0,"",'Workout Setup'!F40)	='Workout Setup'!G40		=IF(H40*G40=0,"",H40*G40)	=IF('Workout Setup'!H40=0,"",'Workout Setup'!H40)
+	=IF('Workout Setup'!B41=0,"",'Workout Setup'!B41)	=IF('Workout Setup'!C41=0,"",'Workout Setup'!C41)	=IF('Workout Setup'!D41=0,"",'Workout Setup'!D41)	=IF('Workout Setup'!E41=0,"",'Workout Setup'!E41)	=IF('Workout Setup'!F41=0,"",'Workout Setup'!F41)	='Workout Setup'!G41		=IF(H41*G41=0,"",H41*G41)	=IF('Workout Setup'!H41=0,"",'Workout Setup'!H41)
+	=IF('Workout Setup'!B42=0,"",'Workout Setup'!B42)	=IF('Workout Setup'!C42=0,"",'Workout Setup'!C42)	=IF('Workout Setup'!D42=0,"",'Workout Setup'!D42)	=IF('Workout Setup'!E42=0,"",'Workout Setup'!E42)	=IF('Workout Setup'!F42=0,"",'Workout Setup'!F42)	='Workout Setup'!G42		=IF(H42*G42=0,"",H42*G42)	=IF('Workout Setup'!H42=0,"",'Workout Setup'!H42)
+									
+									
+--- Sheet: Week 2 ---
+Day 1	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 1'!B2=0,"",'Week 1'!B2)	=IF('Week 1'!C2=0,"",'Week 1'!C2)	=IF('Week 1'!D2=0,"",'Week 1'!D2)	=IF('Week 1'!E2=0,"",'Week 1'!E2)	=IF('Week 1'!F2=0,"",'Week 1'!F2)	='Week 1'!G2	='Week 1'!H2	=IF(H2*G2=0,"",H2*G2)	=IF('Week 1'!J2=0,"",'Week 1'!J2)
+	=IF('Week 1'!B3=0,"",'Week 1'!B3)	=IF('Week 1'!C3=0,"",'Week 1'!C3)	=IF('Week 1'!D3=0,"",'Week 1'!D3)	=IF('Week 1'!E3=0,"",'Week 1'!E3)	=IF('Week 1'!F3=0,"",'Week 1'!F3)	='Week 1'!G3	='Week 1'!H3	=IF(H3*G3=0,"",H3*G3)	=IF('Week 1'!J3=0,"",'Week 1'!J3)
+	=IF('Week 1'!B4=0,"",'Week 1'!B4)	=IF('Week 1'!C4=0,"",'Week 1'!C4)	=IF('Week 1'!D4=0,"",'Week 1'!D4)	=IF('Week 1'!E4=0,"",'Week 1'!E4)	=IF('Week 1'!F4=0,"",'Week 1'!F4)	='Week 1'!G4	='Week 1'!H4	=IF(H4*G4=0,"",H4*G4)	=IF('Week 1'!J4=0,"",'Week 1'!J4)
+	=IF('Week 1'!B5=0,"",'Week 1'!B5)	=IF('Week 1'!C5=0,"",'Week 1'!C5)	=IF('Week 1'!D5=0,"",'Week 1'!D5)	=IF('Week 1'!E5=0,"",'Week 1'!E5)	=IF('Week 1'!F5=0,"",'Week 1'!F5)	='Week 1'!G5	='Week 1'!H5	=IF(H5*G5=0,"",H5*G5)	=IF('Week 1'!J5=0,"",'Week 1'!J5)
+	=IF('Week 1'!B6=0,"",'Week 1'!B6)	=IF('Week 1'!C6=0,"",'Week 1'!C6)	=IF('Week 1'!D6=0,"",'Week 1'!D6)	=IF('Week 1'!E6=0,"",'Week 1'!E6)	=IF('Week 1'!F6=0,"",'Week 1'!F6)	='Week 1'!G6	='Week 1'!H6	=IF(H6*G6=0,"",H6*G6)	=IF('Week 1'!J6=0,"",'Week 1'!J6)
+	=IF('Week 1'!B7=0,"",'Week 1'!B7)	=IF('Week 1'!C7=0,"",'Week 1'!C7)	=IF('Week 1'!D7=0,"",'Week 1'!D7)	=IF('Week 1'!E7=0,"",'Week 1'!E7)	=IF('Week 1'!F7=0,"",'Week 1'!F7)	='Week 1'!G7	='Week 1'!H7	=IF(H7*G7=0,"",H7*G7)	=IF('Week 1'!J7=0,"",'Week 1'!J7)
+	=IF('Week 1'!B8=0,"",'Week 1'!B8)	=IF('Week 1'!C8=0,"",'Week 1'!C8)	=IF('Week 1'!D8=0,"",'Week 1'!D8)	=IF('Week 1'!E8=0,"",'Week 1'!E8)	=IF('Week 1'!F8=0,"",'Week 1'!F8)	='Week 1'!G8	='Week 1'!H8	=IF(H8*G8=0,"",H8*G8)	=IF('Week 1'!J8=0,"",'Week 1'!J8)
+	=IF('Week 1'!B9=0,"",'Week 1'!B9)	=IF('Week 1'!C9=0,"",'Week 1'!C9)	=IF('Week 1'!D9=0,"",'Week 1'!D9)	=IF('Week 1'!E9=0,"",'Week 1'!E9)	=IF('Week 1'!F9=0,"",'Week 1'!F9)	='Week 1'!G9	='Week 1'!H9	=IF(H9*G9=0,"",H9*G9)	=IF('Week 1'!J9=0,"",'Week 1'!J9)
+									
+									
+Day 2	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 1'!B13=0,"",'Week 1'!B13)	=IF('Week 1'!C13=0,"",'Week 1'!C13)	=IF('Week 1'!D13=0,"",'Week 1'!D13)	=IF('Week 1'!E13=0,"",'Week 1'!E13)	=IF('Week 1'!F13=0,"",'Week 1'!F13)	='Week 1'!G13	='Week 1'!H13	=IF(H13*G13=0,"",H13*G13)	=IF('Week 1'!J13=0,"",'Week 1'!J13)
+	=IF('Week 1'!B14=0,"",'Week 1'!B14)	=IF('Week 1'!C14=0,"",'Week 1'!C14)	=IF('Week 1'!D14=0,"",'Week 1'!D14)	=IF('Week 1'!E14=0,"",'Week 1'!E14)	=IF('Week 1'!F14=0,"",'Week 1'!F14)	='Week 1'!G14	='Week 1'!H14	=IF(H14*G14=0,"",H14*G14)	=IF(#REF!=0,"",#REF!)
+	=IF('Week 1'!B15=0,"",'Week 1'!B15)	=IF('Week 1'!C15=0,"",'Week 1'!C15)	=IF('Week 1'!D15=0,"",'Week 1'!D15)	=IF('Week 1'!E15=0,"",'Week 1'!E15)	=IF('Week 1'!F15=0,"",'Week 1'!F15)	='Week 1'!G15	='Week 1'!H15	=IF(H15*G15=0,"",H15*G15)	=IF('Week 1'!J15=0,"",'Week 1'!J15)
+	=IF('Week 1'!B16=0,"",'Week 1'!B16)	=IF('Week 1'!C16=0,"",'Week 1'!C16)	=IF('Week 1'!D16=0,"",'Week 1'!D16)	=IF('Week 1'!E16=0,"",'Week 1'!E16)	=IF('Week 1'!F16=0,"",'Week 1'!F16)	='Week 1'!G16	='Week 1'!H16	=IF(H16*G16=0,"",H16*G16)	=IF('Week 1'!J16=0,"",'Week 1'!J16)
+	=IF('Week 1'!B17=0,"",'Week 1'!B17)	=IF('Week 1'!C17=0,"",'Week 1'!C17)	=IF('Week 1'!D17=0,"",'Week 1'!D17)	=IF('Week 1'!E17=0,"",'Week 1'!E17)	=IF('Week 1'!F17=0,"",'Week 1'!F17)	='Week 1'!G17	='Week 1'!H17	=IF(H17*G17=0,"",H17*G17)	=IF('Week 1'!J17=0,"",'Week 1'!J17)
+	=IF('Week 1'!B18=0,"",'Week 1'!B18)	=IF('Week 1'!C18=0,"",'Week 1'!C18)	=IF('Week 1'!D18=0,"",'Week 1'!D18)	=IF('Week 1'!E18=0,"",'Week 1'!E18)	=IF('Week 1'!F18=0,"",'Week 1'!F18)	='Week 1'!G18	='Week 1'!H18	=IF(H18*G18=0,"",H18*G18)	=IF('Week 1'!J18=0,"",'Week 1'!J18)
+	=IF('Week 1'!B19=0,"",'Week 1'!B19)	=IF('Week 1'!C19=0,"",'Week 1'!C19)	=IF('Week 1'!D19=0,"",'Week 1'!D19)	=IF('Week 1'!E19=0,"",'Week 1'!E19)	=IF('Week 1'!F19=0,"",'Week 1'!F19)	='Week 1'!G19	='Week 1'!H19	=IF(H19*G19=0,"",H19*G19)	=IF('Week 1'!J19=0,"",'Week 1'!J19)
+	=IF('Week 1'!B20=0,"",'Week 1'!B20)	=IF('Week 1'!C20=0,"",'Week 1'!C20)	=IF('Week 1'!D20=0,"",'Week 1'!D20)	=IF('Week 1'!E20=0,"",'Week 1'!E20)	=IF('Week 1'!F20=0,"",'Week 1'!F20)	='Week 1'!G20	='Week 1'!H20	=IF(H20*G20=0,"",H20*G20)	=IF('Week 1'!J20=0,"",'Week 1'!J20)
+									
+									
+Day 3	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 1'!B24=0,"",'Week 1'!B24)	=IF('Week 1'!C24=0,"",'Week 1'!C24)	=IF('Week 1'!D24=0,"",'Week 1'!D24)	=IF('Week 1'!E24=0,"",'Week 1'!E24)	=IF('Week 1'!F24=0,"",'Week 1'!F24)	='Week 1'!G24	='Week 1'!H24	=IF(H24*G24=0,"",H24*G24)	=IF('Week 1'!J24=0,"",'Week 1'!J24)
+	=IF('Week 1'!B25=0,"",'Week 1'!B25)	=IF('Week 1'!C25=0,"",'Week 1'!C25)	=IF('Week 1'!D25=0,"",'Week 1'!D25)	=IF('Week 1'!E25=0,"",'Week 1'!E25)	=IF('Week 1'!F25=0,"",'Week 1'!F25)	='Week 1'!G25	='Week 1'!H25	=IF(H25*G25=0,"",H25*G25)	=IF('Week 1'!J25=0,"",'Week 1'!J25)
+	=IF('Week 1'!B26=0,"",'Week 1'!B26)	=IF('Week 1'!C26=0,"",'Week 1'!C26)	=IF('Week 1'!D26=0,"",'Week 1'!D26)	=IF('Week 1'!E26=0,"",'Week 1'!E26)	=IF('Week 1'!F26=0,"",'Week 1'!F26)	='Week 1'!G26	='Week 1'!H26	=IF(H26*G26=0,"",H26*G26)	=IF('Week 1'!J26=0,"",'Week 1'!J26)
+	=IF('Week 1'!B27=0,"",'Week 1'!B27)	=IF('Week 1'!C27=0,"",'Week 1'!C27)	=IF('Week 1'!D27=0,"",'Week 1'!D27)	=IF('Week 1'!E27=0,"",'Week 1'!E27)	=IF('Week 1'!F27=0,"",'Week 1'!F27)	='Week 1'!G27	='Week 1'!H27	=IF(H27*G27=0,"",H27*G27)	=IF('Week 1'!J27=0,"",'Week 1'!J27)
+	=IF('Week 1'!B28=0,"",'Week 1'!B28)	=IF('Week 1'!C28=0,"",'Week 1'!C28)	=IF('Week 1'!D28=0,"",'Week 1'!D28)	=IF('Week 1'!E28=0,"",'Week 1'!E28)	=IF('Week 1'!F28=0,"",'Week 1'!F28)	='Week 1'!G28	='Week 1'!H28	=IF(H28*G28=0,"",H28*G28)	=IF('Week 1'!J28=0,"",'Week 1'!J28)
+	=IF('Week 1'!B29=0,"",'Week 1'!B29)	=IF('Week 1'!C29=0,"",'Week 1'!C29)	=IF('Week 1'!D29=0,"",'Week 1'!D29)	=IF('Week 1'!E29=0,"",'Week 1'!E29)	=IF('Week 1'!F29=0,"",'Week 1'!F29)	='Week 1'!G29	='Week 1'!H29	=IF(H29*G29=0,"",H29*G29)	=IF('Week 1'!J29=0,"",'Week 1'!J29)
+	=IF('Week 1'!B30=0,"",'Week 1'!B30)	=IF('Week 1'!C30=0,"",'Week 1'!C30)	=IF('Week 1'!D30=0,"",'Week 1'!D30)	=IF('Week 1'!E30=0,"",'Week 1'!E30)	=IF('Week 1'!F30=0,"",'Week 1'!F30)	='Week 1'!G30	='Week 1'!H30	=IF(H30*G30=0,"",H30*G30)	=IF('Week 1'!J30=0,"",'Week 1'!J30)
+	=IF('Week 1'!B31=0,"",'Week 1'!B31)	=IF('Week 1'!C31=0,"",'Week 1'!C31)	=IF('Week 1'!D31=0,"",'Week 1'!D31)	=IF('Week 1'!E31=0,"",'Week 1'!E31)	=IF('Week 1'!F31=0,"",'Week 1'!F31)	='Week 1'!G31	='Week 1'!H31	=IF(H31*G31=0,"",H31*G31)	=IF('Week 1'!J31=0,"",'Week 1'!J31)
+									
+									
+Day 4	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 1'!B35=0,"",'Week 1'!B35)	=IF('Week 1'!C35=0,"",'Week 1'!C35)	=IF('Week 1'!D35=0,"",'Week 1'!D35)	=IF('Week 1'!E35=0,"",'Week 1'!E35)	=IF('Week 1'!F35=0,"",'Week 1'!F35)	='Week 1'!G35	='Week 1'!H35	=IF(H35*G35=0,"",H35*G35)	=IF('Week 1'!J35=0,"",'Week 1'!J35)
+	=IF('Week 1'!B36=0,"",'Week 1'!B36)	=IF('Week 1'!C36=0,"",'Week 1'!C36)	=IF('Week 1'!D36=0,"",'Week 1'!D36)	=IF('Week 1'!E36=0,"",'Week 1'!E36)	=IF('Week 1'!F36=0,"",'Week 1'!F36)	='Week 1'!G36	='Week 1'!H36	=IF(H36*G36=0,"",H36*G36)	=IF('Week 1'!J36=0,"",'Week 1'!J36)
+	=IF('Week 1'!B37=0,"",'Week 1'!B37)	=IF('Week 1'!C37=0,"",'Week 1'!C37)	=IF('Week 1'!D37=0,"",'Week 1'!D37)	=IF('Week 1'!E37=0,"",'Week 1'!E37)	=IF('Week 1'!F37=0,"",'Week 1'!F37)	='Week 1'!G37	='Week 1'!H37	=IF(H37*G37=0,"",H37*G37)	=IF('Week 1'!J37=0,"",'Week 1'!J37)
+	=IF('Week 1'!B38=0,"",'Week 1'!B38)	=IF('Week 1'!C38=0,"",'Week 1'!C38)	=IF('Week 1'!D38=0,"",'Week 1'!D38)	=IF('Week 1'!E38=0,"",'Week 1'!E38)	=IF('Week 1'!F38=0,"",'Week 1'!F38)	='Week 1'!G38	='Week 1'!H38	=IF(H38*G38=0,"",H38*G38)	=IF('Week 1'!J38=0,"",'Week 1'!J38)
+	=IF('Week 1'!B39=0,"",'Week 1'!B39)	=IF('Week 1'!C39=0,"",'Week 1'!C39)	=IF('Week 1'!D39=0,"",'Week 1'!D39)	=IF('Week 1'!E39=0,"",'Week 1'!E39)	=IF('Week 1'!F39=0,"",'Week 1'!F39)	='Week 1'!G39	='Week 1'!H39	=IF(H39*G39=0,"",H39*G39)	=IF('Week 1'!J39=0,"",'Week 1'!J39)
+	=IF('Week 1'!B40=0,"",'Week 1'!B40)	=IF('Week 1'!C40=0,"",'Week 1'!C40)	=IF('Week 1'!D40=0,"",'Week 1'!D40)	=IF('Week 1'!E40=0,"",'Week 1'!E40)	=IF('Week 1'!F40=0,"",'Week 1'!F40)	='Week 1'!G40	='Week 1'!H40	=IF(H40*G40=0,"",H40*G40)	=IF('Week 1'!J40=0,"",'Week 1'!J40)
+	=IF('Week 1'!B41=0,"",'Week 1'!B41)	=IF('Week 1'!C41=0,"",'Week 1'!C41)	=IF('Week 1'!D41=0,"",'Week 1'!D41)	=IF('Week 1'!E41=0,"",'Week 1'!E41)	=IF('Week 1'!F41=0,"",'Week 1'!F41)	='Week 1'!G41	='Week 1'!H41	=IF(H41*G41=0,"",H41*G41)	=IF('Week 1'!J41=0,"",'Week 1'!J41)
+	=IF('Week 1'!B42=0,"",'Week 1'!B42)	=IF('Week 1'!C42=0,"",'Week 1'!C42)	=IF('Week 1'!D42=0,"",'Week 1'!D42)	=IF('Week 1'!E42=0,"",'Week 1'!E42)	=IF('Week 1'!F42=0,"",'Week 1'!F42)	='Week 1'!G42	='Week 1'!H42	=IF(H42*G42=0,"",H42*G42)	=IF('Week 1'!J42=0,"",'Week 1'!J42)
+									
+									
+--- Sheet: Week 3 ---
+Day 1	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 2'!B2=0,"",'Week 2'!B2)	=IF('Week 2'!C2=0,"",'Week 2'!C2)	=IF('Week 2'!D2=0,"",'Week 2'!D2)	=IF('Week 2'!E2=0,"",'Week 2'!E2)	=IF('Week 2'!F2=0,"",'Week 2'!F2)	='Week 2'!G2	='Week 2'!H2	=IF(H2*G2=0,"",H2*G2)	=IF('Week 2'!J2=0,"",'Week 2'!J2)
+	=IF('Week 2'!B3=0,"",'Week 2'!B3)	=IF('Week 2'!C3=0,"",'Week 2'!C3)	=IF('Week 2'!D3=0,"",'Week 2'!D3)	=IF('Week 2'!E3=0,"",'Week 2'!E3)	=IF('Week 2'!F3=0,"",'Week 2'!F3)	='Week 2'!G3	='Week 2'!H3	=IF(H3*G3=0,"",H3*G3)	=IF('Week 2'!J3=0,"",'Week 2'!J3)
+	=IF('Week 2'!B4=0,"",'Week 2'!B4)	=IF('Week 2'!C4=0,"",'Week 2'!C4)	=IF('Week 2'!D4=0,"",'Week 2'!D4)	=IF('Week 2'!E4=0,"",'Week 2'!E4)	=IF('Week 2'!F4=0,"",'Week 2'!F4)	='Week 2'!G4	='Week 2'!H4	=IF(H4*G4=0,"",H4*G4)	=IF('Week 2'!J4=0,"",'Week 2'!J4)
+	=IF('Week 2'!B5=0,"",'Week 2'!B5)	=IF('Week 2'!C5=0,"",'Week 2'!C5)	=IF('Week 2'!D5=0,"",'Week 2'!D5)	=IF('Week 2'!E5=0,"",'Week 2'!E5)	=IF('Week 2'!F5=0,"",'Week 2'!F5)	='Week 2'!G5	='Week 2'!H5	=IF(H5*G5=0,"",H5*G5)	=IF('Week 2'!J5=0,"",'Week 2'!J5)
+	=IF('Week 2'!B6=0,"",'Week 2'!B6)	=IF('Week 2'!C6=0,"",'Week 2'!C6)	=IF('Week 2'!D6=0,"",'Week 2'!D6)	=IF('Week 2'!E6=0,"",'Week 2'!E6)	=IF('Week 2'!F6=0,"",'Week 2'!F6)	='Week 2'!G6	='Week 2'!H6	=IF(H6*G6=0,"",H6*G6)	=IF('Week 2'!J6=0,"",'Week 2'!J6)
+	=IF('Week 2'!B7=0,"",'Week 2'!B7)	=IF('Week 2'!C7=0,"",'Week 2'!C7)	=IF('Week 2'!D7=0,"",'Week 2'!D7)	=IF('Week 2'!E7=0,"",'Week 2'!E7)	=IF('Week 2'!F7=0,"",'Week 2'!F7)	='Week 2'!G7	='Week 2'!H7	=IF(H7*G7=0,"",H7*G7)	=IF('Week 2'!J7=0,"",'Week 2'!J7)
+	=IF('Week 2'!B8=0,"",'Week 2'!B8)	=IF('Week 2'!C8=0,"",'Week 2'!C8)	=IF('Week 2'!D8=0,"",'Week 2'!D8)	=IF('Week 2'!E8=0,"",'Week 2'!E8)	=IF('Week 2'!F8=0,"",'Week 2'!F8)	='Week 2'!G8	='Week 2'!H8	=IF(H8*G8=0,"",H8*G8)	=IF('Week 2'!J8=0,"",'Week 2'!J8)
+	=IF('Week 2'!B9=0,"",'Week 2'!B9)	=IF('Week 2'!C9=0,"",'Week 2'!C9)	=IF('Week 2'!D9=0,"",'Week 2'!D9)	=IF('Week 2'!E9=0,"",'Week 2'!E9)	=IF('Week 2'!F9=0,"",'Week 2'!F9)	='Week 2'!G9	='Week 2'!H9	=IF(H9*G9=0,"",H9*G9)	=IF('Week 2'!J9=0,"",'Week 2'!J9)
+									
+									
+Day 2	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 2'!B13=0,"",'Week 2'!B13)	=IF('Week 2'!C13=0,"",'Week 2'!C13)	=IF('Week 2'!D13=0,"",'Week 2'!D13)	=IF('Week 2'!E13=0,"",'Week 2'!E13)	=IF('Week 2'!F13=0,"",'Week 2'!F13)	='Week 2'!G13	='Week 2'!H13	=IF(H13*G13=0,"",H13*G13)	=IF('Week 2'!J13=0,"",'Week 2'!J13)
+	=IF('Week 2'!B14=0,"",'Week 2'!B14)	=IF('Week 2'!C14=0,"",'Week 2'!C14)	=IF('Week 2'!D14=0,"",'Week 2'!D14)	=IF('Week 2'!E14=0,"",'Week 2'!E14)	=IF('Week 2'!F14=0,"",'Week 2'!F14)	='Week 2'!G14	='Week 2'!H14	=IF(H14*G14=0,"",H14*G14)	=IF('Week 2'!J14=0,"",'Week 2'!J14)
+	=IF('Week 2'!B15=0,"",'Week 2'!B15)	=IF('Week 2'!C15=0,"",'Week 2'!C15)	=IF('Week 2'!D15=0,"",'Week 2'!D15)	=IF('Week 2'!E15=0,"",'Week 2'!E15)	=IF('Week 2'!F15=0,"",'Week 2'!F15)	='Week 2'!G15	='Week 2'!H15	=IF(H15*G15=0,"",H15*G15)	=IF('Week 2'!J15=0,"",'Week 2'!J15)
+	=IF('Week 2'!B16=0,"",'Week 2'!B16)	=IF('Week 2'!C16=0,"",'Week 2'!C16)	=IF('Week 2'!D16=0,"",'Week 2'!D16)	=IF('Week 2'!E16=0,"",'Week 2'!E16)	=IF('Week 2'!F16=0,"",'Week 2'!F16)	='Week 2'!G16	='Week 2'!H16	=IF(H16*G16=0,"",H16*G16)	=IF('Week 2'!J16=0,"",'Week 2'!J16)
+	=IF('Week 2'!B17=0,"",'Week 2'!B17)	=IF('Week 2'!C17=0,"",'Week 2'!C17)	=IF('Week 2'!D17=0,"",'Week 2'!D17)	=IF('Week 2'!E17=0,"",'Week 2'!E17)	=IF('Week 2'!F17=0,"",'Week 2'!F17)	='Week 2'!G17	='Week 2'!H17	=IF(H17*G17=0,"",H17*G17)	=IF('Week 2'!J17=0,"",'Week 2'!J17)
+	=IF('Week 2'!B18=0,"",'Week 2'!B18)	=IF('Week 2'!C18=0,"",'Week 2'!C18)	=IF('Week 2'!D18=0,"",'Week 2'!D18)	=IF('Week 2'!E18=0,"",'Week 2'!E18)	=IF('Week 2'!F18=0,"",'Week 2'!F18)	='Week 2'!G18	='Week 2'!H18	=IF(H18*G18=0,"",H18*G18)	=IF('Week 2'!J18=0,"",'Week 2'!J18)
+	=IF('Week 2'!B19=0,"",'Week 2'!B19)	=IF('Week 2'!C19=0,"",'Week 2'!C19)	=IF('Week 2'!D19=0,"",'Week 2'!D19)	=IF('Week 2'!E19=0,"",'Week 2'!E19)	=IF('Week 2'!F19=0,"",'Week 2'!F19)	='Week 2'!G19	='Week 2'!H19	=IF(H19*G19=0,"",H19*G19)	=IF('Week 2'!J19=0,"",'Week 2'!J19)
+	=IF('Week 2'!B20=0,"",'Week 2'!B20)	=IF('Week 2'!C20=0,"",'Week 2'!C20)	=IF('Week 2'!D20=0,"",'Week 2'!D20)	=IF('Week 2'!E20=0,"",'Week 2'!E20)	=IF('Week 2'!F20=0,"",'Week 2'!F20)	='Week 2'!G20	='Week 2'!H20	=IF(H20*G20=0,"",H20*G20)	=IF('Week 2'!J20=0,"",'Week 2'!J20)
+									
+									
+Day 3	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 2'!B24=0,"",'Week 2'!B24)	=IF('Week 2'!C24=0,"",'Week 2'!C24)	=IF('Week 2'!D24=0,"",'Week 2'!D24)	=IF('Week 2'!E24=0,"",'Week 2'!E24)	=IF('Week 2'!F24=0,"",'Week 2'!F24)	='Week 2'!G24	='Week 2'!H24	=IF(H24*G24=0,"",H24*G24)	=IF('Week 2'!J24=0,"",'Week 2'!J24)
+	=IF('Week 2'!B25=0,"",'Week 2'!B25)	=IF('Week 2'!C25=0,"",'Week 2'!C25)	=IF('Week 2'!D25=0,"",'Week 2'!D25)	=IF('Week 2'!E25=0,"",'Week 2'!E25)	=IF('Week 2'!F25=0,"",'Week 2'!F25)	='Week 2'!G25	='Week 2'!H25	=IF(H25*G25=0,"",H25*G25)	=IF('Week 2'!J25=0,"",'Week 2'!J25)
+	=IF('Week 2'!B26=0,"",'Week 2'!B26)	=IF('Week 2'!C26=0,"",'Week 2'!C26)	=IF('Week 2'!D26=0,"",'Week 2'!D26)	=IF('Week 2'!E26=0,"",'Week 2'!E26)	=IF('Week 2'!F26=0,"",'Week 2'!F26)	='Week 2'!G26	='Week 2'!H26	=IF(H26*G26=0,"",H26*G26)	=IF('Week 2'!J26=0,"",'Week 2'!J26)
+	=IF('Week 2'!B27=0,"",'Week 2'!B27)	=IF('Week 2'!C27=0,"",'Week 2'!C27)	=IF('Week 2'!D27=0,"",'Week 2'!D27)	=IF('Week 2'!E27=0,"",'Week 2'!E27)	=IF('Week 2'!F27=0,"",'Week 2'!F27)	='Week 2'!G27	='Week 2'!H27	=IF(H27*G27=0,"",H27*G27)	=IF('Week 2'!J27=0,"",'Week 2'!J27)
+	=IF('Week 2'!B28=0,"",'Week 2'!B28)	=IF('Week 2'!C28=0,"",'Week 2'!C28)	=IF('Week 2'!D28=0,"",'Week 2'!D28)	=IF('Week 2'!E28=0,"",'Week 2'!E28)	=IF('Week 2'!F28=0,"",'Week 2'!F28)	='Week 2'!G28	='Week 2'!H28	=IF(H28*G28=0,"",H28*G28)	=IF('Week 2'!J28=0,"",'Week 2'!J28)
+	=IF('Week 2'!B29=0,"",'Week 2'!B29)	=IF('Week 2'!C29=0,"",'Week 2'!C29)	=IF('Week 2'!D29=0,"",'Week 2'!D29)	=IF('Week 2'!E29=0,"",'Week 2'!E29)	=IF('Week 2'!F29=0,"",'Week 2'!F29)	='Week 2'!G29	='Week 2'!H29	=IF(H29*G29=0,"",H29*G29)	=IF('Week 2'!J29=0,"",'Week 2'!J29)
+	=IF('Week 2'!B30=0,"",'Week 2'!B30)	=IF('Week 2'!C30=0,"",'Week 2'!C30)	=IF('Week 2'!D30=0,"",'Week 2'!D30)	=IF('Week 2'!E30=0,"",'Week 2'!E30)	=IF('Week 2'!F30=0,"",'Week 2'!F30)	='Week 2'!G30	='Week 2'!H30	=IF(H30*G30=0,"",H30*G30)	=IF('Week 2'!J30=0,"",'Week 2'!J30)
+	=IF('Week 2'!B31=0,"",'Week 2'!B31)	=IF('Week 2'!C31=0,"",'Week 2'!C31)	=IF('Week 2'!D31=0,"",'Week 2'!D31)	=IF('Week 2'!E31=0,"",'Week 2'!E31)	=IF('Week 2'!F31=0,"",'Week 2'!F31)	='Week 2'!G31	='Week 2'!H31	=IF(H31*G31=0,"",H31*G31)	=IF('Week 2'!J31=0,"",'Week 2'!J31)
+									
+									
+Day 4	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 2'!B35=0,"",'Week 2'!B35)	=IF('Week 2'!C35=0,"",'Week 2'!C35)	=IF('Week 2'!D35=0,"",'Week 2'!D35)	=IF('Week 2'!E35=0,"",'Week 2'!E35)	=IF('Week 2'!F35=0,"",'Week 2'!F35)	='Week 2'!G35	='Week 2'!H35	=IF(H35*G35=0,"",H35*G35)	=IF('Week 2'!J35=0,"",'Week 2'!J35)
+	=IF('Week 2'!B36=0,"",'Week 2'!B36)	=IF('Week 2'!C36=0,"",'Week 2'!C36)	=IF('Week 2'!D36=0,"",'Week 2'!D36)	=IF('Week 2'!E36=0,"",'Week 2'!E36)	=IF('Week 2'!F36=0,"",'Week 2'!F36)	='Week 2'!G36	='Week 2'!H36	=IF(H36*G36=0,"",H36*G36)	=IF('Week 2'!J36=0,"",'Week 2'!J36)
+	=IF('Week 2'!B37=0,"",'Week 2'!B37)	=IF('Week 2'!C37=0,"",'Week 2'!C37)	=IF('Week 2'!D37=0,"",'Week 2'!D37)	=IF('Week 2'!E37=0,"",'Week 2'!E37)	=IF('Week 2'!F37=0,"",'Week 2'!F37)	='Week 2'!G37	='Week 2'!H37	=IF(H37*G37=0,"",H37*G37)	=IF('Week 2'!J37=0,"",'Week 2'!J37)
+	=IF('Week 2'!B38=0,"",'Week 2'!B38)	=IF('Week 2'!C38=0,"",'Week 2'!C38)	=IF('Week 2'!D38=0,"",'Week 2'!D38)	=IF('Week 2'!E38=0,"",'Week 2'!E38)	=IF('Week 2'!F38=0,"",'Week 2'!F38)	='Week 2'!G38	='Week 2'!H38	=IF(H38*G38=0,"",H38*G38)	=IF('Week 2'!J38=0,"",'Week 2'!J38)
+	=IF('Week 2'!B39=0,"",'Week 2'!B39)	=IF('Week 2'!C39=0,"",'Week 2'!C39)	=IF('Week 2'!D39=0,"",'Week 2'!D39)	=IF('Week 2'!E39=0,"",'Week 2'!E39)	=IF('Week 2'!F39=0,"",'Week 2'!F39)	='Week 2'!G39	='Week 2'!H39	=IF(H39*G39=0,"",H39*G39)	=IF('Week 2'!J39=0,"",'Week 2'!J39)
+	=IF('Week 2'!B40=0,"",'Week 2'!B40)	=IF('Week 2'!C40=0,"",'Week 2'!C40)	=IF('Week 2'!D40=0,"",'Week 2'!D40)	=IF('Week 2'!E40=0,"",'Week 2'!E40)	=IF('Week 2'!F40=0,"",'Week 2'!F40)	='Week 2'!G40	='Week 2'!H40	=IF(H40*G40=0,"",H40*G40)	=IF('Week 2'!J40=0,"",'Week 2'!J40)
+	=IF('Week 2'!B41=0,"",'Week 2'!B41)	=IF('Week 2'!C41=0,"",'Week 2'!C41)	=IF('Week 2'!D41=0,"",'Week 2'!D41)	=IF('Week 2'!E41=0,"",'Week 2'!E41)	=IF('Week 2'!F41=0,"",'Week 2'!F41)	='Week 2'!G41	='Week 2'!H41	=IF(H41*G41=0,"",H41*G41)	=IF('Week 2'!J41=0,"",'Week 2'!J41)
+	=IF('Week 2'!B42=0,"",'Week 2'!B42)	=IF('Week 2'!C42=0,"",'Week 2'!C42)	=IF('Week 2'!D42=0,"",'Week 2'!D42)	=IF('Week 2'!E42=0,"",'Week 2'!E42)	=IF('Week 2'!F42=0,"",'Week 2'!F42)	='Week 2'!G42	='Week 2'!H42	=IF(H42*G42=0,"",H42*G42)	=IF('Week 2'!J42=0,"",'Week 2'!J42)
+									
+									
+--- Sheet: Week 4 ---
+Day 1	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 3'!B2=0,"",'Week 3'!B2)	=IF('Week 3'!C2=0,"",'Week 3'!C2)	=IF('Week 3'!D2=0,"",'Week 3'!D2)	=IF('Week 3'!E2=0,"",'Week 3'!E2)	=IF('Week 3'!F2=0,"",'Week 3'!F2)	='Week 3'!G2	='Week 3'!H2	=IF(H2*G2=0,"",H2*G2)	=IF('Week 3'!J2=0,"",'Week 3'!J2)
+	=IF('Week 3'!B3=0,"",'Week 3'!B3)	=IF('Week 3'!C3=0,"",'Week 3'!C3)	=IF('Week 3'!D3=0,"",'Week 3'!D3)	=IF('Week 3'!E3=0,"",'Week 3'!E3)	=IF('Week 3'!F3=0,"",'Week 3'!F3)	='Week 3'!G3	='Week 3'!H3	=IF(H3*G3=0,"",H3*G3)	=IF('Week 3'!J3=0,"",'Week 3'!J3)
+	=IF('Week 3'!B4=0,"",'Week 3'!B4)	=IF('Week 3'!C4=0,"",'Week 3'!C4)	=IF('Week 3'!D4=0,"",'Week 3'!D4)	=IF('Week 3'!E4=0,"",'Week 3'!E4)	=IF('Week 3'!F4=0,"",'Week 3'!F4)	='Week 3'!G4	='Week 3'!H4	=IF(H4*G4=0,"",H4*G4)	=IF('Week 3'!J4=0,"",'Week 3'!J4)
+	=IF('Week 3'!B5=0,"",'Week 3'!B5)	=IF('Week 3'!C5=0,"",'Week 3'!C5)	=IF('Week 3'!D5=0,"",'Week 3'!D5)	=IF('Week 3'!E5=0,"",'Week 3'!E5)	=IF('Week 3'!F5=0,"",'Week 3'!F5)	='Week 3'!G5	='Week 3'!H5	=IF(H5*G5=0,"",H5*G5)	=IF('Week 3'!J5=0,"",'Week 3'!J5)
+	=IF('Week 3'!B6=0,"",'Week 3'!B6)	=IF('Week 3'!C6=0,"",'Week 3'!C6)	=IF('Week 3'!D6=0,"",'Week 3'!D6)	=IF('Week 3'!E6=0,"",'Week 3'!E6)	=IF('Week 3'!F6=0,"",'Week 3'!F6)	='Week 3'!G6	='Week 3'!H6	=IF(H6*G6=0,"",H6*G6)	=IF('Week 3'!J6=0,"",'Week 3'!J6)
+	=IF('Week 3'!B7=0,"",'Week 3'!B7)	=IF('Week 3'!C7=0,"",'Week 3'!C7)	=IF('Week 3'!D7=0,"",'Week 3'!D7)	=IF('Week 3'!E7=0,"",'Week 3'!E7)	=IF('Week 3'!F7=0,"",'Week 3'!F7)	='Week 3'!G7	='Week 3'!H7	=IF(H7*G7=0,"",H7*G7)	=IF('Week 3'!J7=0,"",'Week 3'!J7)
+	=IF('Week 3'!B8=0,"",'Week 3'!B8)	=IF('Week 3'!C8=0,"",'Week 3'!C8)	=IF('Week 3'!D8=0,"",'Week 3'!D8)	=IF('Week 3'!E8=0,"",'Week 3'!E8)	=IF('Week 3'!F8=0,"",'Week 3'!F8)	='Week 3'!G8	='Week 3'!H8	=IF(H8*G8=0,"",H8*G8)	=IF('Week 3'!J8=0,"",'Week 3'!J8)
+	=IF('Week 3'!B9=0,"",'Week 3'!B9)	=IF('Week 3'!C9=0,"",'Week 3'!C9)	=IF('Week 3'!D9=0,"",'Week 3'!D9)	=IF('Week 3'!E9=0,"",'Week 3'!E9)	=IF('Week 3'!F9=0,"",'Week 3'!F9)	='Week 3'!G9	='Week 3'!H9	=IF(H9*G9=0,"",H9*G9)	=IF('Week 3'!J9=0,"",'Week 3'!J9)
+									
+									
+Day 2	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 3'!B13=0,"",'Week 3'!B13)	=IF('Week 3'!C13=0,"",'Week 3'!C13)	=IF('Week 3'!D13=0,"",'Week 3'!D13)	=IF('Week 3'!E13=0,"",'Week 3'!E13)	=IF('Week 3'!F13=0,"",'Week 3'!F13)	='Week 3'!G13	='Week 3'!H13	=IF(H13*G13=0,"",H13*G13)	=IF('Week 3'!J13=0,"",'Week 3'!J13)
+	=IF('Week 3'!B14=0,"",'Week 3'!B14)	=IF('Week 3'!C14=0,"",'Week 3'!C14)	=IF('Week 3'!D14=0,"",'Week 3'!D14)	=IF('Week 3'!E14=0,"",'Week 3'!E14)	=IF('Week 3'!F14=0,"",'Week 3'!F14)	='Week 3'!G14	='Week 3'!H14	=IF(H14*G14=0,"",H14*G14)	=IF('Week 3'!J14=0,"",'Week 3'!J14)
+	=IF('Week 3'!B15=0,"",'Week 3'!B15)	=IF('Week 3'!C15=0,"",'Week 3'!C15)	=IF('Week 3'!D15=0,"",'Week 3'!D15)	=IF('Week 3'!E15=0,"",'Week 3'!E15)	=IF('Week 3'!F15=0,"",'Week 3'!F15)	='Week 3'!G15	='Week 3'!H15	=IF(H15*G15=0,"",H15*G15)	=IF('Week 3'!J15=0,"",'Week 3'!J15)
+	=IF('Week 3'!B16=0,"",'Week 3'!B16)	=IF('Week 3'!C16=0,"",'Week 3'!C16)	=IF('Week 3'!D16=0,"",'Week 3'!D16)	=IF('Week 3'!E16=0,"",'Week 3'!E16)	=IF('Week 3'!F16=0,"",'Week 3'!F16)	='Week 3'!G16	='Week 3'!H16	=IF(H16*G16=0,"",H16*G16)	=IF('Week 3'!J16=0,"",'Week 3'!J16)
+	=IF('Week 3'!B17=0,"",'Week 3'!B17)	=IF('Week 3'!C17=0,"",'Week 3'!C17)	=IF('Week 3'!D17=0,"",'Week 3'!D17)	=IF('Week 3'!E17=0,"",'Week 3'!E17)	=IF('Week 3'!F17=0,"",'Week 3'!F17)	='Week 3'!G17	='Week 3'!H17	=IF(H17*G17=0,"",H17*G17)	=IF('Week 3'!J17=0,"",'Week 3'!J17)
+	=IF('Week 3'!B18=0,"",'Week 3'!B18)	=IF('Week 3'!C18=0,"",'Week 3'!C18)	=IF('Week 3'!D18=0,"",'Week 3'!D18)	=IF('Week 3'!E18=0,"",'Week 3'!E18)	=IF('Week 3'!F18=0,"",'Week 3'!F18)	='Week 3'!G18	='Week 3'!H18	=IF(H18*G18=0,"",H18*G18)	=IF('Week 3'!J18=0,"",'Week 3'!J18)
+	=IF('Week 3'!B19=0,"",'Week 3'!B19)	=IF('Week 3'!C19=0,"",'Week 3'!C19)	=IF('Week 3'!D19=0,"",'Week 3'!D19)	=IF('Week 3'!E19=0,"",'Week 3'!E19)	=IF('Week 3'!F19=0,"",'Week 3'!F19)	='Week 3'!G19	='Week 3'!H19	=IF(H19*G19=0,"",H19*G19)	=IF('Week 3'!J19=0,"",'Week 3'!J19)
+	=IF('Week 3'!B20=0,"",'Week 3'!B20)	=IF('Week 3'!C20=0,"",'Week 3'!C20)	=IF('Week 3'!D20=0,"",'Week 3'!D20)	=IF('Week 3'!E20=0,"",'Week 3'!E20)	=IF('Week 3'!F20=0,"",'Week 3'!F20)	='Week 3'!G20	='Week 3'!H20	=IF(H20*G20=0,"",H20*G20)	=IF('Week 3'!J20=0,"",'Week 3'!J20)
+									
+									
+Day 3	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 3'!B24=0,"",'Week 3'!B24)	=IF('Week 3'!C24=0,"",'Week 3'!C24)	=IF('Week 3'!D24=0,"",'Week 3'!D24)	=IF('Week 3'!E24=0,"",'Week 3'!E24)	=IF('Week 3'!F24=0,"",'Week 3'!F24)	='Week 3'!G24	='Week 3'!H24	=IF(H24*G24=0,"",H24*G24)	=IF('Week 3'!J24=0,"",'Week 3'!J24)
+	=IF('Week 3'!B25=0,"",'Week 3'!B25)	=IF('Week 3'!C25=0,"",'Week 3'!C25)	=IF('Week 3'!D25=0,"",'Week 3'!D25)	=IF('Week 3'!E25=0,"",'Week 3'!E25)	=IF('Week 3'!F25=0,"",'Week 3'!F25)	='Week 3'!G25	='Week 3'!H25	=IF(H25*G25=0,"",H25*G25)	=IF('Week 3'!J25=0,"",'Week 3'!J25)
+	=IF('Week 3'!B26=0,"",'Week 3'!B26)	=IF('Week 3'!C26=0,"",'Week 3'!C26)	=IF('Week 3'!D26=0,"",'Week 3'!D26)	=IF('Week 3'!E26=0,"",'Week 3'!E26)	=IF('Week 3'!F26=0,"",'Week 3'!F26)	='Week 3'!G26	='Week 3'!H26	=IF(H26*G26=0,"",H26*G26)	=IF('Week 3'!J26=0,"",'Week 3'!J26)
+	=IF('Week 3'!B27=0,"",'Week 3'!B27)	=IF('Week 3'!C27=0,"",'Week 3'!C27)	=IF('Week 3'!D27=0,"",'Week 3'!D27)	=IF('Week 3'!E27=0,"",'Week 3'!E27)	=IF('Week 3'!F27=0,"",'Week 3'!F27)	='Week 3'!G27	='Week 3'!H27	=IF(H27*G27=0,"",H27*G27)	=IF('Week 3'!J27=0,"",'Week 3'!J27)
+	=IF('Week 3'!B28=0,"",'Week 3'!B28)	=IF('Week 3'!C28=0,"",'Week 3'!C28)	=IF('Week 3'!D28=0,"",'Week 3'!D28)	=IF('Week 3'!E28=0,"",'Week 3'!E28)	=IF('Week 3'!F28=0,"",'Week 3'!F28)	='Week 3'!G28	='Week 3'!H28	=IF(H28*G28=0,"",H28*G28)	=IF('Week 3'!J28=0,"",'Week 3'!J28)
+	=IF('Week 3'!B29=0,"",'Week 3'!B29)	=IF('Week 3'!C29=0,"",'Week 3'!C29)	=IF('Week 3'!D29=0,"",'Week 3'!D29)	=IF('Week 3'!E29=0,"",'Week 3'!E29)	=IF('Week 3'!F29=0,"",'Week 3'!F29)	='Week 3'!G29	='Week 3'!H29	=IF(H29*G29=0,"",H29*G29)	=IF('Week 3'!J29=0,"",'Week 3'!J29)
+	=IF('Week 3'!B30=0,"",'Week 3'!B30)	=IF('Week 3'!C30=0,"",'Week 3'!C30)	=IF('Week 3'!D30=0,"",'Week 3'!D30)	=IF('Week 3'!E30=0,"",'Week 3'!E30)	=IF('Week 3'!F30=0,"",'Week 3'!F30)	='Week 3'!G30	='Week 3'!H30	=IF(H30*G30=0,"",H30*G30)	=IF('Week 3'!J30=0,"",'Week 3'!J30)
+	=IF('Week 3'!B31=0,"",'Week 3'!B31)	=IF('Week 3'!C31=0,"",'Week 3'!C31)	=IF('Week 3'!D31=0,"",'Week 3'!D31)	=IF('Week 3'!E31=0,"",'Week 3'!E31)	=IF('Week 3'!F31=0,"",'Week 3'!F31)	='Week 3'!G31	='Week 3'!H31	=IF(H31*G31=0,"",H31*G31)	=IF('Week 3'!J31=0,"",'Week 3'!J31)
+									
+									
+Day 4	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 3'!B35=0,"",'Week 3'!B35)	=IF('Week 3'!C35=0,"",'Week 3'!C35)	=IF('Week 3'!D35=0,"",'Week 3'!D35)	=IF('Week 3'!E35=0,"",'Week 3'!E35)	=IF('Week 3'!F35=0,"",'Week 3'!F35)	='Week 3'!G35	='Week 3'!H35	=IF(H35*G35=0,"",H35*G35)	=IF('Week 3'!J35=0,"",'Week 3'!J35)
+	=IF('Week 3'!B36=0,"",'Week 3'!B36)	=IF('Week 3'!C36=0,"",'Week 3'!C36)	=IF('Week 3'!D36=0,"",'Week 3'!D36)	=IF('Week 3'!E36=0,"",'Week 3'!E36)	=IF('Week 3'!F36=0,"",'Week 3'!F36)	='Week 3'!G36	='Week 3'!H36	=IF(H36*G36=0,"",H36*G36)	=IF('Week 3'!J36=0,"",'Week 3'!J36)
+	=IF('Week 3'!B37=0,"",'Week 3'!B37)	=IF('Week 3'!C37=0,"",'Week 3'!C37)	=IF('Week 3'!D37=0,"",'Week 3'!D37)	=IF('Week 3'!E37=0,"",'Week 3'!E37)	=IF('Week 3'!F37=0,"",'Week 3'!F37)	='Week 3'!G37	='Week 3'!H37	=IF(H37*G37=0,"",H37*G37)	=IF('Week 3'!J37=0,"",'Week 3'!J37)
+	=IF('Week 3'!B38=0,"",'Week 3'!B38)	=IF('Week 3'!C38=0,"",'Week 3'!C38)	=IF('Week 3'!D38=0,"",'Week 3'!D38)	=IF('Week 3'!E38=0,"",'Week 3'!E38)	=IF('Week 3'!F38=0,"",'Week 3'!F38)	='Week 3'!G38	='Week 3'!H38	=IF(H38*G38=0,"",H38*G38)	=IF('Week 3'!J38=0,"",'Week 3'!J38)
+	=IF('Week 3'!B39=0,"",'Week 3'!B39)	=IF('Week 3'!C39=0,"",'Week 3'!C39)	=IF('Week 3'!D39=0,"",'Week 3'!D39)	=IF('Week 3'!E39=0,"",'Week 3'!E39)	=IF('Week 3'!F39=0,"",'Week 3'!F39)	='Week 3'!G39	='Week 3'!H39	=IF(H39*G39=0,"",H39*G39)	=IF('Week 3'!J39=0,"",'Week 3'!J39)
+	=IF('Week 3'!B40=0,"",'Week 3'!B40)	=IF('Week 3'!C40=0,"",'Week 3'!C40)	=IF('Week 3'!D40=0,"",'Week 3'!D40)	=IF('Week 3'!E40=0,"",'Week 3'!E40)	=IF('Week 3'!F40=0,"",'Week 3'!F40)	='Week 3'!G40	='Week 3'!H40	=IF(H40*G40=0,"",H40*G40)	=IF('Week 3'!J40=0,"",'Week 3'!J40)
+	=IF('Week 3'!B41=0,"",'Week 3'!B41)	=IF('Week 3'!C41=0,"",'Week 3'!C41)	=IF('Week 3'!D41=0,"",'Week 3'!D41)	=IF('Week 3'!E41=0,"",'Week 3'!E41)	=IF('Week 3'!F41=0,"",'Week 3'!F41)	='Week 3'!G41	='Week 3'!H41	=IF(H41*G41=0,"",H41*G41)	=IF('Week 3'!J41=0,"",'Week 3'!J41)
+	=IF('Week 3'!B42=0,"",'Week 3'!B42)	=IF('Week 3'!C42=0,"",'Week 3'!C42)	=IF('Week 3'!D42=0,"",'Week 3'!D42)	=IF('Week 3'!E42=0,"",'Week 3'!E42)	=IF('Week 3'!F42=0,"",'Week 3'!F42)	='Week 3'!G42	='Week 3'!H42	=IF(H42*G42=0,"",H42*G42)	=IF('Week 3'!J42=0,"",'Week 3'!J42)
+									
+									
+--- Sheet: Week 5 ---
+Day 1	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 4'!B2=0,"",'Week 4'!B2)	=IF('Week 4'!C2=0,"",'Week 4'!C2)	=IF('Week 4'!D2=0,"",'Week 4'!D2)	=IF('Week 4'!E2=0,"",'Week 4'!E2)	=IF('Week 4'!F2=0,"",'Week 4'!F2)	='Week 4'!G2	='Week 4'!H2	=IF(H2*G2=0,"",H2*G2)	=IF('Week 4'!J2=0,"",'Week 4'!J2)
+	=IF('Week 4'!B3=0,"",'Week 4'!B3)	=IF('Week 4'!C3=0,"",'Week 4'!C3)	=IF('Week 4'!D3=0,"",'Week 4'!D3)	=IF('Week 4'!E3=0,"",'Week 4'!E3)	=IF('Week 4'!F3=0,"",'Week 4'!F3)	='Week 4'!G3	='Week 4'!H3	=IF(H3*G3=0,"",H3*G3)	=IF('Week 4'!J3=0,"",'Week 4'!J3)
+	=IF('Week 4'!B4=0,"",'Week 4'!B4)	=IF('Week 4'!C4=0,"",'Week 4'!C4)	=IF('Week 4'!D4=0,"",'Week 4'!D4)	=IF('Week 4'!E4=0,"",'Week 4'!E4)	=IF('Week 4'!F4=0,"",'Week 4'!F4)	='Week 4'!G4	='Week 4'!H4	=IF(H4*G4=0,"",H4*G4)	=IF('Week 4'!J4=0,"",'Week 4'!J4)
+	=IF('Week 4'!B5=0,"",'Week 4'!B5)	=IF('Week 4'!C5=0,"",'Week 4'!C5)	=IF('Week 4'!D5=0,"",'Week 4'!D5)	=IF('Week 4'!E5=0,"",'Week 4'!E5)	=IF('Week 4'!F5=0,"",'Week 4'!F5)	='Week 4'!G5	='Week 4'!H5	=IF(H5*G5=0,"",H5*G5)	=IF('Week 4'!J5=0,"",'Week 4'!J5)
+	=IF('Week 4'!B6=0,"",'Week 4'!B6)	=IF('Week 4'!C6=0,"",'Week 4'!C6)	=IF('Week 4'!D6=0,"",'Week 4'!D6)	=IF('Week 4'!E6=0,"",'Week 4'!E6)	=IF('Week 4'!F6=0,"",'Week 4'!F6)	='Week 4'!G6	='Week 4'!H6	=IF(H6*G6=0,"",H6*G6)	=IF('Week 4'!J6=0,"",'Week 4'!J6)
+	=IF('Week 4'!B7=0,"",'Week 4'!B7)	=IF('Week 4'!C7=0,"",'Week 4'!C7)	=IF('Week 4'!D7=0,"",'Week 4'!D7)	=IF('Week 4'!E7=0,"",'Week 4'!E7)	=IF('Week 4'!F7=0,"",'Week 4'!F7)	='Week 4'!G7	='Week 4'!H7	=IF(H7*G7=0,"",H7*G7)	=IF('Week 4'!J7=0,"",'Week 4'!J7)
+	=IF('Week 4'!B8=0,"",'Week 4'!B8)	=IF('Week 4'!C8=0,"",'Week 4'!C8)	=IF('Week 4'!D8=0,"",'Week 4'!D8)	=IF('Week 4'!E8=0,"",'Week 4'!E8)	=IF('Week 4'!F8=0,"",'Week 4'!F8)	='Week 4'!G8	='Week 4'!H8	=IF(H8*G8=0,"",H8*G8)	=IF('Week 4'!J8=0,"",'Week 4'!J8)
+	=IF('Week 4'!B9=0,"",'Week 4'!B9)	=IF('Week 4'!C9=0,"",'Week 4'!C9)	=IF('Week 4'!D9=0,"",'Week 4'!D9)	=IF('Week 4'!E9=0,"",'Week 4'!E9)	=IF('Week 4'!F9=0,"",'Week 4'!F9)	='Week 4'!G9	='Week 4'!H9	=IF(H9*G9=0,"",H9*G9)	=IF('Week 4'!J9=0,"",'Week 4'!J9)
+									
+									
+Day 2	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 4'!B13=0,"",'Week 4'!B13)	=IF('Week 4'!C13=0,"",'Week 4'!C13)	=IF('Week 4'!D13=0,"",'Week 4'!D13)	=IF('Week 4'!E13=0,"",'Week 4'!E13)	=IF('Week 4'!F13=0,"",'Week 4'!F13)	='Week 4'!G13	='Week 4'!H13	=IF(H13*G13=0,"",H13*G13)	=IF('Week 4'!J13=0,"",'Week 4'!J13)
+	=IF('Week 4'!B14=0,"",'Week 4'!B14)	=IF('Week 4'!C14=0,"",'Week 4'!C14)	=IF('Week 4'!D14=0,"",'Week 4'!D14)	=IF('Week 4'!E14=0,"",'Week 4'!E14)	=IF('Week 4'!F14=0,"",'Week 4'!F14)	='Week 4'!G14	='Week 4'!H14	=IF(H14*G14=0,"",H14*G14)	=IF('Week 4'!J14=0,"",'Week 4'!J14)
+	=IF('Week 4'!B15=0,"",'Week 4'!B15)	=IF('Week 4'!C15=0,"",'Week 4'!C15)	=IF('Week 4'!D15=0,"",'Week 4'!D15)	=IF('Week 4'!E15=0,"",'Week 4'!E15)	=IF('Week 4'!F15=0,"",'Week 4'!F15)	='Week 4'!G15	='Week 4'!H15	=IF(H15*G15=0,"",H15*G15)	=IF('Week 4'!J15=0,"",'Week 4'!J15)
+	=IF('Week 4'!B16=0,"",'Week 4'!B16)	=IF('Week 4'!C16=0,"",'Week 4'!C16)	=IF('Week 4'!D16=0,"",'Week 4'!D16)	=IF('Week 4'!E16=0,"",'Week 4'!E16)	=IF('Week 4'!F16=0,"",'Week 4'!F16)	='Week 4'!G16	='Week 4'!H16	=IF(H16*G16=0,"",H16*G16)	=IF('Week 4'!J16=0,"",'Week 4'!J16)
+	=IF('Week 4'!B17=0,"",'Week 4'!B17)	=IF('Week 4'!C17=0,"",'Week 4'!C17)	=IF('Week 4'!D17=0,"",'Week 4'!D17)	=IF('Week 4'!E17=0,"",'Week 4'!E17)	=IF('Week 4'!F17=0,"",'Week 4'!F17)	='Week 4'!G17	='Week 4'!H17	=IF(H17*G17=0,"",H17*G17)	=IF('Week 4'!J17=0,"",'Week 4'!J17)
+	=IF('Week 4'!B18=0,"",'Week 4'!B18)	=IF('Week 4'!C18=0,"",'Week 4'!C18)	=IF('Week 4'!D18=0,"",'Week 4'!D18)	=IF('Week 4'!E18=0,"",'Week 4'!E18)	=IF('Week 4'!F18=0,"",'Week 4'!F18)	='Week 4'!G18	='Week 4'!H18	=IF(H18*G18=0,"",H18*G18)	=IF('Week 4'!J18=0,"",'Week 4'!J18)
+	=IF('Week 4'!B19=0,"",'Week 4'!B19)	=IF('Week 4'!C19=0,"",'Week 4'!C19)	=IF('Week 4'!D19=0,"",'Week 4'!D19)	=IF('Week 4'!E19=0,"",'Week 4'!E19)	=IF('Week 4'!F19=0,"",'Week 4'!F19)	='Week 4'!G19	='Week 4'!H19	=IF(H19*G19=0,"",H19*G19)	=IF('Week 4'!J19=0,"",'Week 4'!J19)
+	=IF('Week 4'!B20=0,"",'Week 4'!B20)	=IF('Week 4'!C20=0,"",'Week 4'!C20)	=IF('Week 4'!D20=0,"",'Week 4'!D20)	=IF('Week 4'!E20=0,"",'Week 4'!E20)	=IF('Week 4'!F20=0,"",'Week 4'!F20)	='Week 4'!G20	='Week 4'!H20	=IF(H20*G20=0,"",H20*G20)	=IF('Week 4'!J20=0,"",'Week 4'!J20)
+									
+									
+Day 3	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 4'!B24=0,"",'Week 4'!B24)	=IF('Week 4'!C24=0,"",'Week 4'!C24)	=IF('Week 4'!D24=0,"",'Week 4'!D24)	=IF('Week 4'!E24=0,"",'Week 4'!E24)	=IF('Week 4'!F24=0,"",'Week 4'!F24)	='Week 4'!G24	='Week 4'!H24	=IF(H24*G24=0,"",H24*G24)	=IF('Week 4'!J24=0,"",'Week 4'!J24)
+	=IF('Week 4'!B25=0,"",'Week 4'!B25)	=IF('Week 4'!C25=0,"",'Week 4'!C25)	=IF('Week 4'!D25=0,"",'Week 4'!D25)	=IF('Week 4'!E25=0,"",'Week 4'!E25)	=IF('Week 4'!F25=0,"",'Week 4'!F25)	='Week 4'!G25	='Week 4'!H25	=IF(H25*G25=0,"",H25*G25)	=IF('Week 4'!J25=0,"",'Week 4'!J25)
+	=IF('Week 4'!B26=0,"",'Week 4'!B26)	=IF('Week 4'!C26=0,"",'Week 4'!C26)	=IF('Week 4'!D26=0,"",'Week 4'!D26)	=IF('Week 4'!E26=0,"",'Week 4'!E26)	=IF('Week 4'!F26=0,"",'Week 4'!F26)	='Week 4'!G26	='Week 4'!H26	=IF(H26*G26=0,"",H26*G26)	=IF('Week 4'!J26=0,"",'Week 4'!J26)
+	=IF('Week 4'!B27=0,"",'Week 4'!B27)	=IF('Week 4'!C27=0,"",'Week 4'!C27)	=IF('Week 4'!D27=0,"",'Week 4'!D27)	=IF('Week 4'!E27=0,"",'Week 4'!E27)	=IF('Week 4'!F27=0,"",'Week 4'!F27)	='Week 4'!G27	='Week 4'!H27	=IF(H27*G27=0,"",H27*G27)	=IF('Week 4'!J27=0,"",'Week 4'!J27)
+	=IF('Week 4'!B28=0,"",'Week 4'!B28)	=IF('Week 4'!C28=0,"",'Week 4'!C28)	=IF('Week 4'!D28=0,"",'Week 4'!D28)	=IF('Week 4'!E28=0,"",'Week 4'!E28)	=IF('Week 4'!F28=0,"",'Week 4'!F28)	='Week 4'!G28	='Week 4'!H28	=IF(H28*G28=0,"",H28*G28)	=IF('Week 4'!J28=0,"",'Week 4'!J28)
+	=IF('Week 4'!B29=0,"",'Week 4'!B29)	=IF('Week 4'!C29=0,"",'Week 4'!C29)	=IF('Week 4'!D29=0,"",'Week 4'!D29)	=IF('Week 4'!E29=0,"",'Week 4'!E29)	=IF('Week 4'!F29=0,"",'Week 4'!F29)	='Week 4'!G29	='Week 4'!H29	=IF(H29*G29=0,"",H29*G29)	=IF('Week 4'!J29=0,"",'Week 4'!J29)
+	=IF('Week 4'!B30=0,"",'Week 4'!B30)	=IF('Week 4'!C30=0,"",'Week 4'!C30)	=IF('Week 4'!D30=0,"",'Week 4'!D30)	=IF('Week 4'!E30=0,"",'Week 4'!E30)	=IF('Week 4'!F30=0,"",'Week 4'!F30)	='Week 4'!G30	='Week 4'!H30	=IF(H30*G30=0,"",H30*G30)	=IF('Week 4'!J30=0,"",'Week 4'!J30)
+	=IF('Week 4'!B31=0,"",'Week 4'!B31)	=IF('Week 4'!C31=0,"",'Week 4'!C31)	=IF('Week 4'!D31=0,"",'Week 4'!D31)	=IF('Week 4'!E31=0,"",'Week 4'!E31)	=IF('Week 4'!F31=0,"",'Week 4'!F31)	='Week 4'!G31	='Week 4'!H31	=IF(H31*G31=0,"",H31*G31)	=IF('Week 4'!J31=0,"",'Week 4'!J31)
+									
+									
+Day 4	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 4'!B35=0,"",'Week 4'!B35)	=IF('Week 4'!C35=0,"",'Week 4'!C35)	=IF('Week 4'!D35=0,"",'Week 4'!D35)	=IF('Week 4'!E35=0,"",'Week 4'!E35)	=IF('Week 4'!F35=0,"",'Week 4'!F35)	='Week 4'!G35	='Week 4'!H35	=IF(H35*G35=0,"",H35*G35)	=IF('Week 4'!J35=0,"",'Week 4'!J35)
+	=IF('Week 4'!B36=0,"",'Week 4'!B36)	=IF('Week 4'!C36=0,"",'Week 4'!C36)	=IF('Week 4'!D36=0,"",'Week 4'!D36)	=IF('Week 4'!E36=0,"",'Week 4'!E36)	=IF('Week 4'!F36=0,"",'Week 4'!F36)	='Week 4'!G36	='Week 4'!H36	=IF(H36*G36=0,"",H36*G36)	=IF('Week 4'!J36=0,"",'Week 4'!J36)
+	=IF('Week 4'!B37=0,"",'Week 4'!B37)	=IF('Week 4'!C37=0,"",'Week 4'!C37)	=IF('Week 4'!D37=0,"",'Week 4'!D37)	=IF('Week 4'!E37=0,"",'Week 4'!E37)	=IF('Week 4'!F37=0,"",'Week 4'!F37)	='Week 4'!G37	='Week 4'!H37	=IF(H37*G37=0,"",H37*G37)	=IF('Week 4'!J37=0,"",'Week 4'!J37)
+	=IF('Week 4'!B38=0,"",'Week 4'!B38)	=IF('Week 4'!C38=0,"",'Week 4'!C38)	=IF('Week 4'!D38=0,"",'Week 4'!D38)	=IF('Week 4'!E38=0,"",'Week 4'!E38)	=IF('Week 4'!F38=0,"",'Week 4'!F38)	='Week 4'!G38	='Week 4'!H38	=IF(H38*G38=0,"",H38*G38)	=IF('Week 4'!J38=0,"",'Week 4'!J38)
+	=IF('Week 4'!B39=0,"",'Week 4'!B39)	=IF('Week 4'!C39=0,"",'Week 4'!C39)	=IF('Week 4'!D39=0,"",'Week 4'!D39)	=IF('Week 4'!E39=0,"",'Week 4'!E39)	=IF('Week 4'!F39=0,"",'Week 4'!F39)	='Week 4'!G39	='Week 4'!H39	=IF(H39*G39=0,"",H39*G39)	=IF('Week 4'!J39=0,"",'Week 4'!J39)
+	=IF('Week 4'!B40=0,"",'Week 4'!B40)	=IF('Week 4'!C40=0,"",'Week 4'!C40)	=IF('Week 4'!D40=0,"",'Week 4'!D40)	=IF('Week 4'!E40=0,"",'Week 4'!E40)	=IF('Week 4'!F40=0,"",'Week 4'!F40)	='Week 4'!G40	='Week 4'!H40	=IF(H40*G40=0,"",H40*G40)	=IF('Week 4'!J40=0,"",'Week 4'!J40)
+	=IF('Week 4'!B41=0,"",'Week 4'!B41)	=IF('Week 4'!C41=0,"",'Week 4'!C41)	=IF('Week 4'!D41=0,"",'Week 4'!D41)	=IF('Week 4'!E41=0,"",'Week 4'!E41)	=IF('Week 4'!F41=0,"",'Week 4'!F41)	='Week 4'!G41	='Week 4'!H41	=IF(H41*G41=0,"",H41*G41)	=IF('Week 4'!J41=0,"",'Week 4'!J41)
+	=IF('Week 4'!B42=0,"",'Week 4'!B42)	=IF('Week 4'!C42=0,"",'Week 4'!C42)	=IF('Week 4'!D42=0,"",'Week 4'!D42)	=IF('Week 4'!E42=0,"",'Week 4'!E42)	=IF('Week 4'!F42=0,"",'Week 4'!F42)	='Week 4'!G42	='Week 4'!H42	=IF(H42*G42=0,"",H42*G42)	=IF('Week 4'!J42=0,"",'Week 4'!J42)
+									
+									
+--- Sheet: Week 6 ---
+Day 1	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 5'!B2=0,"",'Week 5'!B2)	=IF('Week 5'!C2=0,"",'Week 5'!C2)	=IF('Week 5'!D2=0,"",'Week 5'!D2)	=IF('Week 5'!E2=0,"",'Week 5'!E2)	=IF('Week 5'!F2=0,"",'Week 5'!F2)	='Week 5'!G2	='Week 5'!H2	=IF(H2*G2=0,"",H2*G2)	=IF('Week 5'!J2=0,"",'Week 5'!J2)
+	=IF('Week 5'!B3=0,"",'Week 5'!B3)	=IF('Week 5'!C3=0,"",'Week 5'!C3)	=IF('Week 5'!D3=0,"",'Week 5'!D3)	=IF('Week 5'!E3=0,"",'Week 5'!E3)	=IF('Week 5'!F3=0,"",'Week 5'!F3)	='Week 5'!G3	='Week 5'!H3	=IF(H3*G3=0,"",H3*G3)	=IF('Week 5'!J3=0,"",'Week 5'!J3)
+	=IF('Week 5'!B4=0,"",'Week 5'!B4)	=IF('Week 5'!C4=0,"",'Week 5'!C4)	=IF('Week 5'!D4=0,"",'Week 5'!D4)	=IF('Week 5'!E4=0,"",'Week 5'!E4)	=IF('Week 5'!F4=0,"",'Week 5'!F4)	='Week 5'!G4	='Week 5'!H4	=IF(H4*G4=0,"",H4*G4)	=IF('Week 5'!J4=0,"",'Week 5'!J4)
+	=IF('Week 5'!B5=0,"",'Week 5'!B5)	=IF('Week 5'!C5=0,"",'Week 5'!C5)	=IF('Week 5'!D5=0,"",'Week 5'!D5)	=IF('Week 5'!E5=0,"",'Week 5'!E5)	=IF('Week 5'!F5=0,"",'Week 5'!F5)	='Week 5'!G5	='Week 5'!H5	=IF(H5*G5=0,"",H5*G5)	=IF('Week 5'!J5=0,"",'Week 5'!J5)
+	=IF('Week 5'!B6=0,"",'Week 5'!B6)	=IF('Week 5'!C6=0,"",'Week 5'!C6)	=IF('Week 5'!D6=0,"",'Week 5'!D6)	=IF('Week 5'!E6=0,"",'Week 5'!E6)	=IF('Week 5'!F6=0,"",'Week 5'!F6)	='Week 5'!G6	='Week 5'!H6	=IF(H6*G6=0,"",H6*G6)	=IF('Week 5'!J6=0,"",'Week 5'!J6)
+	=IF('Week 5'!B7=0,"",'Week 5'!B7)	=IF('Week 5'!C7=0,"",'Week 5'!C7)	=IF('Week 5'!D7=0,"",'Week 5'!D7)	=IF('Week 5'!E7=0,"",'Week 5'!E7)	=IF('Week 5'!F7=0,"",'Week 5'!F7)	='Week 5'!G7	='Week 5'!H7	=IF(H7*G7=0,"",H7*G7)	=IF('Week 5'!J7=0,"",'Week 5'!J7)
+	=IF('Week 5'!B8=0,"",'Week 5'!B8)	=IF('Week 5'!C8=0,"",'Week 5'!C8)	=IF('Week 5'!D8=0,"",'Week 5'!D8)	=IF('Week 5'!E8=0,"",'Week 5'!E8)	=IF('Week 5'!F8=0,"",'Week 5'!F8)	='Week 5'!G8	='Week 5'!H8	=IF(H8*G8=0,"",H8*G8)	=IF('Week 5'!J8=0,"",'Week 5'!J8)
+	=IF('Week 5'!B9=0,"",'Week 5'!B9)	=IF('Week 5'!C9=0,"",'Week 5'!C9)	=IF('Week 5'!D9=0,"",'Week 5'!D9)	=IF('Week 5'!E9=0,"",'Week 5'!E9)	=IF('Week 5'!F9=0,"",'Week 5'!F9)	='Week 5'!G9	='Week 5'!H9	=IF(H9*G9=0,"",H9*G9)	=IF('Week 5'!J9=0,"",'Week 5'!J9)
+									
+									
+Day 2	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 5'!B13=0,"",'Week 5'!B13)	=IF('Week 5'!C13=0,"",'Week 5'!C13)	=IF('Week 5'!D13=0,"",'Week 5'!D13)	=IF('Week 5'!E13=0,"",'Week 5'!E13)	=IF('Week 5'!F13=0,"",'Week 5'!F13)	='Week 5'!G13	='Week 5'!H13	=IF(H13*G13=0,"",H13*G13)	=IF('Week 5'!J13=0,"",'Week 5'!J13)
+	=IF('Week 5'!B14=0,"",'Week 5'!B14)	=IF('Week 5'!C14=0,"",'Week 5'!C14)	=IF('Week 5'!D14=0,"",'Week 5'!D14)	=IF('Week 5'!E14=0,"",'Week 5'!E14)	=IF('Week 5'!F14=0,"",'Week 5'!F14)	='Week 5'!G14	='Week 5'!H14	=IF(H14*G14=0,"",H14*G14)	=IF('Week 5'!J14=0,"",'Week 5'!J14)
+	=IF('Week 5'!B15=0,"",'Week 5'!B15)	=IF('Week 5'!C15=0,"",'Week 5'!C15)	=IF('Week 5'!D15=0,"",'Week 5'!D15)	=IF('Week 5'!E15=0,"",'Week 5'!E15)	=IF('Week 5'!F15=0,"",'Week 5'!F15)	='Week 5'!G15	='Week 5'!H15	=IF(H15*G15=0,"",H15*G15)	=IF('Week 5'!J15=0,"",'Week 5'!J15)
+	=IF('Week 5'!B16=0,"",'Week 5'!B16)	=IF('Week 5'!C16=0,"",'Week 5'!C16)	=IF('Week 5'!D16=0,"",'Week 5'!D16)	=IF('Week 5'!E16=0,"",'Week 5'!E16)	=IF('Week 5'!F16=0,"",'Week 5'!F16)	='Week 5'!G16	='Week 5'!H16	=IF(H16*G16=0,"",H16*G16)	=IF('Week 5'!J16=0,"",'Week 5'!J16)
+	=IF('Week 5'!B17=0,"",'Week 5'!B17)	=IF('Week 5'!C17=0,"",'Week 5'!C17)	=IF('Week 5'!D17=0,"",'Week 5'!D17)	=IF('Week 5'!E17=0,"",'Week 5'!E17)	=IF('Week 5'!F17=0,"",'Week 5'!F17)	='Week 5'!G17	='Week 5'!H17	=IF(H17*G17=0,"",H17*G17)	=IF('Week 5'!J17=0,"",'Week 5'!J17)
+	=IF('Week 5'!B18=0,"",'Week 5'!B18)	=IF('Week 5'!C18=0,"",'Week 5'!C18)	=IF('Week 5'!D18=0,"",'Week 5'!D18)	=IF('Week 5'!E18=0,"",'Week 5'!E18)	=IF('Week 5'!F18=0,"",'Week 5'!F18)	='Week 5'!G18	='Week 5'!H18	=IF(H18*G18=0,"",H18*G18)	=IF('Week 5'!J18=0,"",'Week 5'!J18)
+	=IF('Week 5'!B19=0,"",'Week 5'!B19)	=IF('Week 5'!C19=0,"",'Week 5'!C19)	=IF('Week 5'!D19=0,"",'Week 5'!D19)	=IF('Week 5'!E19=0,"",'Week 5'!E19)	=IF('Week 5'!F19=0,"",'Week 5'!F19)	='Week 5'!G19	='Week 5'!H19	=IF(H19*G19=0,"",H19*G19)	=IF('Week 5'!J19=0,"",'Week 5'!J19)
+	=IF('Week 5'!B20=0,"",'Week 5'!B20)	=IF('Week 5'!C20=0,"",'Week 5'!C20)	=IF('Week 5'!D20=0,"",'Week 5'!D20)	=IF('Week 5'!E20=0,"",'Week 5'!E20)	=IF('Week 5'!F20=0,"",'Week 5'!F20)	='Week 5'!G20	='Week 5'!H20	=IF(H20*G20=0,"",H20*G20)	=IF('Week 5'!J20=0,"",'Week 5'!J20)
+									
+									
+Day 3	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 5'!B24=0,"",'Week 5'!B24)	=IF('Week 5'!C24=0,"",'Week 5'!C24)	=IF('Week 5'!D24=0,"",'Week 5'!D24)	=IF('Week 5'!E24=0,"",'Week 5'!E24)	=IF('Week 5'!F24=0,"",'Week 5'!F24)	='Week 5'!G24	='Week 5'!H24	=IF(H24*G24=0,"",H24*G24)	=IF('Week 5'!J24=0,"",'Week 5'!J24)
+	=IF('Week 5'!B25=0,"",'Week 5'!B25)	=IF('Week 5'!C25=0,"",'Week 5'!C25)	=IF('Week 5'!D25=0,"",'Week 5'!D25)	=IF('Week 5'!E25=0,"",'Week 5'!E25)	=IF('Week 5'!F25=0,"",'Week 5'!F25)	='Week 5'!G25	='Week 5'!H25	=IF(H25*G25=0,"",H25*G25)	=IF('Week 5'!J25=0,"",'Week 5'!J25)
+	=IF('Week 5'!B26=0,"",'Week 5'!B26)	=IF('Week 5'!C26=0,"",'Week 5'!C26)	=IF('Week 5'!D26=0,"",'Week 5'!D26)	=IF('Week 5'!E26=0,"",'Week 5'!E26)	=IF('Week 5'!F26=0,"",'Week 5'!F26)	='Week 5'!G26	='Week 5'!H26	=IF(H26*G26=0,"",H26*G26)	=IF('Week 5'!J26=0,"",'Week 5'!J26)
+	=IF('Week 5'!B27=0,"",'Week 5'!B27)	=IF('Week 5'!C27=0,"",'Week 5'!C27)	=IF('Week 5'!D27=0,"",'Week 5'!D27)	=IF('Week 5'!E27=0,"",'Week 5'!E27)	=IF('Week 5'!F27=0,"",'Week 5'!F27)	='Week 5'!G27	='Week 5'!H27	=IF(H27*G27=0,"",H27*G27)	=IF('Week 5'!J27=0,"",'Week 5'!J27)
+	=IF('Week 5'!B28=0,"",'Week 5'!B28)	=IF('Week 5'!C28=0,"",'Week 5'!C28)	=IF('Week 5'!D28=0,"",'Week 5'!D28)	=IF('Week 5'!E28=0,"",'Week 5'!E28)	=IF('Week 5'!F28=0,"",'Week 5'!F28)	='Week 5'!G28	='Week 5'!H28	=IF(H28*G28=0,"",H28*G28)	=IF('Week 5'!J28=0,"",'Week 5'!J28)
+	=IF('Week 5'!B29=0,"",'Week 5'!B29)	=IF('Week 5'!C29=0,"",'Week 5'!C29)	=IF('Week 5'!D29=0,"",'Week 5'!D29)	=IF('Week 5'!E29=0,"",'Week 5'!E29)	=IF('Week 5'!F29=0,"",'Week 5'!F29)	='Week 5'!G29	='Week 5'!H29	=IF(H29*G29=0,"",H29*G29)	=IF('Week 5'!J29=0,"",'Week 5'!J29)
+	=IF('Week 5'!B30=0,"",'Week 5'!B30)	=IF('Week 5'!C30=0,"",'Week 5'!C30)	=IF('Week 5'!D30=0,"",'Week 5'!D30)	=IF('Week 5'!E30=0,"",'Week 5'!E30)	=IF('Week 5'!F30=0,"",'Week 5'!F30)	='Week 5'!G30	='Week 5'!H30	=IF(H30*G30=0,"",H30*G30)	=IF('Week 5'!J30=0,"",'Week 5'!J30)
+	=IF('Week 5'!B31=0,"",'Week 5'!B31)	=IF('Week 5'!C31=0,"",'Week 5'!C31)	=IF('Week 5'!D31=0,"",'Week 5'!D31)	=IF('Week 5'!E31=0,"",'Week 5'!E31)	=IF('Week 5'!F31=0,"",'Week 5'!F31)	='Week 5'!G31	='Week 5'!H31	=IF(H31*G31=0,"",H31*G31)	=IF('Week 5'!J31=0,"",'Week 5'!J31)
+									
+									
+Day 4	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 5'!B35=0,"",'Week 5'!B35)	=IF('Week 5'!C35=0,"",'Week 5'!C35)	=IF('Week 5'!D35=0,"",'Week 5'!D35)	=IF('Week 5'!E35=0,"",'Week 5'!E35)	=IF('Week 5'!F35=0,"",'Week 5'!F35)	='Week 5'!G35	='Week 5'!H35	=IF(H35*G35=0,"",H35*G35)	=IF('Week 5'!J35=0,"",'Week 5'!J35)
+	=IF('Week 5'!B36=0,"",'Week 5'!B36)	=IF('Week 5'!C36=0,"",'Week 5'!C36)	=IF('Week 5'!D36=0,"",'Week 5'!D36)	=IF('Week 5'!E36=0,"",'Week 5'!E36)	=IF('Week 5'!F36=0,"",'Week 5'!F36)	='Week 5'!G36	='Week 5'!H36	=IF(H36*G36=0,"",H36*G36)	=IF('Week 5'!J36=0,"",'Week 5'!J36)
+	=IF('Week 5'!B37=0,"",'Week 5'!B37)	=IF('Week 5'!C37=0,"",'Week 5'!C37)	=IF('Week 5'!D37=0,"",'Week 5'!D37)	=IF('Week 5'!E37=0,"",'Week 5'!E37)	=IF('Week 5'!F37=0,"",'Week 5'!F37)	='Week 5'!G37	='Week 5'!H37	=IF(H37*G37=0,"",H37*G37)	=IF('Week 5'!J37=0,"",'Week 5'!J37)
+	=IF('Week 5'!B38=0,"",'Week 5'!B38)	=IF('Week 5'!C38=0,"",'Week 5'!C38)	=IF('Week 5'!D38=0,"",'Week 5'!D38)	=IF('Week 5'!E38=0,"",'Week 5'!E38)	=IF('Week 5'!F38=0,"",'Week 5'!F38)	='Week 5'!G38	='Week 5'!H38	=IF(H38*G38=0,"",H38*G38)	=IF('Week 5'!J38=0,"",'Week 5'!J38)
+	=IF('Week 5'!B39=0,"",'Week 5'!B39)	=IF('Week 5'!C39=0,"",'Week 5'!C39)	=IF('Week 5'!D39=0,"",'Week 5'!D39)	=IF('Week 5'!E39=0,"",'Week 5'!E39)	=IF('Week 5'!F39=0,"",'Week 5'!F39)	='Week 5'!G39	='Week 5'!H39	=IF(H39*G39=0,"",H39*G39)	=IF('Week 5'!J39=0,"",'Week 5'!J39)
+	=IF('Week 5'!B40=0,"",'Week 5'!B40)	=IF('Week 5'!C40=0,"",'Week 5'!C40)	=IF('Week 5'!D40=0,"",'Week 5'!D40)	=IF('Week 5'!E40=0,"",'Week 5'!E40)	=IF('Week 5'!F40=0,"",'Week 5'!F40)	='Week 5'!G40	='Week 5'!H40	=IF(H40*G40=0,"",H40*G40)	=IF('Week 5'!J40=0,"",'Week 5'!J40)
+	=IF('Week 5'!B41=0,"",'Week 5'!B41)	=IF('Week 5'!C41=0,"",'Week 5'!C41)	=IF('Week 5'!D41=0,"",'Week 5'!D41)	=IF('Week 5'!E41=0,"",'Week 5'!E41)	=IF('Week 5'!F41=0,"",'Week 5'!F41)	='Week 5'!G41	='Week 5'!H41	=IF(H41*G41=0,"",H41*G41)	=IF('Week 5'!J41=0,"",'Week 5'!J41)
+	=IF('Week 5'!B42=0,"",'Week 5'!B42)	=IF('Week 5'!C42=0,"",'Week 5'!C42)	=IF('Week 5'!D42=0,"",'Week 5'!D42)	=IF('Week 5'!E42=0,"",'Week 5'!E42)	=IF('Week 5'!F42=0,"",'Week 5'!F42)	='Week 5'!G42	='Week 5'!H42	=IF(H42*G42=0,"",H42*G42)	=IF('Week 5'!J42=0,"",'Week 5'!J42)
+									
+									
+--- Sheet: Week 7 ---
+Day 1	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 6'!B2=0,"",'Week 6'!B2)	=IF('Week 6'!C2=0,"",'Week 6'!C2)	=IF('Week 6'!D2=0,"",'Week 6'!D2)	=IF('Week 6'!E2=0,"",'Week 6'!E2)	=IF('Week 6'!F2=0,"",'Week 6'!F2)	='Week 6'!G2	='Week 6'!H2	=IF(H2*G2=0,"",H2*G2)	=IF('Week 6'!J2=0,"",'Week 6'!J2)
+	=IF('Week 6'!B3=0,"",'Week 6'!B3)	=IF('Week 6'!C3=0,"",'Week 6'!C3)	=IF('Week 6'!D3=0,"",'Week 6'!D3)	=IF('Week 6'!E3=0,"",'Week 6'!E3)	=IF('Week 6'!F3=0,"",'Week 6'!F3)	='Week 6'!G3	='Week 6'!H3	=IF(H3*G3=0,"",H3*G3)	=IF('Week 6'!J3=0,"",'Week 6'!J3)
+	=IF('Week 6'!B4=0,"",'Week 6'!B4)	=IF('Week 6'!C4=0,"",'Week 6'!C4)	=IF('Week 6'!D4=0,"",'Week 6'!D4)	=IF('Week 6'!E4=0,"",'Week 6'!E4)	=IF('Week 6'!F4=0,"",'Week 6'!F4)	='Week 6'!G4	='Week 6'!H4	=IF(H4*G4=0,"",H4*G4)	=IF('Week 6'!J4=0,"",'Week 6'!J4)
+	=IF('Week 6'!B5=0,"",'Week 6'!B5)	=IF('Week 6'!C5=0,"",'Week 6'!C5)	=IF('Week 6'!D5=0,"",'Week 6'!D5)	=IF('Week 6'!E5=0,"",'Week 6'!E5)	=IF('Week 6'!F5=0,"",'Week 6'!F5)	='Week 6'!G5	='Week 6'!H5	=IF(H5*G5=0,"",H5*G5)	=IF('Week 6'!J5=0,"",'Week 6'!J5)
+	=IF('Week 6'!B6=0,"",'Week 6'!B6)	=IF('Week 6'!C6=0,"",'Week 6'!C6)	=IF('Week 6'!D6=0,"",'Week 6'!D6)	=IF('Week 6'!E6=0,"",'Week 6'!E6)	=IF('Week 6'!F6=0,"",'Week 6'!F6)	='Week 6'!G6	='Week 6'!H6	=IF(H6*G6=0,"",H6*G6)	=IF('Week 6'!J6=0,"",'Week 6'!J6)
+	=IF('Week 6'!B7=0,"",'Week 6'!B7)	=IF('Week 6'!C7=0,"",'Week 6'!C7)	=IF('Week 6'!D7=0,"",'Week 6'!D7)	=IF('Week 6'!E7=0,"",'Week 6'!E7)	=IF('Week 6'!F7=0,"",'Week 6'!F7)	='Week 6'!G7	='Week 6'!H7	=IF(H7*G7=0,"",H7*G7)	=IF('Week 6'!J7=0,"",'Week 6'!J7)
+	=IF('Week 6'!B8=0,"",'Week 6'!B8)	=IF('Week 6'!C8=0,"",'Week 6'!C8)	=IF('Week 6'!D8=0,"",'Week 6'!D8)	=IF('Week 6'!E8=0,"",'Week 6'!E8)	=IF('Week 6'!F8=0,"",'Week 6'!F8)	='Week 6'!G8	='Week 6'!H8	=IF(H8*G8=0,"",H8*G8)	=IF('Week 6'!J8=0,"",'Week 6'!J8)
+	=IF('Week 6'!B9=0,"",'Week 6'!B9)	=IF('Week 6'!C9=0,"",'Week 6'!C9)	=IF('Week 6'!D9=0,"",'Week 6'!D9)	=IF('Week 6'!E9=0,"",'Week 6'!E9)	=IF('Week 6'!F9=0,"",'Week 6'!F9)	='Week 6'!G9	='Week 6'!H9	=IF(H9*G9=0,"",H9*G9)	=IF('Week 6'!J9=0,"",'Week 6'!J9)
+									
+									
+Day 2	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 6'!B13=0,"",'Week 6'!B13)	=IF('Week 6'!C13=0,"",'Week 6'!C13)	=IF('Week 6'!D13=0,"",'Week 6'!D13)	=IF('Week 6'!E13=0,"",'Week 6'!E13)	=IF('Week 6'!F13=0,"",'Week 6'!F13)	='Week 6'!G13	='Week 6'!H13	=IF(H13*G13=0,"",H13*G13)	=IF('Week 6'!J13=0,"",'Week 6'!J13)
+	=IF('Week 6'!B14=0,"",'Week 6'!B14)	=IF('Week 6'!C14=0,"",'Week 6'!C14)	=IF('Week 6'!D14=0,"",'Week 6'!D14)	=IF('Week 6'!E14=0,"",'Week 6'!E14)	=IF('Week 6'!F14=0,"",'Week 6'!F14)	='Week 6'!G14	='Week 6'!H14	=IF(H14*G14=0,"",H14*G14)	=IF('Week 6'!J14=0,"",'Week 6'!J14)
+	=IF('Week 6'!B15=0,"",'Week 6'!B15)	=IF('Week 6'!C15=0,"",'Week 6'!C15)	=IF('Week 6'!D15=0,"",'Week 6'!D15)	=IF('Week 6'!E15=0,"",'Week 6'!E15)	=IF('Week 6'!F15=0,"",'Week 6'!F15)	='Week 6'!G15	='Week 6'!H15	=IF(H15*G15=0,"",H15*G15)	=IF('Week 6'!J15=0,"",'Week 6'!J15)
+	=IF('Week 6'!B16=0,"",'Week 6'!B16)	=IF('Week 6'!C16=0,"",'Week 6'!C16)	=IF('Week 6'!D16=0,"",'Week 6'!D16)	=IF('Week 6'!E16=0,"",'Week 6'!E16)	=IF('Week 6'!F16=0,"",'Week 6'!F16)	='Week 6'!G16	='Week 6'!H16	=IF(H16*G16=0,"",H16*G16)	=IF('Week 6'!J16=0,"",'Week 6'!J16)
+	=IF('Week 6'!B17=0,"",'Week 6'!B17)	=IF('Week 6'!C17=0,"",'Week 6'!C17)	=IF('Week 6'!D17=0,"",'Week 6'!D17)	=IF('Week 6'!E17=0,"",'Week 6'!E17)	=IF('Week 6'!F17=0,"",'Week 6'!F17)	='Week 6'!G17	='Week 6'!H17	=IF(H17*G17=0,"",H17*G17)	=IF('Week 6'!J17=0,"",'Week 6'!J17)
+	=IF('Week 6'!B18=0,"",'Week 6'!B18)	=IF('Week 6'!C18=0,"",'Week 6'!C18)	=IF('Week 6'!D18=0,"",'Week 6'!D18)	=IF('Week 6'!E18=0,"",'Week 6'!E18)	=IF('Week 6'!F18=0,"",'Week 6'!F18)	='Week 6'!G18	='Week 6'!H18	=IF(H18*G18=0,"",H18*G18)	=IF('Week 6'!J18=0,"",'Week 6'!J18)
+	=IF('Week 6'!B19=0,"",'Week 6'!B19)	=IF('Week 6'!C19=0,"",'Week 6'!C19)	=IF('Week 6'!D19=0,"",'Week 6'!D19)	=IF('Week 6'!E19=0,"",'Week 6'!E19)	=IF('Week 6'!F19=0,"",'Week 6'!F19)	='Week 6'!G19	='Week 6'!H19	=IF(H19*G19=0,"",H19*G19)	=IF('Week 6'!J19=0,"",'Week 6'!J19)
+	=IF('Week 6'!B20=0,"",'Week 6'!B20)	=IF('Week 6'!C20=0,"",'Week 6'!C20)	=IF('Week 6'!D20=0,"",'Week 6'!D20)	=IF('Week 6'!E20=0,"",'Week 6'!E20)	=IF('Week 6'!F20=0,"",'Week 6'!F20)	='Week 6'!G20	='Week 6'!H20	=IF(H20*G20=0,"",H20*G20)	=IF('Week 6'!J20=0,"",'Week 6'!J20)
+									
+									
+Day 3	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 6'!B24=0,"",'Week 6'!B24)	=IF('Week 6'!C24=0,"",'Week 6'!C24)	=IF('Week 6'!D24=0,"",'Week 6'!D24)	=IF('Week 6'!E24=0,"",'Week 6'!E24)	=IF('Week 6'!F24=0,"",'Week 6'!F24)	='Week 6'!G24	='Week 6'!H24	=IF(H24*G24=0,"",H24*G24)	=IF('Week 6'!J24=0,"",'Week 6'!J24)
+	=IF('Week 6'!B25=0,"",'Week 6'!B25)	=IF('Week 6'!C25=0,"",'Week 6'!C25)	=IF('Week 6'!D25=0,"",'Week 6'!D25)	=IF('Week 6'!E25=0,"",'Week 6'!E25)	=IF('Week 6'!F25=0,"",'Week 6'!F25)	='Week 6'!G25	='Week 6'!H25	=IF(H25*G25=0,"",H25*G25)	=IF('Week 6'!J25=0,"",'Week 6'!J25)
+	=IF('Week 6'!B26=0,"",'Week 6'!B26)	=IF('Week 6'!C26=0,"",'Week 6'!C26)	=IF('Week 6'!D26=0,"",'Week 6'!D26)	=IF('Week 6'!E26=0,"",'Week 6'!E26)	=IF('Week 6'!F26=0,"",'Week 6'!F26)	='Week 6'!G26	='Week 6'!H26	=IF(H26*G26=0,"",H26*G26)	=IF('Week 6'!J26=0,"",'Week 6'!J26)
+	=IF('Week 6'!B27=0,"",'Week 6'!B27)	=IF('Week 6'!C27=0,"",'Week 6'!C27)	=IF('Week 6'!D27=0,"",'Week 6'!D27)	=IF('Week 6'!E27=0,"",'Week 6'!E27)	=IF('Week 6'!F27=0,"",'Week 6'!F27)	='Week 6'!G27	='Week 6'!H27	=IF(H27*G27=0,"",H27*G27)	=IF('Week 6'!J27=0,"",'Week 6'!J27)
+	=IF('Week 6'!B28=0,"",'Week 6'!B28)	=IF('Week 6'!C28=0,"",'Week 6'!C28)	=IF('Week 6'!D28=0,"",'Week 6'!D28)	=IF('Week 6'!E28=0,"",'Week 6'!E28)	=IF('Week 6'!F28=0,"",'Week 6'!F28)	='Week 6'!G28	='Week 6'!H28	=IF(H28*G28=0,"",H28*G28)	=IF('Week 6'!J28=0,"",'Week 6'!J28)
+	=IF('Week 6'!B29=0,"",'Week 6'!B29)	=IF('Week 6'!C29=0,"",'Week 6'!C29)	=IF('Week 6'!D29=0,"",'Week 6'!D29)	=IF('Week 6'!E29=0,"",'Week 6'!E29)	=IF('Week 6'!F29=0,"",'Week 6'!F29)	='Week 6'!G29	='Week 6'!H29	=IF(H29*G29=0,"",H29*G29)	=IF('Week 6'!J29=0,"",'Week 6'!J29)
+	=IF('Week 6'!B30=0,"",'Week 6'!B30)	=IF('Week 6'!C30=0,"",'Week 6'!C30)	=IF('Week 6'!D30=0,"",'Week 6'!D30)	=IF('Week 6'!E30=0,"",'Week 6'!E30)	=IF('Week 6'!F30=0,"",'Week 6'!F30)	='Week 6'!G30	='Week 6'!H30	=IF(H30*G30=0,"",H30*G30)	=IF('Week 6'!J30=0,"",'Week 6'!J30)
+	=IF('Week 6'!B31=0,"",'Week 6'!B31)	=IF('Week 6'!C31=0,"",'Week 6'!C31)	=IF('Week 6'!D31=0,"",'Week 6'!D31)	=IF('Week 6'!E31=0,"",'Week 6'!E31)	=IF('Week 6'!F31=0,"",'Week 6'!F31)	='Week 6'!G31	='Week 6'!H31	=IF(H31*G31=0,"",H31*G31)	=IF('Week 6'!J31=0,"",'Week 6'!J31)
+									
+									
+Day 4	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 6'!B35=0,"",'Week 6'!B35)	=IF('Week 6'!C35=0,"",'Week 6'!C35)	=IF('Week 6'!D35=0,"",'Week 6'!D35)	=IF('Week 6'!E35=0,"",'Week 6'!E35)	=IF('Week 6'!F35=0,"",'Week 6'!F35)	='Week 6'!G35	='Week 6'!H35	=IF(H35*G35=0,"",H35*G35)	=IF('Week 6'!J35=0,"",'Week 6'!J35)
+	=IF('Week 6'!B36=0,"",'Week 6'!B36)	=IF('Week 6'!C36=0,"",'Week 6'!C36)	=IF('Week 6'!D36=0,"",'Week 6'!D36)	=IF('Week 6'!E36=0,"",'Week 6'!E36)	=IF('Week 6'!F36=0,"",'Week 6'!F36)	='Week 6'!G36	='Week 6'!H36	=IF(H36*G36=0,"",H36*G36)	=IF('Week 6'!J36=0,"",'Week 6'!J36)
+	=IF('Week 6'!B37=0,"",'Week 6'!B37)	=IF('Week 6'!C37=0,"",'Week 6'!C37)	=IF('Week 6'!D37=0,"",'Week 6'!D37)	=IF('Week 6'!E37=0,"",'Week 6'!E37)	=IF('Week 6'!F37=0,"",'Week 6'!F37)	='Week 6'!G37	='Week 6'!H37	=IF(H37*G37=0,"",H37*G37)	=IF('Week 6'!J37=0,"",'Week 6'!J37)
+	=IF('Week 6'!B38=0,"",'Week 6'!B38)	=IF('Week 6'!C38=0,"",'Week 6'!C38)	=IF('Week 6'!D38=0,"",'Week 6'!D38)	=IF('Week 6'!E38=0,"",'Week 6'!E38)	=IF('Week 6'!F38=0,"",'Week 6'!F38)	='Week 6'!G38	='Week 6'!H38	=IF(H38*G38=0,"",H38*G38)	=IF('Week 6'!J38=0,"",'Week 6'!J38)
+	=IF('Week 6'!B39=0,"",'Week 6'!B39)	=IF('Week 6'!C39=0,"",'Week 6'!C39)	=IF('Week 6'!D39=0,"",'Week 6'!D39)	=IF('Week 6'!E39=0,"",'Week 6'!E39)	=IF('Week 6'!F39=0,"",'Week 6'!F39)	='Week 6'!G39	='Week 6'!H39	=IF(H39*G39=0,"",H39*G39)	=IF('Week 6'!J39=0,"",'Week 6'!J39)
+	=IF('Week 6'!B40=0,"",'Week 6'!B40)	=IF('Week 6'!C40=0,"",'Week 6'!C40)	=IF('Week 6'!D40=0,"",'Week 6'!D40)	=IF('Week 6'!E40=0,"",'Week 6'!E40)	=IF('Week 6'!F40=0,"",'Week 6'!F40)	='Week 6'!G40	='Week 6'!H40	=IF(H40*G40=0,"",H40*G40)	=IF('Week 6'!J40=0,"",'Week 6'!J40)
+	=IF('Week 6'!B41=0,"",'Week 6'!B41)	=IF('Week 6'!C41=0,"",'Week 6'!C41)	=IF('Week 6'!D41=0,"",'Week 6'!D41)	=IF('Week 6'!E41=0,"",'Week 6'!E41)	=IF('Week 6'!F41=0,"",'Week 6'!F41)	='Week 6'!G41	='Week 6'!H41	=IF(H41*G41=0,"",H41*G41)	=IF('Week 6'!J41=0,"",'Week 6'!J41)
+	=IF('Week 6'!B42=0,"",'Week 6'!B42)	=IF('Week 6'!C42=0,"",'Week 6'!C42)	=IF('Week 6'!D42=0,"",'Week 6'!D42)	=IF('Week 6'!E42=0,"",'Week 6'!E42)	=IF('Week 6'!F42=0,"",'Week 6'!F42)	='Week 6'!G42	='Week 6'!H42	=IF(H42*G42=0,"",H42*G42)	=IF('Week 6'!J42=0,"",'Week 6'!J42)
+									
+									
+--- Sheet: Week 8 ---
+Day 1	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 7'!B2=0,"",'Week 7'!B2)	=IF('Week 7'!C2=0,"",'Week 7'!C2)	=IF('Week 7'!D2=0,"",'Week 7'!D2)	=IF('Week 7'!E2=0,"",'Week 7'!E2)	=IF('Week 7'!F2=0,"",'Week 7'!F2)	='Week 7'!G2	='Week 7'!H2	=IF(H2*G2=0,"",H2*G2)	=IF('Week 7'!J2=0,"",'Week 7'!J2)
+	=IF('Week 7'!B3=0,"",'Week 7'!B3)	=IF('Week 7'!C3=0,"",'Week 7'!C3)	=IF('Week 7'!D3=0,"",'Week 7'!D3)	=IF('Week 7'!E3=0,"",'Week 7'!E3)	=IF('Week 7'!F3=0,"",'Week 7'!F3)	='Week 7'!G3	='Week 7'!H3	=IF(H3*G3=0,"",H3*G3)	=IF('Week 7'!J3=0,"",'Week 7'!J3)
+	=IF('Week 7'!B4=0,"",'Week 7'!B4)	=IF('Week 7'!C4=0,"",'Week 7'!C4)	=IF('Week 7'!D4=0,"",'Week 7'!D4)	=IF('Week 7'!E4=0,"",'Week 7'!E4)	=IF('Week 7'!F4=0,"",'Week 7'!F4)	='Week 7'!G4	='Week 7'!H4	=IF(H4*G4=0,"",H4*G4)	=IF('Week 7'!J4=0,"",'Week 7'!J4)
+	=IF('Week 7'!B5=0,"",'Week 7'!B5)	=IF('Week 7'!C5=0,"",'Week 7'!C5)	=IF('Week 7'!D5=0,"",'Week 7'!D5)	=IF('Week 7'!E5=0,"",'Week 7'!E5)	=IF('Week 7'!F5=0,"",'Week 7'!F5)	='Week 7'!G5	='Week 7'!H5	=IF(H5*G5=0,"",H5*G5)	=IF('Week 7'!J5=0,"",'Week 7'!J5)
+	=IF('Week 7'!B6=0,"",'Week 7'!B6)	=IF('Week 7'!C6=0,"",'Week 7'!C6)	=IF('Week 7'!D6=0,"",'Week 7'!D6)	=IF('Week 7'!E6=0,"",'Week 7'!E6)	=IF('Week 7'!F6=0,"",'Week 7'!F6)	='Week 7'!G6	='Week 7'!H6	=IF(H6*G6=0,"",H6*G6)	=IF('Week 7'!J6=0,"",'Week 7'!J6)
+	=IF('Week 7'!B7=0,"",'Week 7'!B7)	=IF('Week 7'!C7=0,"",'Week 7'!C7)	=IF('Week 7'!D7=0,"",'Week 7'!D7)	=IF('Week 7'!E7=0,"",'Week 7'!E7)	=IF('Week 7'!F7=0,"",'Week 7'!F7)	='Week 7'!G7	='Week 7'!H7	=IF(H7*G7=0,"",H7*G7)	=IF('Week 7'!J7=0,"",'Week 7'!J7)
+	=IF('Week 7'!B8=0,"",'Week 7'!B8)	=IF('Week 7'!C8=0,"",'Week 7'!C8)	=IF('Week 7'!D8=0,"",'Week 7'!D8)	=IF('Week 7'!E8=0,"",'Week 7'!E8)	=IF('Week 7'!F8=0,"",'Week 7'!F8)	='Week 7'!G8	='Week 7'!H8	=IF(H8*G8=0,"",H8*G8)	=IF('Week 7'!J8=0,"",'Week 7'!J8)
+	=IF('Week 7'!B9=0,"",'Week 7'!B9)	=IF('Week 7'!C9=0,"",'Week 7'!C9)	=IF('Week 7'!D9=0,"",'Week 7'!D9)	=IF('Week 7'!E9=0,"",'Week 7'!E9)	=IF('Week 7'!F9=0,"",'Week 7'!F9)	='Week 7'!G9	='Week 7'!H9	=IF(H9*G9=0,"",H9*G9)	=IF('Week 7'!J9=0,"",'Week 7'!J9)
+									
+									
+Day 2	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 7'!B13=0,"",'Week 7'!B13)	=IF('Week 7'!C13=0,"",'Week 7'!C13)	=IF('Week 7'!D13=0,"",'Week 7'!D13)	=IF('Week 7'!E13=0,"",'Week 7'!E13)	=IF('Week 7'!F13=0,"",'Week 7'!F13)	='Week 7'!G13	='Week 7'!H13	=IF(H13*G13=0,"",H13*G13)	=IF('Week 7'!J13=0,"",'Week 7'!J13)
+	=IF('Week 7'!B14=0,"",'Week 7'!B14)	=IF('Week 7'!C14=0,"",'Week 7'!C14)	=IF('Week 7'!D14=0,"",'Week 7'!D14)	=IF('Week 7'!E14=0,"",'Week 7'!E14)	=IF('Week 7'!F14=0,"",'Week 7'!F14)	='Week 7'!G14	='Week 7'!H14	=IF(H14*G14=0,"",H14*G14)	=IF('Week 7'!J14=0,"",'Week 7'!J14)
+	=IF('Week 7'!B15=0,"",'Week 7'!B15)	=IF('Week 7'!C15=0,"",'Week 7'!C15)	=IF('Week 7'!D15=0,"",'Week 7'!D15)	=IF('Week 7'!E15=0,"",'Week 7'!E15)	=IF('Week 7'!F15=0,"",'Week 7'!F15)	='Week 7'!G15	='Week 7'!H15	=IF(H15*G15=0,"",H15*G15)	=IF('Week 7'!J15=0,"",'Week 7'!J15)
+	=IF('Week 7'!B16=0,"",'Week 7'!B16)	=IF('Week 7'!C16=0,"",'Week 7'!C16)	=IF('Week 7'!D16=0,"",'Week 7'!D16)	=IF('Week 7'!E16=0,"",'Week 7'!E16)	=IF('Week 7'!F16=0,"",'Week 7'!F16)	='Week 7'!G16	='Week 7'!H16	=IF(H16*G16=0,"",H16*G16)	=IF('Week 7'!J16=0,"",'Week 7'!J16)
+	=IF('Week 7'!B17=0,"",'Week 7'!B17)	=IF('Week 7'!C17=0,"",'Week 7'!C17)	=IF('Week 7'!D17=0,"",'Week 7'!D17)	=IF('Week 7'!E17=0,"",'Week 7'!E17)	=IF('Week 7'!F17=0,"",'Week 7'!F17)	='Week 7'!G17	='Week 7'!H17	=IF(H17*G17=0,"",H17*G17)	=IF('Week 7'!J17=0,"",'Week 7'!J17)
+	=IF('Week 7'!B18=0,"",'Week 7'!B18)	=IF('Week 7'!C18=0,"",'Week 7'!C18)	=IF('Week 7'!D18=0,"",'Week 7'!D18)	=IF('Week 7'!E18=0,"",'Week 7'!E18)	=IF('Week 7'!F18=0,"",'Week 7'!F18)	='Week 7'!G18	='Week 7'!H18	=IF(H18*G18=0,"",H18*G18)	=IF('Week 7'!J18=0,"",'Week 7'!J18)
+	=IF('Week 7'!B19=0,"",'Week 7'!B19)	=IF('Week 7'!C19=0,"",'Week 7'!C19)	=IF('Week 7'!D19=0,"",'Week 7'!D19)	=IF('Week 7'!E19=0,"",'Week 7'!E19)	=IF('Week 7'!F19=0,"",'Week 7'!F19)	='Week 7'!G19	='Week 7'!H19	=IF(H19*G19=0,"",H19*G19)	=IF('Week 7'!J19=0,"",'Week 7'!J19)
+	=IF('Week 7'!B20=0,"",'Week 7'!B20)	=IF('Week 7'!C20=0,"",'Week 7'!C20)	=IF('Week 7'!D20=0,"",'Week 7'!D20)	=IF('Week 7'!E20=0,"",'Week 7'!E20)	=IF('Week 7'!F20=0,"",'Week 7'!F20)	='Week 7'!G20	='Week 7'!H20	=IF(H20*G20=0,"",H20*G20)	=IF('Week 7'!J20=0,"",'Week 7'!J20)
+									
+									
+Day 3	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 7'!B24=0,"",'Week 7'!B24)	=IF('Week 7'!C24=0,"",'Week 7'!C24)	=IF('Week 7'!D24=0,"",'Week 7'!D24)	=IF('Week 7'!E24=0,"",'Week 7'!E24)	=IF('Week 7'!F24=0,"",'Week 7'!F24)	='Week 7'!G24	='Week 7'!H24	=IF(H24*G24=0,"",H24*G24)	=IF('Week 7'!J24=0,"",'Week 7'!J24)
+	=IF('Week 7'!B25=0,"",'Week 7'!B25)	=IF('Week 7'!C25=0,"",'Week 7'!C25)	=IF('Week 7'!D25=0,"",'Week 7'!D25)	=IF('Week 7'!E25=0,"",'Week 7'!E25)	=IF('Week 7'!F25=0,"",'Week 7'!F25)	='Week 7'!G25	='Week 7'!H25	=IF(H25*G25=0,"",H25*G25)	=IF('Week 7'!J25=0,"",'Week 7'!J25)
+	=IF('Week 7'!B26=0,"",'Week 7'!B26)	=IF('Week 7'!C26=0,"",'Week 7'!C26)	=IF('Week 7'!D26=0,"",'Week 7'!D26)	=IF('Week 7'!E26=0,"",'Week 7'!E26)	=IF('Week 7'!F26=0,"",'Week 7'!F26)	='Week 7'!G26	='Week 7'!H26	=IF(H26*G26=0,"",H26*G26)	=IF('Week 7'!J26=0,"",'Week 7'!J26)
+	=IF('Week 7'!B27=0,"",'Week 7'!B27)	=IF('Week 7'!C27=0,"",'Week 7'!C27)	=IF('Week 7'!D27=0,"",'Week 7'!D27)	=IF('Week 7'!E27=0,"",'Week 7'!E27)	=IF('Week 7'!F27=0,"",'Week 7'!F27)	='Week 7'!G27	='Week 7'!H27	=IF(H27*G27=0,"",H27*G27)	=IF('Week 7'!J27=0,"",'Week 7'!J27)
+	=IF('Week 7'!B28=0,"",'Week 7'!B28)	=IF('Week 7'!C28=0,"",'Week 7'!C28)	=IF('Week 7'!D28=0,"",'Week 7'!D28)	=IF('Week 7'!E28=0,"",'Week 7'!E28)	=IF('Week 7'!F28=0,"",'Week 7'!F28)	='Week 7'!G28	='Week 7'!H28	=IF(H28*G28=0,"",H28*G28)	=IF('Week 7'!J28=0,"",'Week 7'!J28)
+	=IF('Week 7'!B29=0,"",'Week 7'!B29)	=IF('Week 7'!C29=0,"",'Week 7'!C29)	=IF('Week 7'!D29=0,"",'Week 7'!D29)	=IF('Week 7'!E29=0,"",'Week 7'!E29)	=IF('Week 7'!F29=0,"",'Week 7'!F29)	='Week 7'!G29	='Week 7'!H29	=IF(H29*G29=0,"",H29*G29)	=IF('Week 7'!J29=0,"",'Week 7'!J29)
+	=IF('Week 7'!B30=0,"",'Week 7'!B30)	=IF('Week 7'!C30=0,"",'Week 7'!C30)	=IF('Week 7'!D30=0,"",'Week 7'!D30)	=IF('Week 7'!E30=0,"",'Week 7'!E30)	=IF('Week 7'!F30=0,"",'Week 7'!F30)	='Week 7'!G30	='Week 7'!H30	=IF(H30*G30=0,"",H30*G30)	=IF('Week 7'!J30=0,"",'Week 7'!J30)
+	=IF('Week 7'!B31=0,"",'Week 7'!B31)	=IF('Week 7'!C31=0,"",'Week 7'!C31)	=IF('Week 7'!D31=0,"",'Week 7'!D31)	=IF('Week 7'!E31=0,"",'Week 7'!E31)	=IF('Week 7'!F31=0,"",'Week 7'!F31)	='Week 7'!G31	='Week 7'!H31	=IF(H31*G31=0,"",H31*G31)	=IF('Week 7'!J31=0,"",'Week 7'!J31)
+									
+									
+Day 4	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 7'!B35=0,"",'Week 7'!B35)	=IF('Week 7'!C35=0,"",'Week 7'!C35)	=IF('Week 7'!D35=0,"",'Week 7'!D35)	=IF('Week 7'!E35=0,"",'Week 7'!E35)	=IF('Week 7'!F35=0,"",'Week 7'!F35)	='Week 7'!G35	='Week 7'!H35	=IF(H35*G35=0,"",H35*G35)	=IF('Week 7'!J35=0,"",'Week 7'!J35)
+	=IF('Week 7'!B36=0,"",'Week 7'!B36)	=IF('Week 7'!C36=0,"",'Week 7'!C36)	=IF('Week 7'!D36=0,"",'Week 7'!D36)	=IF('Week 7'!E36=0,"",'Week 7'!E36)	=IF('Week 7'!F36=0,"",'Week 7'!F36)	='Week 7'!G36	='Week 7'!H36	=IF(H36*G36=0,"",H36*G36)	=IF('Week 7'!J36=0,"",'Week 7'!J36)
+	=IF('Week 7'!B37=0,"",'Week 7'!B37)	=IF('Week 7'!C37=0,"",'Week 7'!C37)	=IF('Week 7'!D37=0,"",'Week 7'!D37)	=IF('Week 7'!E37=0,"",'Week 7'!E37)	=IF('Week 7'!F37=0,"",'Week 7'!F37)	='Week 7'!G37	='Week 7'!H37	=IF(H37*G37=0,"",H37*G37)	=IF('Week 7'!J37=0,"",'Week 7'!J37)
+	=IF('Week 7'!B38=0,"",'Week 7'!B38)	=IF('Week 7'!C38=0,"",'Week 7'!C38)	=IF('Week 7'!D38=0,"",'Week 7'!D38)	=IF('Week 7'!E38=0,"",'Week 7'!E38)	=IF('Week 7'!F38=0,"",'Week 7'!F38)	='Week 7'!G38	='Week 7'!H38	=IF(H38*G38=0,"",H38*G38)	=IF('Week 7'!J38=0,"",'Week 7'!J38)
+	=IF('Week 7'!B39=0,"",'Week 7'!B39)	=IF('Week 7'!C39=0,"",'Week 7'!C39)	=IF('Week 7'!D39=0,"",'Week 7'!D39)	=IF('Week 7'!E39=0,"",'Week 7'!E39)	=IF('Week 7'!F39=0,"",'Week 7'!F39)	='Week 7'!G39	='Week 7'!H39	=IF(H39*G39=0,"",H39*G39)	=IF('Week 7'!J39=0,"",'Week 7'!J39)
+	=IF('Week 7'!B40=0,"",'Week 7'!B40)	=IF('Week 7'!C40=0,"",'Week 7'!C40)	=IF('Week 7'!D40=0,"",'Week 7'!D40)	=IF('Week 7'!E40=0,"",'Week 7'!E40)	=IF('Week 7'!F40=0,"",'Week 7'!F40)	='Week 7'!G40	='Week 7'!H40	=IF(H40*G40=0,"",H40*G40)	=IF('Week 7'!J40=0,"",'Week 7'!J40)
+	=IF('Week 7'!B41=0,"",'Week 7'!B41)	=IF('Week 7'!C41=0,"",'Week 7'!C41)	=IF('Week 7'!D41=0,"",'Week 7'!D41)	=IF('Week 7'!E41=0,"",'Week 7'!E41)	=IF('Week 7'!F41=0,"",'Week 7'!F41)	='Week 7'!G41	='Week 7'!H41	=IF(H41*G41=0,"",H41*G41)	=IF('Week 7'!J41=0,"",'Week 7'!J41)
+	=IF('Week 7'!B42=0,"",'Week 7'!B42)	=IF('Week 7'!C42=0,"",'Week 7'!C42)	=IF('Week 7'!D42=0,"",'Week 7'!D42)	=IF('Week 7'!E42=0,"",'Week 7'!E42)	=IF('Week 7'!F42=0,"",'Week 7'!F42)	='Week 7'!G42	='Week 7'!H42	=IF(H42*G42=0,"",H42*G42)	=IF('Week 7'!J42=0,"",'Week 7'!J42)
+									
+									
+--- Sheet: Week 9 ---
+Day 1	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 8'!B2=0,"",'Week 8'!B2)	=IF('Week 8'!C2=0,"",'Week 8'!C2)	=IF('Week 8'!D2=0,"",'Week 8'!D2)	=IF('Week 8'!E2=0,"",'Week 8'!E2)	=IF('Week 8'!F2=0,"",'Week 8'!F2)	='Week 8'!G2	='Week 8'!H2	=IF(H2*G2=0,"",H2*G2)	=IF('Week 8'!J2=0,"",'Week 8'!J2)
+	=IF('Week 8'!B3=0,"",'Week 8'!B3)	=IF('Week 8'!C3=0,"",'Week 8'!C3)	=IF('Week 8'!D3=0,"",'Week 8'!D3)	=IF('Week 8'!E3=0,"",'Week 8'!E3)	=IF('Week 8'!F3=0,"",'Week 8'!F3)	='Week 8'!G3	='Week 8'!H3	=IF(H3*G3=0,"",H3*G3)	=IF('Week 8'!J3=0,"",'Week 8'!J3)
+	=IF('Week 8'!B4=0,"",'Week 8'!B4)	=IF('Week 8'!C4=0,"",'Week 8'!C4)	=IF('Week 8'!D4=0,"",'Week 8'!D4)	=IF('Week 8'!E4=0,"",'Week 8'!E4)	=IF('Week 8'!F4=0,"",'Week 8'!F4)	='Week 8'!G4	='Week 8'!H4	=IF(H4*G4=0,"",H4*G4)	=IF('Week 8'!J4=0,"",'Week 8'!J4)
+	=IF('Week 8'!B5=0,"",'Week 8'!B5)	=IF('Week 8'!C5=0,"",'Week 8'!C5)	=IF('Week 8'!D5=0,"",'Week 8'!D5)	=IF('Week 8'!E5=0,"",'Week 8'!E5)	=IF('Week 8'!F5=0,"",'Week 8'!F5)	='Week 8'!G5	='Week 8'!H5	=IF(H5*G5=0,"",H5*G5)	=IF('Week 8'!J5=0,"",'Week 8'!J5)
+	=IF('Week 8'!B6=0,"",'Week 8'!B6)	=IF('Week 8'!C6=0,"",'Week 8'!C6)	=IF('Week 8'!D6=0,"",'Week 8'!D6)	=IF('Week 8'!E6=0,"",'Week 8'!E6)	=IF('Week 8'!F6=0,"",'Week 8'!F6)	='Week 8'!G6	='Week 8'!H6	=IF(H6*G6=0,"",H6*G6)	=IF('Week 8'!J6=0,"",'Week 8'!J6)
+	=IF('Week 8'!B7=0,"",'Week 8'!B7)	=IF('Week 8'!C7=0,"",'Week 8'!C7)	=IF('Week 8'!D7=0,"",'Week 8'!D7)	=IF('Week 8'!E7=0,"",'Week 8'!E7)	=IF('Week 8'!F7=0,"",'Week 8'!F7)	='Week 8'!G7	='Week 8'!H7	=IF(H7*G7=0,"",H7*G7)	=IF('Week 8'!J7=0,"",'Week 8'!J7)
+	=IF('Week 8'!B8=0,"",'Week 8'!B8)	=IF('Week 8'!C8=0,"",'Week 8'!C8)	=IF('Week 8'!D8=0,"",'Week 8'!D8)	=IF('Week 8'!E8=0,"",'Week 8'!E8)	=IF('Week 8'!F8=0,"",'Week 8'!F8)	='Week 8'!G8	='Week 8'!H8	=IF(H8*G8=0,"",H8*G8)	=IF('Week 8'!J8=0,"",'Week 8'!J8)
+	=IF('Week 8'!B9=0,"",'Week 8'!B9)	=IF('Week 8'!C9=0,"",'Week 8'!C9)	=IF('Week 8'!D9=0,"",'Week 8'!D9)	=IF('Week 8'!E9=0,"",'Week 8'!E9)	=IF('Week 8'!F9=0,"",'Week 8'!F9)	='Week 8'!G9	='Week 8'!H9	=IF(H9*G9=0,"",H9*G9)	=IF('Week 8'!J9=0,"",'Week 8'!J9)
+									
+									
+Day 2	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 8'!B13=0,"",'Week 8'!B13)	=IF('Week 8'!C13=0,"",'Week 8'!C13)	=IF('Week 8'!D13=0,"",'Week 8'!D13)	=IF('Week 8'!E13=0,"",'Week 8'!E13)	=IF('Week 8'!F13=0,"",'Week 8'!F13)	='Week 8'!G13	='Week 8'!H13	=IF(H13*G13=0,"",H13*G13)	=IF('Week 8'!J13=0,"",'Week 8'!J13)
+	=IF('Week 8'!B14=0,"",'Week 8'!B14)	=IF('Week 8'!C14=0,"",'Week 8'!C14)	=IF('Week 8'!D14=0,"",'Week 8'!D14)	=IF('Week 8'!E14=0,"",'Week 8'!E14)	=IF('Week 8'!F14=0,"",'Week 8'!F14)	='Week 8'!G14	='Week 8'!H14	=IF(H14*G14=0,"",H14*G14)	=IF('Week 8'!J14=0,"",'Week 8'!J14)
+	=IF('Week 8'!B15=0,"",'Week 8'!B15)	=IF('Week 8'!C15=0,"",'Week 8'!C15)	=IF('Week 8'!D15=0,"",'Week 8'!D15)	=IF('Week 8'!E15=0,"",'Week 8'!E15)	=IF('Week 8'!F15=0,"",'Week 8'!F15)	='Week 8'!G15	='Week 8'!H15	=IF(H15*G15=0,"",H15*G15)	=IF('Week 8'!J15=0,"",'Week 8'!J15)
+	=IF('Week 8'!B16=0,"",'Week 8'!B16)	=IF('Week 8'!C16=0,"",'Week 8'!C16)	=IF('Week 8'!D16=0,"",'Week 8'!D16)	=IF('Week 8'!E16=0,"",'Week 8'!E16)	=IF('Week 8'!F16=0,"",'Week 8'!F16)	='Week 8'!G16	='Week 8'!H16	=IF(H16*G16=0,"",H16*G16)	=IF('Week 8'!J16=0,"",'Week 8'!J16)
+	=IF('Week 8'!B17=0,"",'Week 8'!B17)	=IF('Week 8'!C17=0,"",'Week 8'!C17)	=IF('Week 8'!D17=0,"",'Week 8'!D17)	=IF('Week 8'!E17=0,"",'Week 8'!E17)	=IF('Week 8'!F17=0,"",'Week 8'!F17)	='Week 8'!G17	='Week 8'!H17	=IF(H17*G17=0,"",H17*G17)	=IF('Week 8'!J17=0,"",'Week 8'!J17)
+	=IF('Week 8'!B18=0,"",'Week 8'!B18)	=IF('Week 8'!C18=0,"",'Week 8'!C18)	=IF('Week 8'!D18=0,"",'Week 8'!D18)	=IF('Week 8'!E18=0,"",'Week 8'!E18)	=IF('Week 8'!F18=0,"",'Week 8'!F18)	='Week 8'!G18	='Week 8'!H18	=IF(H18*G18=0,"",H18*G18)	=IF('Week 8'!J18=0,"",'Week 8'!J18)
+	=IF('Week 8'!B19=0,"",'Week 8'!B19)	=IF('Week 8'!C19=0,"",'Week 8'!C19)	=IF('Week 8'!D19=0,"",'Week 8'!D19)	=IF('Week 8'!E19=0,"",'Week 8'!E19)	=IF('Week 8'!F19=0,"",'Week 8'!F19)	='Week 8'!G19	='Week 8'!H19	=IF(H19*G19=0,"",H19*G19)	=IF('Week 8'!J19=0,"",'Week 8'!J19)
+	=IF('Week 8'!B20=0,"",'Week 8'!B20)	=IF('Week 8'!C20=0,"",'Week 8'!C20)	=IF('Week 8'!D20=0,"",'Week 8'!D20)	=IF('Week 8'!E20=0,"",'Week 8'!E20)	=IF('Week 8'!F20=0,"",'Week 8'!F20)	='Week 8'!G20	='Week 8'!H20	=IF(H20*G20=0,"",H20*G20)	=IF('Week 8'!J20=0,"",'Week 8'!J20)
+									
+									
+Day 3	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 8'!B24=0,"",'Week 8'!B24)	=IF('Week 8'!C24=0,"",'Week 8'!C24)	=IF('Week 8'!D24=0,"",'Week 8'!D24)	=IF('Week 8'!E24=0,"",'Week 8'!E24)	=IF('Week 8'!F24=0,"",'Week 8'!F24)	='Week 8'!G24	='Week 8'!H24	=IF(H24*G24=0,"",H24*G24)	=IF('Week 8'!J24=0,"",'Week 8'!J24)
+	=IF('Week 8'!B25=0,"",'Week 8'!B25)	=IF('Week 8'!C25=0,"",'Week 8'!C25)	=IF('Week 8'!D25=0,"",'Week 8'!D25)	=IF('Week 8'!E25=0,"",'Week 8'!E25)	=IF('Week 8'!F25=0,"",'Week 8'!F25)	='Week 8'!G25	='Week 8'!H25	=IF(H25*G25=0,"",H25*G25)	=IF('Week 8'!J25=0,"",'Week 8'!J25)
+	=IF('Week 8'!B26=0,"",'Week 8'!B26)	=IF('Week 8'!C26=0,"",'Week 8'!C26)	=IF('Week 8'!D26=0,"",'Week 8'!D26)	=IF('Week 8'!E26=0,"",'Week 8'!E26)	=IF('Week 8'!F26=0,"",'Week 8'!F26)	='Week 8'!G26	='Week 8'!H26	=IF(H26*G26=0,"",H26*G26)	=IF('Week 8'!J26=0,"",'Week 8'!J26)
+	=IF('Week 8'!B27=0,"",'Week 8'!B27)	=IF('Week 8'!C27=0,"",'Week 8'!C27)	=IF('Week 8'!D27=0,"",'Week 8'!D27)	=IF('Week 8'!E27=0,"",'Week 8'!E27)	=IF('Week 8'!F27=0,"",'Week 8'!F27)	='Week 8'!G27	='Week 8'!H27	=IF(H27*G27=0,"",H27*G27)	=IF('Week 8'!J27=0,"",'Week 8'!J27)
+	=IF('Week 8'!B28=0,"",'Week 8'!B28)	=IF('Week 8'!C28=0,"",'Week 8'!C28)	=IF('Week 8'!D28=0,"",'Week 8'!D28)	=IF('Week 8'!E28=0,"",'Week 8'!E28)	=IF('Week 8'!F28=0,"",'Week 8'!F28)	='Week 8'!G28	='Week 8'!H28	=IF(H28*G28=0,"",H28*G28)	=IF('Week 8'!J28=0,"",'Week 8'!J28)
+	=IF('Week 8'!B29=0,"",'Week 8'!B29)	=IF('Week 8'!C29=0,"",'Week 8'!C29)	=IF('Week 8'!D29=0,"",'Week 8'!D29)	=IF('Week 8'!E29=0,"",'Week 8'!E29)	=IF('Week 8'!F29=0,"",'Week 8'!F29)	='Week 8'!G29	='Week 8'!H29	=IF(H29*G29=0,"",H29*G29)	=IF('Week 8'!J29=0,"",'Week 8'!J29)
+	=IF('Week 8'!B30=0,"",'Week 8'!B30)	=IF('Week 8'!C30=0,"",'Week 8'!C30)	=IF('Week 8'!D30=0,"",'Week 8'!D30)	=IF('Week 8'!E30=0,"",'Week 8'!E30)	=IF('Week 8'!F30=0,"",'Week 8'!F30)	='Week 8'!G30	='Week 8'!H30	=IF(H30*G30=0,"",H30*G30)	=IF('Week 8'!J30=0,"",'Week 8'!J30)
+	=IF('Week 8'!B31=0,"",'Week 8'!B31)	=IF('Week 8'!C31=0,"",'Week 8'!C31)	=IF('Week 8'!D31=0,"",'Week 8'!D31)	=IF('Week 8'!E31=0,"",'Week 8'!E31)	=IF('Week 8'!F31=0,"",'Week 8'!F31)	='Week 8'!G31	='Week 8'!H31	=IF(H31*G31=0,"",H31*G31)	=IF('Week 8'!J31=0,"",'Week 8'!J31)
+									
+									
+Day 4	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 8'!B35=0,"",'Week 8'!B35)	=IF('Week 8'!C35=0,"",'Week 8'!C35)	=IF('Week 8'!D35=0,"",'Week 8'!D35)	=IF('Week 8'!E35=0,"",'Week 8'!E35)	=IF('Week 8'!F35=0,"",'Week 8'!F35)	='Week 8'!G35	='Week 8'!H35	=IF(H35*G35=0,"",H35*G35)	=IF('Week 8'!J35=0,"",'Week 8'!J35)
+	=IF('Week 8'!B36=0,"",'Week 8'!B36)	=IF('Week 8'!C36=0,"",'Week 8'!C36)	=IF('Week 8'!D36=0,"",'Week 8'!D36)	=IF('Week 8'!E36=0,"",'Week 8'!E36)	=IF('Week 8'!F36=0,"",'Week 8'!F36)	='Week 8'!G36	='Week 8'!H36	=IF(H36*G36=0,"",H36*G36)	=IF('Week 8'!J36=0,"",'Week 8'!J36)
+	=IF('Week 8'!B37=0,"",'Week 8'!B37)	=IF('Week 8'!C37=0,"",'Week 8'!C37)	=IF('Week 8'!D37=0,"",'Week 8'!D37)	=IF('Week 8'!E37=0,"",'Week 8'!E37)	=IF('Week 8'!F37=0,"",'Week 8'!F37)	='Week 8'!G37	='Week 8'!H37	=IF(H37*G37=0,"",H37*G37)	=IF('Week 8'!J37=0,"",'Week 8'!J37)
+	=IF('Week 8'!B38=0,"",'Week 8'!B38)	=IF('Week 8'!C38=0,"",'Week 8'!C38)	=IF('Week 8'!D38=0,"",'Week 8'!D38)	=IF('Week 8'!E38=0,"",'Week 8'!E38)	=IF('Week 8'!F38=0,"",'Week 8'!F38)	='Week 8'!G38	='Week 8'!H38	=IF(H38*G38=0,"",H38*G38)	=IF('Week 8'!J38=0,"",'Week 8'!J38)
+	=IF('Week 8'!B39=0,"",'Week 8'!B39)	=IF('Week 8'!C39=0,"",'Week 8'!C39)	=IF('Week 8'!D39=0,"",'Week 8'!D39)	=IF('Week 8'!E39=0,"",'Week 8'!E39)	=IF('Week 8'!F39=0,"",'Week 8'!F39)	='Week 8'!G39	='Week 8'!H39	=IF(H39*G39=0,"",H39*G39)	=IF('Week 8'!J39=0,"",'Week 8'!J39)
+	=IF('Week 8'!B40=0,"",'Week 8'!B40)	=IF('Week 8'!C40=0,"",'Week 8'!C40)	=IF('Week 8'!D40=0,"",'Week 8'!D40)	=IF('Week 8'!E40=0,"",'Week 8'!E40)	=IF('Week 8'!F40=0,"",'Week 8'!F40)	='Week 8'!G40	='Week 8'!H40	=IF(H40*G40=0,"",H40*G40)	=IF('Week 8'!J40=0,"",'Week 8'!J40)
+	=IF('Week 8'!B41=0,"",'Week 8'!B41)	=IF('Week 8'!C41=0,"",'Week 8'!C41)	=IF('Week 8'!D41=0,"",'Week 8'!D41)	=IF('Week 8'!E41=0,"",'Week 8'!E41)	=IF('Week 8'!F41=0,"",'Week 8'!F41)	='Week 8'!G41	='Week 8'!H41	=IF(H41*G41=0,"",H41*G41)	=IF('Week 8'!J41=0,"",'Week 8'!J41)
+	=IF('Week 8'!B42=0,"",'Week 8'!B42)	=IF('Week 8'!C42=0,"",'Week 8'!C42)	=IF('Week 8'!D42=0,"",'Week 8'!D42)	=IF('Week 8'!E42=0,"",'Week 8'!E42)	=IF('Week 8'!F42=0,"",'Week 8'!F42)	='Week 8'!G42	='Week 8'!H42	=IF(H42*G42=0,"",H42*G42)	=IF('Week 8'!J42=0,"",'Week 8'!J42)
+									
+									
+--- Sheet: Week 10 ---
+Day 1	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 9'!B2=0,"",'Week 9'!B2)	=IF('Week 9'!C2=0,"",'Week 9'!C2)	=IF('Week 9'!D2=0,"",'Week 9'!D2)	=IF('Week 9'!E2=0,"",'Week 9'!E2)	=IF('Week 9'!F2=0,"",'Week 9'!F2)	='Week 9'!G2	='Week 9'!H2	=IF(H2*G2=0,"",H2*G2)	=IF('Week 9'!J2=0,"",'Week 9'!J2)
+	=IF('Week 9'!B3=0,"",'Week 9'!B3)	=IF('Week 9'!C3=0,"",'Week 9'!C3)	=IF('Week 9'!D3=0,"",'Week 9'!D3)	=IF('Week 9'!E3=0,"",'Week 9'!E3)	=IF('Week 9'!F3=0,"",'Week 9'!F3)	='Week 9'!G3	='Week 9'!H3	=IF(H3*G3=0,"",H3*G3)	=IF('Week 9'!J3=0,"",'Week 9'!J3)
+	=IF('Week 9'!B4=0,"",'Week 9'!B4)	=IF('Week 9'!C4=0,"",'Week 9'!C4)	=IF('Week 9'!D4=0,"",'Week 9'!D4)	=IF('Week 9'!E4=0,"",'Week 9'!E4)	=IF('Week 9'!F4=0,"",'Week 9'!F4)	='Week 9'!G4	='Week 9'!H4	=IF(H4*G4=0,"",H4*G4)	=IF('Week 9'!J4=0,"",'Week 9'!J4)
+	=IF('Week 9'!B5=0,"",'Week 9'!B5)	=IF('Week 9'!C5=0,"",'Week 9'!C5)	=IF('Week 9'!D5=0,"",'Week 9'!D5)	=IF('Week 9'!E5=0,"",'Week 9'!E5)	=IF('Week 9'!F5=0,"",'Week 9'!F5)	='Week 9'!G5	='Week 9'!H5	=IF(H5*G5=0,"",H5*G5)	=IF('Week 9'!J5=0,"",'Week 9'!J5)
+	=IF('Week 9'!B6=0,"",'Week 9'!B6)	=IF('Week 9'!C6=0,"",'Week 9'!C6)	=IF('Week 9'!D6=0,"",'Week 9'!D6)	=IF('Week 9'!E6=0,"",'Week 9'!E6)	=IF('Week 9'!F6=0,"",'Week 9'!F6)	='Week 9'!G6	='Week 9'!H6	=IF(H6*G6=0,"",H6*G6)	=IF('Week 9'!J6=0,"",'Week 9'!J6)
+	=IF('Week 9'!B7=0,"",'Week 9'!B7)	=IF('Week 9'!C7=0,"",'Week 9'!C7)	=IF('Week 9'!D7=0,"",'Week 9'!D7)	=IF('Week 9'!E7=0,"",'Week 9'!E7)	=IF('Week 9'!F7=0,"",'Week 9'!F7)	='Week 9'!G7	='Week 9'!H7	=IF(H7*G7=0,"",H7*G7)	=IF('Week 9'!J7=0,"",'Week 9'!J7)
+	=IF('Week 9'!B8=0,"",'Week 9'!B8)	=IF('Week 9'!C8=0,"",'Week 9'!C8)	=IF('Week 9'!D8=0,"",'Week 9'!D8)	=IF('Week 9'!E8=0,"",'Week 9'!E8)	=IF('Week 9'!F8=0,"",'Week 9'!F8)	='Week 9'!G8	='Week 9'!H8	=IF(H8*G8=0,"",H8*G8)	=IF('Week 9'!J8=0,"",'Week 9'!J8)
+	=IF('Week 9'!B9=0,"",'Week 9'!B9)	=IF('Week 9'!C9=0,"",'Week 9'!C9)	=IF('Week 9'!D9=0,"",'Week 9'!D9)	=IF('Week 9'!E9=0,"",'Week 9'!E9)	=IF('Week 9'!F9=0,"",'Week 9'!F9)	='Week 9'!G9	='Week 9'!H9	=IF(H9*G9=0,"",H9*G9)	=IF('Week 9'!J9=0,"",'Week 9'!J9)
+									
+									
+Day 2	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 9'!B13=0,"",'Week 9'!B13)	=IF('Week 9'!C13=0,"",'Week 9'!C13)	=IF('Week 9'!D13=0,"",'Week 9'!D13)	=IF('Week 9'!E13=0,"",'Week 9'!E13)	=IF('Week 9'!F13=0,"",'Week 9'!F13)	='Week 9'!G13	='Week 9'!H13	=IF(H13*G13=0,"",H13*G13)	=IF('Week 9'!J13=0,"",'Week 9'!J13)
+	=IF('Week 9'!B14=0,"",'Week 9'!B14)	=IF('Week 9'!C14=0,"",'Week 9'!C14)	=IF('Week 9'!D14=0,"",'Week 9'!D14)	=IF('Week 9'!E14=0,"",'Week 9'!E14)	=IF('Week 9'!F14=0,"",'Week 9'!F14)	='Week 9'!G14	='Week 9'!H14	=IF(H14*G14=0,"",H14*G14)	=IF('Week 9'!J14=0,"",'Week 9'!J14)
+	=IF('Week 9'!B15=0,"",'Week 9'!B15)	=IF('Week 9'!C15=0,"",'Week 9'!C15)	=IF('Week 9'!D15=0,"",'Week 9'!D15)	=IF('Week 9'!E15=0,"",'Week 9'!E15)	=IF('Week 9'!F15=0,"",'Week 9'!F15)	='Week 9'!G15	='Week 9'!H15	=IF(H15*G15=0,"",H15*G15)	=IF('Week 9'!J15=0,"",'Week 9'!J15)
+	=IF('Week 9'!B16=0,"",'Week 9'!B16)	=IF('Week 9'!C16=0,"",'Week 9'!C16)	=IF('Week 9'!D16=0,"",'Week 9'!D16)	=IF('Week 9'!E16=0,"",'Week 9'!E16)	=IF('Week 9'!F16=0,"",'Week 9'!F16)	='Week 9'!G16	='Week 9'!H16	=IF(H16*G16=0,"",H16*G16)	=IF('Week 9'!J16=0,"",'Week 9'!J16)
+	=IF('Week 9'!B17=0,"",'Week 9'!B17)	=IF('Week 9'!C17=0,"",'Week 9'!C17)	=IF('Week 9'!D17=0,"",'Week 9'!D17)	=IF('Week 9'!E17=0,"",'Week 9'!E17)	=IF('Week 9'!F17=0,"",'Week 9'!F17)	='Week 9'!G17	='Week 9'!H17	=IF(H17*G17=0,"",H17*G17)	=IF('Week 9'!J17=0,"",'Week 9'!J17)
+	=IF('Week 9'!B18=0,"",'Week 9'!B18)	=IF('Week 9'!C18=0,"",'Week 9'!C18)	=IF('Week 9'!D18=0,"",'Week 9'!D18)	=IF('Week 9'!E18=0,"",'Week 9'!E18)	=IF('Week 9'!F18=0,"",'Week 9'!F18)	='Week 9'!G18	='Week 9'!H18	=IF(H18*G18=0,"",H18*G18)	=IF('Week 9'!J18=0,"",'Week 9'!J18)
+	=IF('Week 9'!B19=0,"",'Week 9'!B19)	=IF('Week 9'!C19=0,"",'Week 9'!C19)	=IF('Week 9'!D19=0,"",'Week 9'!D19)	=IF('Week 9'!E19=0,"",'Week 9'!E19)	=IF('Week 9'!F19=0,"",'Week 9'!F19)	='Week 9'!G19	='Week 9'!H19	=IF(H19*G19=0,"",H19*G19)	=IF('Week 9'!J19=0,"",'Week 9'!J19)
+	=IF('Week 9'!B20=0,"",'Week 9'!B20)	=IF('Week 9'!C20=0,"",'Week 9'!C20)	=IF('Week 9'!D20=0,"",'Week 9'!D20)	=IF('Week 9'!E20=0,"",'Week 9'!E20)	=IF('Week 9'!F20=0,"",'Week 9'!F20)	='Week 9'!G20	='Week 9'!H20	=IF(H20*G20=0,"",H20*G20)	=IF('Week 9'!J20=0,"",'Week 9'!J20)
+									
+									
+Day 3	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 9'!B24=0,"",'Week 9'!B24)	=IF('Week 9'!C24=0,"",'Week 9'!C24)	=IF('Week 9'!D24=0,"",'Week 9'!D24)	=IF('Week 9'!E24=0,"",'Week 9'!E24)	=IF('Week 9'!F24=0,"",'Week 9'!F24)	='Week 9'!G24	='Week 9'!H24	=IF(H24*G24=0,"",H24*G24)	=IF('Week 9'!J24=0,"",'Week 9'!J24)
+	=IF('Week 9'!B25=0,"",'Week 9'!B25)	=IF('Week 9'!C25=0,"",'Week 9'!C25)	=IF('Week 9'!D25=0,"",'Week 9'!D25)	=IF('Week 9'!E25=0,"",'Week 9'!E25)	=IF('Week 9'!F25=0,"",'Week 9'!F25)	='Week 9'!G25	='Week 9'!H25	=IF(H25*G25=0,"",H25*G25)	=IF('Week 9'!J25=0,"",'Week 9'!J25)
+	=IF('Week 9'!B26=0,"",'Week 9'!B26)	=IF('Week 9'!C26=0,"",'Week 9'!C26)	=IF('Week 9'!D26=0,"",'Week 9'!D26)	=IF('Week 9'!E26=0,"",'Week 9'!E26)	=IF('Week 9'!F26=0,"",'Week 9'!F26)	='Week 9'!G26	='Week 9'!H26	=IF(H26*G26=0,"",H26*G26)	=IF('Week 9'!J26=0,"",'Week 9'!J26)
+	=IF('Week 9'!B27=0,"",'Week 9'!B27)	=IF('Week 9'!C27=0,"",'Week 9'!C27)	=IF('Week 9'!D27=0,"",'Week 9'!D27)	=IF('Week 9'!E27=0,"",'Week 9'!E27)	=IF('Week 9'!F27=0,"",'Week 9'!F27)	='Week 9'!G27	='Week 9'!H27	=IF(H27*G27=0,"",H27*G27)	=IF('Week 9'!J27=0,"",'Week 9'!J27)
+	=IF('Week 9'!B28=0,"",'Week 9'!B28)	=IF('Week 9'!C28=0,"",'Week 9'!C28)	=IF('Week 9'!D28=0,"",'Week 9'!D28)	=IF('Week 9'!E28=0,"",'Week 9'!E28)	=IF('Week 9'!F28=0,"",'Week 9'!F28)	='Week 9'!G28	='Week 9'!H28	=IF(H28*G28=0,"",H28*G28)	=IF('Week 9'!J28=0,"",'Week 9'!J28)
+	=IF('Week 9'!B29=0,"",'Week 9'!B29)	=IF('Week 9'!C29=0,"",'Week 9'!C29)	=IF('Week 9'!D29=0,"",'Week 9'!D29)	=IF('Week 9'!E29=0,"",'Week 9'!E29)	=IF('Week 9'!F29=0,"",'Week 9'!F29)	='Week 9'!G29	='Week 9'!H29	=IF(H29*G29=0,"",H29*G29)	=IF('Week 9'!J29=0,"",'Week 9'!J29)
+	=IF('Week 9'!B30=0,"",'Week 9'!B30)	=IF('Week 9'!C30=0,"",'Week 9'!C30)	=IF('Week 9'!D30=0,"",'Week 9'!D30)	=IF('Week 9'!E30=0,"",'Week 9'!E30)	=IF('Week 9'!F30=0,"",'Week 9'!F30)	='Week 9'!G30	='Week 9'!H30	=IF(H30*G30=0,"",H30*G30)	=IF('Week 9'!J30=0,"",'Week 9'!J30)
+	=IF('Week 9'!B31=0,"",'Week 9'!B31)	=IF('Week 9'!C31=0,"",'Week 9'!C31)	=IF('Week 9'!D31=0,"",'Week 9'!D31)	=IF('Week 9'!E31=0,"",'Week 9'!E31)	=IF('Week 9'!F31=0,"",'Week 9'!F31)	='Week 9'!G31	='Week 9'!H31	=IF(H31*G31=0,"",H31*G31)	=IF('Week 9'!J31=0,"",'Week 9'!J31)
+									
+									
+Day 4	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 9'!B35=0,"",'Week 9'!B35)	=IF('Week 9'!C35=0,"",'Week 9'!C35)	=IF('Week 9'!D35=0,"",'Week 9'!D35)	=IF('Week 9'!E35=0,"",'Week 9'!E35)	=IF('Week 9'!F35=0,"",'Week 9'!F35)	='Week 9'!G35	='Week 9'!H35	=IF(H35*G35=0,"",H35*G35)	=IF('Week 9'!J35=0,"",'Week 9'!J35)
+	=IF('Week 9'!B36=0,"",'Week 9'!B36)	=IF('Week 9'!C36=0,"",'Week 9'!C36)	=IF('Week 9'!D36=0,"",'Week 9'!D36)	=IF('Week 9'!E36=0,"",'Week 9'!E36)	=IF('Week 9'!F36=0,"",'Week 9'!F36)	='Week 9'!G36	='Week 9'!H36	=IF(H36*G36=0,"",H36*G36)	=IF('Week 9'!J36=0,"",'Week 9'!J36)
+	=IF('Week 9'!B37=0,"",'Week 9'!B37)	=IF('Week 9'!C37=0,"",'Week 9'!C37)	=IF('Week 9'!D37=0,"",'Week 9'!D37)	=IF('Week 9'!E37=0,"",'Week 9'!E37)	=IF('Week 9'!F37=0,"",'Week 9'!F37)	='Week 9'!G37	='Week 9'!H37	=IF(H37*G37=0,"",H37*G37)	=IF('Week 9'!J37=0,"",'Week 9'!J37)
+	=IF('Week 9'!B38=0,"",'Week 9'!B38)	=IF('Week 9'!C38=0,"",'Week 9'!C38)	=IF('Week 9'!D38=0,"",'Week 9'!D38)	=IF('Week 9'!E38=0,"",'Week 9'!E38)	=IF('Week 9'!F38=0,"",'Week 9'!F38)	='Week 9'!G38	='Week 9'!H38	=IF(H38*G38=0,"",H38*G38)	=IF('Week 9'!J38=0,"",'Week 9'!J38)
+	=IF('Week 9'!B39=0,"",'Week 9'!B39)	=IF('Week 9'!C39=0,"",'Week 9'!C39)	=IF('Week 9'!D39=0,"",'Week 9'!D39)	=IF('Week 9'!E39=0,"",'Week 9'!E39)	=IF('Week 9'!F39=0,"",'Week 9'!F39)	='Week 9'!G39	='Week 9'!H39	=IF(H39*G39=0,"",H39*G39)	=IF('Week 9'!J39=0,"",'Week 9'!J39)
+	=IF('Week 9'!B40=0,"",'Week 9'!B40)	=IF('Week 9'!C40=0,"",'Week 9'!C40)	=IF('Week 9'!D40=0,"",'Week 9'!D40)	=IF('Week 9'!E40=0,"",'Week 9'!E40)	=IF('Week 9'!F40=0,"",'Week 9'!F40)	='Week 9'!G40	='Week 9'!H40	=IF(H40*G40=0,"",H40*G40)	=IF('Week 9'!J40=0,"",'Week 9'!J40)
+	=IF('Week 9'!B41=0,"",'Week 9'!B41)	=IF('Week 9'!C41=0,"",'Week 9'!C41)	=IF('Week 9'!D41=0,"",'Week 9'!D41)	=IF('Week 9'!E41=0,"",'Week 9'!E41)	=IF('Week 9'!F41=0,"",'Week 9'!F41)	='Week 9'!G41	='Week 9'!H41	=IF(H41*G41=0,"",H41*G41)	=IF('Week 9'!J41=0,"",'Week 9'!J41)
+	=IF('Week 9'!B42=0,"",'Week 9'!B42)	=IF('Week 9'!C42=0,"",'Week 9'!C42)	=IF('Week 9'!D42=0,"",'Week 9'!D42)	=IF('Week 9'!E42=0,"",'Week 9'!E42)	=IF('Week 9'!F42=0,"",'Week 9'!F42)	='Week 9'!G42	='Week 9'!H42	=IF(H42*G42=0,"",H42*G42)	=IF('Week 9'!J42=0,"",'Week 9'!J42)
+									
+									
+--- Sheet: Week 11 ---
+Day 1	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 10'!B2=0,"",'Week 10'!B2)	=IF('Week 10'!C2=0,"",'Week 10'!C2)	=IF('Week 10'!D2=0,"",'Week 10'!D2)	=IF('Week 10'!E2=0,"",'Week 10'!E2)	=IF('Week 10'!F2=0,"",'Week 10'!F2)	='Week 10'!G2	='Week 10'!H2	=IF(H2*G2=0,"",H2*G2)	=IF('Week 10'!J2=0,"",'Week 10'!J2)
+	=IF('Week 10'!B3=0,"",'Week 10'!B3)	=IF('Week 10'!C3=0,"",'Week 10'!C3)	=IF('Week 10'!D3=0,"",'Week 10'!D3)	=IF('Week 10'!E3=0,"",'Week 10'!E3)	=IF('Week 10'!F3=0,"",'Week 10'!F3)	='Week 10'!G3	='Week 10'!H3	=IF(H3*G3=0,"",H3*G3)	=IF('Week 10'!J3=0,"",'Week 10'!J3)
+	=IF('Week 10'!B4=0,"",'Week 10'!B4)	=IF('Week 10'!C4=0,"",'Week 10'!C4)	=IF('Week 10'!D4=0,"",'Week 10'!D4)	=IF('Week 10'!E4=0,"",'Week 10'!E4)	=IF('Week 10'!F4=0,"",'Week 10'!F4)	='Week 10'!G4	='Week 10'!H4	=IF(H4*G4=0,"",H4*G4)	=IF('Week 10'!J4=0,"",'Week 10'!J4)
+	=IF('Week 10'!B5=0,"",'Week 10'!B5)	=IF('Week 10'!C5=0,"",'Week 10'!C5)	=IF('Week 10'!D5=0,"",'Week 10'!D5)	=IF('Week 10'!E5=0,"",'Week 10'!E5)	=IF('Week 10'!F5=0,"",'Week 10'!F5)	='Week 10'!G5	='Week 10'!H5	=IF(H5*G5=0,"",H5*G5)	=IF('Week 10'!J5=0,"",'Week 10'!J5)
+	=IF('Week 10'!B6=0,"",'Week 10'!B6)	=IF('Week 10'!C6=0,"",'Week 10'!C6)	=IF('Week 10'!D6=0,"",'Week 10'!D6)	=IF('Week 10'!E6=0,"",'Week 10'!E6)	=IF('Week 10'!F6=0,"",'Week 10'!F6)	='Week 10'!G6	='Week 10'!H6	=IF(H6*G6=0,"",H6*G6)	=IF('Week 10'!J6=0,"",'Week 10'!J6)
+	=IF('Week 10'!B7=0,"",'Week 10'!B7)	=IF('Week 10'!C7=0,"",'Week 10'!C7)	=IF('Week 10'!D7=0,"",'Week 10'!D7)	=IF('Week 10'!E7=0,"",'Week 10'!E7)	=IF('Week 10'!F7=0,"",'Week 10'!F7)	='Week 10'!G7	='Week 10'!H7	=IF(H7*G7=0,"",H7*G7)	=IF('Week 10'!J7=0,"",'Week 10'!J7)
+	=IF('Week 10'!B8=0,"",'Week 10'!B8)	=IF('Week 10'!C8=0,"",'Week 10'!C8)	=IF('Week 10'!D8=0,"",'Week 10'!D8)	=IF('Week 10'!E8=0,"",'Week 10'!E8)	=IF('Week 10'!F8=0,"",'Week 10'!F8)	='Week 10'!G8	='Week 10'!H8	=IF(H8*G8=0,"",H8*G8)	=IF('Week 10'!J8=0,"",'Week 10'!J8)
+	=IF('Week 10'!B9=0,"",'Week 10'!B9)	=IF('Week 10'!C9=0,"",'Week 10'!C9)	=IF('Week 10'!D9=0,"",'Week 10'!D9)	=IF('Week 10'!E9=0,"",'Week 10'!E9)	=IF('Week 10'!F9=0,"",'Week 10'!F9)	='Week 10'!G9	='Week 10'!H9	=IF(H9*G9=0,"",H9*G9)	=IF('Week 10'!J9=0,"",'Week 10'!J9)
+									
+									
+Day 2	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 10'!B13=0,"",'Week 10'!B13)	=IF('Week 10'!C13=0,"",'Week 10'!C13)	=IF('Week 10'!D13=0,"",'Week 10'!D13)	=IF('Week 10'!E13=0,"",'Week 10'!E13)	=IF('Week 10'!F13=0,"",'Week 10'!F13)	='Week 10'!G13	='Week 10'!H13	=IF(H13*G13=0,"",H13*G13)	=IF('Week 10'!J13=0,"",'Week 10'!J13)
+	=IF('Week 10'!B14=0,"",'Week 10'!B14)	=IF('Week 10'!C14=0,"",'Week 10'!C14)	=IF('Week 10'!D14=0,"",'Week 10'!D14)	=IF('Week 10'!E14=0,"",'Week 10'!E14)	=IF('Week 10'!F14=0,"",'Week 10'!F14)	='Week 10'!G14	='Week 10'!H14	=IF(H14*G14=0,"",H14*G14)	=IF('Week 10'!J14=0,"",'Week 10'!J14)
+	=IF('Week 10'!B15=0,"",'Week 10'!B15)	=IF('Week 10'!C15=0,"",'Week 10'!C15)	=IF('Week 10'!D15=0,"",'Week 10'!D15)	=IF('Week 10'!E15=0,"",'Week 10'!E15)	=IF('Week 10'!F15=0,"",'Week 10'!F15)	='Week 10'!G15	='Week 10'!H15	=IF(H15*G15=0,"",H15*G15)	=IF('Week 10'!J15=0,"",'Week 10'!J15)
+	=IF('Week 10'!B16=0,"",'Week 10'!B16)	=IF('Week 10'!C16=0,"",'Week 10'!C16)	=IF('Week 10'!D16=0,"",'Week 10'!D16)	=IF('Week 10'!E16=0,"",'Week 10'!E16)	=IF('Week 10'!F16=0,"",'Week 10'!F16)	='Week 10'!G16	='Week 10'!H16	=IF(H16*G16=0,"",H16*G16)	=IF('Week 10'!J16=0,"",'Week 10'!J16)
+	=IF('Week 10'!B17=0,"",'Week 10'!B17)	=IF('Week 10'!C17=0,"",'Week 10'!C17)	=IF('Week 10'!D17=0,"",'Week 10'!D17)	=IF('Week 10'!E17=0,"",'Week 10'!E17)	=IF('Week 10'!F17=0,"",'Week 10'!F17)	='Week 10'!G17	='Week 10'!H17	=IF(H17*G17=0,"",H17*G17)	=IF('Week 10'!J17=0,"",'Week 10'!J17)
+	=IF('Week 10'!B18=0,"",'Week 10'!B18)	=IF('Week 10'!C18=0,"",'Week 10'!C18)	=IF('Week 10'!D18=0,"",'Week 10'!D18)	=IF('Week 10'!E18=0,"",'Week 10'!E18)	=IF('Week 10'!F18=0,"",'Week 10'!F18)	='Week 10'!G18	='Week 10'!H18	=IF(H18*G18=0,"",H18*G18)	=IF('Week 10'!J18=0,"",'Week 10'!J18)
+	=IF('Week 10'!B19=0,"",'Week 10'!B19)	=IF('Week 10'!C19=0,"",'Week 10'!C19)	=IF('Week 10'!D19=0,"",'Week 10'!D19)	=IF('Week 10'!E19=0,"",'Week 10'!E19)	=IF('Week 10'!F19=0,"",'Week 10'!F19)	='Week 10'!G19	='Week 10'!H19	=IF(H19*G19=0,"",H19*G19)	=IF('Week 10'!J19=0,"",'Week 10'!J19)
+	=IF('Week 10'!B20=0,"",'Week 10'!B20)	=IF('Week 10'!C20=0,"",'Week 10'!C20)	=IF('Week 10'!D20=0,"",'Week 10'!D20)	=IF('Week 10'!E20=0,"",'Week 10'!E20)	=IF('Week 10'!F20=0,"",'Week 10'!F20)	='Week 10'!G20	='Week 10'!H20	=IF(H20*G20=0,"",H20*G20)	=IF('Week 10'!J20=0,"",'Week 10'!J20)
+									
+									
+Day 3	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 10'!B24=0,"",'Week 10'!B24)	=IF('Week 10'!C24=0,"",'Week 10'!C24)	=IF('Week 10'!D24=0,"",'Week 10'!D24)	=IF('Week 10'!E24=0,"",'Week 10'!E24)	=IF('Week 10'!F24=0,"",'Week 10'!F24)	='Week 10'!G24	='Week 10'!H24	=IF(H24*G24=0,"",H24*G24)	=IF('Week 10'!J24=0,"",'Week 10'!J24)
+	=IF('Week 10'!B25=0,"",'Week 10'!B25)	=IF('Week 10'!C25=0,"",'Week 10'!C25)	=IF('Week 10'!D25=0,"",'Week 10'!D25)	=IF('Week 10'!E25=0,"",'Week 10'!E25)	=IF('Week 10'!F25=0,"",'Week 10'!F25)	='Week 10'!G25	='Week 10'!H25	=IF(H25*G25=0,"",H25*G25)	=IF('Week 10'!J25=0,"",'Week 10'!J25)
+	=IF('Week 10'!B26=0,"",'Week 10'!B26)	=IF('Week 10'!C26=0,"",'Week 10'!C26)	=IF('Week 10'!D26=0,"",'Week 10'!D26)	=IF('Week 10'!E26=0,"",'Week 10'!E26)	=IF('Week 10'!F26=0,"",'Week 10'!F26)	='Week 10'!G26	='Week 10'!H26	=IF(H26*G26=0,"",H26*G26)	=IF('Week 10'!J26=0,"",'Week 10'!J26)
+	=IF('Week 10'!B27=0,"",'Week 10'!B27)	=IF('Week 10'!C27=0,"",'Week 10'!C27)	=IF('Week 10'!D27=0,"",'Week 10'!D27)	=IF('Week 10'!E27=0,"",'Week 10'!E27)	=IF('Week 10'!F27=0,"",'Week 10'!F27)	='Week 10'!G27	='Week 10'!H27	=IF(H27*G27=0,"",H27*G27)	=IF('Week 10'!J27=0,"",'Week 10'!J27)
+	=IF('Week 10'!B28=0,"",'Week 10'!B28)	=IF('Week 10'!C28=0,"",'Week 10'!C28)	=IF('Week 10'!D28=0,"",'Week 10'!D28)	=IF('Week 10'!E28=0,"",'Week 10'!E28)	=IF('Week 10'!F28=0,"",'Week 10'!F28)	='Week 10'!G28	='Week 10'!H28	=IF(H28*G28=0,"",H28*G28)	=IF('Week 10'!J28=0,"",'Week 10'!J28)
+	=IF('Week 10'!B29=0,"",'Week 10'!B29)	=IF('Week 10'!C29=0,"",'Week 10'!C29)	=IF('Week 10'!D29=0,"",'Week 10'!D29)	=IF('Week 10'!E29=0,"",'Week 10'!E29)	=IF('Week 10'!F29=0,"",'Week 10'!F29)	='Week 10'!G29	='Week 10'!H29	=IF(H29*G29=0,"",H29*G29)	=IF('Week 10'!J29=0,"",'Week 10'!J29)
+	=IF('Week 10'!B30=0,"",'Week 10'!B30)	=IF('Week 10'!C30=0,"",'Week 10'!C30)	=IF('Week 10'!D30=0,"",'Week 10'!D30)	=IF('Week 10'!E30=0,"",'Week 10'!E30)	=IF('Week 10'!F30=0,"",'Week 10'!F30)	='Week 10'!G30	='Week 10'!H30	=IF(H30*G30=0,"",H30*G30)	=IF('Week 10'!J30=0,"",'Week 10'!J30)
+	=IF('Week 10'!B31=0,"",'Week 10'!B31)	=IF('Week 10'!C31=0,"",'Week 10'!C31)	=IF('Week 10'!D31=0,"",'Week 10'!D31)	=IF('Week 10'!E31=0,"",'Week 10'!E31)	=IF('Week 10'!F31=0,"",'Week 10'!F31)	='Week 10'!G31	='Week 10'!H31	=IF(H31*G31=0,"",H31*G31)	=IF('Week 10'!J31=0,"",'Week 10'!J31)
+									
+									
+Day 4	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 10'!B35=0,"",'Week 10'!B35)	=IF('Week 10'!C35=0,"",'Week 10'!C35)	=IF('Week 10'!D35=0,"",'Week 10'!D35)	=IF('Week 10'!E35=0,"",'Week 10'!E35)	=IF('Week 10'!F35=0,"",'Week 10'!F35)	='Week 10'!G35	='Week 10'!H35	=IF(H35*G35=0,"",H35*G35)	=IF('Week 10'!J35=0,"",'Week 10'!J35)
+	=IF('Week 10'!B36=0,"",'Week 10'!B36)	=IF('Week 10'!C36=0,"",'Week 10'!C36)	=IF('Week 10'!D36=0,"",'Week 10'!D36)	=IF('Week 10'!E36=0,"",'Week 10'!E36)	=IF('Week 10'!F36=0,"",'Week 10'!F36)	='Week 10'!G36	='Week 10'!H36	=IF(H36*G36=0,"",H36*G36)	=IF('Week 10'!J36=0,"",'Week 10'!J36)
+	=IF('Week 10'!B37=0,"",'Week 10'!B37)	=IF('Week 10'!C37=0,"",'Week 10'!C37)	=IF('Week 10'!D37=0,"",'Week 10'!D37)	=IF('Week 10'!E37=0,"",'Week 10'!E37)	=IF('Week 10'!F37=0,"",'Week 10'!F37)	='Week 10'!G37	='Week 10'!H37	=IF(H37*G37=0,"",H37*G37)	=IF('Week 10'!J37=0,"",'Week 10'!J37)
+	=IF('Week 10'!B38=0,"",'Week 10'!B38)	=IF('Week 10'!C38=0,"",'Week 10'!C38)	=IF('Week 10'!D38=0,"",'Week 10'!D38)	=IF('Week 10'!E38=0,"",'Week 10'!E38)	=IF('Week 10'!F38=0,"",'Week 10'!F38)	='Week 10'!G38	='Week 10'!H38	=IF(H38*G38=0,"",H38*G38)	=IF('Week 10'!J38=0,"",'Week 10'!J38)
+	=IF('Week 10'!B39=0,"",'Week 10'!B39)	=IF('Week 10'!C39=0,"",'Week 10'!C39)	=IF('Week 10'!D39=0,"",'Week 10'!D39)	=IF('Week 10'!E39=0,"",'Week 10'!E39)	=IF('Week 10'!F39=0,"",'Week 10'!F39)	='Week 10'!G39	='Week 10'!H39	=IF(H39*G39=0,"",H39*G39)	=IF('Week 10'!J39=0,"",'Week 10'!J39)
+	=IF('Week 10'!B40=0,"",'Week 10'!B40)	=IF('Week 10'!C40=0,"",'Week 10'!C40)	=IF('Week 10'!D40=0,"",'Week 10'!D40)	=IF('Week 10'!E40=0,"",'Week 10'!E40)	=IF('Week 10'!F40=0,"",'Week 10'!F40)	='Week 10'!G40	='Week 10'!H40	=IF(H40*G40=0,"",H40*G40)	=IF('Week 10'!J40=0,"",'Week 10'!J40)
+	=IF('Week 10'!B41=0,"",'Week 10'!B41)	=IF('Week 10'!C41=0,"",'Week 10'!C41)	=IF('Week 10'!D41=0,"",'Week 10'!D41)	=IF('Week 10'!E41=0,"",'Week 10'!E41)	=IF('Week 10'!F41=0,"",'Week 10'!F41)	='Week 10'!G41	='Week 10'!H41	=IF(H41*G41=0,"",H41*G41)	=IF('Week 10'!J41=0,"",'Week 10'!J41)
+	=IF('Week 10'!B42=0,"",'Week 10'!B42)	=IF('Week 10'!C42=0,"",'Week 10'!C42)	=IF('Week 10'!D42=0,"",'Week 10'!D42)	=IF('Week 10'!E42=0,"",'Week 10'!E42)	=IF('Week 10'!F42=0,"",'Week 10'!F42)	='Week 10'!G42	='Week 10'!H42	=IF(H42*G42=0,"",H42*G42)	=IF('Week 10'!J42=0,"",'Week 10'!J42)
+									
+									
+--- Sheet: Week 12 ---
+Day 1	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 11'!B2=0,"",'Week 11'!B2)	=IF('Week 11'!C2=0,"",'Week 11'!C2)	=IF('Week 11'!D2=0,"",'Week 11'!D2)	=IF('Week 11'!E2=0,"",'Week 11'!E2)	=IF('Week 11'!F2=0,"",'Week 11'!F2)	='Week 11'!G2	='Week 11'!H2	=IF(H2*G2=0,"",H2*G2)	=IF('Week 11'!J2=0,"",'Week 11'!J2)
+	=IF('Week 11'!B3=0,"",'Week 11'!B3)	=IF('Week 11'!C3=0,"",'Week 11'!C3)	=IF('Week 11'!D3=0,"",'Week 11'!D3)	=IF('Week 11'!E3=0,"",'Week 11'!E3)	=IF('Week 11'!F3=0,"",'Week 11'!F3)	='Week 11'!G3	='Week 11'!H3	=IF(H3*G3=0,"",H3*G3)	=IF('Week 11'!J3=0,"",'Week 11'!J3)
+	=IF('Week 11'!B4=0,"",'Week 11'!B4)	=IF('Week 11'!C4=0,"",'Week 11'!C4)	=IF('Week 11'!D4=0,"",'Week 11'!D4)	=IF('Week 11'!E4=0,"",'Week 11'!E4)	=IF('Week 11'!F4=0,"",'Week 11'!F4)	='Week 11'!G4	='Week 11'!H4	=IF(H4*G4=0,"",H4*G4)	=IF('Week 11'!J4=0,"",'Week 11'!J4)
+	=IF('Week 11'!B5=0,"",'Week 11'!B5)	=IF('Week 11'!C5=0,"",'Week 11'!C5)	=IF('Week 11'!D5=0,"",'Week 11'!D5)	=IF('Week 11'!E5=0,"",'Week 11'!E5)	=IF('Week 11'!F5=0,"",'Week 11'!F5)	='Week 11'!G5	='Week 11'!H5	=IF(H5*G5=0,"",H5*G5)	=IF('Week 11'!J5=0,"",'Week 11'!J5)
+	=IF('Week 11'!B6=0,"",'Week 11'!B6)	=IF('Week 11'!C6=0,"",'Week 11'!C6)	=IF('Week 11'!D6=0,"",'Week 11'!D6)	=IF('Week 11'!E6=0,"",'Week 11'!E6)	=IF('Week 11'!F6=0,"",'Week 11'!F6)	='Week 11'!G6	='Week 11'!H6	=IF(H6*G6=0,"",H6*G6)	=IF('Week 11'!J6=0,"",'Week 11'!J6)
+	=IF('Week 11'!B7=0,"",'Week 11'!B7)	=IF('Week 11'!C7=0,"",'Week 11'!C7)	=IF('Week 11'!D7=0,"",'Week 11'!D7)	=IF('Week 11'!E7=0,"",'Week 11'!E7)	=IF('Week 11'!F7=0,"",'Week 11'!F7)	='Week 11'!G7	='Week 11'!H7	=IF(H7*G7=0,"",H7*G7)	=IF('Week 11'!J7=0,"",'Week 11'!J7)
+	=IF('Week 11'!B8=0,"",'Week 11'!B8)	=IF('Week 11'!C8=0,"",'Week 11'!C8)	=IF('Week 11'!D8=0,"",'Week 11'!D8)	=IF('Week 11'!E8=0,"",'Week 11'!E8)	=IF('Week 11'!F8=0,"",'Week 11'!F8)	='Week 11'!G8	='Week 11'!H8	=IF(H8*G8=0,"",H8*G8)	=IF('Week 11'!J8=0,"",'Week 11'!J8)
+	=IF('Week 11'!B9=0,"",'Week 11'!B9)	=IF('Week 11'!C9=0,"",'Week 11'!C9)	=IF('Week 11'!D9=0,"",'Week 11'!D9)	=IF('Week 11'!E9=0,"",'Week 11'!E9)	=IF('Week 11'!F9=0,"",'Week 11'!F9)	='Week 11'!G9	='Week 11'!H9	=IF(H9*G9=0,"",H9*G9)	=IF('Week 11'!J9=0,"",'Week 11'!J9)
+									
+									
+Day 2	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 11'!B13=0,"",'Week 11'!B13)	=IF('Week 11'!C13=0,"",'Week 11'!C13)	=IF('Week 11'!D13=0,"",'Week 11'!D13)	=IF('Week 11'!E13=0,"",'Week 11'!E13)	=IF('Week 11'!F13=0,"",'Week 11'!F13)	='Week 11'!G13	='Week 11'!H13	=IF(H13*G13=0,"",H13*G13)	=IF('Week 11'!J13=0,"",'Week 11'!J13)
+	=IF('Week 11'!B14=0,"",'Week 11'!B14)	=IF('Week 11'!C14=0,"",'Week 11'!C14)	=IF('Week 11'!D14=0,"",'Week 11'!D14)	=IF('Week 11'!E14=0,"",'Week 11'!E14)	=IF('Week 11'!F14=0,"",'Week 11'!F14)	='Week 11'!G14	='Week 11'!H14	=IF(H14*G14=0,"",H14*G14)	=IF('Week 11'!J14=0,"",'Week 11'!J14)
+	=IF('Week 11'!B15=0,"",'Week 11'!B15)	=IF('Week 11'!C15=0,"",'Week 11'!C15)	=IF('Week 11'!D15=0,"",'Week 11'!D15)	=IF('Week 11'!E15=0,"",'Week 11'!E15)	=IF('Week 11'!F15=0,"",'Week 11'!F15)	='Week 11'!G15	='Week 11'!H15	=IF(H15*G15=0,"",H15*G15)	=IF('Week 11'!J15=0,"",'Week 11'!J15)
+	=IF('Week 11'!B16=0,"",'Week 11'!B16)	=IF('Week 11'!C16=0,"",'Week 11'!C16)	=IF('Week 11'!D16=0,"",'Week 11'!D16)	=IF('Week 11'!E16=0,"",'Week 11'!E16)	=IF('Week 11'!F16=0,"",'Week 11'!F16)	='Week 11'!G16	='Week 11'!H16	=IF(H16*G16=0,"",H16*G16)	=IF('Week 11'!J16=0,"",'Week 11'!J16)
+	=IF('Week 11'!B17=0,"",'Week 11'!B17)	=IF('Week 11'!C17=0,"",'Week 11'!C17)	=IF('Week 11'!D17=0,"",'Week 11'!D17)	=IF('Week 11'!E17=0,"",'Week 11'!E17)	=IF('Week 11'!F17=0,"",'Week 11'!F17)	='Week 11'!G17	='Week 11'!H17	=IF(H17*G17=0,"",H17*G17)	=IF('Week 11'!J17=0,"",'Week 11'!J17)
+	=IF('Week 11'!B18=0,"",'Week 11'!B18)	=IF('Week 11'!C18=0,"",'Week 11'!C18)	=IF('Week 11'!D18=0,"",'Week 11'!D18)	=IF('Week 11'!E18=0,"",'Week 11'!E18)	=IF('Week 11'!F18=0,"",'Week 11'!F18)	='Week 11'!G18	='Week 11'!H18	=IF(H18*G18=0,"",H18*G18)	=IF('Week 11'!J18=0,"",'Week 11'!J18)
+	=IF('Week 11'!B19=0,"",'Week 11'!B19)	=IF('Week 11'!C19=0,"",'Week 11'!C19)	=IF('Week 11'!D19=0,"",'Week 11'!D19)	=IF('Week 11'!E19=0,"",'Week 11'!E19)	=IF('Week 11'!F19=0,"",'Week 11'!F19)	='Week 11'!G19	='Week 11'!H19	=IF(H19*G19=0,"",H19*G19)	=IF('Week 11'!J19=0,"",'Week 11'!J19)
+	=IF('Week 11'!B20=0,"",'Week 11'!B20)	=IF('Week 11'!C20=0,"",'Week 11'!C20)	=IF('Week 11'!D20=0,"",'Week 11'!D20)	=IF('Week 11'!E20=0,"",'Week 11'!E20)	=IF('Week 11'!F20=0,"",'Week 11'!F20)	='Week 11'!G20	='Week 11'!H20	=IF(H20*G20=0,"",H20*G20)	=IF('Week 11'!J20=0,"",'Week 11'!J20)
+									
+									
+Day 3	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 11'!B24=0,"",'Week 11'!B24)	=IF('Week 11'!C24=0,"",'Week 11'!C24)	=IF('Week 11'!D24=0,"",'Week 11'!D24)	=IF('Week 11'!E24=0,"",'Week 11'!E24)	=IF('Week 11'!F24=0,"",'Week 11'!F24)	='Week 11'!G24	='Week 11'!H24	=IF(H24*G24=0,"",H24*G24)	=IF('Week 11'!J24=0,"",'Week 11'!J24)
+	=IF('Week 11'!B25=0,"",'Week 11'!B25)	=IF('Week 11'!C25=0,"",'Week 11'!C25)	=IF('Week 11'!D25=0,"",'Week 11'!D25)	=IF('Week 11'!E25=0,"",'Week 11'!E25)	=IF('Week 11'!F25=0,"",'Week 11'!F25)	='Week 11'!G25	='Week 11'!H25	=IF(H25*G25=0,"",H25*G25)	=IF('Week 11'!J25=0,"",'Week 11'!J25)
+	=IF('Week 11'!B26=0,"",'Week 11'!B26)	=IF('Week 11'!C26=0,"",'Week 11'!C26)	=IF('Week 11'!D26=0,"",'Week 11'!D26)	=IF('Week 11'!E26=0,"",'Week 11'!E26)	=IF('Week 11'!F26=0,"",'Week 11'!F26)	='Week 11'!G26	='Week 11'!H26	=IF(H26*G26=0,"",H26*G26)	=IF('Week 11'!J26=0,"",'Week 11'!J26)
+	=IF('Week 11'!B27=0,"",'Week 11'!B27)	=IF('Week 11'!C27=0,"",'Week 11'!C27)	=IF('Week 11'!D27=0,"",'Week 11'!D27)	=IF('Week 11'!E27=0,"",'Week 11'!E27)	=IF('Week 11'!F27=0,"",'Week 11'!F27)	='Week 11'!G27	='Week 11'!H27	=IF(H27*G27=0,"",H27*G27)	=IF('Week 11'!J27=0,"",'Week 11'!J27)
+	=IF('Week 11'!B28=0,"",'Week 11'!B28)	=IF('Week 11'!C28=0,"",'Week 11'!C28)	=IF('Week 11'!D28=0,"",'Week 11'!D28)	=IF('Week 11'!E28=0,"",'Week 11'!E28)	=IF('Week 11'!F28=0,"",'Week 11'!F28)	='Week 11'!G28	='Week 11'!H28	=IF(H28*G28=0,"",H28*G28)	=IF('Week 11'!J28=0,"",'Week 11'!J28)
+	=IF('Week 11'!B29=0,"",'Week 11'!B29)	=IF('Week 11'!C29=0,"",'Week 11'!C29)	=IF('Week 11'!D29=0,"",'Week 11'!D29)	=IF('Week 11'!E29=0,"",'Week 11'!E29)	=IF('Week 11'!F29=0,"",'Week 11'!F29)	='Week 11'!G29	='Week 11'!H29	=IF(H29*G29=0,"",H29*G29)	=IF('Week 11'!J29=0,"",'Week 11'!J29)
+	=IF('Week 11'!B30=0,"",'Week 11'!B30)	=IF('Week 11'!C30=0,"",'Week 11'!C30)	=IF('Week 11'!D30=0,"",'Week 11'!D30)	=IF('Week 11'!E30=0,"",'Week 11'!E30)	=IF('Week 11'!F30=0,"",'Week 11'!F30)	='Week 11'!G30	='Week 11'!H30	=IF(H30*G30=0,"",H30*G30)	=IF('Week 11'!J30=0,"",'Week 11'!J30)
+	=IF('Week 11'!B31=0,"",'Week 11'!B31)	=IF('Week 11'!C31=0,"",'Week 11'!C31)	=IF('Week 11'!D31=0,"",'Week 11'!D31)	=IF('Week 11'!E31=0,"",'Week 11'!E31)	=IF('Week 11'!F31=0,"",'Week 11'!F31)	='Week 11'!G31	='Week 11'!H31	=IF(H31*G31=0,"",H31*G31)	=IF('Week 11'!J31=0,"",'Week 11'!J31)
+									
+									
+Day 4	Muscle Group	Exercise	Sets	Reps	Rest (Seconds)	Weight	Total Reps	Volume	Note
+	=IF('Week 11'!B35=0,"",'Week 11'!B35)	=IF('Week 11'!C35=0,"",'Week 11'!C35)	=IF('Week 11'!D35=0,"",'Week 11'!D35)	=IF('Week 11'!E35=0,"",'Week 11'!E35)	=IF('Week 11'!F35=0,"",'Week 11'!F35)	='Week 11'!G35	='Week 11'!H35	=IF(H35*G35=0,"",H35*G35)	=IF('Week 11'!J35=0,"",'Week 11'!J35)
+	=IF('Week 11'!B36=0,"",'Week 11'!B36)	=IF('Week 11'!C36=0,"",'Week 11'!C36)	=IF('Week 11'!D36=0,"",'Week 11'!D36)	=IF('Week 11'!E36=0,"",'Week 11'!E36)	=IF('Week 11'!F36=0,"",'Week 11'!F36)	='Week 11'!G36	='Week 11'!H36	=IF(H36*G36=0,"",H36*G36)	=IF('Week 11'!J36=0,"",'Week 11'!J36)
+	=IF('Week 11'!B37=0,"",'Week 11'!B37)	=IF('Week 11'!C37=0,"",'Week 11'!C37)	=IF('Week 11'!D37=0,"",'Week 11'!D37)	=IF('Week 11'!E37=0,"",'Week 11'!E37)	=IF('Week 11'!F37=0,"",'Week 11'!F37)	='Week 11'!G37	='Week 11'!H37	=IF(H37*G37=0,"",H37*G37)	=IF('Week 11'!J37=0,"",'Week 11'!J37)
+	=IF('Week 11'!B38=0,"",'Week 11'!B38)	=IF('Week 11'!C38=0,"",'Week 11'!C38)	=IF('Week 11'!D38=0,"",'Week 11'!D38)	=IF('Week 11'!E38=0,"",'Week 11'!E38)	=IF('Week 11'!F38=0,"",'Week 11'!F38)	='Week 11'!G38	='Week 11'!H38	=IF(H38*G38=0,"",H38*G38)	=IF('Week 11'!J38=0,"",'Week 11'!J38)
+	=IF('Week 11'!B39=0,"",'Week 11'!B39)	=IF('Week 11'!C39=0,"",'Week 11'!C39)	=IF('Week 11'!D39=0,"",'Week 11'!D39)	=IF('Week 11'!E39=0,"",'Week 11'!E39)	=IF('Week 11'!F39=0,"",'Week 11'!F39)	='Week 11'!G39	='Week 11'!H39	=IF(H39*G39=0,"",H39*G39)	=IF('Week 11'!J39=0,"",'Week 11'!J39)
+	=IF('Week 11'!B40=0,"",'Week 11'!B40)	=IF('Week 11'!C40=0,"",'Week 11'!C40)	=IF('Week 11'!D40=0,"",'Week 11'!D40)	=IF('Week 11'!E40=0,"",'Week 11'!E40)	=IF('Week 11'!F40=0,"",'Week 11'!F40)	='Week 11'!G40	='Week 11'!H40	=IF(H40*G40=0,"",H40*G40)	=IF('Week 11'!J40=0,"",'Week 11'!J40)
+	=IF('Week 11'!B41=0,"",'Week 11'!B41)	=IF('Week 11'!C41=0,"",'Week 11'!C41)	=IF('Week 11'!D41=0,"",'Week 11'!D41)	=IF('Week 11'!E41=0,"",'Week 11'!E41)	=IF('Week 11'!F41=0,"",'Week 11'!F41)	='Week 11'!G41	='Week 11'!H41	=IF(H41*G41=0,"",H41*G41)	=IF('Week 11'!J41=0,"",'Week 11'!J41)
+	=IF('Week 11'!B42=0,"",'Week 11'!B42)	=IF('Week 11'!C42=0,"",'Week 11'!C42)	=IF('Week 11'!D42=0,"",'Week 11'!D42)	=IF('Week 11'!E42=0,"",'Week 11'!E42)	=IF('Week 11'!F42=0,"",'Week 11'!F42)	='Week 11'!G42	='Week 11'!H42	=IF(H42*G42=0,"",H42*G42)	=IF('Week 11'!J42=0,"",'Week 11'!J42)
+									
+									

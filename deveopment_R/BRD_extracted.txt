@@ -1,0 +1,236 @@
+Business Requirements Document (BRD)
+Project Name
+PT Programme Mobile Application for Gym Personal Trainer
+Version
+1.0
+Prepared For
+Najib Musa
+Prepared By
+Mohammad Taha
+
+1. Purpose of the Document
+This Business Requirements Document (BRD) defines the complete functional, non-functional, and operational requirements for the development of a PT Programme Mobile App. The purpose of this document is to ensure all stakeholders (client, developer, and future users) have a clear, shared understanding of what will be built, how it will work, and what success looks like—so the project is delivered smoothly, on time, and within scope.
+
+2. Project Overview
+The PT Programme Mobile App is a simple, clean, and structured mobile application designed for a gym personal trainer (PT coach) to create, manage, and track training programmes for clients.
+The app enables:
+Coaches to create workout programmes using an exercise library
+Coaches to assign programmes to clients
+Clients to log workouts and track progress
+Direct communication between coach and client
+The app will be role-based, supporting both Coach and Client within a single mobile application.
+
+3. Objectives
+Primary Objectives
+Digitize PT programme management
+Reduce manual tracking (WhatsApp, notes, spreadsheets)
+Improve programme consistency and delivery
+Enable clear progress tracking for clients
+Business Objectives
+Allow the PT coach to professionally manage multiple clients
+Improve client engagement and accountability
+Create a scalable solution usable across a gym environment
+
+4. Scope of the Project
+In Scope
+Mobile App (Android & iOS)
+Role-based access (Coach & Client)
+Exercise library management
+Programme creation & assignment
+Workout progress tracking
+In-app chat
+Nutrition advice module
+Out of Scope (Initial Version)
+Payments & subscriptions
+Wearable device integration
+Public community features
+Advanced AI coaching
+
+5. User Roles & Permissions
+5.1 Coach (Admin Role)
+The Coach is the primary administrator and content creator.
+Permissions & Capabilities:
+Create, edit, block, and delete client accounts
+Create and manage exercise library
+Create custom exercises
+Create training programmes (generic or client-specific)
+Assign programmes to clients
+Edit programmes at any time
+Allocate programmes by days (calendar-based)
+View client workout logs and progress
+Provide feedback per workout or programme
+Add YouTube video links (playable inside the app)
+Create and assign nutrition advice
+Chat directly with clients
+
+5.2 Client (User Role)
+Clients are gym members trained by the PT coach.
+Permissions & Capabilities:
+Secure login access
+View assigned training programmes
+View exercise details and videos
+Log completed workouts
+Track personal progress
+View coach feedback
+Access assigned nutrition advice
+Chat with coach
+Clients cannot:
+Edit programmes
+See other clients' data
+
+6. Functional Requirements
+6.1 Authentication & Access Control
+Secure login system
+Role-based access (Coach / Client)
+Clients cannot self-register
+Only the Coach can create client accounts
+Coach creates client credentials and shares login details securely
+Coach can activate, deactivate, or block client access at any time
+Coach can delete client accounts permanently
+Password reset functionality (initiated by Coach or via secure flow)
+
+6.2 Client Management (Coach)
+Create client profile (Name, Email, Phone, Notes)
+Edit client information
+Block or delete client access
+Assign one or multiple programmes per client
+
+6.3 Exercise Library
+Purpose: Central source for programme creation.
+Features:
+Predefined exercises (default set)
+Create custom exercises
+Exercise fields:
+Exercise Name
+Description / Instructions
+Target Muscle Group
+Sets / Reps / Duration
+Rest Time
+YouTube video link (embedded player)
+Exercises must be reusable across programmes.
+
+6.4 Programme Management
+Programmes must be created in a structured, gym-realistic format based on weekly and daily workout plans similar to the provided sample (multi-week workout plan with muscle group splits, sets, reps, and rest).
+Programme Types:
+Personal (Private) Programmes
+Created for a specific client only
+Visible only to the assigned client
+Fully customizable per client goals and progress
+Public (Generic) Programmes
+Created once by the coach
+Available to all clients
+Can be reused and assigned to multiple clients
+
+Programme Structure (Mandatory):
+Each programme must support:
+Programme name
+Programme type (Personal / Public)
+Total duration (e.g. 4 weeks, 8 weeks, 12 weeks)
+Weekly structure (Week 1 → Week N)
+Daily workout split per week
+Workout Day Structure:
+Each workout day must include multiple exercises grouped by muscle category, such as:
+Quadriceps
+Glutes & Hamstrings
+Calves
+Chest
+Back
+Shoulders
+Triceps
+Biceps
+Abs
+Other / Mobility
+Exercise Configuration (per exercise):
+Exercise name (from exercise library)
+Sets
+Reps (range support, e.g. 8–12)
+Rest time (in seconds)
+Optional notes
+
+Programme Editing Rules:
+Coach can edit programmes at any time
+Changes to Personal Programmes affect only the assigned client
+Changes to Public Programmes can be applied globally or duplicated into a personal programme
+
+6.5 Programme Assignment
+Assign programme to one or multiple clients
+Set start date
+Option to reassign or replace programme
+
+6.6 Workout Logging & Progress Tracking
+Client Side:
+Mark workout as completed
+Log:
+Weight used
+Reps completed
+Notes
+Coach Side:
+View client logs
+Track adherence and consistency
+Review historical data
+
+6.7 Feedback & Communication
+Coach can add feedback per workout or programme
+Client can view feedback
+
+6.8 In-App Chat
+One-to-one chat between coach and client
+Text-based messaging
+Simple, distraction-free interface
+
+6.9 Nutrition Advice Module
+Coach can create nutrition notes per client
+Simple text-based advice
+Client can view assigned nutrition plan
+
+7. Non-Functional Requirements
+7.1 Usability
+Clean, minimal UI
+Easy navigation
+Low learning curve for non-technical users
+7.2 Performance
+Fast load times
+Smooth scrolling and transitions
+7.3 Security
+Secure authentication
+Data isolation between clients
+Encrypted data storage (where applicable)
+7.4 Compatibility
+Android and iOS support
+Responsive across screen sizes
+7.5 Scalability
+Support increasing number of clients
+Support additional coaches in future versions
+
+8. Assumptions
+Single coach manages all clients (initial version)
+Videos will be embedded via YouTube links
+App will be used primarily inside a gym environment
+
+9. Risks & Mitigation
+
+10. Acceptance Criteria
+The project will be considered complete when:
+Coach can create programmes from exercise library
+Clients can log workouts and view progress
+Coach can track and manage all clients
+App runs smoothly on Android & iOS
+All agreed features are implemented
+
+11. Mandatory Features (Included in Initial Release)
+The following features are mandatory and will be included in the initial version of the app:
+11.1 Push Notifications
+Workout reminders for clients
+Programme update notifications
+Coach feedback alerts
+General announcements from coach
+11.2 Progress Charts & Analytics
+Visual charts for workout completion
+Progress tracking over time (weekly/monthly)
+Strength or performance trend indicators
+Coach-accessible analytics per client
+
+12. Conclusion
+This BRD ensures a clear roadmap for building a reliable, easy-to-use PT Programme Mobile App that meets the needs of a professional gym personal trainer and delivers real value to clients.
+
+End of Document
