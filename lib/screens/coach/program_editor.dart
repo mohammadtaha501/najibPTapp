@@ -119,6 +119,7 @@ class _ProgramEditorState extends State<ProgramEditor> {
                       'Add Workout Day to Week $_selectedWeek',
                       _addNewDay,
                       icon: Icons.add,
+                      color: Colors.cyanAccent,
                     ),
                     const SizedBox(height: 40),
                   ],
@@ -178,24 +179,64 @@ class _ProgramEditorState extends State<ProgramEditor> {
 
   Widget _buildWeekPickerHeader() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      padding: const EdgeInsets.fromLTRB(4, 32, 4, 16),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Text(
-            'PHASE / WEEK',
-            style: TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.bold,
-              color: AppTheme.mutedTextColor,
-            ),
+          const Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'PHASE PROGRESSION',
+                style: TextStyle(
+                  fontSize: 10,
+                  fontWeight: FontWeight.w900,
+                  color: AppTheme.mutedTextColor,
+                  letterSpacing: 1.5,
+                ),
+              ),
+              SizedBox(height: 4),
+              Text(
+                'Select Training Week',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ],
           ),
-          TextButton.icon(
-            onPressed: _duplicateCurrentWeek,
-            icon: const Icon(Icons.copy, size: 14),
-            label: const Text(
-              'Duplicate to Next Week',
-              style: TextStyle(fontSize: 12),
+          InkWell(
+            onTap: _duplicateCurrentWeek,
+            borderRadius: BorderRadius.circular(12),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+              decoration: BoxDecoration(
+                color: AppTheme.primaryColor.withOpacity(0.1),
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(
+                  color: AppTheme.primaryColor.withOpacity(0.2),
+                ),
+              ),
+              child: const Row(
+                children: [
+                  Icon(
+                    Icons.copy_all_rounded,
+                    size: 16,
+                    color: AppTheme.primaryColor,
+                  ),
+                  SizedBox(width: 8),
+                  Text(
+                    'DUPLICATE',
+                    style: TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.bold,
+                      color: AppTheme.primaryColor,
+                      letterSpacing: 0.5,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ],
@@ -259,39 +300,51 @@ class _ProgramEditorState extends State<ProgramEditor> {
   }
 
   Widget _buildWeekPicker() {
-    return Container(
-      height: 60,
-      padding: const EdgeInsets.symmetric(vertical: 8),
+    return SizedBox(
+      height: 54,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 4),
         itemCount: _weeks,
         itemBuilder: (context, index) {
           final week = index + 1;
           final isSelected = _selectedWeek == week;
-          return GestureDetector(
-            onTap: () => setState(() => _selectedWeek = week),
-            child: Container(
-              margin: const EdgeInsets.only(right: 12),
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                color: isSelected
-                    ? AppTheme.primaryColor
-                    : AppTheme.surfaceColor,
-                borderRadius: BorderRadius.circular(12),
-                border: Border.all(
+          return Padding(
+            padding: const EdgeInsets.only(right: 10),
+            child: InkWell(
+              onTap: () => setState(() => _selectedWeek = week),
+              borderRadius: BorderRadius.circular(16),
+              child: AnimatedContainer(
+                duration: const Duration(milliseconds: 200),
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
                   color: isSelected
                       ? AppTheme.primaryColor
-                      : Colors.white.withOpacity(0.05),
+                      : AppTheme.surfaceColor,
+                  borderRadius: BorderRadius.circular(16),
+                  border: Border.all(
+                    color: isSelected
+                        ? AppTheme.primaryColor
+                        : Colors.white.withOpacity(0.05),
+                  ),
+                  boxShadow: isSelected
+                      ? [
+                          BoxShadow(
+                            color: AppTheme.primaryColor.withOpacity(0.3),
+                            blurRadius: 10,
+                            offset: const Offset(0, 4),
+                          ),
+                        ]
+                      : [],
                 ),
-              ),
-              child: Text(
-                'Week $week',
-                style: TextStyle(
-                  color: isSelected ? Colors.black : Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 13,
+                child: Text(
+                  'Week $week',
+                  style: TextStyle(
+                    color: isSelected ? Colors.black : Colors.white60,
+                    fontWeight: isSelected ? FontWeight.w900 : FontWeight.bold,
+                    fontSize: 14,
+                  ),
                 ),
               ),
             ),
@@ -302,270 +355,320 @@ class _ProgramEditorState extends State<ProgramEditor> {
   }
 
   Widget _buildProgramHeader() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Padding(
-          padding: EdgeInsets.only(left: 4, bottom: 12),
-          child: Text(
-            'PROGRAM NAME',
-            style: TextStyle(
-              color: AppTheme.mutedTextColor,
-              fontSize: 11,
-              fontWeight: FontWeight.bold,
-              letterSpacing: 1.2,
-            ),
-          ),
-        ),
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          decoration: BoxDecoration(
-            color: AppTheme.surfaceColor,
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: Colors.white.withOpacity(0.05)),
-          ),
-          child: Row(
+    return Container(
+      padding: const EdgeInsets.all(24),
+      decoration: BoxDecoration(
+        color: AppTheme.surfaceColor,
+        borderRadius: BorderRadius.circular(24),
+        border: Border.all(color: Colors.white.withOpacity(0.05)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
             children: [
               Container(
-                padding: const EdgeInsets.all(8),
+                padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: AppTheme.primaryColor.withOpacity(0.15),
-                  borderRadius: BorderRadius.circular(8),
+                  color: AppTheme.primaryColor.withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(16),
                 ),
                 child: const Icon(
-                  Icons.fitness_center,
+                  Icons.auto_awesome_rounded,
                   color: AppTheme.primaryColor,
-                  size: 20,
+                  size: 24,
                 ),
               ),
-              const SizedBox(width: 12),
+              const SizedBox(width: 16),
               Expanded(
-                child: TextField(
-                  controller: _nameController,
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                    letterSpacing: 0.5,
-                  ),
-                  decoration: InputDecoration(
-                    hintText: 'e.g., Full Body Strength',
-                    hintStyle: TextStyle(
-                      color: Colors.white.withOpacity(0.2),
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'PROGRAM IDENTITY',
+                      style: TextStyle(
+                        color: AppTheme.mutedTextColor,
+                        fontSize: 10,
+                        fontWeight: FontWeight.w900,
+                        letterSpacing: 1.5,
+                      ),
                     ),
-                    border: InputBorder.none,
-                    enabledBorder: InputBorder.none,
-                    focusedBorder: InputBorder.none,
-                    contentPadding: EdgeInsets.zero,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(top: 8.0),
-          child: Row(
-            children: [
-              Text(
-                'Duration (Weeks):',
-                style: TextStyle(color: Colors.white.withOpacity(0.6)),
-              ),
-              const SizedBox(width: 12),
-              SizedBox(
-                width: 60,
-                child: TextField(
-                  controller: _durationController,
-                  keyboardType: TextInputType.number,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: AppTheme.primaryColor,
-                  ),
-                  inputFormatters: [
-                    FilteringTextInputFormatter.digitsOnly,
-                    LengthLimitingTextInputFormatter(2),
-                  ],
-                  decoration: const InputDecoration(
-                    isDense: true,
-                    contentPadding: EdgeInsets.symmetric(
-                      vertical: 12,
-                      horizontal: 8,
-                    ),
-                    border: UnderlineInputBorder(
-                      borderSide: BorderSide(color: AppTheme.primaryColor),
-                    ),
-                  ),
-                  onChanged: (val) {
-                    final n = int.tryParse(val);
-                    if (n != null) {
-                      if (n > 20) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text('Maximum duration is 20 weeks'),
-                            duration: Duration(seconds: 1),
+                    const SizedBox(height: 8),
+                    TextField(
+                      controller: _nameController,
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                      decoration: InputDecoration(
+                        hintText: 'e.g., Full Body Strength',
+                        hintStyle: TextStyle(
+                          color: Colors.white.withOpacity(0.2),
+                          fontSize: 18,
+                        ),
+                        filled: true,
+                        fillColor: Colors.black.withOpacity(0.3),
+                        contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 16,
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          borderSide: BorderSide(
+                            color: Colors.white.withOpacity(0.1),
                           ),
-                        );
-                        _durationController.text = '20';
-                        _durationController.selection =
-                            TextSelection.fromPosition(
-                              const TextPosition(offset: 2),
-                            );
-                        setState(() {
-                          _weeks = 20;
-                        });
-                      } else if (n > 0) {
-                        setState(() {
-                          _weeks = n;
-                          if (_selectedWeek > _weeks) _selectedWeek = _weeks;
-                        });
-                      }
-                    } else {
-                      setState(() => _weeks = 0);
-                    }
-                  },
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],
           ),
-        ),
-        const SizedBox(height: 12),
-        // If coming from client detail (preSelectedClientId != null), lock to personal
-        if (widget.preSelectedClientId != null)
-          Container(
-            width: double.infinity,
-            padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-            decoration: BoxDecoration(
-              color: Theme.of(context).cardTheme.color,
-              borderRadius: BorderRadius.circular(8),
-              border: Border.all(color: AppTheme.primaryColor.withOpacity(0.3)),
-            ),
+          const SizedBox(height: 24),
+          _buildInputBox(
+            label: 'PLAN DURATION',
+            icon: Icons.calendar_today_rounded,
             child: Row(
               children: [
-                const Icon(Icons.lock, size: 18, color: AppTheme.primaryColor),
-                const SizedBox(width: 12),
                 Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        'Creating Personal Program For:',
-                        style: TextStyle(
-                          color: AppTheme.mutedTextColor,
-                          fontSize: 12,
-                        ),
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        _clients
-                            .firstWhere(
-                              (c) => c.uid == widget.preSelectedClientId,
-                              orElse: () => AppUser(
-                                uid: '',
-                                email: '',
-                                name: 'Loading...',
-                                role: UserRole.client,
-                              ),
-                            )
-                            .name,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                          color: Colors.white,
-                        ),
-                      ),
+                  child: TextField(
+                    controller: _durationController,
+                    keyboardType: TextInputType.number,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: AppTheme.primaryColor,
+                    ),
+                    inputFormatters: [
+                      FilteringTextInputFormatter.digitsOnly,
+                      LengthLimitingTextInputFormatter(2),
                     ],
+                    decoration: const InputDecoration(
+                      isDense: true,
+                      contentPadding: EdgeInsets.symmetric(
+                        horizontal: 8,
+                        vertical: 12,
+                      ),
+                    ),
+                    onChanged: (val) {
+                      final n = int.tryParse(val);
+                      if (n != null) {
+                        if (n > 20) {
+                          setState(() {
+                            _weeks = 20;
+                            _durationController.text = '20';
+                            _durationController.selection =
+                                TextSelection.fromPosition(
+                                  TextPosition(
+                                    offset: _durationController.text.length,
+                                  ),
+                                );
+                            if (_selectedWeek > 20) _selectedWeek = 20;
+                          });
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text(
+                                'Plan duration cannot be more than 20 weeks',
+                              ),
+                              backgroundColor: AppTheme.errorColor,
+                              duration: Duration(seconds: 2),
+                            ),
+                          );
+                        } else if (n > 0) {
+                          setState(() {
+                            _weeks = n;
+                            if (_selectedWeek > _weeks) _selectedWeek = _weeks;
+                          });
+                        }
+                      }
+                    },
+                  ),
+                ),
+                const Text(
+                  'Weeks',
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: AppTheme.mutedTextColor,
                   ),
                 ),
               ],
             ),
-          )
-        else
-          // Otherwise, show Dropdown to select type
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 12),
-            decoration: BoxDecoration(
-              color: Theme.of(context).cardTheme.color,
-              borderRadius: BorderRadius.circular(8),
-              border: Border.all(
-                color: _selectedType == null
-                    ? Colors.orangeAccent.withOpacity(0.5)
-                    : Colors.white10,
-              ),
-            ),
-            child: DropdownButtonHideUnderline(
-              child: DropdownButton<ProgramType>(
-                value: _selectedType,
-                hint: const Text(
-                  'Select Program Type',
-                  style: TextStyle(color: Colors.orangeAccent),
-                ),
-                isExpanded: true,
-                dropdownColor: AppTheme.surfaceColor,
-                items: const [
-                  DropdownMenuItem(
-                    value: ProgramType.personal,
-                    child: Text('For Personal Client'),
-                  ),
-                  DropdownMenuItem(
-                    value: ProgramType.allUsers,
-                    child: Text('For All Users'),
-                  ),
-                  DropdownMenuItem(
-                    value: ProgramType.template,
-                    child: Text('For Later Use'),
-                  ),
-                ],
-                onChanged: (newValue) {
-                  setState(() {
-                    if (newValue != null) {
-                      _selectedType = newValue;
-                      if (_selectedType == ProgramType.personal &&
-                          widget.preSelectedClientId != null) {
-                        _assignedClientId = widget.preSelectedClientId;
-                      } else if (_selectedType != ProgramType.personal) {
-                        _assignedClientId = null;
-                      }
-                    }
-                  });
-                },
-              ),
-            ),
           ),
-
-        if (_selectedType == ProgramType.personal &&
-            widget.preSelectedClientId == null) ...[
+          if (_selectedType == ProgramType.personal) ...[
+            const SizedBox(height: 12),
+            _buildInputBox(
+              label: 'CLIENT ASSIGNMENT',
+              icon: Icons.person_add_alt_1_rounded,
+              child: widget.preSelectedClientId != null
+                  ? Text(
+                      _clients
+                          .firstWhere(
+                            (c) => c.uid == widget.preSelectedClientId,
+                            orElse: () => AppUser(
+                              uid: '',
+                              email: '',
+                              name: 'Client',
+                              role: UserRole.client,
+                            ),
+                          )
+                          .name,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      maxLines: 1,
+                    )
+                  : DropdownButtonHideUnderline(
+                      child: DropdownButton<String>(
+                        value: _assignedClientId,
+                        hint: const Text(
+                          'Pick Client',
+                          style: TextStyle(
+                            fontSize: 13,
+                            color: AppTheme.mutedTextColor,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        isExpanded: true,
+                        icon: const Icon(
+                          Icons.arrow_drop_down_rounded,
+                          color: AppTheme.primaryColor,
+                        ),
+                        dropdownColor: AppTheme.surfaceColor,
+                        items: _clients
+                            .map(
+                              (c) => DropdownMenuItem(
+                                value: c.uid,
+                                child: Text(
+                                  c.name,
+                                  style: const TextStyle(fontSize: 13),
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 1,
+                                ),
+                              ),
+                            )
+                            .toList(),
+                        onChanged: (v) => setState(() => _assignedClientId = v),
+                      ),
+                    ),
+            ),
+          ],
           const SizedBox(height: 12),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 12),
-            decoration: BoxDecoration(
-              color: Theme.of(context).cardTheme.color,
-              borderRadius: BorderRadius.circular(8),
-              border: Border.all(color: Colors.white10),
-            ),
-            child: DropdownButtonHideUnderline(
-              child: DropdownButton<String>(
-                value: _assignedClientId,
-                hint: const Text(
-                  'Select Client',
-                  style: TextStyle(color: AppTheme.mutedTextColor),
-                ),
-                isExpanded: true,
-                dropdownColor: AppTheme.surfaceColor,
-                items: _clients.map((client) {
-                  return DropdownMenuItem<String>(
-                    value: client.uid,
-                    child: Text(client.name),
-                  );
-                }).toList(),
-                onChanged: (v) => setState(() => _assignedClientId = v),
-              ),
-            ),
+          _buildInputBox(
+            label: 'PROGRAM ACCESSIBILITY',
+            icon: widget.preSelectedClientId != null
+                ? Icons.lock_rounded
+                : Icons.visibility_rounded,
+            child: widget.preSelectedClientId != null
+                ? const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 4.0),
+                    child: Text(
+                      'Personal Program (Locked)',
+                      style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white70,
+                      ),
+                    ),
+                  )
+                : DropdownButtonHideUnderline(
+                    child: DropdownButton<ProgramType>(
+                      value: _selectedType,
+                      hint: const Text(
+                        'Select visibility for this program...',
+                        style: TextStyle(
+                          fontSize: 13,
+                          color: AppTheme.mutedTextColor,
+                        ),
+                      ),
+                      isExpanded: true,
+                      icon: const Icon(
+                        Icons.arrow_drop_down_rounded,
+                        color: AppTheme.primaryColor,
+                      ),
+                      dropdownColor: AppTheme.surfaceColor,
+                      items: const [
+                        DropdownMenuItem(
+                          value: ProgramType.personal,
+                          child: Text(
+                            'Personal Program (Client Specific)',
+                            style: TextStyle(
+                              fontSize: 13,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        DropdownMenuItem(
+                          value: ProgramType.allUsers,
+                          child: Text(
+                            'Public Program (All Clients)',
+                            style: TextStyle(
+                              fontSize: 13,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        DropdownMenuItem(
+                          value: ProgramType.template,
+                          child: Text(
+                            'Private Template (Internal Use)',
+                            style: TextStyle(
+                              fontSize: 13,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
+                      onChanged: (v) {
+                        setState(() {
+                          _selectedType = v;
+                          if (_selectedType != ProgramType.personal)
+                            _assignedClientId = null;
+                        });
+                      },
+                    ),
+                  ),
           ),
         ],
-      ],
+      ),
+    );
+  }
+
+  Widget _buildInputBox({
+    required String label,
+    required IconData icon,
+    required Widget child,
+  }) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      decoration: BoxDecoration(
+        color: Colors.black.withOpacity(0.2),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: Colors.white.withOpacity(0.05)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(icon, size: 12, color: AppTheme.mutedTextColor),
+              const SizedBox(width: 6),
+              Text(
+                label,
+                style: const TextStyle(
+                  fontSize: 9,
+                  fontWeight: FontWeight.w900,
+                  color: AppTheme.mutedTextColor,
+                  letterSpacing: 1,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          child,
+        ],
+      ),
     );
   }
 
@@ -576,45 +679,68 @@ class _ProgramEditorState extends State<ProgramEditor> {
         final day = entry.value;
         final indexInAll = _days.indexOf(day);
         return Padding(
-          padding: const EdgeInsets.only(bottom: 24),
+          padding: const EdgeInsets.only(bottom: 32),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Day ${day.day}: ${day.muscleGroup}'.toUpperCase(),
-                    style: const TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 1.2,
-                      color: AppTheme.mutedTextColor,
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 8,
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.03),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        const Icon(
+                          Icons.flash_on_rounded,
+                          size: 16,
+                          color: AppTheme.primaryColor,
+                        ),
+                        const SizedBox(width: 8),
+                        Text(
+                          'DAY ${day.day}: ${day.muscleGroup}'.toUpperCase(),
+                          style: const TextStyle(
+                            fontSize: 11,
+                            fontWeight: FontWeight.w900,
+                            letterSpacing: 1.2,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                  IconButton(
-                    icon: const Icon(
-                      Icons.close,
-                      size: 18,
-                      color: Colors.white24,
+                    IconButton(
+                      icon: const Icon(
+                        Icons.delete_sweep_rounded,
+                        size: 20,
+                        color: Colors.redAccent,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          final removed = _days.removeAt(indexInAll);
+                          if (removed.id != null)
+                            _deletedDayIds.add(removed.id!);
+                        });
+                      },
+                      padding: EdgeInsets.zero,
+                      constraints: const BoxConstraints(),
                     ),
-                    onPressed: () {
-                      setState(() {
-                        final removed = _days.removeAt(indexInAll);
-                        if (removed.id != null) {
-                          _deletedDayIds.add(removed.id!);
-                        }
-                      });
-                    },
-                  ),
-                ],
+                  ],
+                ),
               ),
-              const SizedBox(height: 12),
+              const SizedBox(height: 16),
               ..._buildExercisesWithSupersets(day, indexInAll),
+              const SizedBox(height: 8),
               _buildSecondaryButton(
-                'Add Exercise',
+                'Add Exercise to Training',
                 () => _addExerciseToDay(indexInAll),
-                icon: Icons.add_circle_outline,
+                icon: Icons.add_circle_outline_rounded,
+                color: Colors.orangeAccent,
               ),
             ],
           ),
@@ -628,24 +754,30 @@ class _ProgramEditorState extends State<ProgramEditor> {
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Theme.of(context).cardTheme.color,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(
-          color: Theme.of(context).dividerColor.withOpacity(0.05),
-        ),
+        color: AppTheme.surfaceColor,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: Colors.white.withOpacity(0.05)),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.2),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
+          ),
+        ],
       ),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            width: 48,
-            height: 48,
+            padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: Colors.white10,
-              borderRadius: BorderRadius.circular(8),
+              color: AppTheme.primaryColor.withOpacity(0.1),
+              borderRadius: BorderRadius.circular(14),
             ),
             child: const Icon(
-              Icons.fitness_center,
+              Icons.fitness_center_rounded,
               color: AppTheme.primaryColor,
+              size: 20,
             ),
           ),
           const SizedBox(width: 16),
@@ -653,79 +785,122 @@ class _ProgramEditorState extends State<ProgramEditor> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  e.name,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: Text(
+                        e.name,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () => setState(
+                        () => _days[dayIndex].exercises.removeAt(exIndex),
+                      ),
+                      child: Container(
+                        padding: const EdgeInsets.all(4),
+                        decoration: BoxDecoration(
+                          color: Colors.redAccent.withOpacity(0.1),
+                          shape: BoxShape.circle,
+                        ),
+                        child: const Icon(
+                          Icons.remove_rounded,
+                          size: 16,
+                          color: Colors.redAccent,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-                Text(
-                  '${e.sets} Sets • ${e.reps} Reps ${e.tempo != null && e.tempo!.isNotEmpty ? "• T: ${e.tempo}" : ""} ${e.rpe != null && e.rpe!.isNotEmpty ? "@ RPE ${e.rpe}" : ""}',
-                  style: const TextStyle(
-                    color: AppTheme.mutedTextColor,
-                    fontSize: 12,
-                  ),
+                const SizedBox(height: 8),
+                Wrap(
+                  spacing: 12,
+                  runSpacing: 4,
+                  children: [
+                    _buildExerciseDetailTag(
+                      Icons.repeat_rounded,
+                      '${e.sets} Sets',
+                    ),
+                    _buildExerciseDetailTag(
+                      Icons.timer_outlined,
+                      '${e.reps} Reps',
+                    ),
+                    if (e.tempo != null && e.tempo!.isNotEmpty)
+                      _buildExerciseDetailTag(
+                        Icons.speed_rounded,
+                        'Tempo: ${e.tempo}',
+                      ),
+                    if (e.rpe != null && e.rpe!.isNotEmpty)
+                      _buildExerciseDetailTag(
+                        Icons.bolt_rounded,
+                        'RPE ${e.rpe}',
+                        color: Colors.orangeAccent,
+                      ),
+                  ],
                 ),
-                if (e.targetWeight != null && e.targetWeight!.isNotEmpty)
+                if (e.targetWeight != null && e.targetWeight!.isNotEmpty) ...[
+                  const SizedBox(height: 8),
                   Text(
                     'Target: ${e.targetWeight}',
                     style: const TextStyle(
                       color: AppTheme.primaryColor,
                       fontSize: 11,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w900,
+                      letterSpacing: 0.5,
                     ),
                   ),
-                if (e.duration != null && e.duration!.isNotEmpty)
-                  Text(
-                    'Duration: ${e.duration}',
-                    style: const TextStyle(
-                      color: Colors.lightBlueAccent,
-                      fontSize: 11,
+                ],
+                if (e.note != null && e.note!.isNotEmpty) ...[
+                  const SizedBox(height: 8),
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: Colors.black.withOpacity(0.3),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Text(
+                      e.note!,
+                      style: const TextStyle(
+                        color: AppTheme.mutedTextColor,
+                        fontSize: 10,
+                        fontStyle: FontStyle.italic,
+                      ),
                     ),
                   ),
-                if (e.totalReps != null)
-                  Text(
-                    'Total Reps: ${e.totalReps}',
-                    style: const TextStyle(color: Colors.white70, fontSize: 11),
-                  ),
-                if (e.volume != null)
-                  Text(
-                    'Volume: ${e.volume}',
-                    style: const TextStyle(color: Colors.white70, fontSize: 11),
-                  ),
-                if (e.note != null && e.note!.isNotEmpty)
-                  Text(
-                    'Note: ${e.note}',
-                    style: const TextStyle(
-                      color: Colors.white60,
-                      fontSize: 10,
-                      fontStyle: FontStyle.italic,
-                    ),
-                  ),
-                if (e.altExercise != null && e.altExercise!.isNotEmpty)
-                  Text(
-                    'Alt: ${e.altExercise}',
-                    style: const TextStyle(
-                      color: Colors.orangeAccent,
-                      fontSize: 10,
-                      fontStyle: FontStyle.italic,
-                    ),
-                  ),
+                ],
               ],
             ),
           ),
-          IconButton(
-            icon: const Icon(
-              Icons.delete_outline,
-              size: 20,
-              color: Colors.redAccent,
-            ),
-            onPressed: () =>
-                setState(() => _days[dayIndex].exercises.removeAt(exIndex)),
-          ),
         ],
       ),
+    );
+  }
+
+  Widget _buildExerciseDetailTag(
+    IconData icon,
+    String label, {
+    Color color = AppTheme.mutedTextColor,
+  }) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(icon, size: 12, color: color.withOpacity(0.7)),
+        const SizedBox(width: 4),
+        Text(
+          label,
+          style: TextStyle(
+            fontSize: 11,
+            fontWeight: FontWeight.bold,
+            color: color,
+          ),
+        ),
+      ],
     );
   }
 
@@ -770,22 +945,40 @@ class _ProgramEditorState extends State<ProgramEditor> {
     String label,
     VoidCallback onTap, {
     IconData? icon,
+    Color color = AppTheme.primaryColor,
   }) {
-    return ElevatedButton(
-      onPressed: onTap,
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Theme.of(context).cardTheme.color,
-        foregroundColor: Theme.of(context).colorScheme.onSurface,
-        minimumSize: const Size(double.infinity, 48),
-        elevation: 0,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+    return Container(
+      width: double.infinity,
+      height: 52,
+      decoration: BoxDecoration(
+        color: color.withOpacity(0.05),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: color.withOpacity(0.15)),
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          if (icon != null) ...[Icon(icon, size: 18), const SizedBox(width: 8)],
-          Text(label, style: const TextStyle(fontWeight: FontWeight.w600)),
-        ],
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: BorderRadius.circular(16),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              if (icon != null) ...[
+                Icon(icon, size: 20, color: color),
+                const SizedBox(width: 8),
+              ],
+              Text(
+                label.toUpperCase(),
+                style: TextStyle(
+                  color: color,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w900,
+                  letterSpacing: 1,
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -799,57 +992,88 @@ class _ProgramEditorState extends State<ProgramEditor> {
       context: context,
       builder: (context) => StatefulBuilder(
         builder: (context, setDialogState) => AlertDialog(
-          title: const Text('Add Workout Day'),
+          backgroundColor: AppTheme.surfaceColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(24),
+            side: BorderSide(color: Colors.white.withOpacity(0.1)),
+          ),
+          title: const Text(
+            'Add Workout Day',
+            style: TextStyle(fontWeight: FontWeight.w900, fontSize: 20),
+          ),
           content: Column(
             mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              DropdownButtonFormField<String>(
-                value: muscleGroup,
-                items:
-                    [
-                          'Quadriceps',
-                          'Glutes_Hamstrings',
-                          'Calves',
-                          'Chest',
-                          'Back',
-                          'Shoulders',
-                          'Triceps',
-                          'Biceps',
-                          'Abs',
-                          'Other',
-                        ]
+              const Text(
+                'Which muscle group is the focus for this day?',
+                style: TextStyle(color: AppTheme.mutedTextColor, fontSize: 13),
+              ),
+              const SizedBox(height: 20),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                decoration: BoxDecoration(
+                  color: Colors.black.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(14),
+                  border: Border.all(color: Colors.white.withOpacity(0.05)),
+                ),
+                child: DropdownButtonHideUnderline(
+                  child: DropdownButton<String>(
+                    value: muscleGroup,
+                    isExpanded: true,
+                    dropdownColor: AppTheme.surfaceColor,
+                    onChanged: (v) => setDialogState(() => muscleGroup = v!),
+                    items: Exercise.muscleGroups
                         .map(
                           (g) => DropdownMenuItem(
                             value: g,
-                            child: Text(g.replaceAll('_', ' ')),
+                            child: Text(
+                              g.replaceAll('_', ' '),
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                           ),
                         )
                         .toList(),
-                onChanged: (v) => setDialogState(() => muscleGroup = v!),
-                decoration: const InputDecoration(labelText: 'Focus'),
+                  ),
+                ),
               ),
             ],
           ),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
-              child: const Text('Cancel'),
+              child: const Text(
+                'Cancel',
+                style: TextStyle(color: AppTheme.mutedTextColor),
+              ),
             ),
             ElevatedButton(
               onPressed: () {
-                setState(() {
-                  _days.add(
+                setState(
+                  () => _days.add(
                     WorkoutDay(
                       week: week,
                       day: day,
                       muscleGroup: muscleGroup,
                       exercises: [],
                     ),
-                  );
-                });
+                  ),
+                );
                 Navigator.pop(context);
               },
-              child: const Text('Add'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppTheme.primaryColor,
+                foregroundColor: Colors.black,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+              child: const Text(
+                'ADD DAY',
+                style: TextStyle(fontWeight: FontWeight.w900, fontSize: 12),
+              ),
             ),
           ],
         ),
@@ -1156,6 +1380,11 @@ class _ExercisePickerState extends State<_ExercisePicker> {
   List<Exercise> _selectedExercises = [];
   late Stream<List<Exercise>> _exercisesStream;
 
+  // Filter states
+  String? _selectedMuscleGroup;
+  int? _selectedSets;
+  String? _selectedReps;
+
   @override
   void initState() {
     super.initState();
@@ -1164,10 +1393,16 @@ class _ExercisePickerState extends State<_ExercisePicker> {
   }
 
   @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const SizedBox(height: 16),
+        const SizedBox(height: 12),
         Container(
           width: 40,
           height: 4,
@@ -1177,32 +1412,55 @@ class _ExercisePickerState extends State<_ExercisePicker> {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.fromLTRB(24, 24, 24, 12),
+          padding: const EdgeInsets.all(24),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
-                'Add Exercises',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              const Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'LIBRARY',
+                    style: TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.w900,
+                      color: AppTheme.primaryColor,
+                      letterSpacing: 1,
+                    ),
+                  ),
+                  Text(
+                    'Select Exercises',
+                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                  ),
+                ],
               ),
-              TextButton.icon(
-                onPressed: () {
+              InkWell(
+                onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (_) => ExerciseEditorScreen(
                         onExerciseCreated: (newEx) {
-                          widget.onSelected([newEx]);
+                          widget.onSelected([..._selectedExercises, newEx]);
                         },
                       ),
                     ),
                   ).then((_) {
-                    if (mounted)
-                      Navigator.pop(context); // Close picker after creation
+                    if (mounted) Navigator.pop(context);
                   });
                 },
-                icon: const Icon(Icons.add, size: 18),
-                label: const Text('New'),
+                child: Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: AppTheme.primaryColor.withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: const Icon(
+                    Icons.add_rounded,
+                    color: AppTheme.primaryColor,
+                    size: 24,
+                  ),
+                ),
               ),
             ],
           ),
@@ -1211,20 +1469,32 @@ class _ExercisePickerState extends State<_ExercisePicker> {
           padding: const EdgeInsets.symmetric(horizontal: 24),
           child: TextField(
             controller: _searchController,
+            style: const TextStyle(fontSize: 16),
             decoration: InputDecoration(
-              hintText: 'Search Exercises...',
+              hintText: 'Search movement library...',
               prefixIcon: const Icon(
-                Icons.search,
+                Icons.search_rounded,
                 color: AppTheme.mutedTextColor,
               ),
+              suffixIcon: _searchQuery.isNotEmpty
+                  ? IconButton(
+                      icon: const Icon(Icons.clear, size: 20),
+                      onPressed: () {
+                        setState(() {
+                          _searchController.clear();
+                          _searchQuery = '';
+                        });
+                      },
+                    )
+                  : null,
               filled: true,
               fillColor: Colors.white.withOpacity(0.05),
               contentPadding: const EdgeInsets.symmetric(
-                horizontal: 16,
-                vertical: 8,
+                horizontal: 20,
+                vertical: 16,
               ),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(16),
                 borderSide: BorderSide.none,
               ),
             ),
@@ -1232,7 +1502,97 @@ class _ExercisePickerState extends State<_ExercisePicker> {
                 setState(() => _searchQuery = val.toLowerCase()),
           ),
         ),
+        const SizedBox(height: 16),
+        // Muscle Group Filters
+        SizedBox(
+          height: 38,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            itemCount: Exercise.muscleGroups.length + 1,
+            itemBuilder: (context, index) {
+              final isAll = index == 0;
+              final group = isAll ? null : Exercise.muscleGroups[index - 1];
+              final isSelected = _selectedMuscleGroup == group;
+              final label = isAll ? 'All' : group!.replaceAll('_', ' ');
+
+              return Padding(
+                padding: const EdgeInsets.only(right: 8),
+                child: ChoiceChip(
+                  label: Text(label),
+                  selected: isSelected,
+                  onSelected: (selected) {
+                    setState(() {
+                      _selectedMuscleGroup = selected ? group : null;
+                    });
+                  },
+                  backgroundColor: Colors.white.withOpacity(0.05),
+                  selectedColor: AppTheme.primaryColor.withOpacity(0.2),
+                  labelStyle: TextStyle(
+                    color: isSelected ? AppTheme.primaryColor : Colors.white60,
+                    fontWeight: isSelected
+                        ? FontWeight.bold
+                        : FontWeight.normal,
+                    fontSize: 12,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    side: BorderSide(
+                      color: isSelected
+                          ? AppTheme.primaryColor.withOpacity(0.5)
+                          : Colors.transparent,
+                    ),
+                  ),
+                  showCheckmark: false,
+                ),
+              );
+            },
+          ),
+        ),
         const SizedBox(height: 12),
+        // Sets and Reps Quick Filters
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: Row(
+            children: [
+              _buildDropdownFilter<int>(
+                label: 'Sets',
+                value: _selectedSets,
+                items: [1, 2, 3, 4, 5],
+                onChanged: (v) => setState(() => _selectedSets = v),
+              ),
+              const SizedBox(width: 12),
+              _buildDropdownFilter<String>(
+                label: 'Reps',
+                value: _selectedReps,
+                items: ['5', '8', '10', '12', '15', '20'],
+                onChanged: (v) => setState(() => _selectedReps = v),
+              ),
+              const Spacer(),
+              if (_selectedMuscleGroup != null ||
+                  _selectedSets != null ||
+                  _selectedReps != null)
+                TextButton(
+                  onPressed: () {
+                    setState(() {
+                      _selectedMuscleGroup = null;
+                      _selectedSets = null;
+                      _selectedReps = null;
+                    });
+                  },
+                  child: const Text(
+                    'CLEAR FILTERS',
+                    style: TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.redAccent,
+                    ),
+                  ),
+                ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 16),
         Expanded(
           child: StreamBuilder<List<Exercise>>(
             stream: _exercisesStream,
@@ -1240,64 +1600,114 @@ class _ExercisePickerState extends State<_ExercisePicker> {
               if (snapshot.connectionState == ConnectionState.waiting)
                 return const Center(child: CircularProgressIndicator());
               final exercises = snapshot.data ?? [];
-              final filtered = exercises
-                  .where(
-                    (e) =>
-                        e.name.toLowerCase().contains(_searchQuery) ||
-                        e.muscleGroup.toLowerCase().contains(_searchQuery),
-                  )
-                  .toList();
 
-              if (filtered.isEmpty) {
+              final filtered = exercises.where((e) {
+                // Search query match
+                final nameMatch =
+                    e.name.toLowerCase().contains(_searchQuery) ||
+                    e.muscleGroup.toLowerCase().contains(_searchQuery);
+
+                // Muscle group filter
+                final muscleMatch =
+                    _selectedMuscleGroup == null ||
+                    e.muscleGroup == _selectedMuscleGroup;
+
+                // Sets filter
+                final setsMatch =
+                    _selectedSets == null || e.sets == _selectedSets;
+
+                // Reps filter
+                final repsMatch =
+                    _selectedReps == null || e.reps == _selectedReps;
+
+                return nameMatch && muscleMatch && setsMatch && repsMatch;
+              }).toList();
+
+              if (filtered.isEmpty)
                 return const Center(
-                  child: Text(
-                    'No exercises found',
-                    style: TextStyle(color: AppTheme.mutedTextColor),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        Icons.search_off_rounded,
+                        size: 48,
+                        color: Colors.white12,
+                      ),
+                      SizedBox(height: 16),
+                      Text(
+                        'No results found',
+                        style: TextStyle(color: AppTheme.mutedTextColor),
+                      ),
+                    ],
                   ),
                 );
-              }
 
               return ListView.builder(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
                 itemCount: filtered.length,
                 itemBuilder: (context, index) {
                   final ex = filtered[index];
                   final isSelected = _selectedExercises.any(
                     (selected) => selected.id == ex.id,
                   );
-                  return CheckboxListTile(
-                    title: Text(
-                      ex.name,
-                      style: const TextStyle(fontWeight: FontWeight.bold),
+                  return Container(
+                    margin: const EdgeInsets.only(bottom: 8),
+                    decoration: BoxDecoration(
+                      color: isSelected
+                          ? AppTheme.primaryColor.withOpacity(0.05)
+                          : Colors.transparent,
+                      borderRadius: BorderRadius.circular(16),
                     ),
-                    subtitle: Text(
-                      ex.muscleGroup.replaceAll('_', ' '),
-                      style: const TextStyle(
-                        fontSize: 12,
-                        color: AppTheme.mutedTextColor,
+                    child: CheckboxListTile(
+                      title: Text(
+                        ex.name,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: isSelected
+                              ? AppTheme.primaryColor
+                              : Colors.white,
+                        ),
                       ),
+                      subtitle: Text(
+                        '${ex.muscleGroup.replaceAll('_', ' ')} • ${ex.sets ?? "-"} Sets • ${ex.reps ?? "-"} Reps',
+                        style: const TextStyle(
+                          fontSize: 12,
+                          color: AppTheme.mutedTextColor,
+                        ),
+                      ),
+                      value: isSelected,
+                      activeColor: AppTheme.primaryColor,
+                      checkColor: Colors.black,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 8),
+                      onChanged: (bool? value) {
+                        setState(() {
+                          if (value == true) {
+                            _selectedExercises.add(ex);
+                          } else {
+                            _selectedExercises.removeWhere(
+                              (selected) => selected.id == ex.id,
+                            );
+                          }
+                        });
+                      },
                     ),
-                    value: isSelected,
-                    activeColor: AppTheme.primaryColor,
-                    checkColor: Colors.black,
-                    onChanged: (bool? value) {
-                      setState(() {
-                        if (value == true) {
-                          _selectedExercises.add(ex);
-                        } else {
-                          _selectedExercises.removeWhere(
-                            (selected) => selected.id == ex.id,
-                          );
-                        }
-                      });
-                    },
                   );
                 },
               );
             },
           ),
         ),
-        Padding(
+        Container(
           padding: const EdgeInsets.all(24),
+          decoration: BoxDecoration(
+            color: AppTheme.surfaceColor,
+            border: Border(
+              top: BorderSide(color: Colors.white.withOpacity(0.05)),
+            ),
+          ),
           child: ElevatedButton(
             onPressed: _selectedExercises.isEmpty
                 ? null
@@ -1306,12 +1716,65 @@ class _ExercisePickerState extends State<_ExercisePicker> {
                     Navigator.pop(context);
                   },
             style: ElevatedButton.styleFrom(
-              minimumSize: const Size(double.infinity, 50),
+              backgroundColor: AppTheme.primaryColor,
+              foregroundColor: Colors.black,
+              minimumSize: const Size(double.infinity, 56),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
             ),
-            child: Text('Add ${_selectedExercises.length} Selected'),
+            child: Text(
+              'ADD ${_selectedExercises.length} EXERCISES'.toUpperCase(),
+              style: const TextStyle(
+                fontWeight: FontWeight.w900,
+                letterSpacing: 1,
+              ),
+            ),
           ),
         ),
       ],
+    );
+  }
+
+  Widget _buildDropdownFilter<T>({
+    required String label,
+    required T? value,
+    required List<T> items,
+    required ValueChanged<T?> onChanged,
+  }) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+      decoration: BoxDecoration(
+        color: Colors.white.withOpacity(0.05),
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: value != null
+              ? AppTheme.primaryColor.withOpacity(0.3)
+              : Colors.transparent,
+        ),
+      ),
+      child: DropdownButtonHideUnderline(
+        child: DropdownButton<T>(
+          value: value,
+          hint: Text(
+            label,
+            style: const TextStyle(fontSize: 12, color: Colors.white60),
+          ),
+          icon: const Icon(Icons.keyboard_arrow_down, size: 16),
+          style: const TextStyle(fontSize: 12, color: Colors.white),
+          dropdownColor: AppTheme.surfaceColor,
+          items: [
+            DropdownMenuItem<T>(value: null, child: Text('Any $label')),
+            ...items.map(
+              (item) => DropdownMenuItem<T>(
+                value: item,
+                child: Text(item.toString()),
+              ),
+            ),
+          ],
+          onChanged: onChanged,
+        ),
+      ),
     );
   }
 }

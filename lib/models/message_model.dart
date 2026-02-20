@@ -5,6 +5,7 @@ class ChatMessage {
   final String text;
   final DateTime timestamp;
   final bool isRead;
+  final bool isPending;
 
   ChatMessage({
     required this.id,
@@ -13,6 +14,7 @@ class ChatMessage {
     required this.text,
     required this.timestamp,
     this.isRead = false,
+    this.isPending = false,
   });
 
   Map<String, dynamic> toMap() {
@@ -25,14 +27,21 @@ class ChatMessage {
     };
   }
 
-  factory ChatMessage.fromMap(Map<String, dynamic> map, String id) {
+  factory ChatMessage.fromMap(
+    Map<String, dynamic> map,
+    String id, {
+    bool isPending = false,
+  }) {
     return ChatMessage(
       id: id,
       senderId: map['senderId'] ?? '',
       receiverId: map['receiverId'] ?? '',
       text: map['text'] ?? '',
-      timestamp: DateTime.parse(map['timestamp'] ?? DateTime.now().toIso8601String()),
+      timestamp: DateTime.parse(
+        map['timestamp'] ?? DateTime.now().toIso8601String(),
+      ),
       isRead: map['isRead'] ?? false,
+      isPending: isPending,
     );
   }
 }

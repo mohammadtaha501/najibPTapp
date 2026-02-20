@@ -5,6 +5,9 @@ import 'package:ptapp/services/auth_service.dart';
 
 import 'package:firebase_messaging/firebase_messaging.dart';
 
+import 'package:ptapp/models/notification_model.dart';
+import 'package:ptapp/services/database_service.dart';
+
 class AuthProvider with ChangeNotifier {
   final AuthService _authService = AuthService();
   final FirebaseMessaging _fcm = FirebaseMessaging.instance;
@@ -133,13 +136,31 @@ class AuthProvider with ChangeNotifier {
     await _authService.signOut();
   }
 
-  Future<void> createClient(String email, String password, String name) async {
+  Future<void> createClient(
+    String email,
+    String password,
+    String name, {
+    int? age,
+    double? height,
+    double? weight,
+    String? gender,
+    String? goal,
+    String? goalDetails,
+    String? timeCommitment,
+  }) async {
     if (_userProfile?.role != UserRole.coach) return;
     await _authService.createClientAccount(
       email: email,
       password: password,
       name: name,
       coachId: _userProfile!.uid,
+      age: age,
+      height: height,
+      weight: weight,
+      gender: gender,
+      goal: goal,
+      goalDetails: goalDetails,
+      timeCommitment: timeCommitment,
     );
   }
 
@@ -198,5 +219,65 @@ class AuthProvider with ChangeNotifier {
     } catch (e) {
       debugPrint("SYSTEM: Error saving tokens: $e");
     }
+  }
+
+  Future<void> updateOnboardingData({
+    required int age,
+    required double height,
+    required double weight,
+    required String gender,
+    required String goal,
+    String? goalDetails,
+    required String timeCommitment,
+  }) async {
+    if (_userProfile == null) return;
+
+    final updatedData = {
+      'age': age,
+      'height': height,
+      'weight': weight,
+      'gender': gender,
+      'goal': goal,
+      'goalDetails': goalDetails,
+      'timeCommitment': timeCommitment,
+      'isOnboardingComplete': true,
+    };
+
+    await _authService.updateProfile(_userProfile!.uid, updatedData);
+
+    // Notify the coach
+    if (_userProfile?.coachId != null) {
+      await DatabaseService().createNotification(
+        AppNotification(
+          recipientId: _userProfile!.coachId!,
+          senderId: _userProfile!.uid,
+          senderName: _userProfile!.name,
+          title: 'New Client Onboarded',
+          body: '${_userProfile!.name} has completed their onboarding process.',
+          type: NotificationType.onboarding,
+          createdAt: DateTime.now(),
+        ),
+      );
+    }
+
+    // Refresh local profile
+    _userProfile = await _authService.getProfile(_userProfile!.uid);
+    notifyListeners();
+  }
+
+  Future<void> updateClientProfile(
+    String clientUid,
+    Map<String, dynamic> data,
+  ) async {
+    if (_userProfile?.role != UserRole.coach) return;
+    await _authService.updateProfile(clientUid, data);
+  }
+
+  Future<void> deleteAccount() async {
+    if (_userProfile == null) return;
+    final uid = _userProfile!.uid;
+    await _authService.deleteAccount(uid);
+    _userProfile = null;
+    notifyListeners();
   }
 }

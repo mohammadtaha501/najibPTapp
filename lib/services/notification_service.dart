@@ -1,7 +1,9 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:flutter_app_badger/flutter_app_badger.dart';
+
 import 'package:ptapp/screens/client/client_navigation_wrapper.dart';
+import 'package:ptapp/screens/coach/coach_notification_screen.dart';
+import 'package:ptapp/utils/navigation.dart';
 
 // Top-level background message handler for FCM
 @pragma('vm:entry-point')
@@ -45,8 +47,7 @@ class NotificationService {
       },
     );
 
-    // 2. Clear Badges on Start
-    await resetBadge();
+    // 2. Clear Badges on Start (Removed - OS handled)
 
     // 3. Configure FCM Foreground Presentation (iOS specific)
     await FirebaseMessaging.instance
@@ -91,17 +92,9 @@ class NotificationService {
     if (type == 'new_program') {
       print("SYSTEM: Deep linking to Programs tab");
       ClientNavigationWrapper.switchTab(1);
-    }
-  }
-
-  static Future<void> resetBadge() async {
-    try {
-      if (await FlutterAppBadger.isAppBadgeSupported()) {
-        FlutterAppBadger.removeBadge();
-        print('SYSTEM: Badge removed');
-      }
-    } catch (e) {
-      print('Error resetting badge: $e');
+    } else if (type == '0') {
+      print("SYSTEM: Deep linking to CoachNotificationScreen");
+      NavigationService.navigateTo(const CoachNotificationScreen());
     }
   }
 

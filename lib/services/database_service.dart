@@ -8,6 +8,8 @@ import 'package:ptapp/models/message_model.dart';
 import 'package:ptapp/models/nutrition_log_model.dart';
 import 'package:ptapp/models/nutrition_plan_model.dart';
 import 'package:ptapp/models/nutrition_checkin_model.dart';
+
+import 'package:ptapp/models/notification_model.dart';
 import 'package:ptapp/services/notification_service.dart';
 
 class DatabaseService {
@@ -394,9 +396,6 @@ class DatabaseService {
     return _db
         .collection('programs')
         .where('assignedClientId', isEqualTo: clientId)
-        .orderBy(
-          'status',
-        ) // Active first, then replaced/completed if we add those statuses
         .snapshots()
         .map(
           (snapshot) => snapshot.docs
@@ -799,6 +798,27 @@ class DatabaseService {
         );
   }
 
+  Stream<WorkoutLog?> getWorkoutLogForDay(
+    String programId,
+    String workoutDayId,
+  ) {
+    return _db
+        .collection('logs')
+        .where('programId', isEqualTo: programId)
+        .where('workoutDayId', isEqualTo: workoutDayId)
+        .orderBy('date', descending: true)
+        .limit(1)
+        .snapshots()
+        .map(
+          (snapshot) => snapshot.docs.isNotEmpty
+              ? WorkoutLog.fromMap(
+                  snapshot.docs.first.data(),
+                  snapshot.docs.first.id,
+                )
+              : null,
+        );
+  }
+
   Future<void> updateWorkoutFeedback(String logId, String feedback) async {
     await _db.collection('logs').doc(logId).update({'feedback': feedback});
     NotificationService.showLocalNotification(
@@ -852,12 +872,20 @@ class DatabaseService {
           .map((e) => {'day': e.key, 'volume': dailyVolume[e.value]})
           .toList();
 
+      // Compute average session rating
+      final ratedLogs = logs.where((l) => l.sessionRating != null).toList();
+      final double avgRating = ratedLogs.isEmpty
+          ? 0.0
+          : ratedLogs.map((l) => l.sessionRating!).reduce((a, b) => a + b) /
+                ratedLogs.length;
+
       return {
         'consistency': (logs.length / 5 * 100).clamp(0, 100).toInt(),
         'sessions': logs.length,
         'totalWeight': totalWeight,
         'trends': trends,
         'exerciseTrends': exerciseTrends,
+        'avgRating': double.parse(avgRating.toStringAsFixed(1)),
       };
     });
   }
@@ -889,10 +917,16 @@ class DatabaseService {
         .collection('chats')
         .where('senderId', isEqualTo: user1)
         .where('receiverId', isEqualTo: user2)
-        .snapshots()
+        .snapshots(includeMetadataChanges: true)
         .listen((snap) {
           m1 = snap.docs
-              .map((doc) => ChatMessage.fromMap(doc.data(), doc.id))
+              .map(
+                (doc) => ChatMessage.fromMap(
+                  doc.data(),
+                  doc.id,
+                  isPending: doc.metadata.hasPendingWrites,
+                ),
+              )
               .toList();
           emit();
         });
@@ -901,10 +935,16 @@ class DatabaseService {
         .collection('chats')
         .where('senderId', isEqualTo: user2)
         .where('receiverId', isEqualTo: user1)
-        .snapshots()
+        .snapshots(includeMetadataChanges: true)
         .listen((snap) {
           m2 = snap.docs
-              .map((doc) => ChatMessage.fromMap(doc.data(), doc.id))
+              .map(
+                (doc) => ChatMessage.fromMap(
+                  doc.data(),
+                  doc.id,
+                  isPending: doc.metadata.hasPendingWrites,
+                ),
+              )
               .toList();
           emit();
         });
@@ -1016,6 +1056,13 @@ class DatabaseService {
     return getMessages(user1, user2).map((messages) {
       if (messages.isEmpty) return null;
       return messages.last.text;
+    });
+  }
+
+  Stream<ChatMessage?> getLastMessageModel(String user1, String user2) {
+    return getMessages(user1, user2).map((messages) {
+      if (messages.isEmpty) return null;
+      return messages.last;
     });
   }
 
@@ -1181,5 +1228,71 @@ class DatabaseService {
     } catch (e) {
       print('Error sending push notification: $e');
     }
+  }
+
+  // Notifications logic
+  Future<void> createNotification(AppNotification notification) async {
+    await _db.collection('notifications').add(notification.toMap());
+
+    // Also send push notification
+    await sendPushNotification(
+      recipientId: notification.recipientId,
+      title: notification.title,
+      body: notification.body,
+      data: {
+        'type': notification.type.index.toString(),
+        'senderId': notification.senderId,
+      },
+    );
+  }
+
+  Stream<List<AppNotification>> getNotifications(String userId) {
+    return _db
+        .collection('notifications')
+        .where('recipientId', isEqualTo: userId)
+        .orderBy('createdAt', descending: true)
+        .snapshots()
+        .map(
+          (snapshot) => snapshot.docs
+              .map((doc) => AppNotification.fromMap(doc.data(), doc.id))
+              .toList(),
+        );
+  }
+
+  Stream<int> getUnreadNotificationCount(String userId) {
+    return _db
+        .collection('notifications')
+        .where('recipientId', isEqualTo: userId)
+        .where('isRead', isEqualTo: false)
+        .snapshots()
+        .map((snapshot) => snapshot.docs.length);
+  }
+
+  Future<void> markNotificationAsRead(String notificationId) async {
+    await _db.collection('notifications').doc(notificationId).update({
+      'isRead': true,
+    });
+  }
+
+  Future<void> markAllNotificationsAsRead(String userId) async {
+    final snapshot = await _db
+        .collection('notifications')
+        .where('recipientId', isEqualTo: userId)
+        .where('isRead', isEqualTo: false)
+        .get();
+
+    final batch = _db.batch();
+    for (var doc in snapshot.docs) {
+      batch.update(doc.reference, {'isRead': true});
+    }
+    await batch.commit();
+  }
+
+  Future<AppUser?> getUserById(String uid) async {
+    final doc = await _db.collection('users').doc(uid).get();
+    if (doc.exists) {
+      return AppUser.fromMap(doc.data() as Map<String, dynamic>, doc.id);
+    }
+    return null;
   }
 }

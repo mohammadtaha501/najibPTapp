@@ -1,4 +1,6 @@
+import 'dart:math';
 import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ptapp/models/user_model.dart';
@@ -10,7 +12,7 @@ class AuthService {
   // Stream of user auth changes
   Stream<User?> get user => _auth.authStateChanges();
 
-  // Sign up with email/password and role
+  // Sign up with email/password and automatic coach assignment
   Future<UserCredential?> signUp({
     required String email,
     required String password,
@@ -18,6 +20,16 @@ class AuthService {
     required UserRole role,
   }) async {
     try {
+      String? assignedCoachId;
+      if (role == UserRole.client) {
+        assignedCoachId = await getRandomCoachId();
+        if (assignedCoachId == null) {
+          throw Exception(
+            "No coaches available to assign. Please try again later.",
+          );
+        }
+      }
+
       UserCredential result = await _auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
@@ -30,12 +42,35 @@ class AuthService {
           email: email,
           name: name,
           role: role,
+          coachId: assignedCoachId,
+          isOnboardingComplete:
+              role == UserRole.coach, // Coaches don't need onboarding
+          isCoachCreated: false,
         );
         await _db.collection('users').doc(user.uid).set(newUser.toMap());
       }
       return result;
     } catch (e) {
       print("Error signing up: $e");
+      rethrow; // Rethrow to handle in UI
+    }
+  }
+
+  Future<String?> getRandomCoachId() async {
+    try {
+      final snapshot = await _db
+          .collection('users')
+          .where('role', isEqualTo: UserRole.coach.index)
+          .limit(5)
+          .get();
+
+      if (snapshot.docs.isEmpty) return null;
+
+      final random = Random();
+      final randomIndex = random.nextInt(snapshot.docs.length);
+      return snapshot.docs[randomIndex].id;
+    } catch (e) {
+      print("Error fetching coaches: $e");
       return null;
     }
   }
@@ -75,6 +110,13 @@ class AuthService {
     required String coachId,
     String? phone,
     String? notes,
+    int? age,
+    double? height,
+    double? weight,
+    String? gender,
+    String? goal,
+    String? goalDetails,
+    String? timeCommitment,
   }) async {
     FirebaseApp? tempApp;
     try {
@@ -106,6 +148,15 @@ class AuthService {
           coachId: coachId,
           phone: phone,
           notes: notes,
+          age: age,
+          height: height,
+          weight: weight,
+          gender: gender,
+          goal: goal,
+          goalDetails: goalDetails,
+          timeCommitment: timeCommitment,
+          isOnboardingComplete: true, // Coach created accounts skip onboarding
+          isCoachCreated: true,
         );
 
         // Use the main DB instance to save the user data
@@ -188,5 +239,23 @@ class AuthService {
     } else {
       throw Exception('No user signed in');
     }
+  }
+
+  // Delete Account
+  Future<void> deleteAccount(String uid) async {
+    final user = _auth.currentUser;
+    if (user != null && user.uid == uid) {
+      // 1. Delete Firestore document
+      await _db.collection('users').doc(uid).delete();
+      // 2. Delete Auth account
+      await user.delete();
+    } else {
+      throw Exception('No user signed in or UID mismatch');
+    }
+  }
+
+  // Update Profile Data
+  Future<void> updateProfile(String uid, Map<String, dynamic> data) async {
+    await _db.collection('users').doc(uid).update(data);
   }
 }

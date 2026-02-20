@@ -11,6 +11,18 @@ class AppUser {
   final bool isBlocked;
   final String? pushToken;
 
+  // Onboarding Data
+  final int? age;
+  final double? height;
+  final double? weight;
+  final String? gender;
+  final String? goal;
+  final String? goalDetails;
+  final String? timeCommitment;
+  final bool isOnboardingComplete;
+  final bool isCoachCreated;
+
+
   AppUser({
     required this.uid,
     required this.email,
@@ -21,7 +33,17 @@ class AppUser {
     this.notes,
     this.isBlocked = false,
     this.pushToken,
+    this.age,
+    this.height,
+    this.weight,
+    this.gender,
+    this.goal,
+    this.goalDetails,
+    this.timeCommitment,
+    this.isOnboardingComplete = true, // Default to true for backward compatibility/coaches
+    this.isCoachCreated = false,
   });
+
 
   Map<String, dynamic> toMap() {
     return {
@@ -34,7 +56,17 @@ class AppUser {
       'notes': notes,
       'isBlocked': isBlocked,
       'pushToken': pushToken,
+      'age': age,
+      'height': height,
+      'weight': weight,
+      'gender': gender,
+      'goal': goal,
+      'goalDetails': goalDetails,
+      'timeCommitment': timeCommitment,
+      'isOnboardingComplete': isOnboardingComplete,
+      'isCoachCreated': isCoachCreated,
     };
+
   }
 
   factory AppUser.fromMap(Map<String, dynamic> map, String documentId) {
@@ -48,6 +80,16 @@ class AppUser {
       notes: map['notes'],
       isBlocked: map['isBlocked'] ?? false,
       pushToken: map['pushToken'] ?? map['fcmToken'],
+      age: map['age'],
+      height: (map['height'] as num?)?.toDouble(),
+      weight: (map['weight'] as num?)?.toDouble(),
+      gender: map['gender'],
+      goal: map['goal'],
+      goalDetails: map['goalDetails'],
+      timeCommitment: map['timeCommitment'],
+      isOnboardingComplete: map['isOnboardingComplete'] ?? true,
+      isCoachCreated: map['isCoachCreated'] ?? false,
     );
+
   }
 }

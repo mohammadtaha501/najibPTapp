@@ -1,11 +1,14 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 import 'package:ptapp/providers/auth_provider.dart';
 import 'package:ptapp/screens/auth/login_screen.dart';
 import 'package:ptapp/screens/client/client_navigation_wrapper.dart';
+import 'package:ptapp/screens/client/onboarding_screen.dart';
 import 'package:ptapp/screens/coach/coach_navigation_wrapper.dart';
 import 'package:ptapp/services/notification_service.dart';
+import 'package:ptapp/utils/navigation.dart';
 import 'package:ptapp/utils/theme.dart';
 
 import 'firebase_options.dart';
@@ -28,27 +31,27 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  static final GlobalKey<NavigatorState> navigatorKey =
-      GlobalKey<NavigatorState>();
-
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      behavior: HitTestBehavior.translucent,
-      onTap: () {
-        FocusManager.instance.primaryFocus?.unfocus();
+    return MaterialApp(
+      navigatorKey: NavigationService.navigatorKey,
+      title: 'Nijib Trainer',
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: ThemeMode.dark,
+      builder: (context, child) {
+        return Listener(
+          onPointerDown: (PointerDownEvent event) {
+            final FocusScopeNode currentFocus = FocusScope.of(context);
+            if (!currentFocus.hasPrimaryFocus && currentFocus.hasFocus) {
+              FocusManager.instance.primaryFocus?.unfocus();
+            }
+          },
+          child: child ?? const SizedBox.shrink(),
+        );
       },
-
-      child: MaterialApp(
-        navigatorKey: navigatorKey,
-        title: 'Nijib Trainer',
-        debugShowCheckedModeBanner: false,
-        theme: AppTheme.lightTheme,
-        darkTheme: AppTheme.darkTheme,
-        themeMode:
-            ThemeMode.dark, // Default to dark as per your current preference
-        home: const AuthWrapper(),
-      ),
+      home: const AuthWrapper(),
     );
   }
 }
@@ -105,6 +108,10 @@ class AuthWrapper extends StatelessWidget {
     if (user.role == UserRole.coach) {
       return const CoachNavigationWrapper();
     } else {
+      // Check for onboarding
+      if (!user.isOnboardingComplete) {
+        return const OnboardingScreen();
+      }
       return ClientNavigationWrapper(
         key: ClientNavigationWrapper.navigationKey,
       );

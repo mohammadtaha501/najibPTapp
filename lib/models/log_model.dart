@@ -9,6 +9,7 @@ class WorkoutLog {
   final List<ExerciseLog> exerciseLogs;
   final String? notes;
   final String? feedback;
+  final int? sessionRating; // 1–10 client session rating
 
   WorkoutLog({
     this.id,
@@ -19,6 +20,7 @@ class WorkoutLog {
     required this.exerciseLogs,
     this.notes,
     this.feedback,
+    this.sessionRating,
   });
 
   Map<String, dynamic> toMap() {
@@ -30,6 +32,7 @@ class WorkoutLog {
       'exerciseLogs': exerciseLogs.map((e) => e.toMap()).toList(),
       'notes': notes,
       'feedback': feedback,
+      'sessionRating': sessionRating,
     };
   }
 
@@ -45,6 +48,7 @@ class WorkoutLog {
           .toList(),
       notes: map['notes'],
       feedback: map['feedback'],
+      sessionRating: map['sessionRating'],
     );
   }
 }
@@ -68,7 +72,8 @@ class ExerciseLog {
     this.sessionStartTime,
   });
 
-  bool get isTerminal => status == ExerciseStatus.completed || status == ExerciseStatus.skipped;
+  bool get isTerminal =>
+      status == ExerciseStatus.completed || status == ExerciseStatus.skipped;
 
   Map<String, dynamic> toMap() {
     return {
@@ -91,8 +96,12 @@ class ExerciseLog {
       notes: map['notes'],
       status: ExerciseStatus.values[map['status'] ?? 0],
       programVersion: map['programVersion'] ?? 1,
-      timestamp: DateTime.parse(map['timestamp'] ?? DateTime.now().toIso8601String()),
-      sessionStartTime: map['sessionStartTime'] != null ? DateTime.parse(map['sessionStartTime']) : null,
+      timestamp: DateTime.parse(
+        map['timestamp'] ?? DateTime.now().toIso8601String(),
+      ),
+      sessionStartTime: map['sessionStartTime'] != null
+          ? DateTime.parse(map['sessionStartTime'])
+          : null,
     );
   }
 }
@@ -102,18 +111,10 @@ class SetLog {
   int reps;
   int? rpe;
 
-  SetLog({
-    required this.weight,
-    required this.reps,
-    this.rpe,
-  });
+  SetLog({required this.weight, required this.reps, this.rpe});
 
   Map<String, dynamic> toMap() {
-    return {
-      'weight': weight,
-      'reps': reps,
-      'rpe': rpe,
-    };
+    return {'weight': weight, 'reps': reps, 'rpe': rpe};
   }
 
   factory SetLog.fromMap(Map<String, dynamic> map) {

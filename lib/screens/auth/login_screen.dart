@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:ptapp/providers/auth_provider.dart';
 import 'package:ptapp/utils/theme.dart';
 import 'package:ptapp/screens/auth/forgot_password_screen.dart';
+import 'package:ptapp/screens/auth/signup_screen.dart';
+
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -134,7 +136,24 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: const Text('Sign In', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                     ),
                     const SizedBox(height: 24),
-                  Center(
+                    Center(
+                      child: TextButton(
+                        onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const SignUpScreen())),
+                        child: RichText(
+                          text: const TextSpan(
+                            text: "Don't have an account? ",
+                            style: TextStyle(color: AppTheme.mutedTextColor),
+                            children: [
+                              TextSpan(
+                                text: 'Sign Up',
+                                style: TextStyle(color: AppTheme.primaryColor, fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Center(
                       child: TextButton(
                         onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const ForgotPasswordScreen())),
                         child: const Text('Forgot Password?', style: TextStyle(color: AppTheme.mutedTextColor)),

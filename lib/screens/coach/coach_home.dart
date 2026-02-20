@@ -8,6 +8,8 @@ import 'package:ptapp/utils/theme.dart';
 import 'package:ptapp/screens/coach/program_editor.dart';
 import 'package:ptapp/screens/coach/client_detail.dart';
 import 'package:ptapp/screens/coach/client_creation_screen.dart';
+import 'package:ptapp/screens/coach/coach_notification_screen.dart';
+
 
 class CoachHomeScreen extends StatefulWidget {
   const CoachHomeScreen({super.key});
@@ -151,6 +153,36 @@ class _CoachHomeScreenState extends State<CoachHomeScreen> {
       appBar: AppBar(
         title: Text('Welcome ${authProvider.userProfile?.name ?? 'Coach'}'),
         actions: [
+          StreamBuilder<int>(
+            stream: _dbService.getUnreadNotificationCount(authProvider.userProfile!.uid),
+            builder: (context, snapshot) {
+              final unreadCount = snapshot.data ?? 0;
+              return Stack(
+                alignment: Alignment.center,
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.notifications_outlined),
+                    onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const CoachNotificationScreen())),
+                  ),
+                  if (unreadCount > 0)
+                    Positioned(
+                      right: 8,
+                      top: 8,
+                      child: Container(
+                        padding: const EdgeInsets.all(4),
+                        decoration: const BoxDecoration(color: AppTheme.primaryColor, shape: BoxShape.circle),
+                        constraints: const BoxConstraints(minWidth: 16, minHeight: 16),
+                        child: Text(
+                          '$unreadCount',
+                          style: const TextStyle(color: Colors.black, fontSize: 10, fontWeight: FontWeight.bold),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                ],
+              );
+            },
+          ),
           IconButton(
             icon: const Icon(Icons.logout),
             onPressed: () => _showLogoutConfirmation(context, authProvider),

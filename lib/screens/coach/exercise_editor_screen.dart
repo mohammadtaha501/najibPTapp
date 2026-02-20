@@ -40,9 +40,6 @@ class _ExerciseEditorScreenState extends State<ExerciseEditorScreen> {
   final _rpeController = TextEditingController();
 
   String? _selectedMuscleGroup;
-  final List<String> _muscleGroups = [
-    'Quadriceps', 'Glutes_Hamstrings', 'Calves', 'Chest', 'Back', 'Shoulders', 'Triceps', 'Biceps', 'Abs', 'Other'
-  ];
 
   @override
   void initState() {
@@ -154,9 +151,9 @@ class _ExerciseEditorScreenState extends State<ExerciseEditorScreen> {
     } catch (e) {
       if (mounted) {
         setState(() => _isLoading = false);
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Error saving exercise: $e')),
-        );
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('Error saving exercise: $e')));
       }
     }
   }
@@ -165,15 +162,16 @@ class _ExerciseEditorScreenState extends State<ExerciseEditorScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.isReadOnly 
-          ? 'Exercise Details' 
-          : (widget.exerciseToEdit == null ? 'Create Exercise' : 'Edit Exercise')),
+        title: Text(
+          widget.isReadOnly
+              ? 'Exercise Details'
+              : (widget.exerciseToEdit == null
+                    ? 'Create Exercise'
+                    : 'Edit Exercise'),
+        ),
         actions: [
           if (!widget.isReadOnly)
-            IconButton(
-              icon: const Icon(Icons.check),
-              onPressed: _save,
-            ),
+            IconButton(icon: const Icon(Icons.check), onPressed: _save),
         ],
       ),
       body: Stack(
@@ -186,45 +184,102 @@ class _ExerciseEditorScreenState extends State<ExerciseEditorScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   _buildSectionTitle('Basic Information'),
-                  _buildTextField(_nameController, 'Exercise Name *', icon: Icons.fitness_center, validator: (v) => v!.isEmpty ? 'Name is required' : null),
+                  _buildTextField(
+                    _nameController,
+                    'Exercise Name *',
+                    icon: Icons.fitness_center,
+                    validator: (v) => v!.isEmpty ? 'Name is required' : null,
+                  ),
                   const SizedBox(height: 16),
                   DropdownButtonFormField<String>(
                     value: _selectedMuscleGroup,
                     hint: const Text('Select Muscle Group Focus *'),
-                    items: _muscleGroups.map((g) => DropdownMenuItem(value: g, child: Text(g.replaceAll('_', ' ')))).toList(),
-                    onChanged: (widget.isReadOnly || _isLoading) ? null : (v) => setState(() => _selectedMuscleGroup = v!),
-                    validator: (v) => v == null ? 'Muscle group is required' : null,
+                    items: Exercise.muscleGroups
+                        .map(
+                          (g) => DropdownMenuItem(
+                            value: g,
+                            child: Text(g.replaceAll('_', ' ')),
+                          ),
+                        )
+                        .toList(),
+                    onChanged: (widget.isReadOnly || _isLoading)
+                        ? null
+                        : (v) => setState(() => _selectedMuscleGroup = v!),
+                    validator: (v) =>
+                        v == null ? 'Muscle group is required' : null,
                     decoration: InputDecoration(
                       labelText: 'Muscle Group Focus *',
-                      prefixIcon: const Icon(Icons.accessibility_new, size: 20, color: AppTheme.primaryColor),
+                      prefixIcon: const Icon(
+                        Icons.accessibility_new,
+                        size: 20,
+                        color: AppTheme.primaryColor,
+                      ),
                       filled: true,
                       fillColor: AppTheme.surfaceColor,
-                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: BorderSide.none),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: BorderSide.none,
+                      ),
                     ),
                   ),
                   const SizedBox(height: 16),
-                  _buildTextField(_descController, 'Description *', icon: Icons.description, maxLines: 3, validator: (v) => v!.isEmpty ? 'Description is required' : null),
+                  _buildTextField(
+                    _descController,
+                    'Description *',
+                    icon: Icons.description,
+                    maxLines: 3,
+                    validator: (v) =>
+                        v!.isEmpty ? 'Description is required' : null,
+                  ),
                   const SizedBox(height: 16),
-                  _buildTextField(_videoController, 'YouTube Video Link', icon: Icons.video_library, hint: 'https://youtube.com/...'),
-                  
+                  _buildTextField(
+                    _videoController,
+                    'YouTube Video Link',
+                    icon: Icons.video_library,
+                    hint: 'https://youtube.com/...',
+                  ),
+
                   const SizedBox(height: 32),
                   _buildSectionTitle('Default Settings (Optional)'),
                   Row(
                     children: [
-                      Expanded(child: _buildTextField(_setsController, 'Sets *', icon: Icons.repeat, keyboardType: TextInputType.number, validator: (v) => v!.isEmpty ? 'Required' : null)),
+                      Expanded(
+                        child: _buildTextField(
+                          _setsController,
+                          'Sets *',
+                          icon: Icons.repeat,
+                          keyboardType: TextInputType.number,
+                          validator: (v) => v!.isEmpty ? 'Required' : null,
+                        ),
+                      ),
                       const SizedBox(width: 16),
-                      Expanded(child: _buildTextField(_repsController, 'Reps *', icon: Icons.format_list_numbered, hint: 'e.g. 8-12', validator: (v) => v!.isEmpty ? 'Required' : null)),
+                      Expanded(
+                        child: _buildTextField(
+                          _repsController,
+                          'Reps *',
+                          icon: Icons.format_list_numbered,
+                          hint: 'e.g. 8-12',
+                          validator: (v) => v!.isEmpty ? 'Required' : null,
+                        ),
+                      ),
                     ],
                   ),
                   const SizedBox(height: 16),
                   Row(
                     children: [
-                      Expanded(child: _buildTextField(_restController, 'Rest (Seconds)', icon: Icons.timer, keyboardType: TextInputType.number)),
+                      Expanded(
+                        child: _buildTextField(
+                          _restController,
+                          'Rest (Seconds)',
+                          icon: Icons.timer,
+                          keyboardType: TextInputType.number,
+                        ),
+                      ),
                       const SizedBox(width: 16),
                       Expanded(
                         child: _buildTextField(
-                          _weightController, 
-                          'Weight (kg)', 
+                          _weightController,
+                          'Weight (kg)',
                           icon: Icons.monitor_weight,
                           keyboardType: TextInputType.number,
                           inputFormatters: [
@@ -233,43 +288,84 @@ class _ExerciseEditorScreenState extends State<ExerciseEditorScreen> {
                           ],
                           validator: (v) {
                             if (v != null && v.isNotEmpty) {
-                              if (int.tryParse(v) == null) return 'Numbers only';
+                              if (int.tryParse(v) == null) {
+                                return 'Numbers only';
+                              }
                               if (v.length > 3) return 'Max 3 digits';
                             }
                             return null;
                           },
-                        )
+                        ),
                       ),
                     ],
                   ),
                   const SizedBox(height: 16),
                   Row(
                     children: [
-                      Expanded(child: _buildTextField(_totalRepsController, 'Total Reps', icon: Icons.summarize, keyboardType: TextInputType.number)),
+                      Expanded(
+                        child: _buildTextField(
+                          _totalRepsController,
+                          'Total Reps',
+                          icon: Icons.summarize,
+                          keyboardType: TextInputType.number,
+                        ),
+                      ),
                       const SizedBox(width: 16),
-                      Expanded(child: _buildTextField(_volumeController, 'Volume', icon: Icons.analytics, keyboardType: TextInputType.number)),
-                    ],
-                  ),
-                   const SizedBox(height: 16),
-                  Row(
-                    children: [
-                      Expanded(child: _buildTextField(_tempoController, 'Tempo', icon: Icons.speed)),
-                      const SizedBox(width: 16),
-                      Expanded(child: _buildTextField(_rpeController, 'Target RPE', icon: Icons.bolt)),
+                      Expanded(
+                        child: _buildTextField(
+                          _volumeController,
+                          'Volume',
+                          icon: Icons.analytics,
+                          keyboardType: TextInputType.number,
+                        ),
+                      ),
                     ],
                   ),
                   const SizedBox(height: 16),
-                  _buildTextField(_noteController, 'Coaching Note', icon: Icons.sticky_note_2, maxLines: 2),
-                  
+                  Row(
+                    children: [
+                      Expanded(
+                        child: _buildTextField(
+                          _tempoController,
+                          'Tempo',
+                          icon: Icons.speed,
+                        ),
+                      ),
+                      const SizedBox(width: 16),
+                      Expanded(
+                        child: _buildTextField(
+                          _rpeController,
+                          'Target RPE',
+                          icon: Icons.bolt,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 16),
+                  _buildTextField(
+                    _noteController,
+                    'Coaching Note',
+                    icon: Icons.sticky_note_2,
+                    maxLines: 2,
+                  ),
+
                   if (!widget.isReadOnly) ...[
                     const SizedBox(height: 40),
                     ElevatedButton(
                       onPressed: _isLoading ? null : _save,
                       style: ElevatedButton.styleFrom(
                         minimumSize: const Size(double.infinity, 56),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16),
+                        ),
                       ),
-                      child: Text(_isLoading ? 'Saving...' : 'Save Exercise', style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                      child: Text(
+                        _isLoading ? 'Saving...' : 'Save Exercise',
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                   ],
                 ],
@@ -285,7 +381,13 @@ class _ExerciseEditorScreenState extends State<ExerciseEditorScreen> {
                   children: [
                     CircularProgressIndicator(color: AppTheme.primaryColor),
                     SizedBox(height: 16),
-                    Text('Uploading to Firebase...', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                    Text(
+                      'Uploading to Firebase...',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -300,16 +402,26 @@ class _ExerciseEditorScreenState extends State<ExerciseEditorScreen> {
       padding: const EdgeInsets.only(bottom: 16),
       child: Text(
         title.toUpperCase(),
-        style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: AppTheme.primaryColor, letterSpacing: 1.2),
+        style: const TextStyle(
+          fontSize: 12,
+          fontWeight: FontWeight.bold,
+          color: AppTheme.primaryColor,
+          letterSpacing: 1.2,
+        ),
       ),
     );
   }
 
   Widget _buildTextField(
-    TextEditingController controller, 
-    String label, 
-    {IconData? icon, String? hint, int maxLines = 1, TextInputType keyboardType = TextInputType.text, String? Function(String?)? validator, List<TextInputFormatter>? inputFormatters}
-  ) {
+    TextEditingController controller,
+    String label, {
+    IconData? icon,
+    String? hint,
+    int maxLines = 1,
+    TextInputType keyboardType = TextInputType.text,
+    String? Function(String?)? validator,
+    List<TextInputFormatter>? inputFormatters,
+  }) {
     return TextFormField(
       controller: controller,
       maxLines: maxLines,
@@ -320,11 +432,12 @@ class _ExerciseEditorScreenState extends State<ExerciseEditorScreen> {
       decoration: InputDecoration(
         labelText: label,
         hintText: hint,
-        prefixIcon: icon != null ? Icon(icon, size: 20, color: AppTheme.primaryColor) : null,
+        prefixIcon: icon != null
+            ? Icon(icon, size: 20, color: AppTheme.primaryColor)
+            : null,
         filled: true,
         fillColor: AppTheme.surfaceColor,
         alignLabelWithHint: maxLines > 1,
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: BorderSide.none),
       ),
     );
   }

@@ -8,7 +8,9 @@ class AppTheme {
   static const Color surfaceColor = Color(0xFF121212); // Deep Grey for cards
   static const Color mutedTextColor = Color(0xFF8E8E93);
   static const Color errorColor = Color(0xFFFF453A);
-  static const Color accentColor = Color(0xFF007AFF); // iOS Blue or any other accent
+  static const Color accentColor = Color(
+    0xFF007AFF,
+  ); // iOS Blue or any other accent
 
   // Light Theme Colors (Placeholders)
   static const Color lightPrimaryColor = Color(0xFF000000);
@@ -43,8 +45,10 @@ class AppTheme {
     required Color text,
     required Color mutedText,
   }) {
-    final baseTheme = brightness == Brightness.dark ? ThemeData.dark() : ThemeData.light();
-    
+    final baseTheme = brightness == Brightness.dark
+        ? ThemeData.dark()
+        : ThemeData.light();
+
     return ThemeData(
       brightness: brightness,
       primaryColor: primary,
@@ -74,19 +78,15 @@ class AppTheme {
           fontWeight: FontWeight.bold,
           color: text,
         ),
-        bodyLarge: TextStyle(
-          fontSize: 16,
-          color: text,
-        ),
-        bodyMedium: TextStyle(
-          fontSize: 14,
-          color: mutedText,
-        ),
+        bodyLarge: TextStyle(fontSize: 16, color: text),
+        bodyMedium: TextStyle(fontSize: 14, color: mutedText),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: primary,
-          foregroundColor: brightness == Brightness.dark ? Colors.black : Colors.white, // Contrast text
+          foregroundColor: brightness == Brightness.dark
+              ? Colors.black
+              : Colors.white, // Contrast text
           padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 32),
           elevation: 0,
           shape: RoundedRectangleBorder(
@@ -100,11 +100,11 @@ class AppTheme {
         fillColor: surface,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide.none,
+          borderSide: const BorderSide(color: Colors.transparent, width: 2),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide.none,
+          borderSide: const BorderSide(color: Colors.transparent, width: 2),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
@@ -118,7 +118,9 @@ class AppTheme {
         primary: primary,
         onPrimary: brightness == Brightness.dark ? Colors.black : Colors.white,
         secondary: primary,
-        onSecondary: brightness == Brightness.dark ? Colors.black : Colors.white,
+        onSecondary: brightness == Brightness.dark
+            ? Colors.black
+            : Colors.white,
         error: errorColor,
         onError: Colors.white,
         surface: surface,

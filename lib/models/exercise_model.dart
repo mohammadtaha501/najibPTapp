@@ -1,4 +1,17 @@
 class Exercise {
+  static const List<String> muscleGroups = [
+    'Quadriceps',
+    'Glutes_Hamstrings',
+    'Calves',
+    'Chest',
+    'Back',
+    'Shoulders',
+    'Triceps',
+    'Biceps',
+    'Abs',
+    'Other',
+  ];
+
   final String? id;
   final String name;
   final String? description;
