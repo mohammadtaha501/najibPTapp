@@ -11,7 +11,9 @@ class WorkoutDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppTheme.getScaffoldColor(context),
       appBar: AppBar(
+        backgroundColor: AppTheme.getScaffoldColor(context),
         title: const Text('WORKOUT DETAILS'),
       ),
       body: SingleChildScrollView(
@@ -25,7 +27,10 @@ class WorkoutDetailScreen extends StatelessWidget {
             if (log.notes != null && log.notes!.isNotEmpty) ...[
               const SectionHeader(title: 'Session Notes'),
               CustomCard(
-                child: Text(log.notes!, style: const TextStyle(fontStyle: FontStyle.italic)),
+                child: Text(
+                  log.notes!,
+                  style: const TextStyle(fontStyle: FontStyle.italic),
+                ),
               ),
             ],
           ],
@@ -42,8 +47,17 @@ class WorkoutDetailScreen extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(log.workoutDayId.toUpperCase(), style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
-              Text(log.date.toString().split(' ')[0], style: const TextStyle(color: AppTheme.mutedTextColor)),
+              Text(
+                log.workoutDayId.toUpperCase(),
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
+              ),
+              Text(
+                log.date.toString().split(' ')[0],
+                style: const TextStyle(color: AppTheme.mutedTextColor),
+              ),
             ],
           ),
           const Icon(Icons.calendar_today, color: AppTheme.primaryColor),
@@ -57,14 +71,48 @@ class WorkoutDetailScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(exLog.exerciseName, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: AppTheme.primaryColor)),
+          Text(
+            exLog.exerciseName,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+              color: AppTheme.primaryColor,
+            ),
+          ),
           const SizedBox(height: 8),
           const Row(
             children: [
-              SizedBox(width: 40, child: Text('SET', style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold))),
-              Expanded(child: Center(child: Text('WEIGHT', style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold)))),
-              Expanded(child: Center(child: Text('REPS', style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold)))),
-              Expanded(child: Center(child: Text('RPE', style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold)))),
+              SizedBox(
+                width: 40,
+                child: Text(
+                  'SET',
+                  style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+                ),
+              ),
+              Expanded(
+                child: Center(
+                  child: Text(
+                    'WEIGHT',
+                    style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Center(
+                  child: Text(
+                    'REPS',
+                    style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Center(
+                  child: Text(
+                    'RPE',
+                    style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
             ],
           ),
           const Divider(height: 16),
@@ -75,7 +123,13 @@ class WorkoutDetailScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 4.0),
               child: Row(
                 children: [
-                  SizedBox(width: 40, child: Text('${idx + 1}', style: const TextStyle(color: AppTheme.mutedTextColor))),
+                  SizedBox(
+                    width: 40,
+                    child: Text(
+                      '${idx + 1}',
+                      style: const TextStyle(color: AppTheme.mutedTextColor),
+                    ),
+                  ),
                   Expanded(child: Center(child: Text('${s.weight} kg'))),
                   Expanded(child: Center(child: Text('${s.reps}'))),
                   Expanded(child: Center(child: Text('${s.rpe ?? '-'}'))),
@@ -86,7 +140,13 @@ class WorkoutDetailScreen extends StatelessWidget {
           if (exLog.notes != null && exLog.notes!.isNotEmpty)
             Padding(
               padding: const EdgeInsets.only(top: 8.0),
-              child: Text('Note: ${exLog.notes}', style: const TextStyle(fontSize: 12, color: AppTheme.mutedTextColor)),
+              child: Text(
+                'Note: ${exLog.notes}',
+                style: const TextStyle(
+                  fontSize: 12,
+                  color: AppTheme.mutedTextColor,
+                ),
+              ),
             ),
         ],
       ),

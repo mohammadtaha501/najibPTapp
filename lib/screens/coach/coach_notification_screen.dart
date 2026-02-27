@@ -4,6 +4,7 @@ import 'package:ptapp/services/database_service.dart';
 import 'package:ptapp/utils/theme.dart';
 import 'package:provider/provider.dart';
 import 'package:ptapp/providers/auth_provider.dart';
+import 'package:ptapp/utils/navigation.dart';
 import 'package:ptapp/screens/coach/client_detail.dart';
 // import 'package:ptapp/models/user_model.dart';
 
@@ -16,7 +17,7 @@ class CoachNotificationScreen extends StatelessWidget {
     final dbService = DatabaseService();
 
     return Scaffold(
-      backgroundColor: AppTheme.backgroundColor,
+      backgroundColor: AppTheme.getScaffoldColor(context),
       appBar: AppBar(
         title: const Text('Notifications'),
         actions: [
@@ -79,7 +80,9 @@ class CoachNotificationScreen extends StatelessWidget {
             ? Colors.transparent
             : AppTheme.primaryColor.withOpacity(0.05),
         border: Border(
-          bottom: BorderSide(color: Colors.white.withOpacity(0.05)),
+          bottom: BorderSide(
+            color: Theme.of(context).dividerColor.withOpacity(0.05),
+          ),
         ),
       ),
       child: ListTile(
@@ -98,7 +101,7 @@ class CoachNotificationScreen extends StatelessWidget {
         title: Text(
           notification.title,
           style: TextStyle(
-            color: Colors.white,
+            color: Theme.of(context).colorScheme.onSurface,
             fontWeight: notification.isRead
                 ? FontWeight.normal
                 : FontWeight.bold,
@@ -131,11 +134,9 @@ class CoachNotificationScreen extends StatelessWidget {
               notification.senderId,
             );
             if (user != null && context.mounted) {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (_) => ClientDetailScreen(client: user),
-                ),
+              NavigationService.navigateTo(
+                ClientDetailScreen(client: user),
+                context: context,
               );
             }
           }

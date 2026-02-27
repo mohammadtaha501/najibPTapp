@@ -193,7 +193,7 @@ class _ExerciseDetailLoggingScreenState
 
   Widget _buildScaffold(BuildContext context, Widget? player) {
     return Scaffold(
-      backgroundColor: AppTheme.backgroundColor,
+      backgroundColor: AppTheme.getScaffoldColor(context),
       body: Stack(
         children: [
           CustomScrollView(
@@ -575,7 +575,7 @@ class _ExerciseDetailLoggingScreenState
             ),
           ),
           const SizedBox(width: 12),
-          const Expanded(
+          Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -584,7 +584,7 @@ class _ExerciseDetailLoggingScreenState
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.onSurface,
                   ),
                 ),
                 Text(

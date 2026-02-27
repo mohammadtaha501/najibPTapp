@@ -6,6 +6,7 @@ import 'package:ptapp/providers/auth_provider.dart';
 import 'package:ptapp/services/database_service.dart';
 import 'package:ptapp/utils/theme.dart';
 import 'package:ptapp/screens/common/chat_screen.dart';
+import 'package:ptapp/utils/navigation.dart';
 import 'package:intl/intl.dart';
 
 class CoachChatListScreen extends StatefulWidget {
@@ -47,15 +48,13 @@ class _CoachChatListScreenState extends State<CoachChatListScreen> {
     final coachId = Provider.of<AuthProvider>(context).userProfile?.uid ?? '';
 
     return Scaffold(
-      backgroundColor: AppTheme.backgroundColor,
+      backgroundColor: AppTheme.getScaffoldColor(context),
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           'MESSAGES',
           style: TextStyle(
             fontWeight: FontWeight.w900,
-            // fontSize: 16,
-            // letterSpacing: 1.5,
-            color: Colors.white,
+            color: Theme.of(context).colorScheme.onSurface,
           ),
         ),
         actions: [
@@ -72,8 +71,7 @@ class _CoachChatListScreenState extends State<CoachChatListScreen> {
                 size: 30,
               ),
             ),
-            onPressed: () =>
-                _showBroadcastDialog(context, coachId, _dbService),
+            onPressed: () => _showBroadcastDialog(context, coachId, _dbService),
           ),
           const SizedBox(width: 8),
         ],
@@ -168,15 +166,20 @@ class _CoachChatListScreenState extends State<CoachChatListScreen> {
   Widget _buildSearchBar() {
     return Container(
       decoration: BoxDecoration(
-        color: AppTheme.surfaceColor,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(20),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.2),
-            blurRadius: 10,
-            offset: const Offset(0, 4),
-          ),
-        ],
+        border: Border.all(
+          color: Theme.of(context).dividerColor.withOpacity(0.05),
+        ),
+        boxShadow: Theme.of(context).brightness == Brightness.light
+            ? [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.08),
+                  blurRadius: 10,
+                  offset: const Offset(0, 4),
+                ),
+              ]
+            : [],
       ),
       child: TextField(
         controller: _searchController,
@@ -184,7 +187,9 @@ class _CoachChatListScreenState extends State<CoachChatListScreen> {
         style: const TextStyle(fontSize: 14),
         decoration: InputDecoration(
           hintText: 'Find client...',
-          hintStyle: TextStyle(color: Colors.white.withOpacity(0.2)),
+          hintStyle: TextStyle(
+            color: Theme.of(context).colorScheme.onSurface.withOpacity(0.2),
+          ),
           prefixIcon: const Icon(
             Icons.search_rounded,
             color: AppTheme.primaryColor,
@@ -214,7 +219,7 @@ class _CoachChatListScreenState extends State<CoachChatListScreen> {
           Container(
             padding: const EdgeInsets.all(32),
             decoration: BoxDecoration(
-              color: AppTheme.surfaceColor,
+              color: Theme.of(context).colorScheme.surface,
               shape: BoxShape.circle,
             ),
             child: Icon(
@@ -262,16 +267,24 @@ class _CoachChatListScreenState extends State<CoachChatListScreen> {
             return Container(
               margin: const EdgeInsets.only(bottom: 8),
               decoration: BoxDecoration(
-                color: AppTheme.surfaceColor,
+                color: Theme.of(context).colorScheme.surface,
                 borderRadius: BorderRadius.circular(28),
-                boxShadow: [
-                  if (hasUnread)
-                    BoxShadow(
-                      color: AppTheme.primaryColor.withOpacity(0.08),
-                      blurRadius: 15,
-                      offset: const Offset(0, 8),
-                    ),
-                ],
+                border: Border.all(
+                  color: hasUnread
+                      ? AppTheme.primaryColor.withOpacity(0.3)
+                      : Theme.of(context).dividerColor.withOpacity(0.05),
+                ),
+                boxShadow:
+                    hasUnread &&
+                        Theme.of(context).brightness == Brightness.light
+                    ? [
+                        BoxShadow(
+                          color: AppTheme.primaryColor.withOpacity(0.1),
+                          blurRadius: 15,
+                          offset: const Offset(0, 8),
+                        ),
+                      ]
+                    : [],
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(28),
@@ -279,15 +292,13 @@ class _CoachChatListScreenState extends State<CoachChatListScreen> {
                   color: Colors.transparent,
                   child: InkWell(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => ChatScreen(
-                            currentUserId: coachId,
-                            otherUserId: client.uid,
-                            otherUserName: client.name,
-                          ),
+                      NavigationService.navigateTo(
+                        ChatScreen(
+                          currentUserId: coachId,
+                          otherUserId: client.uid,
+                          otherUserName: client.name,
                         ),
+                        context: context,
                       );
                     },
                     child: Padding(
@@ -316,8 +327,13 @@ class _CoachChatListScreenState extends State<CoachChatListScreen> {
                                             : FontWeight.bold,
                                         letterSpacing: 0.5,
                                         color: hasUnread
-                                            ? Colors.white
-                                            : Colors.white.withOpacity(0.9),
+                                            ? Theme.of(
+                                                context,
+                                              ).colorScheme.onSurface
+                                            : Theme.of(context)
+                                                  .colorScheme
+                                                  .onSurface
+                                                  .withOpacity(0.9),
                                       ),
                                     ),
                                     if (timeStr.isNotEmpty)
@@ -327,9 +343,10 @@ class _CoachChatListScreenState extends State<CoachChatListScreen> {
                                           fontSize: 10,
                                           color: hasUnread
                                               ? AppTheme.primaryColor
-                                                    .withOpacity(0.8)
-                                              : AppTheme.mutedTextColor
-                                                    .withOpacity(0.5),
+                                              : Theme.of(context)
+                                                    .colorScheme
+                                                    .onSurface
+                                                    .withOpacity(0.4),
                                           fontWeight: hasUnread
                                               ? FontWeight.bold
                                               : FontWeight.normal,
@@ -348,9 +365,14 @@ class _CoachChatListScreenState extends State<CoachChatListScreen> {
                                         style: TextStyle(
                                           fontSize: 13,
                                           color: hasUnread
-                                              ? Colors.white.withOpacity(0.8)
-                                              : AppTheme.mutedTextColor
-                                                    .withOpacity(0.6),
+                                              ? Theme.of(context)
+                                                    .colorScheme
+                                                    .onSurface
+                                                    .withOpacity(0.8)
+                                              : Theme.of(context)
+                                                    .colorScheme
+                                                    .onSurface
+                                                    .withOpacity(0.5),
                                           fontWeight: hasUnread
                                               ? FontWeight.w500
                                               : FontWeight.normal,
@@ -367,8 +389,10 @@ class _CoachChatListScreenState extends State<CoachChatListScreen> {
                                         ),
                                         child: Text(
                                           unreadCount.toString(),
-                                          style: const TextStyle(
-                                            color: Colors.black,
+                                          style: TextStyle(
+                                            color: Theme.of(
+                                              context,
+                                            ).colorScheme.onSurface,
                                             fontSize: 9,
                                             fontWeight: FontWeight.w900,
                                           ),
@@ -402,13 +426,13 @@ class _CoachChatListScreenState extends State<CoachChatListScreen> {
             border: Border.all(
               color: hasUnread
                   ? AppTheme.primaryColor.withOpacity(0.2)
-                  : Colors.white.withOpacity(0.05),
+                  : Theme.of(context).dividerColor.withOpacity(0.05),
               width: 1.5,
             ),
           ),
           child: CircleAvatar(
             radius: 22,
-            backgroundColor: AppTheme.surfaceColor,
+            backgroundColor: Theme.of(context).colorScheme.surface,
             child: Container(
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
@@ -444,7 +468,10 @@ class _CoachChatListScreenState extends State<CoachChatListScreen> {
               decoration: BoxDecoration(
                 color: AppTheme.primaryColor,
                 shape: BoxShape.circle,
-                border: Border.all(color: AppTheme.surfaceColor, width: 2.5),
+                border: Border.all(
+                  color: Theme.of(context).colorScheme.surface,
+                  width: 2.5,
+                ),
                 boxShadow: [
                   BoxShadow(
                     color: AppTheme.primaryColor.withOpacity(0.3),
@@ -490,9 +517,9 @@ class _CoachChatListScreenState extends State<CoachChatListScreen> {
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
       builder: (context) => Container(
-        decoration: const BoxDecoration(
-          color: AppTheme.surfaceColor,
-          borderRadius: BorderRadius.vertical(top: Radius.circular(32)),
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.surface,
+          borderRadius: const BorderRadius.vertical(top: Radius.circular(32)),
         ),
         padding: EdgeInsets.only(
           left: 24,
@@ -518,9 +545,13 @@ class _CoachChatListScreenState extends State<CoachChatListScreen> {
                   ),
                 ),
                 const SizedBox(width: 16),
-                const Text(
+                Text(
                   'Broadcast Message',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w900,
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
                 ),
               ],
             ),
@@ -534,9 +565,13 @@ class _CoachChatListScreenState extends State<CoachChatListScreen> {
               controller: controller,
               maxLines: 4,
               decoration: InputDecoration(
-                hintText: 'Type your announcement...',
+                hintStyle: TextStyle(
+                  color: Theme.of(
+                    context,
+                  ).colorScheme.onSurface.withOpacity(0.2),
+                ),
                 filled: true,
-                fillColor: Colors.white.withOpacity(0.05),
+                fillColor: Theme.of(context).dividerColor.withOpacity(0.05),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(16),
                   borderSide: BorderSide.none,

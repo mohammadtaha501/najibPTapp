@@ -6,6 +6,7 @@ import 'package:ptapp/utils/theme.dart';
 import 'package:ptapp/widgets/common_widgets.dart';
 import 'package:ptapp/screens/common/change_password_screen.dart';
 import 'package:ptapp/screens/client/completed_programs_screen.dart';
+import 'package:ptapp/screens/client/privacy_policy_screen.dart';
 import 'package:ptapp/models/user_model.dart';
 
 import '../../providers/auth_provider.dart';
@@ -47,7 +48,7 @@ class _ClientProfileScreenState extends State<ClientProfileScreen> {
     final user = Provider.of<AuthProvider>(context).userProfile;
 
     return Scaffold(
-      backgroundColor: AppTheme.backgroundColor,
+      backgroundColor: AppTheme.getScaffoldColor(context),
       appBar: AppBar(
         title: const Text(
           'PROFILE',
@@ -75,6 +76,8 @@ class _ClientProfileScreenState extends State<ClientProfileScreen> {
                   _buildSecuritySection(),
                   const SizedBox(height: 24),
                   _buildHistorySection(),
+                  const SizedBox(height: 24),
+                  _buildLegalSection(),
                   const SizedBox(height: 40),
                   _buildDangerZone(context),
                   const SizedBox(height: 48),
@@ -286,6 +289,33 @@ class _ClientProfileScreenState extends State<ClientProfileScreen> {
     );
   }
 
+  Widget _buildLegalSection() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const SectionHeader(title: 'Legal'),
+        CustomCard(
+          padding: EdgeInsets.zero,
+          child: ListTile(
+            leading: const Icon(
+              Icons.policy_outlined,
+              color: AppTheme.primaryColor,
+            ),
+            title: const Text(
+              'Privacy Policy',
+              style: TextStyle(fontWeight: FontWeight.w600),
+            ),
+            trailing: const Icon(Icons.chevron_right, color: Colors.white24),
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => const PrivacyPolicyScreen()),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
   Widget _buildDangerZone(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -307,9 +337,9 @@ class _ClientProfileScreenState extends State<ClientProfileScreen> {
           child: Column(
             children: [
               ListTile(
-                leading: const Icon(
+                leading: Icon(
                   Icons.logout_rounded,
-                  color: Colors.white70,
+                  color: Theme.of(context).colorScheme.onSurface,
                 ),
                 title: const Text('Log Out'),
                 onTap: () => _showLogoutConfirmation(context),

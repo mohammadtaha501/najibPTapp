@@ -161,6 +161,7 @@ class _ExerciseEditorScreenState extends State<ExerciseEditorScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppTheme.getScaffoldColor(context),
       appBar: AppBar(
         title: Text(
           widget.isReadOnly
@@ -209,13 +210,13 @@ class _ExerciseEditorScreenState extends State<ExerciseEditorScreen> {
                         v == null ? 'Muscle group is required' : null,
                     decoration: InputDecoration(
                       labelText: 'Muscle Group Focus *',
-                      prefixIcon: const Icon(
+                      prefixIcon: Icon(
                         Icons.accessibility_new,
                         size: 20,
-                        color: AppTheme.primaryColor,
+                        color: Theme.of(context).colorScheme.primary,
                       ),
                       filled: true,
-                      fillColor: AppTheme.surfaceColor,
+                      fillColor: Theme.of(context).colorScheme.surface,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
                         borderSide: BorderSide.none,
@@ -355,9 +356,14 @@ class _ExerciseEditorScreenState extends State<ExerciseEditorScreen> {
                       onPressed: _isLoading ? null : _save,
                       style: ElevatedButton.styleFrom(
                         minimumSize: const Size(double.infinity, 56),
+                        backgroundColor: Theme.of(context).colorScheme.primary,
+                        foregroundColor: Theme.of(
+                          context,
+                        ).colorScheme.onPrimary,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(16),
                         ),
+                        elevation: 0,
                       ),
                       child: Text(
                         _isLoading ? 'Saving...' : 'Save Exercise',
@@ -375,16 +381,18 @@ class _ExerciseEditorScreenState extends State<ExerciseEditorScreen> {
           if (_isLoading)
             Container(
               color: Colors.black54,
-              child: const Center(
+              child: Center(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    CircularProgressIndicator(color: AppTheme.primaryColor),
-                    SizedBox(height: 16),
+                    CircularProgressIndicator(
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                    const SizedBox(height: 16),
                     Text(
                       'Uploading to Firebase...',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Theme.of(context).colorScheme.onSurface,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -402,10 +410,10 @@ class _ExerciseEditorScreenState extends State<ExerciseEditorScreen> {
       padding: const EdgeInsets.only(bottom: 16),
       child: Text(
         title.toUpperCase(),
-        style: const TextStyle(
+        style: TextStyle(
           fontSize: 12,
           fontWeight: FontWeight.bold,
-          color: AppTheme.primaryColor,
+          color: Theme.of(context).colorScheme.primary,
           letterSpacing: 1.2,
         ),
       ),
@@ -433,10 +441,10 @@ class _ExerciseEditorScreenState extends State<ExerciseEditorScreen> {
         labelText: label,
         hintText: hint,
         prefixIcon: icon != null
-            ? Icon(icon, size: 20, color: AppTheme.primaryColor)
+            ? Icon(icon, size: 20, color: Theme.of(context).colorScheme.primary)
             : null,
         filled: true,
-        fillColor: AppTheme.surfaceColor,
+        fillColor: Theme.of(context).colorScheme.surface,
         alignLabelWithHint: maxLines > 1,
       ),
     );

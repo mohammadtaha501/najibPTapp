@@ -12,6 +12,7 @@ import 'package:ptapp/screens/coach/nutrition_management_screen.dart';
 import 'package:ptapp/screens/coach/program_editor.dart';
 import 'package:intl/intl.dart';
 import 'package:ptapp/screens/coach/program_report_screen.dart';
+import 'package:ptapp/utils/navigation.dart';
 
 import '../../services/auth_service.dart';
 
@@ -48,6 +49,7 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppTheme.getScaffoldColor(context),
       appBar: AppBar(title: Text(_client.name.toUpperCase())),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
@@ -64,15 +66,13 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
                   label: 'CHAT',
                   icon: Icons.chat_bubble_outline_rounded,
                   color: AppTheme.primaryColor,
-                  onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => ChatScreen(
-                        currentUserId: _client.coachId ?? '',
-                        otherUserId: _client.uid,
-                        otherUserName: _client.name,
-                      ),
+                  onTap: () => NavigationService.navigateTo(
+                    ChatScreen(
+                      currentUserId: _client.coachId ?? '',
+                      otherUserId: _client.uid,
+                      otherUserName: _client.name,
                     ),
+                    context: context,
                   ),
                   showBadge: true,
                 ),
@@ -82,14 +82,12 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
                   label: 'NUTRITION',
                   icon: Icons.restaurant_menu_rounded,
                   color: Colors.pinkAccent,
-                  onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => NutritionManagementScreen(
-                        clientId: _client.uid,
-                        clientName: _client.name,
-                      ),
+                  onTap: () => NavigationService.navigateTo(
+                    NutritionManagementScreen(
+                      clientId: _client.uid,
+                      clientName: _client.name,
                     ),
+                    context: context,
                   ),
                 ),
               ],
@@ -157,10 +155,10 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
+                Text(
                   'Training Program',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.onSurface,
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
                   ),
@@ -168,7 +166,9 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
                 Text(
                   'Assign a custom workout template',
                   style: TextStyle(
-                    color: Colors.white.withOpacity(0.5),
+                    color: Theme.of(
+                      context,
+                    ).colorScheme.onSurface.withOpacity(0.5),
                     fontSize: 12,
                   ),
                 ),
@@ -240,9 +240,19 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 20),
           decoration: BoxDecoration(
-            color: AppTheme.surfaceColor,
+            color: Theme.of(context).cardTheme.color,
             borderRadius: BorderRadius.circular(20),
-            border: Border.all(color: Colors.white.withOpacity(0.05)),
+            border: Border.all(
+              color: Theme.of(context).dividerColor.withOpacity(0.1),
+            ),
+            boxShadow: [
+              if (Theme.of(context).brightness == Brightness.light)
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.04),
+                  blurRadius: 10,
+                  offset: const Offset(0, 4),
+                ),
+            ],
           ),
           child: Column(
             children: [
@@ -272,8 +282,10 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
                             child: Text(
                               '$count',
                               textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                color: Colors.white,
+                              style: TextStyle(
+                                color: Theme.of(
+                                  context,
+                                ).colorScheme.onSecondary,
                                 fontSize: 8,
                                 fontWeight: FontWeight.w900,
                               ),
@@ -305,14 +317,21 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
     return Container(
       padding: const EdgeInsets.all(6),
       decoration: BoxDecoration(
-        color: AppTheme.surfaceColor,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.2),
-            blurRadius: 10,
-            offset: const Offset(0, 4),
-          ),
+          if (Theme.of(context).brightness == Brightness.light)
+            BoxShadow(
+              color: Colors.black.withOpacity(0.08),
+              blurRadius: 15,
+              offset: const Offset(0, 5),
+            )
+          else
+            BoxShadow(
+              color: Colors.black.withOpacity(0.2),
+              blurRadius: 10,
+              offset: const Offset(0, 4),
+            ),
         ],
       ),
       child: Row(
@@ -389,9 +408,11 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
       width: double.infinity,
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
-        color: AppTheme.surfaceColor,
+        color: Theme.of(context).cardTheme.color,
         borderRadius: BorderRadius.circular(24),
-        border: Border.all(color: Colors.white.withOpacity(0.05)),
+        border: Border.all(
+          color: Theme.of(context).dividerColor.withOpacity(0.05),
+        ),
       ),
       child: Column(
         children: [
@@ -442,10 +463,10 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
                   children: [
                     Text(
                       _client.name,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: Theme.of(context).colorScheme.onSurface,
                       ),
                     ),
                     const SizedBox(height: 4),
@@ -476,9 +497,13 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: Colors.black.withOpacity(0.3),
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? Colors.black.withOpacity(0.3)
+                  : Theme.of(context).scaffoldBackgroundColor.withOpacity(0.5),
               borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: Colors.white.withOpacity(0.05)),
+              border: Border.all(
+                color: Theme.of(context).dividerColor.withOpacity(0.1),
+              ),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -493,68 +518,75 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
                   ),
                 ),
                 const SizedBox(height: 16),
-                Row(
+                Column(
                   children: [
-                    Expanded(
-                      child: _buildAdminButton(
-                        context,
-                        'Reset Pass',
-                        Icons.lock_reset,
-                        Colors.blue,
-                        () async {
-                          final confirm = await _showConfirmDialog(
+                    Row(
+                      children: [
+                        Expanded(
+                          child: _buildAdminButton(
                             context,
-                            'Reset Password?',
-                            'Send a password reset email to ${_client.email}?',
-                            'Send',
-                          );
-                          if (confirm == true) {
-                            try {
-                              await FirebaseAuth.instance
-                                  .sendPasswordResetEmail(email: _client.email);
-                              if (context.mounted) {
-                                _showSnackBar(
-                                  context,
-                                  'Password reset email sent',
-                                );
+                            'Reset Pass',
+                            Icons.lock_reset,
+                            Colors.blue,
+                            () async {
+                              final confirm = await _showConfirmDialog(
+                                context,
+                                'Reset Password?',
+                                'Send a password reset email to ${_client.email}?',
+                                'Send',
+                              );
+                              if (confirm == true) {
+                                try {
+                                  await FirebaseAuth.instance
+                                      .sendPasswordResetEmail(
+                                        email: _client.email,
+                                      );
+                                  if (context.mounted) {
+                                    _showSnackBar(
+                                      context,
+                                      'Password reset email sent',
+                                    );
+                                  }
+                                } catch (e) {
+                                  if (context.mounted) {
+                                    _showSnackBar(
+                                      context,
+                                      'Error: $e',
+                                      isError: true,
+                                    );
+                                  }
+                                }
                               }
-                            } catch (e) {
-                              if (context.mounted) {
-                                _showSnackBar(
-                                  context,
-                                  'Error: $e',
-                                  isError: true,
-                                );
-                              }
-                            }
-                          }
-                        },
-                      ),
+                            },
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: _buildAdminButton(
+                            context,
+                            _client.isBlocked ? 'Unblock' : 'Block',
+                            _client.isBlocked ? Icons.lock_open : Icons.block,
+                            _client.isBlocked ? Colors.green : Colors.orange,
+                            () async {
+                              final db = DatabaseService();
+                              await db.toggleBlockClient(
+                                _client.uid,
+                                !_client.isBlocked,
+                              );
+                              if (context.mounted) Navigator.pop(context);
+                            },
+                          ),
+                        ),
+                      ],
                     ),
-                    const SizedBox(width: 8),
-                    Expanded(
+                    const SizedBox(height: 12),
+                    SizedBox(
+                      width: double.infinity,
                       child: _buildAdminButton(
                         context,
-                        _client.isBlocked ? 'Unblock' : 'Block',
-                        _client.isBlocked ? Icons.lock_open : Icons.block,
-                        _client.isBlocked ? Colors.green : Colors.orange,
-                        () async {
-                          final db = DatabaseService();
-                          await db.toggleBlockClient(
-                            _client.uid,
-                            !_client.isBlocked,
-                          );
-                          if (context.mounted) Navigator.pop(context);
-                        },
-                      ),
-                    ),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      child: _buildAdminButton(
-                        context,
-                        'Delete',
+                        'Delete Client Permanently',
                         Icons.delete_forever,
-                        Colors.red,
+                        Colors.redAccent,
                         () async {
                           final confirm = await _showConfirmDialog(
                             context,
@@ -611,9 +643,15 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
     return showDialog<bool>(
       context: context,
       builder: (c) => AlertDialog(
-        backgroundColor: AppTheme.surfaceColor,
+        backgroundColor: Theme.of(c).colorScheme.surface,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
+        title: Text(
+          title,
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Theme.of(c).colorScheme.onSurface,
+          ),
+        ),
         content: Text(
           content,
           style: const TextStyle(color: AppTheme.mutedTextColor),
@@ -697,7 +735,7 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
-      backgroundColor: AppTheme.surfaceColor,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
@@ -717,16 +755,14 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
             InkWell(
               onTap: () {
                 Navigator.pop(context); // Close sheet
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => ProgramEditor(
-                      coachId:
-                          _client.coachId ??
-                          FirebaseAuth.instance.currentUser!.uid,
-                      preSelectedClientId: _client.uid,
-                    ),
+                NavigationService.navigateTo(
+                  ProgramEditor(
+                    coachId:
+                        _client.coachId ??
+                        FirebaseAuth.instance.currentUser!.uid,
+                    preSelectedClientId: _client.uid,
                   ),
+                  context: context,
                 );
               },
               child: Container(
@@ -802,7 +838,9 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
                       final p = programs[index];
                       return Container(
                         decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.05),
+                          color: Theme.of(
+                            context,
+                          ).dividerColor.withOpacity(0.05),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: ListTile(
@@ -817,10 +855,12 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
                               color: AppTheme.mutedTextColor,
                             ),
                           ),
-                          trailing: const Icon(
+                          trailing: Icon(
                             Icons.copy,
                             size: 20,
-                            color: Colors.white54,
+                            color: Theme.of(
+                              context,
+                            ).colorScheme.onSurface.withOpacity(0.4),
                           ),
                           onTap: () =>
                               _confirmAssignTemplate(context, dbService, p),
@@ -947,12 +987,12 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
       decoration: BoxDecoration(
-        color: AppTheme.surfaceColor,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
           color: isActive
               ? AppTheme.primaryColor.withOpacity(0.3)
-              : Colors.white.withOpacity(0.05),
+              : Theme.of(context).dividerColor.withOpacity(0.05),
         ),
         boxShadow: isActive
             ? [
@@ -972,14 +1012,9 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
             onTap: isAssigned
                 ? null
                 : () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => ProgramReportScreen(
-                          program: program,
-                          client: _client,
-                        ),
-                      ),
+                    NavigationService.navigateTo(
+                      ProgramReportScreen(program: program, client: _client),
+                      context: context,
                     );
                   },
             child: Padding(
@@ -1049,14 +1084,9 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
       children: [
         _miniActionCircle(
           icon: Icons.edit_note_rounded,
-          onTap: () => Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (_) => ProgramEditor(
-                programToEdit: program,
-                coachId: program.coachId,
-              ),
-            ),
+          onTap: () => NavigationService.navigateTo(
+            ProgramEditor(programToEdit: program, coachId: program.coachId),
+            context: context,
           ),
         ),
         const SizedBox(width: 8),
@@ -1072,18 +1102,20 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
   Widget _miniActionCircle({
     required IconData icon,
     required VoidCallback onTap,
-    Color color = Colors.white54,
+    Color? color,
   }) {
+    final themeColor =
+        color ?? Theme.of(context).colorScheme.onSurface.withOpacity(0.5);
     return InkWell(
       onTap: onTap,
-      borderRadius: BorderRadius.circular(20),
+      borderRadius: BorderRadius.circular(10),
       child: Container(
         padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
-          color: color.withOpacity(0.05),
-          shape: BoxShape.circle,
+          color: Theme.of(context).dividerColor.withOpacity(0.05),
+          borderRadius: BorderRadius.circular(10),
         ),
-        child: Icon(icon, size: 18, color: color),
+        child: Icon(icon, color: themeColor, size: 20),
       ),
     );
   }
@@ -1096,10 +1128,10 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        backgroundColor: AppTheme.surfaceColor,
-        title: const Text(
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        title: Text(
           'Delete Program?',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
         ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
@@ -1107,7 +1139,9 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
           children: [
             Text(
               'Are you sure you want to delete "${program.name}"?',
-              style: const TextStyle(color: Colors.white70),
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.onSurface.withOpacity(0.7),
+              ),
             ),
             const SizedBox(height: 12),
             const Text(
@@ -1206,9 +1240,11 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
       decoration: BoxDecoration(
-        color: AppTheme.surfaceColor,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: Colors.white.withOpacity(0.05)),
+        border: Border.all(
+          color: Theme.of(context).dividerColor.withOpacity(0.05),
+        ),
       ),
       child: Padding(
         padding: const EdgeInsets.all(20),
@@ -1235,10 +1271,10 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
                     children: [
                       Text(
                         'Week of $dateStr',
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 15,
-                          color: Colors.white,
+                          color: Theme.of(context).colorScheme.onSurface,
                         ),
                       ),
                       const SizedBox(height: 2),
@@ -1267,13 +1303,15 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
                 width: double.infinity,
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.2),
+                  color: Theme.of(context).dividerColor.withOpacity(0.05),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Text(
                   checkin.notes,
                   style: TextStyle(
-                    color: Colors.white.withOpacity(0.6),
+                    color: Theme.of(
+                      context,
+                    ).colorScheme.onSurface.withOpacity(0.7),
                     fontSize: 12,
                     height: 1.5,
                   ),
@@ -1296,7 +1334,9 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
                 Text(
                   DateFormat('MMM dd, yyyy').format(checkin.createdAt),
                   style: TextStyle(
-                    color: Colors.white.withOpacity(0.3),
+                    color: Theme.of(
+                      context,
+                    ).colorScheme.onSurface.withOpacity(0.4),
                     fontSize: 10,
                     fontStyle: FontStyle.italic,
                   ),
@@ -1378,9 +1418,11 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
       width: double.infinity,
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: AppTheme.surfaceColor,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: Colors.white.withOpacity(0.05)),
+        border: Border.all(
+          color: Theme.of(context).dividerColor.withOpacity(0.05),
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -1426,10 +1468,16 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
           Container(
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: Colors.black.withOpacity(0.3),
+              color:
+                  Theme.of(context).cardTheme.color?.withOpacity(0.5) ??
+                  Colors.black.withOpacity(0.1),
               borderRadius: BorderRadius.circular(8),
             ),
-            child: Icon(icon, size: 16, color: AppTheme.mutedTextColor),
+            child: Icon(
+              icon,
+              size: 16,
+              color: Theme.of(context).colorScheme.onSurface.withOpacity(0.4),
+            ),
           ),
           const SizedBox(width: 16),
           Expanded(
@@ -1447,8 +1495,8 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
                 const SizedBox(height: 2),
                 Text(
                   value,
-                  style: const TextStyle(
-                    color: Colors.white,
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.onSurface,
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
                   ),
@@ -1477,7 +1525,7 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
       context: context,
       builder: (context) => StatefulBuilder(
         builder: (context, setDialogState) => AlertDialog(
-          backgroundColor: AppTheme.surfaceColor,
+          backgroundColor: Theme.of(context).colorScheme.surface,
           title: const Text('Edit Physical Metrics'),
           content: SingleChildScrollView(
             child: Column(
@@ -1514,7 +1562,7 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
                       .map((i) => DropdownMenuItem(value: i, child: Text(i)))
                       .toList(),
                   onChanged: (v) => setDialogState(() => selectedGender = v!),
-                  dropdownColor: AppTheme.surfaceColor,
+                  dropdownColor: Theme.of(context).colorScheme.surface,
                   decoration: const InputDecoration(
                     labelText: 'Gender',
                     prefixIcon: Icon(
@@ -1567,7 +1615,7 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
       context: context,
       builder: (context) => StatefulBuilder(
         builder: (context, setDialogState) => AlertDialog(
-          backgroundColor: AppTheme.surfaceColor,
+          backgroundColor: Theme.of(context).colorScheme.surface,
           title: const Text('Edit Goals & Commitment'),
           content: SingleChildScrollView(
             child: Column(
@@ -1588,7 +1636,7 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
                           )
                           .toList(),
                   onChanged: (v) => setDialogState(() => selectedGoal = v!),
-                  dropdownColor: AppTheme.surfaceColor,
+                  dropdownColor: Theme.of(context).colorScheme.surface,
                   decoration: const InputDecoration(
                     labelText: 'Primary Goal',
                     prefixIcon: Icon(
@@ -1728,14 +1776,14 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                AppTheme.primaryColor.withOpacity(0.05),
-                AppTheme.surfaceColor,
+                AppTheme.primaryColor.withOpacity(0.1),
+                Theme.of(context).colorScheme.surface,
               ],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
             borderRadius: BorderRadius.circular(24),
-            border: Border.all(color: AppTheme.primaryColor.withOpacity(0.2)),
+            border: Border.all(color: AppTheme.primaryColor.withOpacity(0.1)),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -1758,10 +1806,10 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
                       const SizedBox(height: 4),
                       Text(
                         activeProgram.name,
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                          color: Theme.of(context).colorScheme.onSurface,
                         ),
                       ),
                     ],
@@ -1794,7 +1842,9 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
                           Text(
                             'Completion Rate',
                             style: TextStyle(
-                              color: Colors.white.withOpacity(0.5),
+                              color: Theme.of(
+                                context,
+                              ).colorScheme.onSurface.withOpacity(0.5),
                               fontSize: 13,
                             ),
                           ),
@@ -1814,7 +1864,9 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
                         child: LinearProgressIndicator(
                           value: progress,
                           minHeight: 10,
-                          backgroundColor: Colors.white.withOpacity(0.05),
+                          backgroundColor: Theme.of(
+                            context,
+                          ).dividerColor.withOpacity(0.05),
                           valueColor: const AlwaysStoppedAnimation<Color>(
                             AppTheme.primaryColor,
                           ),
@@ -1874,9 +1926,11 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: AppTheme.surfaceColor,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Colors.white.withOpacity(0.05)),
+        border: Border.all(
+          color: Theme.of(context).dividerColor.withOpacity(0.05),
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -1888,7 +1942,9 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
               Text(
                 label,
                 style: TextStyle(
-                  color: Colors.white.withOpacity(0.4),
+                  color: Theme.of(
+                    context,
+                  ).colorScheme.onSurface.withOpacity(0.4),
                   fontSize: 10,
                   fontWeight: FontWeight.bold,
                 ),
@@ -1898,10 +1954,10 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
           ),
           Text(
             value,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.onSurface,
             ),
           ),
         ],

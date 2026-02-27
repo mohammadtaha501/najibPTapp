@@ -4,6 +4,7 @@ import 'package:ptapp/services/database_service.dart';
 import 'package:ptapp/utils/theme.dart';
 import 'package:ptapp/widgets/common_widgets.dart';
 import 'package:ptapp/screens/coach/nutrition_editor_screen.dart';
+import 'package:ptapp/utils/navigation.dart';
 import 'package:intl/intl.dart';
 
 class NutritionManagementScreen extends StatefulWidget {
@@ -17,7 +18,8 @@ class NutritionManagementScreen extends StatefulWidget {
   });
 
   @override
-  State<NutritionManagementScreen> createState() => _NutritionManagementScreenState();
+  State<NutritionManagementScreen> createState() =>
+      _NutritionManagementScreenState();
 }
 
 class _NutritionManagementScreenState extends State<NutritionManagementScreen> {
@@ -33,9 +35,8 @@ class _NutritionManagementScreenState extends State<NutritionManagementScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Nutrition: ${widget.clientName}'),
-      ),
+      backgroundColor: AppTheme.getScaffoldColor(context),
+      appBar: AppBar(title: Text('Nutrition: ${widget.clientName}')),
       body: StreamBuilder<NutritionPlan?>(
         stream: _planStream,
         builder: (context, snapshot) {
@@ -43,7 +44,7 @@ class _NutritionManagementScreenState extends State<NutritionManagementScreen> {
             return const Center(child: CircularProgressIndicator());
           }
           final plan = snapshot.data;
-          
+
           if (plan == null) {
             return Center(
               child: Padding(
@@ -51,7 +52,11 @@ class _NutritionManagementScreenState extends State<NutritionManagementScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.restaurant, size: 80, color: Colors.white.withOpacity(0.05)),
+                    Icon(
+                      Icons.restaurant,
+                      size: 80,
+                      color: Colors.white.withOpacity(0.05),
+                    ),
                     const SizedBox(height: 24),
                     const Text(
                       'No nutrition plan created for this client.',
@@ -60,13 +65,19 @@ class _NutritionManagementScreenState extends State<NutritionManagementScreen> {
                     ),
                     const SizedBox(height: 32),
                     ElevatedButton(
-                      onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => NutritionEditorScreen(clientId: widget.clientId))),
+                      onPressed: () => NavigationService.navigateTo(
+                        NutritionEditorScreen(clientId: widget.clientId),
+                        context: context,
+                      ),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppTheme.primaryColor,
                         foregroundColor: Colors.black,
                         minimumSize: const Size(200, 50),
                       ),
-                      child: const Text('CREATE PLAN', style: TextStyle(fontWeight: FontWeight.bold)),
+                      child: const Text(
+                        'CREATE PLAN',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ],
                 ),
@@ -85,55 +96,101 @@ class _NutritionManagementScreenState extends State<NutritionManagementScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 8,
+                            vertical: 4,
+                          ),
                           decoration: BoxDecoration(
                             color: AppTheme.primaryColor.withOpacity(0.2),
                             borderRadius: BorderRadius.circular(4),
                           ),
                           child: Text(
                             plan.goal.label.toUpperCase(),
-                            style: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: AppTheme.primaryColor),
+                            style: const TextStyle(
+                              fontSize: 10,
+                              fontWeight: FontWeight.bold,
+                              color: AppTheme.primaryColor,
+                            ),
                           ),
                         ),
                         Text(
                           'Active Plan',
-                          style: TextStyle(fontSize: 12, color: AppTheme.primaryColor.withOpacity(0.7), fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: AppTheme.primaryColor.withOpacity(0.7),
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ],
                     ),
                     const SizedBox(height: 16),
-                    Text(plan.title, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+                    Text(
+                      plan.title,
+                      style: const TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                     const SizedBox(height: 8),
                     Text(
                       '${plan.sections.length} Guidance Sections',
-                      style: const TextStyle(color: AppTheme.mutedTextColor, fontSize: 14),
+                      style: const TextStyle(
+                        color: AppTheme.mutedTextColor,
+                        fontSize: 14,
+                      ),
                     ),
                     const Divider(height: 32, color: Colors.white10),
                     Row(
                       children: [
-                        const Icon(Icons.history, size: 14, color: AppTheme.mutedTextColor),
+                        const Icon(
+                          Icons.history,
+                          size: 14,
+                          color: AppTheme.mutedTextColor,
+                        ),
                         const SizedBox(width: 8),
                         Text(
                           'Updated ${DateFormat('MMM dd, yyyy').format(plan.updatedAt)}',
-                          style: const TextStyle(fontSize: 12, color: AppTheme.mutedTextColor),
+                          style: const TextStyle(
+                            fontSize: 12,
+                            color: AppTheme.mutedTextColor,
+                          ),
                         ),
                         const Spacer(),
                         if (plan.lastViewedByClient != null) ...[
-                          const Icon(Icons.check_circle, size: 14, color: AppTheme.primaryColor),
+                          const Icon(
+                            Icons.check_circle,
+                            size: 14,
+                            color: AppTheme.primaryColor,
+                          ),
                           const SizedBox(width: 4),
-                          const Text('Viewed', style: TextStyle(fontSize: 12, color: AppTheme.primaryColor)),
+                          const Text(
+                            'Viewed',
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: AppTheme.primaryColor,
+                            ),
+                          ),
                         ],
                       ],
                     ),
                     const SizedBox(height: 24),
                     ElevatedButton(
-                      onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => NutritionEditorScreen(clientId: widget.clientId, plan: plan))),
+                      onPressed: () => NavigationService.navigateTo(
+                        NutritionEditorScreen(
+                          clientId: widget.clientId,
+                          plan: plan,
+                        ),
+                        context: context,
+                      ),
                       style: ElevatedButton.styleFrom(
                         minimumSize: const Size(double.infinity, 50),
                         backgroundColor: AppTheme.primaryColor,
                         foregroundColor: Colors.black,
                       ),
-                      child: const Text('EDIT PLAN', style: TextStyle(fontWeight: FontWeight.bold)),
+                      child: const Text(
+                        'EDIT PLAN',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ],
                 ),

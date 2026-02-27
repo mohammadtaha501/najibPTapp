@@ -46,6 +46,7 @@ class _WorkoutViewState extends State<WorkoutView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppTheme.getScaffoldColor(context),
       appBar: AppBar(
         title: Text('${widget.workoutDay.muscleGroup.toUpperCase()} WORKOUT'),
         actions: [

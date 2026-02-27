@@ -44,10 +44,10 @@ class _ClientNavigationWrapperState extends State<ClientNavigationWrapper> {
     return await showDialog<bool>(
           context: context,
           builder: (context) => AlertDialog(
-            backgroundColor: AppTheme.surfaceColor,
-            title: const Text(
+            backgroundColor: Theme.of(context).colorScheme.surface,
+            title: Text(
               'Exit App',
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
             ),
             content: const Text(
               'Are you sure you want to exit the app?',
@@ -113,6 +113,7 @@ class _ClientNavigationWrapperState extends State<ClientNavigationWrapper> {
         }
       },
       child: Scaffold(
+        backgroundColor: AppTheme.getScaffoldColor(context),
         body: IndexedStack(index: _selectedIndex, children: screens),
         bottomNavigationBar: _buildModernNavBar(),
       ),
@@ -171,9 +172,19 @@ class _ClientNavigationWrapperState extends State<ClientNavigationWrapper> {
             return Container(
               height: 85,
               decoration: BoxDecoration(
-                color: AppTheme.surfaceColor,
+                color: Theme.of(context).colorScheme.surface,
+                boxShadow: [
+                  if (Theme.of(context).brightness == Brightness.light)
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.05),
+                      blurRadius: 10,
+                      offset: const Offset(0, -2),
+                    ),
+                ],
                 border: Border(
-                  top: BorderSide(color: Colors.white.withOpacity(0.05)),
+                  top: BorderSide(
+                    color: Theme.of(context).dividerColor.withOpacity(0.05),
+                  ),
                 ),
               ),
               child: Row(
@@ -229,8 +240,12 @@ class _ClientNavigationWrapperState extends State<ClientNavigationWrapper> {
                                     child: Center(
                                       child: Text(
                                         item.counterValue.toString(),
-                                        style: const TextStyle(
-                                          color: Colors.black,
+                                        style: TextStyle(
+                                          color:
+                                              Theme.of(context).brightness ==
+                                                  Brightness.dark
+                                              ? Colors.black
+                                              : Colors.white,
                                           fontSize: 10,
                                           fontWeight: FontWeight.bold,
                                         ),

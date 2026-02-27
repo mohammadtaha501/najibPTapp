@@ -6,6 +6,7 @@ import 'package:ptapp/models/user_model.dart';
 import 'package:ptapp/services/database_service.dart';
 import 'package:ptapp/utils/theme.dart';
 import 'package:ptapp/screens/coach/exercise_editor_screen.dart';
+import 'package:ptapp/utils/navigation.dart';
 import 'dart:async';
 
 enum ProgramType { personal, allUsers, template }
@@ -94,7 +95,7 @@ class _ProgramEditorState extends State<ProgramEditor> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      backgroundColor: AppTheme.getScaffoldColor(context),
       appBar: AppBar(
         title: Text(
           widget.programToEdit == null ? 'Program Builder' : 'Edit Program',
@@ -129,17 +130,19 @@ class _ProgramEditorState extends State<ProgramEditor> {
           ),
           if (_isLoading)
             Container(
-              color: Colors.black54,
-              child: const Center(
+              color: Theme.of(context).colorScheme.surface.withOpacity(0.7),
+              child: Center(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    CircularProgressIndicator(color: AppTheme.primaryColor),
-                    SizedBox(height: 16),
+                    CircularProgressIndicator(
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                    const SizedBox(height: 16),
                     Text(
                       'Saving Program...',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Theme.of(context).colorScheme.onSurface,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -152,8 +155,12 @@ class _ProgramEditorState extends State<ProgramEditor> {
       bottomNavigationBar: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: AppTheme.surfaceColor,
-          border: Border.all(color: Colors.white.withOpacity(0.05)),
+          color: Theme.of(context).colorScheme.surface,
+          border: Border(
+            top: BorderSide(
+              color: Theme.of(context).dividerColor.withOpacity(0.1),
+            ),
+          ),
           borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
         ),
         child: ElevatedButton(
@@ -183,7 +190,7 @@ class _ProgramEditorState extends State<ProgramEditor> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Column(
+          Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
@@ -191,17 +198,19 @@ class _ProgramEditorState extends State<ProgramEditor> {
                 style: TextStyle(
                   fontSize: 10,
                   fontWeight: FontWeight.w900,
-                  color: AppTheme.mutedTextColor,
+                  color: Theme.of(
+                    context,
+                  ).colorScheme.onSurface.withOpacity(0.5),
                   letterSpacing: 1.5,
                 ),
               ),
-              SizedBox(height: 4),
+              const SizedBox(height: 4),
               Text(
                 'Select Training Week',
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: Theme.of(context).colorScheme.onSurface,
                 ),
               ),
             ],
@@ -212,18 +221,20 @@ class _ProgramEditorState extends State<ProgramEditor> {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
               decoration: BoxDecoration(
-                color: AppTheme.primaryColor.withOpacity(0.1),
+                color: Theme.of(context).colorScheme.primary.withOpacity(0.15),
                 borderRadius: BorderRadius.circular(12),
                 border: Border.all(
-                  color: AppTheme.primaryColor.withOpacity(0.2),
+                  color: Theme.of(
+                    context,
+                  ).colorScheme.primary.withOpacity(0.25),
                 ),
               ),
-              child: const Row(
+              child: Row(
                 children: [
                   Icon(
                     Icons.copy_all_rounded,
                     size: 16,
-                    color: AppTheme.primaryColor,
+                    color: Theme.of(context).colorScheme.primary,
                   ),
                   SizedBox(width: 8),
                   Text(
@@ -231,7 +242,7 @@ class _ProgramEditorState extends State<ProgramEditor> {
                     style: TextStyle(
                       fontSize: 10,
                       fontWeight: FontWeight.bold,
-                      color: AppTheme.primaryColor,
+                      color: Theme.of(context).colorScheme.primary,
                       letterSpacing: 0.5,
                     ),
                   ),
@@ -320,18 +331,20 @@ class _ProgramEditorState extends State<ProgramEditor> {
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   color: isSelected
-                      ? AppTheme.primaryColor
-                      : AppTheme.surfaceColor,
+                      ? Theme.of(context).colorScheme.primary
+                      : Theme.of(context).colorScheme.surface,
                   borderRadius: BorderRadius.circular(16),
                   border: Border.all(
                     color: isSelected
-                        ? AppTheme.primaryColor
-                        : Colors.white.withOpacity(0.05),
+                        ? Theme.of(context).colorScheme.primary
+                        : Theme.of(context).dividerColor.withOpacity(0.05),
                   ),
                   boxShadow: isSelected
                       ? [
                           BoxShadow(
-                            color: AppTheme.primaryColor.withOpacity(0.3),
+                            color: Theme.of(
+                              context,
+                            ).colorScheme.primary.withOpacity(0.3),
                             blurRadius: 10,
                             offset: const Offset(0, 4),
                           ),
@@ -341,7 +354,13 @@ class _ProgramEditorState extends State<ProgramEditor> {
                 child: Text(
                   'Week $week',
                   style: TextStyle(
-                    color: isSelected ? Colors.black : Colors.white60,
+                    color: isSelected
+                        ? (Theme.of(context).brightness == Brightness.dark
+                              ? Colors.black
+                              : Colors.white)
+                        : Theme.of(
+                            context,
+                          ).colorScheme.onSurface.withOpacity(0.6),
                     fontWeight: isSelected ? FontWeight.w900 : FontWeight.bold,
                     fontSize: 14,
                   ),
@@ -358,9 +377,11 @@ class _ProgramEditorState extends State<ProgramEditor> {
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
-        color: AppTheme.surfaceColor,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(24),
-        border: Border.all(color: Colors.white.withOpacity(0.05)),
+        border: Border.all(
+          color: Theme.of(context).dividerColor.withOpacity(0.05),
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -370,12 +391,14 @@ class _ProgramEditorState extends State<ProgramEditor> {
               Container(
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: AppTheme.primaryColor.withOpacity(0.1),
+                  color: Theme.of(
+                    context,
+                  ).colorScheme.primary.withOpacity(0.15),
                   borderRadius: BorderRadius.circular(16),
                 ),
-                child: const Icon(
+                child: Icon(
                   Icons.auto_awesome_rounded,
-                  color: AppTheme.primaryColor,
+                  color: Theme.of(context).colorScheme.primary,
                   size: 24,
                 ),
               ),
@@ -384,10 +407,12 @@ class _ProgramEditorState extends State<ProgramEditor> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
+                    Text(
                       'PROGRAM IDENTITY',
                       style: TextStyle(
-                        color: AppTheme.mutedTextColor,
+                        color: Theme.of(
+                          context,
+                        ).colorScheme.onSurface.withOpacity(0.5),
                         fontSize: 10,
                         fontWeight: FontWeight.w900,
                         letterSpacing: 1.5,
@@ -396,19 +421,23 @@ class _ProgramEditorState extends State<ProgramEditor> {
                     const SizedBox(height: 8),
                     TextField(
                       controller: _nameController,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: Theme.of(context).colorScheme.onSurface,
                       ),
                       decoration: InputDecoration(
                         hintText: 'e.g., Full Body Strength',
                         hintStyle: TextStyle(
-                          color: Colors.white.withOpacity(0.2),
+                          color: Theme.of(
+                            context,
+                          ).colorScheme.onSurface.withOpacity(0.2),
                           fontSize: 18,
                         ),
                         filled: true,
-                        fillColor: Colors.black.withOpacity(0.3),
+                        fillColor: Theme.of(
+                          context,
+                        ).dividerColor.withOpacity(0.05),
                         contentPadding: const EdgeInsets.symmetric(
                           horizontal: 16,
                           vertical: 16,
@@ -416,7 +445,9 @@ class _ProgramEditorState extends State<ProgramEditor> {
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
                           borderSide: BorderSide(
-                            color: Colors.white.withOpacity(0.1),
+                            color: Theme.of(
+                              context,
+                            ).dividerColor.withOpacity(0.1),
                           ),
                         ),
                       ),
@@ -436,9 +467,9 @@ class _ProgramEditorState extends State<ProgramEditor> {
                   child: TextField(
                     controller: _durationController,
                     keyboardType: TextInputType.number,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: AppTheme.primaryColor,
+                      color: Theme.of(context).colorScheme.primary,
                     ),
                     inputFormatters: [
                       FilteringTextInputFormatter.digitsOnly,
@@ -467,12 +498,14 @@ class _ProgramEditorState extends State<ProgramEditor> {
                             if (_selectedWeek > 20) _selectedWeek = 20;
                           });
                           ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text(
+                            SnackBar(
+                              content: const Text(
                                 'Plan duration cannot be more than 20 weeks',
                               ),
-                              backgroundColor: AppTheme.errorColor,
-                              duration: Duration(seconds: 2),
+                              backgroundColor: Theme.of(
+                                context,
+                              ).colorScheme.error,
+                              duration: const Duration(seconds: 2),
                             ),
                           );
                         } else if (n > 0) {
@@ -485,11 +518,13 @@ class _ProgramEditorState extends State<ProgramEditor> {
                     },
                   ),
                 ),
-                const Text(
+                Text(
                   'Weeks',
                   style: TextStyle(
                     fontSize: 12,
-                    color: AppTheme.mutedTextColor,
+                    color: Theme.of(
+                      context,
+                    ).colorScheme.onSurface.withOpacity(0.5),
                   ),
                 ),
               ],
@@ -522,11 +557,13 @@ class _ProgramEditorState extends State<ProgramEditor> {
                   : DropdownButtonHideUnderline(
                       child: DropdownButton<String>(
                         value: _assignedClientId,
-                        hint: const Text(
+                        hint: Text(
                           'Pick Client',
                           style: TextStyle(
                             fontSize: 13,
-                            color: AppTheme.mutedTextColor,
+                            color: Theme.of(
+                              context,
+                            ).colorScheme.onSurface.withOpacity(0.5),
                           ),
                           overflow: TextOverflow.ellipsis,
                         ),
@@ -535,7 +572,7 @@ class _ProgramEditorState extends State<ProgramEditor> {
                           Icons.arrow_drop_down_rounded,
                           color: AppTheme.primaryColor,
                         ),
-                        dropdownColor: AppTheme.surfaceColor,
+                        dropdownColor: Theme.of(context).colorScheme.surface,
                         items: _clients
                             .map(
                               (c) => DropdownMenuItem(
@@ -561,14 +598,16 @@ class _ProgramEditorState extends State<ProgramEditor> {
                 ? Icons.lock_rounded
                 : Icons.visibility_rounded,
             child: widget.preSelectedClientId != null
-                ? const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 4.0),
+                ? Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 4.0),
                     child: Text(
                       'Personal Program (Locked)',
                       style: TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white70,
+                        color: Theme.of(
+                          context,
+                        ).colorScheme.onSurface.withOpacity(0.7),
                       ),
                     ),
                   )
@@ -583,11 +622,11 @@ class _ProgramEditorState extends State<ProgramEditor> {
                         ),
                       ),
                       isExpanded: true,
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.arrow_drop_down_rounded,
-                        color: AppTheme.primaryColor,
+                        color: Theme.of(context).colorScheme.primary,
                       ),
-                      dropdownColor: AppTheme.surfaceColor,
+                      dropdownColor: Theme.of(context).colorScheme.surface,
                       items: const [
                         DropdownMenuItem(
                           value: ProgramType.personal,
@@ -643,23 +682,31 @@ class _ProgramEditorState extends State<ProgramEditor> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.2),
+        color: Theme.of(context).dividerColor.withOpacity(0.05),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Colors.white.withOpacity(0.05)),
+        border: Border.all(
+          color: Theme.of(context).dividerColor.withOpacity(0.05),
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
-              Icon(icon, size: 12, color: AppTheme.mutedTextColor),
+              Icon(
+                icon,
+                size: 12,
+                color: Theme.of(context).colorScheme.onSurface.withOpacity(0.5),
+              ),
               const SizedBox(width: 6),
               Text(
                 label,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 9,
                   fontWeight: FontWeight.w900,
-                  color: AppTheme.mutedTextColor,
+                  color: Theme.of(
+                    context,
+                  ).colorScheme.onSurface.withOpacity(0.5),
                   letterSpacing: 1,
                 ),
               ),
@@ -689,7 +736,9 @@ class _ProgramEditorState extends State<ProgramEditor> {
                   vertical: 8,
                 ),
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.03),
+                  color: Theme.of(
+                    context,
+                  ).colorScheme.onSurface.withOpacity(0.03),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Row(
@@ -705,11 +754,11 @@ class _ProgramEditorState extends State<ProgramEditor> {
                         const SizedBox(width: 8),
                         Text(
                           'DAY ${day.day}: ${day.muscleGroup}'.toUpperCase(),
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 11,
                             fontWeight: FontWeight.w900,
                             letterSpacing: 1.2,
-                            color: Colors.white,
+                            color: Theme.of(context).colorScheme.onSurface,
                           ),
                         ),
                       ],
@@ -754,12 +803,16 @@ class _ProgramEditorState extends State<ProgramEditor> {
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: AppTheme.surfaceColor,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: Colors.white.withOpacity(0.05)),
+        border: Border.all(
+          color: Theme.of(context).dividerColor.withOpacity(0.05),
+        ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.2),
+            color: Theme.of(context).brightness == Brightness.dark
+                ? Colors.black.withOpacity(0.2)
+                : Colors.grey.withOpacity(0.1),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -771,12 +824,12 @@ class _ProgramEditorState extends State<ProgramEditor> {
           Container(
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: AppTheme.primaryColor.withOpacity(0.1),
+              color: Theme.of(context).colorScheme.primary.withOpacity(0.15),
               borderRadius: BorderRadius.circular(14),
             ),
-            child: const Icon(
+            child: Icon(
               Icons.fitness_center_rounded,
-              color: AppTheme.primaryColor,
+              color: Theme.of(context).colorScheme.primary,
               size: 20,
             ),
           ),
@@ -791,10 +844,10 @@ class _ProgramEditorState extends State<ProgramEditor> {
                     Expanded(
                       child: Text(
                         e.name,
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
-                          color: Colors.white,
+                          color: Theme.of(context).colorScheme.onSurface,
                         ),
                       ),
                     ),
@@ -847,8 +900,8 @@ class _ProgramEditorState extends State<ProgramEditor> {
                   const SizedBox(height: 8),
                   Text(
                     'Target: ${e.targetWeight}',
-                    style: const TextStyle(
-                      color: AppTheme.primaryColor,
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.primary,
                       fontSize: 11,
                       fontWeight: FontWeight.w900,
                       letterSpacing: 0.5,
@@ -861,13 +914,15 @@ class _ProgramEditorState extends State<ProgramEditor> {
                     width: double.infinity,
                     padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                      color: Colors.black.withOpacity(0.3),
+                      color: Theme.of(context).dividerColor.withOpacity(0.05),
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Text(
                       e.note!,
-                      style: const TextStyle(
-                        color: AppTheme.mutedTextColor,
+                      style: TextStyle(
+                        color: Theme.of(
+                          context,
+                        ).colorScheme.onSurface.withOpacity(0.5),
                         fontSize: 10,
                         fontStyle: FontStyle.italic,
                       ),
@@ -882,22 +937,20 @@ class _ProgramEditorState extends State<ProgramEditor> {
     );
   }
 
-  Widget _buildExerciseDetailTag(
-    IconData icon,
-    String label, {
-    Color color = AppTheme.mutedTextColor,
-  }) {
+  Widget _buildExerciseDetailTag(IconData icon, String label, {Color? color}) {
+    final effectiveColor =
+        color ?? Theme.of(context).colorScheme.onSurface.withOpacity(0.6);
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Icon(icon, size: 12, color: color.withOpacity(0.7)),
+        Icon(icon, size: 12, color: effectiveColor.withOpacity(0.7)),
         const SizedBox(width: 4),
         Text(
           label,
           style: TextStyle(
             fontSize: 11,
             fontWeight: FontWeight.bold,
-            color: color,
+            color: effectiveColor,
           ),
         ),
       ],
@@ -919,14 +972,18 @@ class _ProgramEditorState extends State<ProgramEditor> {
             padding: const EdgeInsets.only(top: 8, bottom: 8),
             child: Row(
               children: [
-                const Icon(Icons.link, size: 14, color: AppTheme.primaryColor),
+                Icon(
+                  Icons.link,
+                  size: 14,
+                  color: Theme.of(context).colorScheme.primary,
+                ),
                 const SizedBox(width: 8),
                 Text(
                   currentSuperset!.toUpperCase(),
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 10,
                     fontWeight: FontWeight.bold,
-                    color: AppTheme.primaryColor,
+                    color: Theme.of(context).colorScheme.primary,
                   ),
                 ),
               ],
@@ -947,13 +1004,25 @@ class _ProgramEditorState extends State<ProgramEditor> {
     IconData? icon,
     Color color = AppTheme.primaryColor,
   }) {
+    final bool isLight = Theme.of(context).brightness == Brightness.light;
+
+    // Use deeper colors for light mode if it's a bright accent color
+    Color effectiveColor = color;
+    if (isLight) {
+      if (color == Colors.cyanAccent) effectiveColor = Colors.teal[700]!;
+      if (color == Colors.orangeAccent) effectiveColor = Colors.orange[800]!;
+      if (color == Colors.blueAccent) effectiveColor = Colors.blue[800]!;
+    }
+
     return Container(
       width: double.infinity,
       height: 52,
       decoration: BoxDecoration(
-        color: color.withOpacity(0.05),
+        color: effectiveColor.withOpacity(isLight ? 0.12 : 0.08),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: color.withOpacity(0.15)),
+        border: Border.all(
+          color: effectiveColor.withOpacity(isLight ? 0.25 : 0.15),
+        ),
       ),
       child: Material(
         color: Colors.transparent,
@@ -964,13 +1033,13 @@ class _ProgramEditorState extends State<ProgramEditor> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               if (icon != null) ...[
-                Icon(icon, size: 20, color: color),
+                Icon(icon, size: 20, color: effectiveColor),
                 const SizedBox(width: 8),
               ],
               Text(
                 label.toUpperCase(),
                 style: TextStyle(
-                  color: color,
+                  color: effectiveColor,
                   fontSize: 12,
                   fontWeight: FontWeight.w900,
                   letterSpacing: 1,
@@ -986,97 +1055,196 @@ class _ProgramEditorState extends State<ProgramEditor> {
   void _addNewDay() {
     int week = _selectedWeek;
     int day = _days.where((d) => d.week == week).length + 1;
-    String muscleGroup = 'Quadriceps';
+
+    final TextEditingController typeController = TextEditingController(
+      text: 'Quadriceps',
+    );
+    final _PreventUnfocusNode focusNode = _PreventUnfocusNode();
+    final List<String> options =
+        (Exercise.muscleGroups + ["Lower Body", "Upper Body", "Core", "Cardio"])
+            .map((g) => g.replaceAll('_', ' '))
+            .toList();
 
     showDialog(
       context: context,
-      builder: (context) => StatefulBuilder(
-        builder: (context, setDialogState) => AlertDialog(
-          backgroundColor: AppTheme.surfaceColor,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(24),
-            side: BorderSide(color: Colors.white.withOpacity(0.1)),
+      builder: (context) => AlertDialog(
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(24),
+          side: BorderSide(
+            color: Theme.of(context).dividerColor.withOpacity(0.05),
           ),
-          title: const Text(
-            'Add Workout Day',
-            style: TextStyle(fontWeight: FontWeight.w900, fontSize: 20),
-          ),
-          content: Column(
+        ),
+        title: const Text(
+          'Add Workout Day',
+          style: TextStyle(fontWeight: FontWeight.w900, fontSize: 20),
+        ),
+        content: SizedBox(
+          width: double.maxFinite,
+          child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
+              Text(
                 'Which muscle group is the focus for this day?',
-                style: TextStyle(color: AppTheme.mutedTextColor, fontSize: 13),
+                style: TextStyle(
+                  color: Theme.of(
+                    context,
+                  ).colorScheme.onSurface.withOpacity(0.5),
+                  fontSize: 13,
+                ),
               ),
               const SizedBox(height: 20),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
+                // padding: const EdgeInsets.symmetric(horizontal: 16),
                 decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.2),
+                  color: Theme.of(context).dividerColor.withOpacity(0.05),
                   borderRadius: BorderRadius.circular(14),
-                  border: Border.all(color: Colors.white.withOpacity(0.05)),
+                  border: Border.all(
+                    color: Theme.of(context).dividerColor.withOpacity(0.1),
+                  ),
                 ),
-                child: DropdownButtonHideUnderline(
-                  child: DropdownButton<String>(
-                    value: muscleGroup,
-                    isExpanded: true,
-                    dropdownColor: AppTheme.surfaceColor,
-                    onChanged: (v) => setDialogState(() => muscleGroup = v!),
-                    items: Exercise.muscleGroups
-                        .map(
-                          (g) => DropdownMenuItem(
-                            value: g,
-                            child: Text(
-                              g.replaceAll('_', ' '),
+                child: LayoutBuilder(
+                  builder: (context, constraints) {
+                    return RawAutocomplete<String>(
+                      textEditingController: typeController,
+                      focusNode: focusNode,
+                      optionsBuilder: (TextEditingValue textEditingValue) {
+                        if (textEditingValue.text.isEmpty) {
+                          return options;
+                        }
+                        return options.where((String option) {
+                          return option.toLowerCase().contains(
+                            textEditingValue.text.toLowerCase(),
+                          );
+                        });
+                      },
+                      fieldViewBuilder:
+                          (
+                            context,
+                            textEditingController,
+                            focusNode,
+                            onFieldSubmitted,
+                          ) {
+                            return TextField(
+                              controller: textEditingController,
+                              focusNode: focusNode,
+                              decoration: const InputDecoration(
+                                border: InputBorder.none,
+                                hintText: 'Enter or select focus',
+                              ),
                               style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                               ),
+                              onSubmitted: (String value) {
+                                onFieldSubmitted();
+                              },
+                            );
+                          },
+                      optionsViewBuilder: (context, onSelected, options) {
+                        return Align(
+                          alignment: Alignment.topLeft,
+                          child: Material(
+                            elevation: 4.0,
+                            color: Theme.of(context).colorScheme.surface,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                              side: BorderSide(
+                                color: Theme.of(
+                                  context,
+                                ).dividerColor.withOpacity(0.05),
+                              ),
+                            ),
+                            child: ConstrainedBox(
+                              constraints: BoxConstraints(
+                                maxHeight: 200,
+                                maxWidth: constraints.maxWidth,
+                              ),
+                              child: Listener(
+                                onPointerDown: (_) =>
+                                    focusNode.preventUnfocus = true,
+                                onPointerUp: (_) =>
+                                    focusNode.preventUnfocus = false,
+                                onPointerCancel: (_) =>
+                                    focusNode.preventUnfocus = false,
+                                child: ListView.builder(
+                                  padding: EdgeInsets.zero,
+                                  shrinkWrap: true,
+                                  itemCount: options.length,
+                                  itemBuilder: (context, index) {
+                                    final option = options.elementAt(index);
+                                    return InkWell(
+                                      onTap: () {
+                                        onSelected(option);
+                                        focusNode.unfocus();
+                                      },
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(16.0),
+                                        child: Text(
+                                          option,
+                                          style: const TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ),
                             ),
                           ),
-                        )
-                        .toList(),
-                  ),
+                        );
+                      },
+                    );
+                  },
                 ),
               ),
             ],
           ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: const Text(
-                'Cancel',
-                style: TextStyle(color: AppTheme.mutedTextColor),
-              ),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                setState(
-                  () => _days.add(
-                    WorkoutDay(
-                      week: week,
-                      day: day,
-                      muscleGroup: muscleGroup,
-                      exercises: [],
-                    ),
-                  ),
-                );
-                Navigator.pop(context);
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppTheme.primaryColor,
-                foregroundColor: Colors.black,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-              ),
-              child: const Text(
-                'ADD DAY',
-                style: TextStyle(fontWeight: FontWeight.w900, fontSize: 12),
-              ),
-            ),
-          ],
         ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text(
+              'Cancel',
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.onSurface.withOpacity(0.5),
+              ),
+            ),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              if (typeController.text.trim().isEmpty) return;
+              final finalMuscleGroup = typeController.text.trim().isEmpty
+                  ? 'Workout'
+                  : typeController.text.trim();
+              setState(
+                () => _days.add(
+                  WorkoutDay(
+                    week: week,
+                    day: day,
+                    muscleGroup: finalMuscleGroup,
+                    exercises: [],
+                  ),
+                ),
+              );
+              Navigator.pop(context);
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Theme.of(context).colorScheme.primary,
+              foregroundColor: Theme.of(context).brightness == Brightness.dark
+                  ? Colors.black
+                  : Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+            ),
+            child: const Text(
+              'ADD DAY',
+              style: TextStyle(fontWeight: FontWeight.w900, fontSize: 12),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -1280,11 +1448,8 @@ class _ProgramEditorState extends State<ProgramEditor> {
     return showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        backgroundColor: AppTheme.surfaceColor,
-        title: const Text(
-          'Save Public Program',
-          style: TextStyle(color: Colors.white),
-        ),
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        title: const Text('Save Public Program'),
         content: const Text(
           'Do you want to apply these changes to all clients currently assigned to this program, or duplicate this into a new personal program for a specific client?',
           style: TextStyle(color: AppTheme.mutedTextColor),
@@ -1309,9 +1474,11 @@ class _ProgramEditorState extends State<ProgramEditor> {
           ),
           TextButton(
             onPressed: () => Navigator.pop(context, null),
-            child: const Text(
+            child: Text(
               'CANCEL',
-              style: TextStyle(color: AppTheme.mutedTextColor),
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.onSurface.withOpacity(0.5),
+              ),
             ),
           ),
         ],
@@ -1325,11 +1492,8 @@ class _ProgramEditorState extends State<ProgramEditor> {
       context: context,
       builder: (context) => StatefulBuilder(
         builder: (context, setDialogState) => AlertDialog(
-          backgroundColor: AppTheme.surfaceColor,
-          title: const Text(
-            'Select Client',
-            style: TextStyle(color: Colors.white),
-          ),
+          backgroundColor: Theme.of(context).colorScheme.surface,
+          title: const Text('Select Client'),
           content: DropdownButton<String>(
             value: selectedId,
             hint: const Text(
@@ -1337,7 +1501,7 @@ class _ProgramEditorState extends State<ProgramEditor> {
               style: TextStyle(color: AppTheme.mutedTextColor),
             ),
             isExpanded: true,
-            dropdownColor: AppTheme.surfaceColor,
+            dropdownColor: Theme.of(context).colorScheme.surface,
             items: _clients
                 .map((c) => DropdownMenuItem(value: c.uid, child: Text(c.name)))
                 .toList(),
@@ -1358,6 +1522,16 @@ class _ProgramEditorState extends State<ProgramEditor> {
         ),
       ),
     );
+  }
+}
+
+class _PreventUnfocusNode extends FocusNode {
+  bool preventUnfocus = false;
+
+  @override
+  void unfocus({UnfocusDisposition disposition = UnfocusDisposition.scope}) {
+    if (preventUnfocus) return;
+    super.unfocus(disposition: disposition);
   }
 }
 
@@ -1402,12 +1576,12 @@ class _ExercisePickerState extends State<_ExercisePicker> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const SizedBox(height: 12),
+        SizedBox(height: 12),
         Container(
           width: 40,
           height: 4,
           decoration: BoxDecoration(
-            color: Colors.white24,
+            color: Theme.of(context).colorScheme.onSurface.withOpacity(0.1),
             borderRadius: BorderRadius.circular(2),
           ),
         ),
@@ -1416,7 +1590,7 @@ class _ExercisePickerState extends State<_ExercisePicker> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Column(
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
@@ -1424,11 +1598,11 @@ class _ExercisePickerState extends State<_ExercisePicker> {
                     style: TextStyle(
                       fontSize: 10,
                       fontWeight: FontWeight.w900,
-                      color: AppTheme.primaryColor,
+                      color: Theme.of(context).colorScheme.primary,
                       letterSpacing: 1,
                     ),
                   ),
-                  Text(
+                  const Text(
                     'Select Exercises',
                     style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                   ),
@@ -1436,28 +1610,28 @@ class _ExercisePickerState extends State<_ExercisePicker> {
               ),
               InkWell(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => ExerciseEditorScreen(
-                        onExerciseCreated: (newEx) {
-                          widget.onSelected([..._selectedExercises, newEx]);
-                        },
-                      ),
+                  NavigationService.navigateTo(
+                    ExerciseEditorScreen(
+                      onExerciseCreated: (newEx) {
+                        widget.onSelected([..._selectedExercises, newEx]);
+                      },
                     ),
-                  ).then((_) {
+                    context: context,
+                  )?.then((_) {
                     if (mounted) Navigator.pop(context);
                   });
                 },
                 child: Container(
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    color: AppTheme.primaryColor.withOpacity(0.1),
+                    color: Theme.of(
+                      context,
+                    ).colorScheme.primary.withOpacity(0.15),
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  child: const Icon(
+                  child: Icon(
                     Icons.add_rounded,
-                    color: AppTheme.primaryColor,
+                    color: Theme.of(context).colorScheme.primary,
                     size: 24,
                   ),
                 ),
@@ -1472,9 +1646,9 @@ class _ExercisePickerState extends State<_ExercisePicker> {
             style: const TextStyle(fontSize: 16),
             decoration: InputDecoration(
               hintText: 'Search movement library...',
-              prefixIcon: const Icon(
+              prefixIcon: Icon(
                 Icons.search_rounded,
-                color: AppTheme.mutedTextColor,
+                color: Theme.of(context).colorScheme.onSurface.withOpacity(0.4),
               ),
               suffixIcon: _searchQuery.isNotEmpty
                   ? IconButton(
@@ -1488,7 +1662,7 @@ class _ExercisePickerState extends State<_ExercisePicker> {
                     )
                   : null,
               filled: true,
-              fillColor: Colors.white.withOpacity(0.05),
+              fillColor: Theme.of(context).dividerColor.withOpacity(0.05),
               contentPadding: const EdgeInsets.symmetric(
                 horizontal: 20,
                 vertical: 16,
@@ -1526,10 +1700,18 @@ class _ExercisePickerState extends State<_ExercisePicker> {
                       _selectedMuscleGroup = selected ? group : null;
                     });
                   },
-                  backgroundColor: Colors.white.withOpacity(0.05),
-                  selectedColor: AppTheme.primaryColor.withOpacity(0.2),
+                  backgroundColor: Theme.of(
+                    context,
+                  ).dividerColor.withOpacity(0.05),
+                  selectedColor: Theme.of(
+                    context,
+                  ).colorScheme.primary.withOpacity(0.25),
                   labelStyle: TextStyle(
-                    color: isSelected ? AppTheme.primaryColor : Colors.white60,
+                    color: isSelected
+                        ? Theme.of(context).colorScheme.primary
+                        : Theme.of(
+                            context,
+                          ).colorScheme.onSurface.withOpacity(0.6),
                     fontWeight: isSelected
                         ? FontWeight.bold
                         : FontWeight.normal,
@@ -1539,7 +1721,9 @@ class _ExercisePickerState extends State<_ExercisePicker> {
                     borderRadius: BorderRadius.circular(12),
                     side: BorderSide(
                       color: isSelected
-                          ? AppTheme.primaryColor.withOpacity(0.5)
+                          ? Theme.of(
+                              context,
+                            ).colorScheme.primary.withOpacity(0.55)
                           : Colors.transparent,
                     ),
                   ),
@@ -1582,7 +1766,7 @@ class _ExercisePickerState extends State<_ExercisePicker> {
                   },
                   child: const Text(
                     'CLEAR FILTERS',
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 10,
                       fontWeight: FontWeight.bold,
                       color: Colors.redAccent,
@@ -1623,24 +1807,29 @@ class _ExercisePickerState extends State<_ExercisePicker> {
                 return nameMatch && muscleMatch && setsMatch && repsMatch;
               }).toList();
 
-              if (filtered.isEmpty)
-                return const Center(
+              if (filtered.isEmpty) {
+                return Center(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Icon(
                         Icons.search_off_rounded,
                         size: 48,
-                        color: Colors.white12,
+                        color: Theme.of(context).dividerColor.withOpacity(0.1),
                       ),
-                      SizedBox(height: 16),
+                      const SizedBox(height: 16),
                       Text(
                         'No results found',
-                        style: TextStyle(color: AppTheme.mutedTextColor),
+                        style: TextStyle(
+                          color: Theme.of(
+                            context,
+                          ).colorScheme.onSurface.withOpacity(0.5),
+                        ),
                       ),
                     ],
                   ),
                 );
+              }
 
               return ListView.builder(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -1654,45 +1843,100 @@ class _ExercisePickerState extends State<_ExercisePicker> {
                     margin: const EdgeInsets.only(bottom: 8),
                     decoration: BoxDecoration(
                       color: isSelected
-                          ? AppTheme.primaryColor.withOpacity(0.05)
+                          ? Theme.of(
+                              context,
+                            ).colorScheme.primary.withOpacity(0.05)
                           : Colors.transparent,
                       borderRadius: BorderRadius.circular(16),
                     ),
-                    child: CheckboxListTile(
+                    child: ListTile(
+                      onTap: () {
+                        setState(() {
+                          if (isSelected) {
+                            _selectedExercises.removeWhere(
+                              (selected) => selected.id == ex.id,
+                            );
+                          } else {
+                            _selectedExercises.add(ex);
+                          }
+                        });
+                      },
                       title: Text(
                         ex.name,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: isSelected
-                              ? AppTheme.primaryColor
-                              : Colors.white,
+                              ? Theme.of(context).colorScheme.primary
+                              : Theme.of(context).colorScheme.onSurface,
                         ),
                       ),
                       subtitle: Text(
                         '${ex.muscleGroup.replaceAll('_', ' ')} • ${ex.sets ?? "-"} Sets • ${ex.reps ?? "-"} Reps',
-                        style: const TextStyle(
-                          fontSize: 12,
-                          color: AppTheme.mutedTextColor,
+                        style: TextStyle(
+                          fontSize: 13,
+                          color: Theme.of(
+                            context,
+                          ).colorScheme.onSurface.withOpacity(0.5),
                         ),
                       ),
-                      value: isSelected,
-                      activeColor: AppTheme.primaryColor,
-                      checkColor: Colors.black,
+                      trailing: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          IconButton(
+                            icon: Icon(
+                              Icons.edit_outlined,
+                              size: 20,
+                              color: Theme.of(context).colorScheme.primary,
+                            ),
+                            onPressed: () {
+                              NavigationService.navigateTo(
+                                ExerciseEditorScreen(
+                                  exerciseToEdit: ex,
+                                  onExerciseCreated: (updatedEx) {
+                                    // Replace or add the updated exercise in selection
+                                    setState(() {
+                                      _selectedExercises.removeWhere(
+                                        (selected) =>
+                                            selected.id == updatedEx.id,
+                                      );
+                                      _selectedExercises.add(updatedEx);
+                                    });
+                                    widget.onSelected(_selectedExercises);
+                                  },
+                                ),
+                                context: context,
+                              )?.then((_) {
+                                if (mounted) Navigator.pop(context);
+                              });
+                            },
+                          ),
+                          Checkbox(
+                            value: isSelected,
+                            activeColor: Theme.of(context).colorScheme.primary,
+                            checkColor:
+                                Theme.of(context).brightness == Brightness.dark
+                                ? Colors.black
+                                : Colors.white,
+                            onChanged: (bool? value) {
+                              setState(() {
+                                if (value == true) {
+                                  _selectedExercises.add(ex);
+                                } else {
+                                  _selectedExercises.removeWhere(
+                                    (selected) => selected.id == ex.id,
+                                  );
+                                }
+                              });
+                            },
+                          ),
+                        ],
+                      ),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(16),
                       ),
-                      contentPadding: const EdgeInsets.symmetric(horizontal: 8),
-                      onChanged: (bool? value) {
-                        setState(() {
-                          if (value == true) {
-                            _selectedExercises.add(ex);
-                          } else {
-                            _selectedExercises.removeWhere(
-                              (selected) => selected.id == ex.id,
-                            );
-                          }
-                        });
-                      },
+                      contentPadding: const EdgeInsets.symmetric(
+                        horizontal: 16,
+                      ),
                     ),
                   );
                 },
@@ -1703,9 +1947,11 @@ class _ExercisePickerState extends State<_ExercisePicker> {
         Container(
           padding: const EdgeInsets.all(24),
           decoration: BoxDecoration(
-            color: AppTheme.surfaceColor,
+            color: Theme.of(context).colorScheme.surface,
             border: Border(
-              top: BorderSide(color: Colors.white.withOpacity(0.05)),
+              top: BorderSide(
+                color: Theme.of(context).dividerColor.withOpacity(0.05),
+              ),
             ),
           ),
           child: ElevatedButton(
@@ -1716,8 +1962,10 @@ class _ExercisePickerState extends State<_ExercisePicker> {
                     Navigator.pop(context);
                   },
             style: ElevatedButton.styleFrom(
-              backgroundColor: AppTheme.primaryColor,
-              foregroundColor: Colors.black,
+              backgroundColor: Theme.of(context).colorScheme.primary,
+              foregroundColor: Theme.of(context).brightness == Brightness.dark
+                  ? Colors.black
+                  : Colors.white,
               minimumSize: const Size(double.infinity, 56),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),
@@ -1745,11 +1993,11 @@ class _ExercisePickerState extends State<_ExercisePicker> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.05),
+        color: Theme.of(context).dividerColor.withOpacity(0.05),
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
           color: value != null
-              ? AppTheme.primaryColor.withOpacity(0.3)
+              ? Theme.of(context).colorScheme.primary.withOpacity(0.3)
               : Colors.transparent,
         ),
       ),
@@ -1758,10 +2006,16 @@ class _ExercisePickerState extends State<_ExercisePicker> {
           value: value,
           hint: Text(
             label,
-            style: const TextStyle(fontSize: 12, color: Colors.white60),
+            style: TextStyle(
+              fontSize: 12,
+              color: Theme.of(context).colorScheme.onSurface.withOpacity(0.5),
+            ),
           ),
           icon: const Icon(Icons.keyboard_arrow_down, size: 16),
-          style: const TextStyle(fontSize: 12, color: Colors.white),
+          style: TextStyle(
+            fontSize: 12,
+            color: Theme.of(context).colorScheme.onSurface,
+          ),
           dropdownColor: AppTheme.surfaceColor,
           items: [
             DropdownMenuItem<T>(value: null, child: Text('Any $label')),

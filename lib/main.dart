@@ -5,11 +5,13 @@ import 'package:provider/provider.dart';
 import 'package:ptapp/providers/auth_provider.dart';
 import 'package:ptapp/screens/auth/login_screen.dart';
 import 'package:ptapp/screens/client/client_navigation_wrapper.dart';
+import 'package:ptapp/screens/client/consent_screen.dart';
 import 'package:ptapp/screens/client/onboarding_screen.dart';
 import 'package:ptapp/screens/coach/coach_navigation_wrapper.dart';
 import 'package:ptapp/services/notification_service.dart';
 import 'package:ptapp/utils/navigation.dart';
 import 'package:ptapp/utils/theme.dart';
+import 'package:ptapp/utils/depth_manager.dart';
 
 import 'firebase_options.dart';
 import 'models/user_model.dart';
@@ -23,37 +25,31 @@ void main() async {
   runApp(
     MultiProvider(
       providers: [ChangeNotifierProvider(create: (_) => AuthProvider())],
-      child: const MyApp(),
+      child: MaterialApp(
+        navigatorKey: NavigationService.navigatorKey,
+        title: 'Najib Trainer',
+        debugShowCheckedModeBanner: false,
+        theme: AppTheme.lightTheme,
+        darkTheme: AppTheme.darkTheme,
+        themeMode: ThemeMode.system,
+        builder: (context, child) {
+          return PageDepth(
+            depth: 1,
+            child: Listener(
+              onPointerDown: (PointerDownEvent event) {
+                final FocusScopeNode currentFocus = FocusScope.of(context);
+                if (!currentFocus.hasPrimaryFocus && currentFocus.hasFocus) {
+                  FocusManager.instance.primaryFocus?.unfocus();
+                }
+              },
+              child: child ?? const SizedBox.shrink(),
+            ),
+          );
+        },
+        home: const AuthWrapper(),
+      ),
     ),
   );
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      navigatorKey: NavigationService.navigatorKey,
-      title: 'Nijib Trainer',
-      debugShowCheckedModeBanner: false,
-      theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme,
-      themeMode: ThemeMode.dark,
-      builder: (context, child) {
-        return Listener(
-          onPointerDown: (PointerDownEvent event) {
-            final FocusScopeNode currentFocus = FocusScope.of(context);
-            if (!currentFocus.hasPrimaryFocus && currentFocus.hasFocus) {
-              FocusManager.instance.primaryFocus?.unfocus();
-            }
-          },
-          child: child ?? const SizedBox.shrink(),
-        );
-      },
-      home: const AuthWrapper(),
-    );
-  }
 }
 
 class AuthWrapper extends StatelessWidget {
@@ -108,6 +104,11 @@ class AuthWrapper extends StatelessWidget {
     if (user.role == UserRole.coach) {
       return const CoachNavigationWrapper();
     } else {
+      // GDPR Consent Gate
+      if (!user.consentGiven) {
+        return const ConsentScreen();
+      }
+
       // Check for onboarding
       if (!user.isOnboardingComplete) {
         return const OnboardingScreen();

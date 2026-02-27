@@ -5,6 +5,7 @@ import 'package:ptapp/services/database_service.dart';
 import 'package:ptapp/utils/theme.dart';
 import 'package:ptapp/widgets/youtube_dialog.dart';
 import 'package:ptapp/screens/coach/exercise_editor_screen.dart';
+import 'package:ptapp/utils/navigation.dart';
 
 class ExerciseLibraryScreen extends StatefulWidget {
   const ExerciseLibraryScreen({super.key});
@@ -34,7 +35,7 @@ class _ExerciseLibraryScreenState extends State<ExerciseLibraryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      backgroundColor: AppTheme.getScaffoldColor(context),
       body: StreamBuilder<List<Exercise>>(
         stream: _exercisesStream,
         builder: (context, snapshot) {
@@ -158,7 +159,7 @@ class _ExerciseLibraryScreenState extends State<ExerciseLibraryScreen> {
       pinned: true,
       stretch: true,
       elevation: 0,
-      backgroundColor: AppTheme.backgroundColor,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       flexibleSpace: FlexibleSpaceBar(
         stretchModes: const [
           StretchMode.blurBackground,
@@ -173,7 +174,7 @@ class _ExerciseLibraryScreenState extends State<ExerciseLibraryScreen> {
             style: GoogleFonts.outfit(
               fontWeight: FontWeight.bold,
               fontSize: 20,
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.onSurface,
             ),
           ),
         ),
@@ -199,9 +200,11 @@ class _ExerciseLibraryScreenState extends State<ExerciseLibraryScreen> {
                 child: Container(
                   height: 48,
                   decoration: BoxDecoration(
-                    color: AppTheme.surfaceColor,
+                    color: Theme.of(context).colorScheme.surface,
                     borderRadius: BorderRadius.circular(16),
-                    border: Border.all(color: Colors.white.withOpacity(0.05)),
+                    border: Border.all(
+                      color: Theme.of(context).dividerColor.withOpacity(0.05),
+                    ),
                   ),
                   child: TextField(
                     onChanged: (v) => setState(() => _searchQuery = v),
@@ -209,12 +212,16 @@ class _ExerciseLibraryScreenState extends State<ExerciseLibraryScreen> {
                     decoration: InputDecoration(
                       hintText: 'Search exercises...',
                       hintStyle: TextStyle(
-                        color: Colors.white.withOpacity(0.3),
+                        color: Theme.of(
+                          context,
+                        ).colorScheme.onSurface.withOpacity(0.3),
                       ),
                       prefixIcon: Icon(
                         Icons.search,
                         size: 20,
-                        color: Colors.white.withOpacity(0.5),
+                        color: Theme.of(
+                          context,
+                        ).colorScheme.onSurface.withOpacity(0.5),
                       ),
                       border: InputBorder.none,
                       enabledBorder: InputBorder.none,
@@ -280,12 +287,12 @@ class _ExerciseLibraryScreenState extends State<ExerciseLibraryScreen> {
                   decoration: BoxDecoration(
                     color: isSelected
                         ? AppTheme.primaryColor
-                        : AppTheme.surfaceColor,
+                        : Theme.of(context).colorScheme.surface,
                     borderRadius: BorderRadius.circular(14),
                     border: Border.all(
                       color: isSelected
                           ? Colors.transparent
-                          : Colors.white.withOpacity(0.05),
+                          : Theme.of(context).dividerColor.withOpacity(0.05),
                     ),
                     boxShadow: isSelected
                         ? [
@@ -300,7 +307,11 @@ class _ExerciseLibraryScreenState extends State<ExerciseLibraryScreen> {
                   child: Text(
                     cat,
                     style: TextStyle(
-                      color: isSelected ? Colors.black : Colors.white70,
+                      color: isSelected
+                          ? Colors.black
+                          : Theme.of(
+                              context,
+                            ).colorScheme.onSurface.withOpacity(0.7),
                       fontWeight: isSelected
                           ? FontWeight.bold
                           : FontWeight.w500,
@@ -352,11 +363,12 @@ class _ExerciseLibraryScreenState extends State<ExerciseLibraryScreen> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.2),
-            blurRadius: 10,
-            offset: const Offset(0, 4),
-          ),
+          if (Theme.of(context).brightness == Brightness.dark)
+            BoxShadow(
+              color: Colors.black.withOpacity(0.2),
+              blurRadius: 10,
+              offset: const Offset(0, 4),
+            ),
         ],
       ),
       child: ClipRRect(
@@ -369,10 +381,10 @@ class _ExerciseLibraryScreenState extends State<ExerciseLibraryScreen> {
                 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1000',
                 fit: BoxFit.cover,
                 errorBuilder: (context, error, stackTrace) => Container(
-                  color: AppTheme.surfaceColor,
-                  child: const Icon(
+                  color: Theme.of(context).colorScheme.surface,
+                  child: Icon(
                     Icons.fitness_center,
-                    color: Colors.white24,
+                    color: Theme.of(context).dividerColor.withOpacity(0.2),
                     size: 40,
                   ),
                 ),
@@ -397,14 +409,12 @@ class _ExerciseLibraryScreenState extends State<ExerciseLibraryScreen> {
             Material(
               color: Colors.transparent,
               child: InkWell(
-                onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => ExerciseEditorScreen(
-                      exerciseToEdit: exercise,
-                      isReadOnly: false,
-                    ),
+                onTap: () => NavigationService.navigateTo(
+                  ExerciseEditorScreen(
+                    exerciseToEdit: exercise,
+                    isReadOnly: false,
                   ),
+                  context: context,
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(16),
@@ -481,14 +491,12 @@ class _ExerciseLibraryScreenState extends State<ExerciseLibraryScreen> {
                             const SizedBox(width: 8),
                           ],
                           GestureDetector(
-                            onTap: () => Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (_) => ExerciseEditorScreen(
-                                  exerciseToEdit: exercise,
-                                  isReadOnly: false,
-                                ),
+                            onTap: () => NavigationService.navigateTo(
+                              ExerciseEditorScreen(
+                                exerciseToEdit: exercise,
+                                isReadOnly: false,
                               ),
+                              context: context,
                             ),
                             child: Container(
                               padding: const EdgeInsets.all(8),
@@ -552,15 +560,13 @@ class _ExerciseLibraryScreenState extends State<ExerciseLibraryScreen> {
   }
 
   void _showAddExerciseDialog(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (_) => ExerciseEditorScreen(
-          onExerciseCreated: (exercise) {
-            // The library screen listens to the stream, so it will update automatically.
-          },
-        ),
+    NavigationService.navigateTo(
+      ExerciseEditorScreen(
+        onExerciseCreated: (exercise) {
+          // The library screen listens to the stream, so it will update automatically.
+        },
       ),
+      context: context,
     );
   }
 }

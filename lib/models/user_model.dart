@@ -22,6 +22,10 @@ class AppUser {
   final bool isOnboardingComplete;
   final bool isCoachCreated;
 
+  // Consent Data
+  final bool consentGiven;
+  final DateTime? consentTimestamp;
+  final String? consentVersion;
 
   AppUser({
     required this.uid,
@@ -40,10 +44,13 @@ class AppUser {
     this.goal,
     this.goalDetails,
     this.timeCommitment,
-    this.isOnboardingComplete = true, // Default to true for backward compatibility/coaches
+    this.isOnboardingComplete =
+        true, // Default to true for backward compatibility/coaches
     this.isCoachCreated = false,
+    this.consentGiven = false,
+    this.consentTimestamp,
+    this.consentVersion,
   });
-
 
   Map<String, dynamic> toMap() {
     return {
@@ -65,8 +72,10 @@ class AppUser {
       'timeCommitment': timeCommitment,
       'isOnboardingComplete': isOnboardingComplete,
       'isCoachCreated': isCoachCreated,
+      'consentGiven': consentGiven,
+      'consentTimestamp': consentTimestamp?.toIso8601String(),
+      'consentVersion': consentVersion,
     };
-
   }
 
   factory AppUser.fromMap(Map<String, dynamic> map, String documentId) {
@@ -89,7 +98,11 @@ class AppUser {
       timeCommitment: map['timeCommitment'],
       isOnboardingComplete: map['isOnboardingComplete'] ?? true,
       isCoachCreated: map['isCoachCreated'] ?? false,
+      consentGiven: map['consentGiven'] ?? false,
+      consentTimestamp: map['consentTimestamp'] != null
+          ? DateTime.tryParse(map['consentTimestamp'])
+          : null,
+      consentVersion: map['consentVersion'],
     );
-
   }
 }

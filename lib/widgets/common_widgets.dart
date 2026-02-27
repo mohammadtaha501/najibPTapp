@@ -5,12 +5,7 @@ class CustomCard extends StatelessWidget {
   final EdgeInsetsGeometry? padding;
   final VoidCallback? onTap;
 
-  const CustomCard({
-    super.key,
-    required this.child,
-    this.padding,
-    this.onTap,
-  });
+  const CustomCard({super.key, required this.child, this.padding, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -64,10 +59,7 @@ class SectionHeader extends StatelessWidget {
             ),
           ),
           if (actionLabel != null)
-            TextButton(
-              onPressed: onActionPressed,
-              child: Text(actionLabel!),
-            ),
+            TextButton(onPressed: onActionPressed, child: Text(actionLabel!)),
         ],
       ),
     );

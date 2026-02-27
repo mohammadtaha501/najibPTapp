@@ -69,6 +69,7 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppTheme.getScaffoldColor(context),
       appBar: AppBar(
         titleSpacing: 0,
         leadingWidth: 40,
@@ -104,7 +105,7 @@ class _ChatScreenState extends State<ChatScreen> {
       ),
       body: Container(
         decoration: BoxDecoration(
-          color: AppTheme.backgroundColor,
+          // color: Theme.of(context).scaffoldBackgroundColor,
           image: const DecorationImage(
             image: AssetImage(
               'assets/images/chat_bg.png',
@@ -228,7 +229,7 @@ class _ChatScreenState extends State<ChatScreen> {
                             end: Alignment.bottomRight,
                           )
                         : null,
-                    color: isMe ? null : AppTheme.surfaceColor,
+                    color: isMe ? null : Theme.of(context).colorScheme.surface,
                     borderRadius: BorderRadius.only(
                       topLeft: const Radius.circular(20),
                       topRight: const Radius.circular(20),
@@ -246,7 +247,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   child: Text(
                     message.text,
                     style: TextStyle(
-                      color: isMe ? Colors.black : Colors.white,
+                      color: Theme.of(context).colorScheme.onSurface,
                       fontSize: 14,
                       fontWeight: isMe ? FontWeight.w600 : FontWeight.normal,
                     ),
@@ -287,17 +288,23 @@ class _ChatScreenState extends State<ChatScreen> {
         top: 8,
       ),
       decoration: BoxDecoration(
-        color: AppTheme.backgroundColor,
-        border: Border(top: BorderSide(color: Colors.white.withOpacity(0.05))),
+        color: Theme.of(context).scaffoldBackgroundColor,
+        border: Border(
+          top: BorderSide(
+            color: Theme.of(context).dividerColor.withOpacity(0.05),
+          ),
+        ),
       ),
       child: Row(
         children: [
           Expanded(
             child: Container(
               decoration: BoxDecoration(
-                color: AppTheme.surfaceColor,
+                color: Theme.of(context).colorScheme.surface,
                 borderRadius: BorderRadius.circular(24),
-                border: Border.all(color: Colors.white.withOpacity(0.02)),
+                border: Border.all(
+                  color: Theme.of(context).dividerColor.withOpacity(0.02),
+                ),
               ),
               child: TextField(
                 controller: _messageController,
@@ -307,7 +314,9 @@ class _ChatScreenState extends State<ChatScreen> {
                 decoration: InputDecoration(
                   hintText: 'Type a message...',
                   hintStyle: TextStyle(
-                    color: Colors.white.withOpacity(0.3),
+                    color: Theme.of(
+                      context,
+                    ).colorScheme.onSurface.withOpacity(0.3),
                     fontSize: 14,
                   ),
                   contentPadding: const EdgeInsets.symmetric(

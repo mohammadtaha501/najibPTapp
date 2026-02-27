@@ -10,6 +10,7 @@ import 'package:ptapp/screens/coach/client_detail.dart';
 import 'package:ptapp/screens/coach/client_creation_screen.dart';
 import 'package:ptapp/screens/coach/coach_notification_screen.dart';
 
+import 'package:ptapp/utils/navigation.dart';
 
 class CoachHomeScreen extends StatefulWidget {
   const CoachHomeScreen({super.key});
@@ -61,7 +62,7 @@ class _CoachHomeScreenState extends State<CoachHomeScreen> {
     return Container(
       padding: const EdgeInsets.fromLTRB(16, 12, 16, 24),
       decoration: BoxDecoration(
-        color: AppTheme.backgroundColor,
+        color: Theme.of(context).scaffoldBackgroundColor,
         borderRadius: const BorderRadius.vertical(bottom: Radius.circular(24)),
       ),
       child: StreamBuilder<List<AppUser>>(
@@ -112,9 +113,23 @@ class _CoachHomeScreenState extends State<CoachHomeScreen> {
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: AppTheme.surfaceColor,
-          borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: Colors.white.withOpacity(0.05)),
+          color: Theme.of(context).cardTheme.color,
+          borderRadius:
+              Theme.of(context).cardTheme.shape is RoundedRectangleBorder
+              ? (Theme.of(context).cardTheme.shape as RoundedRectangleBorder)
+                    .borderRadius
+              : BorderRadius.circular(20),
+          boxShadow: [
+            if (Theme.of(context).brightness == Brightness.light)
+              BoxShadow(
+                color: Colors.black.withOpacity(0.04),
+                blurRadius: 10,
+                offset: const Offset(0, 4),
+              ),
+          ],
+          border: Border.all(
+            color: Theme.of(context).dividerColor.withOpacity(0.05),
+          ),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -123,10 +138,10 @@ class _CoachHomeScreenState extends State<CoachHomeScreen> {
             const SizedBox(height: 12),
             Text(
               value,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.w900,
-                color: Colors.white,
+                color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
             Text(
@@ -149,12 +164,14 @@ class _CoachHomeScreenState extends State<CoachHomeScreen> {
     final authProvider = Provider.of<AuthProvider>(context);
 
     return Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      backgroundColor: AppTheme.getScaffoldColor(context),
       appBar: AppBar(
         title: Text('Welcome ${authProvider.userProfile?.name ?? 'Coach'}'),
         actions: [
           StreamBuilder<int>(
-            stream: _dbService.getUnreadNotificationCount(authProvider.userProfile!.uid),
+            stream: _dbService.getUnreadNotificationCount(
+              authProvider.userProfile!.uid,
+            ),
             builder: (context, snapshot) {
               final unreadCount = snapshot.data ?? 0;
               return Stack(
@@ -162,7 +179,10 @@ class _CoachHomeScreenState extends State<CoachHomeScreen> {
                 children: [
                   IconButton(
                     icon: const Icon(Icons.notifications_outlined),
-                    onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const CoachNotificationScreen())),
+                    onPressed: () => NavigationService.navigateTo(
+                      const CoachNotificationScreen(),
+                      context: context,
+                    ),
                   ),
                   if (unreadCount > 0)
                     Positioned(
@@ -170,11 +190,21 @@ class _CoachHomeScreenState extends State<CoachHomeScreen> {
                       top: 8,
                       child: Container(
                         padding: const EdgeInsets.all(4),
-                        decoration: const BoxDecoration(color: AppTheme.primaryColor, shape: BoxShape.circle),
-                        constraints: const BoxConstraints(minWidth: 16, minHeight: 16),
+                        decoration: const BoxDecoration(
+                          color: AppTheme.primaryColor,
+                          shape: BoxShape.circle,
+                        ),
+                        constraints: const BoxConstraints(
+                          minWidth: 16,
+                          minHeight: 16,
+                        ),
                         child: Text(
                           '$unreadCount',
-                          style: const TextStyle(color: Colors.black, fontSize: 10, fontWeight: FontWeight.bold),
+                          style: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 10,
+                            fontWeight: FontWeight.bold,
+                          ),
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -206,12 +236,9 @@ class _CoachHomeScreenState extends State<CoachHomeScreen> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (_) =>
-                ProgramEditor(coachId: authProvider.userProfile!.uid),
-          ),
+        onPressed: () => NavigationService.navigateTo(
+          ProgramEditor(coachId: authProvider.userProfile!.uid),
+          context: context,
         ),
         backgroundColor: AppTheme.primaryColor,
         child: const Icon(Icons.add, color: Colors.black),
@@ -308,12 +335,14 @@ class _CoachHomeScreenState extends State<CoachHomeScreen> {
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
           decoration: BoxDecoration(
-            color: isSelected ? AppTheme.primaryColor : AppTheme.surfaceColor,
+            color: isSelected
+                ? AppTheme.primaryColor
+                : Theme.of(context).colorScheme.surface,
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
               color: isSelected
                   ? AppTheme.primaryColor
-                  : Colors.white.withOpacity(0.1),
+                  : Theme.of(context).dividerColor.withOpacity(0.1),
             ),
           ),
           child: Row(
@@ -357,9 +386,9 @@ class _CoachHomeScreenState extends State<CoachHomeScreen> {
         ),
       ),
       child: InkWell(
-        onTap: () => Navigator.push(
-          context,
-          MaterialPageRoute(builder: (_) => ClientDetailScreen(client: client)),
+        onTap: () => NavigationService.navigateTo(
+          ClientDetailScreen(client: client),
+          context: context,
         ),
         child: Row(
           children: [
@@ -368,7 +397,9 @@ class _CoachHomeScreenState extends State<CoachHomeScreen> {
               backgroundColor: Colors.white10,
               child: Text(
                 client.name.isNotEmpty ? client.name[0] : '?',
-                style: const TextStyle(color: Colors.white),
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.onSurface,
+                ),
               ),
             ),
             const SizedBox(width: 14),
@@ -426,8 +457,11 @@ class _CoachHomeScreenState extends State<CoachHomeScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        backgroundColor: AppTheme.surfaceColor,
-        title: const Text('Logout', style: TextStyle(color: Colors.white)),
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        title: Text(
+          'Logout',
+          style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
+        ),
         content: const Text(
           'Are you sure you want to log out?',
           style: TextStyle(color: AppTheme.mutedTextColor),
@@ -459,9 +493,9 @@ class _CoachHomeScreenState extends State<CoachHomeScreen> {
   }
 
   void _showAddClientDialog(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (_) => const ClientCreationScreen()),
+    NavigationService.navigateTo(
+      const ClientCreationScreen(),
+      context: context,
     );
   }
 
@@ -470,7 +504,7 @@ class _CoachHomeScreenState extends State<CoachHomeScreen> {
       margin: const EdgeInsets.fromLTRB(16, 0, 16, 16),
       padding: const EdgeInsets.all(4),
       decoration: BoxDecoration(
-        color: AppTheme.surfaceColor,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Row(
@@ -647,12 +681,9 @@ class _CoachHomeScreenState extends State<CoachHomeScreen> {
                         color: AppTheme.primaryColor,
                         size: 20,
                       ),
-                      onPressed: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) =>
-                              ProgramEditor(coachId: coachId, programToEdit: p),
-                        ),
+                      onPressed: () => NavigationService.navigateTo(
+                        ProgramEditor(coachId: coachId, programToEdit: p),
+                        context: context,
                       ),
                     ),
                     IconButton(
@@ -678,10 +709,10 @@ class _CoachHomeScreenState extends State<CoachHomeScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        backgroundColor: AppTheme.surfaceColor,
-        title: const Text(
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        title: Text(
           'Delete Program?',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
         ),
         content: Column(
           mainAxisSize: MainAxisSize.min,

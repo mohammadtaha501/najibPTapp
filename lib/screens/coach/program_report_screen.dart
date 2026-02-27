@@ -49,6 +49,7 @@ class _ProgramReportScreenState extends State<ProgramReportScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppTheme.getScaffoldColor(context),
       appBar: AppBar(title: Text('${widget.program.name} Report')),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),

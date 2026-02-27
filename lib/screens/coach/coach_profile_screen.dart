@@ -3,6 +3,9 @@ import 'package:provider/provider.dart';
 import 'package:ptapp/providers/auth_provider.dart';
 import 'package:ptapp/utils/theme.dart';
 import 'package:ptapp/screens/common/change_password_screen.dart';
+import 'package:ptapp/utils/navigation.dart';
+import 'package:ptapp/models/exercise_model.dart';
+import 'package:ptapp/services/database_service.dart';
 
 class CoachProfileScreen extends StatefulWidget {
   const CoachProfileScreen({super.key});
@@ -57,22 +60,296 @@ class _CoachProfileScreenState extends State<CoachProfileScreen> {
     }
   }
 
+  Future<void> _seedDatabase() async {
+    setState(() => _isLoading = true);
+    try {
+      final db = DatabaseService();
+      final data = {
+        "Quadriceps": [
+          "Barbell Box Squat",
+          "Barbell Bulgarian Split-Squat",
+          "Barbell Front Squat",
+          "Barbell Jump Squat",
+          "Barbell Squat",
+          "Barbell Standing Lunge",
+          "Barbell Step Up",
+          "Barbell Walking Lunge",
+          "Body Weight Bulgarian Split-Squat",
+          "Body Weight Pistol Squat",
+          "Body Weight Squat",
+          "Body Weight Standing Lunge",
+          "Body Weight Step Up",
+          "Body Weight Walking Lunge",
+          "Dumbbell Body Weight Squat",
+          "Dumbbell Bulgarian Split-Squat",
+          "Dumbbell Goblet Squat",
+          "Dumbbell Standing Lunge",
+          "Dumbbell Step Up",
+          "Dumbbell Walking Lunge",
+          "Machine Hack Squat",
+          "Machine Laying Leg Press",
+          "Machine Leg Press",
+          "Machine Seated Leg Press",
+          "Machine Single-Leg Press",
+          "Hip Ab/Adduction (Pulse)",
+        ],
+        "Glutes_Hamstrings": [
+          "Barbell Deadlift",
+          "Barbell Deadlifts from Blocks",
+          "Barbell Deadlifts from Deficit",
+          "Barbell Glute Bridge",
+          "Barbell Hip Thrust",
+          "Barbell Romanian Deadlift",
+          "Barbell Stiff-Legged Deadlift",
+          "Barbell Sumo Deadlift",
+          "Body Weight Glute-Ham Raise",
+          "Cable One-Legged Kickback",
+          "Cable Pull Through",
+          "Dumbbell Glute Bridge",
+          "Dumbbell Hip Thrust",
+          "Dumbbell Romanian Deadlift",
+          "Dumbbell Stiff-Legged Deadlift",
+          "Machine Glute-Ham Raise",
+          "Machine Laying Leg Curl",
+          "Machine Reverse Hyperextension",
+          "Machine Seated Leg Curl",
+          "Glute Bridge",
+          "Machine Standing Leg Curl",
+          "Banded Leg Extension",
+          "Double Leg Hamstring Bridge",
+        ],
+        "Calves": [
+          "Barbell Calf Raise",
+          "Dumbbell Calf Raise",
+          "Machine Calf Extension (Seated)",
+          "Machine Calf Raise",
+          "Machine Leg Press Calf Extension (Seated/Laying)",
+          "Single Leg Seated Calf Raise",
+        ],
+        "Chest": [
+          "Barbell Decline Bench Press",
+          "Barbell Flat Bench Press",
+          "Barbell Incline Bench Press",
+          "Body Weight Decline Push-Up",
+          "Body Weight Dip (Chest Variation)",
+          "Body Weight Incline Push-Up",
+          "Body Weight Push-Up",
+          "Cable Chest Press (Seated)",
+          "Cable Chest Press (Standing)",
+          "Cable Crossover",
+          "Cable Crossover (High Angle)",
+          "Cable Crossover (Low Angle)",
+          "Cable Flat Bench Fly",
+          "Cable Incline Bench Fly",
+          "Cable Incline Bench Press",
+          "Dumbbell Decline Bench Fly",
+          "Dumbbell Decline Bench Press",
+          "Dumbbell Flat Bench Fly",
+          "Dumbbell Flat Bench Press",
+          "Dumbbell Incline Bench Fly",
+          "Dumbbell Incline Bench Press",
+          "Machine Assisted Dip (Chest Variation)",
+          "Machine Butterfly",
+          "Machine Chest Press",
+          "Machine Decline Chest Press",
+          "Machine Incline Chest Press",
+          "Smith Machine Bench Press",
+          "Smith Machine Decline Chest Press",
+          "Smith Machine Incline Bench Press",
+          "Weighted Decline Push-Up",
+          "Weighted Dip (Chest Variation)",
+          "Weighted Incline Push-Up",
+          "Weighted Push-Up",
+        ],
+        "Back": [
+          "Barbell Bent Over Row",
+          "Barbell Chest-Supported T-Bar Row",
+          "Barbell Incline Bench Row",
+          "Barbell One-Arm Row",
+          "Barbell Pendlay Row",
+          "Barbell Reverse Grip Bent Over",
+          "Barbell Shrug",
+          "Barbell T-Bar Row",
+          "Body Weight Back Extension",
+          "Body Weight Inverted Row",
+          "Body Weight Pull-Up",
+          "Cable Narrow-Grip Lat Pull-Down",
+          "Cable One-Arm Lat Pull-Down",
+          "Cable One-Arm Row (Seated)",
+          "Cable Reverse-Grip Lat Pull-Down",
+          "Cable Row (Seated)",
+          "Cable Straight-Arm Pull-Down",
+          "Cable V-Bar Lat Pull-Down",
+          "Cable Wide-Grip Lat Pull-Down",
+          "Dumbbell Bent Over Row",
+          "Dumbbell Incline Bench Row",
+          "Dumbbell One-Arm Row",
+          "Dumbbell Reverse Grip Bent Over",
+          "Dumbbell Shrug",
+          "Machine Assisted Pull-Up",
+          "Machine Back Extension",
+          "Machine Chest Supported Row",
+          "Machine Iso Row",
+          "Machine Shrug",
+          "Smith Machine Bent Over Row",
+          "Weighted Pull-Up",
+        ],
+        "Shoulders": [
+          "Barbell Front Raise",
+          "Barbell One-Arm Linear Jammer",
+          "Barbell Push Press",
+          "Barbell Seated Shoulder Press",
+          "Barbell Standing Shoulder Press",
+          "Barbell Upright Row",
+          "Body Weight Handstand Push-Up",
+          "Body Weight Pike Push-Up",
+          "Cable Face Pull",
+          "Cable Front Raise",
+          "Cable Lateral Raise",
+          "Cable Rear Delt Fly",
+          "Cable Shoulder Press (Seated)",
+          "Cable Standing Shoulder Press (Standing)",
+          "Cable Upright Row",
+          "Dumbbell Arnold Press",
+          "Dumbbell Front Raise",
+          "Dumbbell One-Arm Lateral Raise",
+          "Dumbbell Rear Delt Raise",
+          "Dumbbell Reverse Fly",
+          "Dumbbell Seated Shoulder Press",
+          "Dumbbell Side Lateral Raise",
+          "Dumbbell Standing One-Arm Press",
+          "Dumbbell Standing Shoulder Press",
+          "Dumbbell Upright Row",
+          "Machine Lateral Raise",
+          "Machine Reverse Fly",
+          "Machine Shoulder Press",
+          "Machine Upright Row",
+          "Smith Machine Shoulder Press",
+        ],
+        "Triceps": [
+          "Barbell Close-Grip Bench Press",
+          "Barbell Decline Bench Triceps Extension",
+          "Barbell Flat Bench Triceps Extension",
+          "Barbell Incline Bench Triceps Extension",
+          "Barbell Overhead Triceps Extension",
+          "Body Weight Bench Dip",
+          "Body Weight Dips (Triceps Variation)",
+          "Cable Decline Bench Triceps Extension",
+          "Cable Flat Bench Triceps Extension",
+          "Cable Incline Bench Triceps Extension",
+          "Cable One-Arm Overhead Triceps Extension",
+          "Cable Overhead Triceps Extension",
+          "Cable Reverse-Grip Triceps Push-Down",
+          "Cable Rope Triceps Push-Down",
+          "Cable Straight-Bar Triceps Push-Down",
+          "Cable Triceps Kickback",
+          "Cable V-Bar Triceps Push-Down",
+          "Dumbbell Bent Over Triceps Extension",
+          "Dumbbell Close-Grip Bench Press",
+          "Dumbbell Decline Bench Triceps Extension",
+          "Dumbbell Flat Bench Triceps Extension",
+          "Dumbbell Incline Bench Triceps Extension",
+          "Dumbbell One-Arm Overhead Triceps Extension",
+          "Dumbbell Overhead Triceps Extension",
+          "Dumbbell Triceps Kickback",
+          "Machine Assisted Dips (Triceps Variation)",
+          "Machine Triceps Extension",
+          "Smith Machine Close-Grip Bench Press",
+          "Weighted Bench Dip",
+          "Weighted Dips (Triceps Variation)",
+        ],
+        "Biceps": [
+          "Barbell Close-Grip Biceps Curl",
+          "Barbell Concentration Biceps Curl",
+          "Barbell Preacher Biceps Curl",
+          "Barbell Regular-Grip Biceps Curl",
+          "Barbell Reverse-Grip Biceps Curl",
+          "Barbell Wide-Grip Biceps Curl",
+          "Body Weight Chin-Up",
+          "Cable Bar Biceps Curl",
+          "Cable Incline Bench Biceps Curl",
+          "Cable One-Arm Biceps Curl",
+          "Cable Overhead Curl",
+          "Cable Rope Biceps Curl",
+          "Dumbbell Alternate Biceps Curl",
+          "Dumbbell Concentration Biceps Curl",
+          "Dumbbell Hammer Biceps Curl",
+          "Dumbbell Incline Bench Biceps Curl",
+          "Dumbbell One-Arm Biceps Curl",
+          "Dumbbell Preacher Biceps Curl",
+          "Dumbbell Reverse-Grip Biceps Curl",
+          "Dumbbell Reverse-Grip Biceps Curl",
+          "Machine Assisted Chin-Up",
+          "Machine Biceps Curl",
+          "Machine Preacher Biceps Curl",
+          "Weighted Chin-Up",
+        ],
+        "Abs": [
+          "Barbell Plate Ab Twist",
+          "Body Weight Ab Crunch",
+          "Body Weight Hanging Leg Raise",
+          "Body Weight Plank",
+          "Dumbbell Ab Twist",
+          "Machine Ab Crunch",
+          "Weighted Hanging Leg Raise",
+          "Weighted Plank",
+        ],
+        "Other": [
+          "Barbell Wrist Curl",
+          "Dumbbell Wrist Curl",
+          "Neck Curl",
+          "Neck Extension",
+          "ITB release via Foam roller",
+          "TFL release via Trigger ball",
+        ],
+      };
+
+      for (var group in data.entries) {
+        for (var exName in group.value) {
+          final exercise = Exercise(name: exName, muscleGroup: group.key);
+          await db.addExercise(exercise);
+        }
+      }
+
+      setState(() => _isLoading = false);
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Database Seeded Successfully!')),
+        );
+      }
+    } catch (e) {
+      setState(() => _isLoading = false);
+      if (mounted) {
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('Error seeding: $e')));
+      }
+    }
+  }
+
   void _showLogoutConfirmation() {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        backgroundColor: AppTheme.surfaceColor,
-        title: const Text('Logout', style: TextStyle(color: Colors.white)),
-        content: const Text(
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        title: Text(
+          'Logout',
+          style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
+        ),
+        content: Text(
           'Are you sure you want to log out?',
-          style: TextStyle(color: AppTheme.mutedTextColor),
+          style: TextStyle(
+            color: Theme.of(context).colorScheme.onSurface.withOpacity(0.7),
+          ),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text(
+            child: Text(
               'Cancel',
-              style: TextStyle(color: AppTheme.mutedTextColor),
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.onSurface.withOpacity(0.5),
+              ),
             ),
           ),
           TextButton(
@@ -98,7 +375,7 @@ class _CoachProfileScreenState extends State<CoachProfileScreen> {
     final user = Provider.of<AuthProvider>(context).userProfile;
 
     return Scaffold(
-      backgroundColor: AppTheme.backgroundColor,
+      backgroundColor: AppTheme.getScaffoldColor(context),
       appBar: AppBar(
         title: const Text('PROFILE'),
         centerTitle: true,
@@ -131,14 +408,14 @@ class _CoachProfileScreenState extends State<CoachProfileScreen> {
                         width: 2,
                       ),
                     ),
-                    child: const Center(
+                    child: Center(
                       child: CircleAvatar(
                         radius: 48,
-                        backgroundColor: AppTheme.surfaceColor,
+                        backgroundColor: Theme.of(context).colorScheme.surface,
                         child: Icon(
                           Icons.person_rounded,
                           size: 48,
-                          color: AppTheme.primaryColor,
+                          color: Theme.of(context).colorScheme.primary,
                         ),
                       ),
                     ),
@@ -149,17 +426,17 @@ class _CoachProfileScreenState extends State<CoachProfileScreen> {
             const SizedBox(height: 16),
             Text(
               user?.name ?? 'Coach',
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
             Text(
               'Professional Coach',
               style: TextStyle(
                 fontSize: 14,
-                color: AppTheme.primaryColor.withOpacity(0.8),
+                color: Theme.of(context).colorScheme.primary.withOpacity(0.8),
                 fontWeight: FontWeight.w500,
                 letterSpacing: 0.5,
               ),
@@ -170,9 +447,11 @@ class _CoachProfileScreenState extends State<CoachProfileScreen> {
             _buildSectionHeader('Profile Information'),
             Container(
               decoration: BoxDecoration(
-                color: AppTheme.surfaceColor,
+                color: Theme.of(context).colorScheme.surface,
                 borderRadius: BorderRadius.circular(24),
-                border: Border.all(color: Colors.white.withOpacity(0.05)),
+                border: Border.all(
+                  color: Theme.of(context).dividerColor.withOpacity(0.05),
+                ),
               ),
               child: Column(
                 children: [
@@ -207,28 +486,28 @@ class _CoachProfileScreenState extends State<CoachProfileScreen> {
             _buildSectionHeader('Account Settings'),
             Container(
               decoration: BoxDecoration(
-                color: AppTheme.surfaceColor,
+                color: Theme.of(context).colorScheme.surface,
                 borderRadius: BorderRadius.circular(24),
-                border: Border.all(color: Colors.white.withOpacity(0.05)),
+                border: Border.all(
+                  color: Theme.of(context).dividerColor.withOpacity(0.05),
+                ),
               ),
               child: Column(
                 children: [
                   _buildActionTile(
                     label: 'Change Password',
                     icon: Icons.lock_outline_rounded,
-                    onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => const ChangePasswordScreen(),
-                      ),
+                    onTap: () => NavigationService.navigateTo(
+                      const ChangePasswordScreen(),
+                      context: context,
                     ),
                   ),
-                  _buildDivider(),
-                  _buildActionTile(
-                    label: 'Privacy Policy',
-                    icon: Icons.privacy_tip_outlined,
-                    onTap: () {}, // Planned for later
-                  ),
+                  // _buildDivider(),
+                  // _buildActionTile(
+                  //   label: 'Seed Database',
+                  //   icon: Icons.upload_file_rounded,
+                  //   onTap: _seedDatabase,
+                  // ),
                 ],
               ),
             ),
@@ -259,7 +538,7 @@ class _CoachProfileScreenState extends State<CoachProfileScreen> {
         child: Text(
           title.toUpperCase(),
           style: TextStyle(
-            color: AppTheme.primaryColor.withOpacity(0.7),
+            color: Theme.of(context).colorScheme.primary.withOpacity(0.7),
             fontSize: 11,
             fontWeight: FontWeight.w900,
             letterSpacing: 1.2,
@@ -288,10 +567,14 @@ class _CoachProfileScreenState extends State<CoachProfileScreen> {
           Container(
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-              color: AppTheme.primaryColor.withOpacity(0.05),
+              color: Theme.of(context).colorScheme.primary.withOpacity(0.05),
               borderRadius: BorderRadius.circular(12),
             ),
-            child: Icon(icon, size: 20, color: AppTheme.primaryColor),
+            child: Icon(
+              icon,
+              size: 20,
+              color: Theme.of(context).colorScheme.primary,
+            ),
           ),
           const SizedBox(width: 16),
           Expanded(
@@ -301,17 +584,19 @@ class _CoachProfileScreenState extends State<CoachProfileScreen> {
                       Expanded(
                         child: TextField(
                           controller: controller,
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 16,
-                            color: Colors.white,
+                            color: Theme.of(context).colorScheme.onSurface,
                             fontWeight: FontWeight.bold,
                           ),
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             isDense: true,
-                            contentPadding: EdgeInsets.symmetric(vertical: 8),
+                            contentPadding: const EdgeInsets.symmetric(
+                              vertical: 8,
+                            ),
                             focusedBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
-                                color: AppTheme.primaryColor,
+                                color: Theme.of(context).colorScheme.primary,
                               ),
                             ),
                           ),
@@ -355,19 +640,21 @@ class _CoachProfileScreenState extends State<CoachProfileScreen> {
                     children: [
                       Text(
                         label,
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 11,
-                          color: AppTheme.mutedTextColor,
+                          color: Theme.of(
+                            context,
+                          ).colorScheme.onSurface.withOpacity(0.5),
                           fontWeight: FontWeight.w500,
                         ),
                       ),
                       const SizedBox(height: 4),
                       Text(
                         value,
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                          color: Theme.of(context).colorScheme.onSurface,
                         ),
                       ),
                     ],
@@ -378,7 +665,7 @@ class _CoachProfileScreenState extends State<CoachProfileScreen> {
               icon: Icon(
                 Icons.edit_rounded,
                 size: 18,
-                color: Colors.white.withOpacity(0.3),
+                color: Theme.of(context).colorScheme.onSurface.withOpacity(0.3),
               ),
               onPressed: onEdit,
             ),
@@ -413,14 +700,16 @@ class _CoachProfileScreenState extends State<CoachProfileScreen> {
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
-              color: color == AppTheme.primaryColor ? Colors.white : color,
+              color: color == Theme.of(context).colorScheme.primary
+                  ? Theme.of(context).colorScheme.onSurface
+                  : color,
             ),
           ),
           const Spacer(),
           if (showChevron)
             Icon(
               Icons.chevron_right_rounded,
-              color: Colors.white.withOpacity(0.2),
+              color: Theme.of(context).colorScheme.onSurface.withOpacity(0.2),
             ),
         ],
       ),
@@ -449,7 +738,7 @@ class _CoachProfileScreenState extends State<CoachProfileScreen> {
     return Divider(
       height: 1,
       thickness: 1,
-      color: Colors.white.withOpacity(0.03),
+      color: Theme.of(context).dividerColor.withOpacity(0.05),
       indent: 72,
       endIndent: 20,
     );

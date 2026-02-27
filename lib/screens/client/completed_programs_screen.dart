@@ -10,7 +10,8 @@ class CompletedProgramsScreen extends StatefulWidget {
   const CompletedProgramsScreen({super.key});
 
   @override
-  State<CompletedProgramsScreen> createState() => _CompletedProgramsScreenState();
+  State<CompletedProgramsScreen> createState() =>
+      _CompletedProgramsScreenState();
 }
 
 class _CompletedProgramsScreenState extends State<CompletedProgramsScreen> {
@@ -31,9 +32,8 @@ class _CompletedProgramsScreenState extends State<CompletedProgramsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Completed Programs'),
-      ),
+      backgroundColor: AppTheme.getScaffoldColor(context),
+      appBar: AppBar(title: const Text('COMPLETED PROGRAMS')),
       body: StreamBuilder<List<Program>>(
         stream: _programsStream,
         builder: (context, snapshot) {
@@ -42,23 +42,36 @@ class _CompletedProgramsScreenState extends State<CompletedProgramsScreen> {
           }
 
           final programs = snapshot.data ?? [];
-          final completedPrograms = programs.where((p) => p.status == ProgramStatus.completed).toList();
+          final completedPrograms = programs
+              .where((p) => p.status == ProgramStatus.completed)
+              .toList();
 
           if (completedPrograms.isEmpty) {
             return Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.emoji_events_outlined, size: 80, color: AppTheme.mutedTextColor.withOpacity(0.5)),
+                  Icon(
+                    Icons.emoji_events_outlined,
+                    size: 80,
+                    color: AppTheme.mutedTextColor.withOpacity(0.5),
+                  ),
                   const SizedBox(height: 24),
                   const Text(
                     'No completed programs yet',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   ),
                   const SizedBox(height: 8),
                   const Text(
                     'Keep training to build your history!',
-                    style: TextStyle(color: AppTheme.mutedTextColor, fontSize: 14),
+                    style: TextStyle(
+                      color: AppTheme.mutedTextColor,
+                      fontSize: 14,
+                    ),
                   ),
                 ],
               ),
@@ -106,12 +119,19 @@ class _CompletedProgramsScreenState extends State<CompletedProgramsScreen> {
             const SizedBox(height: 4),
             Text(
               '${program.totalWeeks} weeks',
-              style: const TextStyle(color: AppTheme.mutedTextColor, fontSize: 13),
+              style: const TextStyle(
+                color: AppTheme.mutedTextColor,
+                fontSize: 13,
+              ),
             ),
             if (program.startDate != null)
               Text(
                 'Completed',
-                style: TextStyle(color: Colors.green.shade300, fontSize: 12, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  color: Colors.green.shade300,
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
           ],
         ),
@@ -119,7 +139,9 @@ class _CompletedProgramsScreenState extends State<CompletedProgramsScreen> {
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (_) => WorkoutProgressionScreen(program: program)),
+            MaterialPageRoute(
+              builder: (_) => WorkoutProgressionScreen(program: program),
+            ),
           );
         },
       ),

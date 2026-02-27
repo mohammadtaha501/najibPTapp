@@ -265,6 +265,25 @@ class AuthProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  Future<void> updateConsent({
+    required bool consentGiven,
+    required String consentVersion,
+  }) async {
+    if (_userProfile == null) return;
+
+    final consentData = {
+      'consentGiven': consentGiven,
+      'consentTimestamp': DateTime.now().toIso8601String(),
+      'consentVersion': consentVersion,
+    };
+
+    await _authService.updateProfile(_userProfile!.uid, consentData);
+
+    // Refresh local profile
+    _userProfile = await _authService.getProfile(_userProfile!.uid);
+    notifyListeners();
+  }
+
   Future<void> updateClientProfile(
     String clientUid,
     Map<String, dynamic> data,

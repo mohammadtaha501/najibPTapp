@@ -75,9 +75,8 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('CHANGE PASSWORD'),
-      ),
+      backgroundColor: AppTheme.getScaffoldColor(context),
+      appBar: AppBar(title: const Text('CHANGE PASSWORD')),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(24),
         child: Form(
@@ -87,7 +86,12 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
             children: [
               const Text(
                 'SECURITY CHECK',
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: AppTheme.primaryColor, letterSpacing: 1.2),
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                  color: AppTheme.primaryColor,
+                  letterSpacing: 1.2,
+                ),
               ),
               const SizedBox(height: 16),
               const Text(
@@ -95,7 +99,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                 style: TextStyle(color: AppTheme.mutedTextColor, fontSize: 13),
               ),
               const SizedBox(height: 24),
-              
+
               // Old Password
               TextFormField(
                 controller: _oldPasswordController,
@@ -105,21 +109,32 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                   labelText: 'Current Password',
                   prefixIcon: const Icon(Icons.lock_open, size: 20),
                   suffixIcon: IconButton(
-                    icon: Icon(_obscureOld ? Icons.visibility_off : Icons.visibility, size: 20, color: AppTheme.mutedTextColor),
+                    icon: Icon(
+                      _obscureOld ? Icons.visibility_off : Icons.visibility,
+                      size: 20,
+                      color: AppTheme.mutedTextColor,
+                    ),
                     onPressed: () => setState(() => _obscureOld = !_obscureOld),
                   ),
                 ),
-                validator: (value) => value == null || value.isEmpty ? 'Enter current password' : null,
+                validator: (value) => value == null || value.isEmpty
+                    ? 'Enter current password'
+                    : null,
               ),
-              
+
               const SizedBox(height: 40),
-              
+
               const Text(
                 'NEW PASSWORD',
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: AppTheme.primaryColor, letterSpacing: 1.2),
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                  color: AppTheme.primaryColor,
+                  letterSpacing: 1.2,
+                ),
               ),
               const SizedBox(height: 24),
-              
+
               // New Password
               TextFormField(
                 controller: _newPasswordController,
@@ -129,22 +144,31 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                   labelText: 'New Password',
                   prefixIcon: const Icon(Icons.lock_outline, size: 20),
                   suffixIcon: IconButton(
-                    icon: Icon(_obscureNew ? Icons.visibility_off : Icons.visibility, size: 20, color: AppTheme.mutedTextColor),
+                    icon: Icon(
+                      _obscureNew ? Icons.visibility_off : Icons.visibility,
+                      size: 20,
+                      color: AppTheme.mutedTextColor,
+                    ),
                     onPressed: () => setState(() => _obscureNew = !_obscureNew),
                   ),
                   helperText: 'Min 8 chars, 1 number',
-                  helperStyle: const TextStyle(color: AppTheme.mutedTextColor, fontSize: 11),
+                  helperStyle: const TextStyle(
+                    color: AppTheme.mutedTextColor,
+                    fontSize: 11,
+                  ),
                 ),
                 validator: (value) {
-                  if (value == null || value.isEmpty) return 'Enter a new password';
+                  if (value == null || value.isEmpty)
+                    return 'Enter a new password';
                   if (value.length < 8) return 'Must be at least 8 characters';
-                  if (!value.contains(RegExp(r'[0-9]'))) return 'Must contain at least one number';
+                  if (!value.contains(RegExp(r'[0-9]')))
+                    return 'Must contain at least one number';
                   return null;
                 },
               ),
-              
+
               const SizedBox(height: 20),
-              
+
               // Confirm Password
               TextFormField(
                 controller: _confirmPasswordController,
@@ -154,8 +178,13 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                   labelText: 'Confirm New Password',
                   prefixIcon: const Icon(Icons.check_circle_outline, size: 20),
                   suffixIcon: IconButton(
-                    icon: Icon(_obscureConfirm ? Icons.visibility_off : Icons.visibility, size: 20, color: AppTheme.mutedTextColor),
-                    onPressed: () => setState(() => _obscureConfirm = !_obscureConfirm),
+                    icon: Icon(
+                      _obscureConfirm ? Icons.visibility_off : Icons.visibility,
+                      size: 20,
+                      color: AppTheme.mutedTextColor,
+                    ),
+                    onPressed: () =>
+                        setState(() => _obscureConfirm = !_obscureConfirm),
                   ),
                 ),
                 validator: (value) {
@@ -165,21 +194,36 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                   return null;
                 },
               ),
-              
+
               const SizedBox(height: 48),
-              
+
               ElevatedButton(
                 onPressed: _isLoading ? null : _updatePassword,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppTheme.primaryColor,
                   foregroundColor: Colors.black,
                   minimumSize: const Size(double.infinity, 56),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
                   elevation: 0,
                 ),
                 child: _isLoading
-                    ? const SizedBox(width: 24, height: 24, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.black))
-                    : const Text('UPDATE PASSWORD', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                    ? const SizedBox(
+                        width: 24,
+                        height: 24,
+                        child: CircularProgressIndicator(
+                          strokeWidth: 2,
+                          color: Colors.black,
+                        ),
+                      )
+                    : const Text(
+                        'UPDATE PASSWORD',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
               ),
             ],
           ),

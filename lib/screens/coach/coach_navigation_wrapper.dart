@@ -38,23 +38,39 @@ class _CoachNavigationWrapperState extends State<CoachNavigationWrapper> {
 
   Future<bool> _showExitDialog() async {
     return await showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        backgroundColor: AppTheme.surfaceColor,
-        title: const Text('Exit App', style: TextStyle(color: Colors.white)),
-        content: const Text('Are you sure you want to exit the app?', style: TextStyle(color: AppTheme.mutedTextColor)),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context, false),
-            child: const Text('CANCEL', style: TextStyle(color: AppTheme.mutedTextColor)),
+          context: context,
+          builder: (context) => AlertDialog(
+            backgroundColor: Theme.of(context).colorScheme.surface,
+            title: Text(
+              'Exit App',
+              style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
+            ),
+            content: const Text(
+              'Are you sure you want to exit the app?',
+              style: TextStyle(color: AppTheme.mutedTextColor),
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context, false),
+                child: const Text(
+                  'CANCEL',
+                  style: TextStyle(color: AppTheme.mutedTextColor),
+                ),
+              ),
+              TextButton(
+                onPressed: () => Navigator.pop(context, true),
+                child: const Text(
+                  'EXIT',
+                  style: TextStyle(
+                    color: Colors.redAccent,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ],
           ),
-          TextButton(
-            onPressed: () => Navigator.pop(context, true),
-            child: const Text('EXIT', style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold)),
-          ),
-        ],
-      ),
-    ) ?? false;
+        ) ??
+        false;
   }
 
   @override
@@ -73,22 +89,34 @@ class _CoachNavigationWrapperState extends State<CoachNavigationWrapper> {
         }
       },
       child: Scaffold(
-        body: IndexedStack(
-          index: _selectedIndex,
-          children: _screens,
-        ),
+        backgroundColor: AppTheme.getScaffoldColor(context),
+        body: IndexedStack(index: _selectedIndex, children: _screens),
         bottomNavigationBar: Container(
           decoration: BoxDecoration(
-            border: Border(top: BorderSide(color: Colors.white.withOpacity(0.05))),
+            border: Border(
+              top: BorderSide(
+                color: Theme.of(context).dividerColor.withOpacity(0.05),
+              ),
+            ),
           ),
           child: BottomNavigationBar(
             currentIndex: _selectedIndex,
             onTap: (index) => setState(() => _selectedIndex = index),
-            backgroundColor: AppTheme.backgroundColor,
-            selectedItemColor: AppTheme.primaryColor,
-            unselectedItemColor: AppTheme.mutedTextColor,
+            backgroundColor: Theme.of(
+              context,
+            ).bottomNavigationBarTheme.backgroundColor,
+            selectedItemColor: Theme.of(
+              context,
+            ).bottomNavigationBarTheme.selectedItemColor,
+            unselectedItemColor: Theme.of(
+              context,
+            ).bottomNavigationBarTheme.unselectedItemColor,
+            elevation: Theme.of(context).bottomNavigationBarTheme.elevation,
             type: BottomNavigationBarType.fixed,
-            selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 11),
+            selectedLabelStyle: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 11,
+            ),
             unselectedLabelStyle: const TextStyle(fontSize: 11),
             items: [
               const BottomNavigationBarItem(
@@ -111,8 +139,18 @@ class _CoachNavigationWrapperState extends State<CoachNavigationWrapper> {
                             top: -5,
                             child: Container(
                               padding: const EdgeInsets.all(3),
-                              decoration: const BoxDecoration(color: AppTheme.primaryColor, shape: BoxShape.circle),
-                              child: Text('$count', style: const TextStyle(color: Colors.black, fontSize: 8, fontWeight: FontWeight.bold)),
+                              decoration: const BoxDecoration(
+                                color: AppTheme.primaryColor,
+                                shape: BoxShape.circle,
+                              ),
+                              child: Text(
+                                '$count',
+                                style: const TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 8,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
                             ),
                           ),
                       ],

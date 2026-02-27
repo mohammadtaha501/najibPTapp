@@ -49,26 +49,36 @@ class _NutritionEditorScreenState extends State<NutritionEditorScreen> {
 
   Future<void> _save() async {
     if (_titleController.text.trim().isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Please enter a plan title')));
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Please enter a plan title')),
+      );
       return;
     }
 
     if (_sections.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Please add at least one guideline section')));
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Please add at least one guideline section'),
+        ),
+      );
       return;
     }
 
     // Check if every section has content
     for (final section in _sections) {
       if (section.content.trim().isEmpty) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Please add a description for "${section.title}"')));
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Please add a description for "${section.title}"'),
+          ),
+        );
         return;
       }
     }
 
     setState(() => _isLoading = true);
     final authProvider = Provider.of<AuthProvider>(context, listen: false);
-    
+
     final newPlan = NutritionPlan(
       id: widget.plan?.id,
       clientId: widget.clientId,
@@ -87,7 +97,9 @@ class _NutritionEditorScreenState extends State<NutritionEditorScreen> {
     } catch (e) {
       if (mounted) {
         setState(() => _isLoading = false);
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Error saving plan: $e')));
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('Error saving plan: $e')));
       }
     }
   }
@@ -107,10 +119,16 @@ class _NutritionEditorScreenState extends State<NutritionEditorScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppTheme.getScaffoldColor(context),
       appBar: AppBar(
-        title: Text(widget.plan == null ? 'CREATE NUTRITION' : 'EDIT NUTRITION'),
+        title: Text(
+          widget.plan == null ? 'CREATE NUTRITION' : 'EDIT NUTRITION',
+        ),
         actions: [
-          IconButton(icon: const Icon(Icons.check), onPressed: _isLoading ? null : _save),
+          IconButton(
+            icon: const Icon(Icons.check),
+            onPressed: _isLoading ? null : _save,
+          ),
         ],
       ),
       body: Stack(
@@ -128,7 +146,10 @@ class _NutritionEditorScreenState extends State<NutritionEditorScreen> {
                     hintText: 'e.g. Fat Loss Phase 1',
                     filled: true,
                     fillColor: AppTheme.surfaceColor,
-                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: BorderSide.none),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: BorderSide.none,
+                    ),
                   ),
                 ),
                 const SizedBox(height: 24),
@@ -146,7 +167,9 @@ class _NutritionEditorScreenState extends State<NutritionEditorScreen> {
                       onPressed: _addSection,
                       icon: const Icon(Icons.add, size: 18),
                       label: const Text('ADD SECTION'),
-                      style: TextButton.styleFrom(foregroundColor: AppTheme.primaryColor),
+                      style: TextButton.styleFrom(
+                        foregroundColor: AppTheme.primaryColor,
+                      ),
                     ),
                   ],
                 ),
@@ -154,8 +177,12 @@ class _NutritionEditorScreenState extends State<NutritionEditorScreen> {
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 32),
                     child: Center(
-                      child: Text('No sections added. Tap "ADD SECTION" to begin.', 
-                        style: TextStyle(color: AppTheme.mutedTextColor.withOpacity(0.5))),
+                      child: Text(
+                        'No sections added. Tap "ADD SECTION" to begin.',
+                        style: TextStyle(
+                          color: AppTheme.mutedTextColor.withOpacity(0.5),
+                        ),
+                      ),
                     ),
                   )
                 else
@@ -185,7 +212,9 @@ class _NutritionEditorScreenState extends State<NutritionEditorScreen> {
           if (_isLoading)
             Container(
               color: Colors.black54,
-              child: const Center(child: CircularProgressIndicator(color: AppTheme.primaryColor)),
+              child: const Center(
+                child: CircularProgressIndicator(color: AppTheme.primaryColor),
+              ),
             ),
         ],
       ),
@@ -194,7 +223,10 @@ class _NutritionEditorScreenState extends State<NutritionEditorScreen> {
         backgroundColor: AppTheme.primaryColor,
         foregroundColor: Colors.black,
         icon: const Icon(Icons.save),
-        label: const Text('SAVE PLAN', style: TextStyle(fontWeight: FontWeight.bold)),
+        label: const Text(
+          'SAVE PLAN',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
       ),
     );
   }
@@ -210,23 +242,28 @@ class _NutritionEditorScreenState extends State<NutritionEditorScreen> {
       child: Row(
         children: [
           _buildModeOption(
-            'REFERENCE ONLY', 
-            NutritionPlanMode.referenceOnly, 
+            'REFERENCE ONLY',
+            NutritionPlanMode.referenceOnly,
             Icons.menu_book,
-            'Clients just read the plan'
+            'Clients just read the plan',
           ),
           _buildModeOption(
-            'WEEKLY ADHERENCE', 
-            NutritionPlanMode.weeklyAdherence, 
+            'WEEKLY ADHERENCE',
+            NutritionPlanMode.weeklyAdherence,
             Icons.fact_check,
-            'Clients check-in weekly'
+            'Clients check-in weekly',
           ),
         ],
       ),
     );
   }
 
-  Widget _buildModeOption(String label, NutritionPlanMode mode, IconData icon, String subtitle) {
+  Widget _buildModeOption(
+    String label,
+    NutritionPlanMode mode,
+    IconData icon,
+    String subtitle,
+  ) {
     final bool isSelected = _mode == mode;
     return Expanded(
       child: GestureDetector(
@@ -236,15 +273,19 @@ class _NutritionEditorScreenState extends State<NutritionEditorScreen> {
             _mode = mode;
             // Auto-populate 7 days if switching to Weekly Adherence and current sections are empty or default placeholders
             if (_mode == NutritionPlanMode.weeklyAdherence) {
-              bool isDefaultOrEmpty = _sections.isEmpty || 
-                (_sections.length == 2 && 
-                 _sections[0].title == 'Daily Calories' && 
-                 _sections[0].content.isEmpty &&
-                 _sections[1].title == 'Protein Guidelines' &&
-                 _sections[1].content.isEmpty);
+              bool isDefaultOrEmpty =
+                  _sections.isEmpty ||
+                  (_sections.length == 2 &&
+                      _sections[0].title == 'Daily Calories' &&
+                      _sections[0].content.isEmpty &&
+                      _sections[1].title == 'Protein Guidelines' &&
+                      _sections[1].content.isEmpty);
 
               if (isDefaultOrEmpty) {
-                _sections = List.generate(7, (i) => NutritionSection(title: 'Day ${i + 1}', content: ''));
+                _sections = List.generate(
+                  7,
+                  (i) => NutritionSection(title: 'Day ${i + 1}', content: ''),
+                );
               }
             }
           });
@@ -259,8 +300,8 @@ class _NutritionEditorScreenState extends State<NutritionEditorScreen> {
           child: Column(
             children: [
               Icon(
-                icon, 
-                size: 20, 
+                icon,
+                size: 20,
                 color: isSelected ? Colors.black : AppTheme.mutedTextColor,
               ),
               const SizedBox(height: 4),
@@ -279,7 +320,9 @@ class _NutritionEditorScreenState extends State<NutritionEditorScreen> {
                 subtitle,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: isSelected ? Colors.black54 : AppTheme.mutedTextColor.withOpacity(0.5),
+                  color: isSelected
+                      ? Colors.black54
+                      : AppTheme.mutedTextColor.withOpacity(0.5),
                   fontSize: 8,
                 ),
               ),
@@ -293,7 +336,15 @@ class _NutritionEditorScreenState extends State<NutritionEditorScreen> {
   Widget _buildSectionLabel(String label) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
-      child: Text(label, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: AppTheme.primaryColor, letterSpacing: 1.2)),
+      child: Text(
+        label,
+        style: const TextStyle(
+          fontSize: 12,
+          fontWeight: FontWeight.bold,
+          color: AppTheme.primaryColor,
+          letterSpacing: 1.2,
+        ),
+      ),
     );
   }
 
@@ -310,7 +361,9 @@ class _NutritionEditorScreenState extends State<NutritionEditorScreen> {
             decoration: BoxDecoration(
               color: isSelected ? AppTheme.primaryColor : AppTheme.surfaceColor,
               borderRadius: BorderRadius.circular(20),
-              border: Border.all(color: isSelected ? AppTheme.primaryColor : Colors.white10),
+              border: Border.all(
+                color: isSelected ? AppTheme.primaryColor : Colors.white10,
+              ),
             ),
             child: Text(
               g.label.toUpperCase(),
@@ -340,25 +393,42 @@ class _NutritionEditorScreenState extends State<NutritionEditorScreen> {
             children: [
               ReorderableDragStartListener(
                 index: index,
-                child: const Icon(Icons.drag_indicator, color: Colors.white24, size: 20),
+                child: const Icon(
+                  Icons.drag_indicator,
+                  color: Colors.white24,
+                  size: 20,
+                ),
               ),
               const SizedBox(width: 12),
               Expanded(
                 child: TextField(
                   onChanged: (v) {
-                    _sections[index] = NutritionSection(title: v, content: section.content);
+                    _sections[index] = NutritionSection(
+                      title: v,
+                      content: section.content,
+                    );
                   },
-                  controller: TextEditingController(text: section.title)..selection = TextSelection.fromPosition(TextPosition(offset: section.title.length)),
+                  controller: TextEditingController(text: section.title)
+                    ..selection = TextSelection.fromPosition(
+                      TextPosition(offset: section.title.length),
+                    ),
                   decoration: const InputDecoration(
                     hintText: 'Section Title (e.g. Protein)',
                     hintStyle: TextStyle(color: Colors.white24, fontSize: 14),
                     border: InputBorder.none,
                   ),
-                  style: const TextStyle(fontWeight: FontWeight.bold, color: AppTheme.primaryColor),
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: AppTheme.primaryColor,
+                  ),
                 ),
               ),
               IconButton(
-                icon: const Icon(Icons.delete_outline, color: Colors.redAccent, size: 20),
+                icon: const Icon(
+                  Icons.delete_outline,
+                  color: Colors.redAccent,
+                  size: 20,
+                ),
                 onPressed: () => _removeSection(index),
               ),
             ],
@@ -366,9 +436,15 @@ class _NutritionEditorScreenState extends State<NutritionEditorScreen> {
           const Divider(color: Colors.white10),
           TextField(
             onChanged: (v) {
-              _sections[index] = NutritionSection(title: _sections[index].title, content: v);
+              _sections[index] = NutritionSection(
+                title: _sections[index].title,
+                content: v,
+              );
             },
-            controller: TextEditingController(text: section.content)..selection = TextSelection.fromPosition(TextPosition(offset: section.content.length)),
+            controller: TextEditingController(text: section.content)
+              ..selection = TextSelection.fromPosition(
+                TextPosition(offset: section.content.length),
+              ),
             maxLines: null,
             decoration: const InputDecoration(
               hintText: 'Enter guidance notes here...',

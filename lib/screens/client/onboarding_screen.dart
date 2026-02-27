@@ -154,7 +154,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.backgroundColor,
+      backgroundColor: AppTheme.getScaffoldColor(context),
       body: SafeArea(
         child: _isLoading
             ? const Center(child: CircularProgressIndicator())

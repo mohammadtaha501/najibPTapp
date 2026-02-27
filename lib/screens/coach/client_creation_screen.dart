@@ -41,8 +41,8 @@ class _ClientCreationScreenState extends State<ClientCreationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.backgroundColor,
-      appBar: AppBar(title: const Text('ADD NEW CLIENT'), centerTitle: true),
+      backgroundColor: AppTheme.getScaffoldColor(context),
+      appBar: AppBar(title: const Text('New Client'), centerTitle: true),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(24.0),

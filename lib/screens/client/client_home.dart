@@ -11,6 +11,7 @@ import 'package:ptapp/screens/client/workout_progression_screen.dart';
 import 'package:ptapp/screens/client/assigned_programs_screen.dart';
 
 import '../../models/nutrition_plan_model.dart';
+import 'package:ptapp/utils/navigation.dart';
 
 class ClientHomeScreen extends StatefulWidget {
   const ClientHomeScreen({super.key});
@@ -62,7 +63,7 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
     final user = authProvider.userProfile!;
 
     return Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      backgroundColor: AppTheme.getScaffoldColor(context),
       appBar: AppBar(title: const Text('MY TRAINING')),
       body: StreamBuilder<List<Program>>(
         stream: _programsStream,
@@ -132,10 +133,12 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
                         Container(
                           padding: const EdgeInsets.all(24),
                           decoration: BoxDecoration(
-                            color: AppTheme.surfaceColor,
+                            color: Theme.of(context).colorScheme.surface,
                             shape: BoxShape.circle,
                             border: Border.all(
-                              color: Colors.white.withOpacity(0.05),
+                              color: Theme.of(
+                                context,
+                              ).dividerColor.withOpacity(0.05),
                             ),
                           ),
                           child: Icon(
@@ -165,15 +168,13 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
                         const SizedBox(height: 40),
                         ElevatedButton.icon(
                           onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (_) => ChatScreen(
-                                  currentUserId: user.uid,
-                                  otherUserId: user.coachId ?? '',
-                                  otherUserName: 'Coach',
-                                ),
+                            NavigationService.navigateTo(
+                              ChatScreen(
+                                currentUserId: user.uid,
+                                otherUserId: user.coachId ?? '',
+                                otherUserName: 'Coach',
                               ),
+                              context: context,
                             );
                           },
                           icon: const Icon(Icons.message_outlined, size: 20),
@@ -192,12 +193,9 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
                           const SizedBox(height: 16),
                           OutlinedButton.icon(
                             onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (_) =>
-                                      const AssignedProgramsScreen(),
-                                ),
+                              NavigationService.navigateTo(
+                                const AssignedProgramsScreen(),
+                                context: context,
                               );
                             },
                             icon: const Icon(Icons.search, size: 20),
@@ -270,12 +268,12 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           'Today',
           style: TextStyle(
             fontSize: 28,
             fontWeight: FontWeight.bold,
-            color: Colors.white,
+            color: Theme.of(context).colorScheme.onSurface,
           ),
         ),
         const SizedBox(height: 4),
@@ -307,22 +305,22 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            AppTheme.primaryColor.withOpacity(0.05),
-            AppTheme.surfaceColor,
-          ],
-        ),
+        color: Theme.of(context).cardTheme.color,
         borderRadius: BorderRadius.circular(24),
         border: Border.all(color: AppTheme.primaryColor.withOpacity(0.1)),
         boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.3),
-            blurRadius: 20,
-            offset: const Offset(0, 10),
-          ),
+          if (Theme.of(context).brightness == Brightness.light)
+            BoxShadow(
+              color: Colors.black.withOpacity(0.05),
+              blurRadius: 15,
+              offset: const Offset(0, 5),
+            )
+          else
+            BoxShadow(
+              color: Colors.black.withOpacity(0.3),
+              blurRadius: 20,
+              offset: const Offset(0, 10),
+            ),
         ],
       ),
       child: Column(
@@ -368,10 +366,10 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
                 const SizedBox(height: 16),
                 Text(
                   activeProgram.name,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.w900,
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.onSurface,
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -399,7 +397,7 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
                             const Text(
                               'Weekly Progress',
                               style: TextStyle(
-                                color: Colors.white70,
+                                color: AppTheme.mutedTextColor,
                                 fontSize: 13,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -439,12 +437,9 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
               onPressed: () async {
                 if (isAssigned) await dbService.startProgram(activeProgram.id!);
                 if (context.mounted)
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) =>
-                          WorkoutProgressionScreen(program: activeProgram),
-                    ),
+                  NavigationService.navigateTo(
+                    WorkoutProgressionScreen(program: activeProgram),
+                    context: context,
                   );
               },
               style: ElevatedButton.styleFrom(
@@ -477,15 +472,13 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
       builder: (context, snapshot) {
         final unread = snapshot.data ?? 0;
         return GestureDetector(
-          onTap: () => Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (_) => ChatScreen(
-                currentUserId: user.uid,
-                otherUserId: user.coachId ?? '',
-                otherUserName: 'Coach',
-              ),
+          onTap: () => NavigationService.navigateTo(
+            ChatScreen(
+              currentUserId: user.uid,
+              otherUserId: user.coachId ?? '',
+              otherUserName: 'Coach',
             ),
+            context: context,
           ),
           child: Container(
             padding: const EdgeInsets.all(20),
@@ -527,7 +520,7 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
                   ],
                 ),
                 const SizedBox(width: 16),
-                const Expanded(
+                Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -536,7 +529,7 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                          color: Theme.of(context).colorScheme.onSurface,
                         ),
                       ),
                       Text(
@@ -586,23 +579,20 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
 
         return GestureDetector(
           onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (_) =>
-                    NutritionScreen(clientId: userId, isCoach: false),
-              ),
+            NavigationService.navigateTo(
+              NutritionScreen(clientId: userId, isCoach: false),
+              context: context,
             );
           },
           child: Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
-              color: AppTheme.surfaceColor,
+              color: Theme.of(context).cardTheme.color,
               borderRadius: BorderRadius.circular(20),
               border: Border.all(
                 color: statusText != 'Ongoing'
                     ? statusColor.withOpacity(0.5)
-                    : Colors.white.withOpacity(0.05),
+                    : Theme.of(context).dividerColor.withOpacity(0.1),
                 width: statusText != 'Ongoing' ? 1.5 : 1,
               ),
               boxShadow: statusText != 'Ongoing'
@@ -654,10 +644,10 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
                 const SizedBox(height: 16),
                 Text(
                   plan.title,
-                  style: const TextStyle(
-                    fontSize: 20,
+                  style: TextStyle(
+                    fontSize: 14,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.onSurface,
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -665,7 +655,12 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
                   plan.goal.label,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(fontSize: 14, color: Colors.white70),
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Theme.of(
+                      context,
+                    ).colorScheme.onSurface.withOpacity(0.7),
+                  ),
                 ),
                 const SizedBox(height: 20),
                 const Row(
@@ -737,11 +732,9 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
             onPressed: () async {
               await dbService.startProgram(program.id!);
               if (context.mounted) {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => WorkoutProgressionScreen(program: program),
-                  ),
+                NavigationService.navigateTo(
+                  WorkoutProgressionScreen(program: program),
+                  context: context,
                 );
               }
             },

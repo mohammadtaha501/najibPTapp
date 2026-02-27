@@ -36,7 +36,10 @@ class _NutritionScreenState extends State<NutritionScreen> {
   void initState() {
     super.initState();
     _planStream = _dbService.getActiveNutritionPlan(widget.clientId);
-    _weeklyCheckinsStream = _dbService.getWeeklyCheckinsForWeek(widget.clientId, _currentWeekStart);
+    _weeklyCheckinsStream = _dbService.getWeeklyCheckinsForWeek(
+      widget.clientId,
+      _currentWeekStart,
+    );
     _historyStream = _dbService.getWeeklyCheckInHistory(widget.clientId);
   }
 
@@ -55,9 +58,8 @@ class _NutritionScreenState extends State<NutritionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('NUTRITION GUIDANCE'),
-      ),
+      backgroundColor: AppTheme.getScaffoldColor(context),
+      appBar: AppBar(title: const Text('NUTRITION GUIDANCE')),
       body: StreamBuilder<NutritionPlan?>(
         stream: _planStream,
         builder: (context, snapshot) {
@@ -83,7 +85,9 @@ class _NutritionScreenState extends State<NutritionScreen> {
                 _buildHeader(plan),
                 const SizedBox(height: 32),
                 _buildSectionLabel('YOUR GUIDELINES'),
-                ...plan.sections.map((section) => _buildExpandableSection(section)),
+                ...plan.sections.map(
+                  (section) => _buildExpandableSection(section),
+                ),
                 if (plan.mode == NutritionPlanMode.weeklyAdherence) ...[
                   const SizedBox(height: 32),
                   _buildWeeklyAdherenceSection(plan),
@@ -92,7 +96,10 @@ class _NutritionScreenState extends State<NutritionScreen> {
                 Center(
                   child: Text(
                     'Last updated: ${DateFormat('MMM dd, yyyy').format(plan.updatedAt)}',
-                    style: const TextStyle(color: AppTheme.mutedTextColor, fontSize: 12),
+                    style: const TextStyle(
+                      color: AppTheme.mutedTextColor,
+                      fontSize: 12,
+                    ),
                   ),
                 ),
                 const SizedBox(height: 20),
@@ -111,31 +118,45 @@ class _NutritionScreenState extends State<NutritionScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.restaurant_menu, size: 80, color: Colors.white.withOpacity(0.05)),
+            Icon(
+              Icons.restaurant_menu,
+              size: 80,
+              color: Colors.white.withOpacity(0.05),
+            ),
             const SizedBox(height: 24),
             Text(
-              widget.isCoach ? 'No nutrition plan created for this client.' : 'Your coach hasn\'t shared your nutrition plan yet.',
+              widget.isCoach
+                  ? 'No nutrition plan created for this client.'
+                  : 'Your coach hasn\'t shared your nutrition plan yet.',
               textAlign: TextAlign.center,
-              style: const TextStyle(color: AppTheme.mutedTextColor, fontSize: 16),
-            ),
-          if (widget.isCoach) ...[
-            const SizedBox(height: 32),
-            ElevatedButton(
-              onPressed: () {
-                // This would navigate to editor, but usually context manages this
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppTheme.primaryColor,
-                foregroundColor: Colors.black,
-                minimumSize: const Size(200, 50),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              style: const TextStyle(
+                color: AppTheme.mutedTextColor,
+                fontSize: 16,
               ),
-              child: const Text('CREATE PLAN', style: TextStyle(fontWeight: FontWeight.bold)),
             ),
+            if (widget.isCoach) ...[
+              const SizedBox(height: 32),
+              ElevatedButton(
+                onPressed: () {
+                  // This would navigate to editor, but usually context manages this
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppTheme.primaryColor,
+                  foregroundColor: Colors.black,
+                  minimumSize: const Size(200, 50),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+                child: const Text(
+                  'CREATE PLAN',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ),
+            ],
           ],
-        ],
-      )
-     ),
+        ),
+      ),
     );
   }
 
@@ -148,28 +169,36 @@ class _NutritionScreenState extends State<NutritionScreen> {
       stream: _weeklyCheckinsStream,
       builder: (context, snapshot) {
         final history = snapshot.data ?? [];
-        
+
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             if (_isEditing || _isAddingNew || history.isEmpty)
               _buildWeeklyAdherenceCard(
-                plan, 
-                _isEditing ? history.firstWhere((c) => c.id == _editingCheckinId) : null, 
-                isFormMode: true
+                plan,
+                _isEditing
+                    ? history.firstWhere((c) => c.id == _editingCheckinId)
+                    : null,
+                isFormMode: true,
               )
             else
               ElevatedButton.icon(
                 onPressed: () => setState(() => _isAddingNew = true),
                 icon: const Icon(Icons.add, size: 18),
-                label: const Text('LOG PROGRESS', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
+                label: const Text(
+                  'LOG PROGRESS',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
+                ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppTheme.primaryColor.withOpacity(0.1),
                   foregroundColor: AppTheme.primaryColor,
                   minimumSize: const Size(double.infinity, 50),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16),
-                    side: const BorderSide(color: AppTheme.primaryColor, width: 1),
+                    side: const BorderSide(
+                      color: AppTheme.primaryColor,
+                      width: 1,
+                    ),
                   ),
                 ),
               ),
@@ -203,7 +232,10 @@ class _NutritionScreenState extends State<NutritionScreen> {
                 ),
                 child: const Text(
                   'No adherence check-ins submitted yet.',
-                  style: TextStyle(color: AppTheme.mutedTextColor, fontSize: 13),
+                  style: TextStyle(
+                    color: AppTheme.mutedTextColor,
+                    fontSize: 13,
+                  ),
                 ),
               );
             }
@@ -233,10 +265,20 @@ class _NutritionScreenState extends State<NutritionScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Week of $dateStr', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
+              Text(
+                'Week of $dateStr',
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 13,
+                ),
+              ),
               Text(
                 '${checkin.status.emoji} ${checkin.status.label.toUpperCase()}',
-                style: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: AppTheme.primaryColor),
+                style: const TextStyle(
+                  fontSize: 10,
+                  fontWeight: FontWeight.bold,
+                  color: AppTheme.primaryColor,
+                ),
               ),
             ],
           ),
@@ -244,20 +286,32 @@ class _NutritionScreenState extends State<NutritionScreen> {
             const SizedBox(height: 8),
             Text(
               checkin.notes,
-              style: TextStyle(color: Colors.white.withOpacity(0.7), fontSize: 12, height: 1.4),
+              style: TextStyle(
+                color: Colors.white.withOpacity(0.7),
+                fontSize: 12,
+                height: 1.4,
+              ),
             ),
           ],
           const SizedBox(height: 12),
           Text(
             'Logged on ${DateFormat('MMM dd, yyyy').format(checkin.createdAt)}',
-            style: TextStyle(color: AppTheme.mutedTextColor.withOpacity(0.5), fontSize: 10, fontStyle: FontStyle.italic),
+            style: TextStyle(
+              color: AppTheme.mutedTextColor.withOpacity(0.5),
+              fontSize: 10,
+              fontStyle: FontStyle.italic,
+            ),
           ),
         ],
       ),
     );
   }
 
-  Widget _buildWeeklyAdherenceCard(NutritionPlan plan, WeeklyNutritionCheckIn? checkin, {required bool isFormMode}) {
+  Widget _buildWeeklyAdherenceCard(
+    NutritionPlan plan,
+    WeeklyNutritionCheckIn? checkin, {
+    required bool isFormMode,
+  }) {
     final bool isSubmitted = checkin != null;
 
     return Container(
@@ -266,27 +320,47 @@ class _NutritionScreenState extends State<NutritionScreen> {
         color: AppTheme.surfaceColor,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
-          color: (isSubmitted && !isFormMode) ? AppTheme.primaryColor.withOpacity(0.2) : Colors.white10,
+          color: (isSubmitted && !isFormMode)
+              ? AppTheme.primaryColor.withOpacity(0.2)
+              : Colors.white10,
           width: (isSubmitted && !isFormMode) ? 1.5 : 1,
         ),
-        boxShadow: (isSubmitted && !isFormMode) ? [
-          BoxShadow(color: AppTheme.primaryColor.withOpacity(0.05), blurRadius: 12, offset: const Offset(0, 4))
-        ] : [],
+        boxShadow: (isSubmitted && !isFormMode)
+            ? [
+                BoxShadow(
+                  color: AppTheme.primaryColor.withOpacity(0.05),
+                  blurRadius: 12,
+                  offset: const Offset(0, 4),
+                ),
+              ]
+            : [],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
-              const Icon(Icons.fact_check, color: AppTheme.primaryColor, size: 20),
+              const Icon(
+                Icons.fact_check,
+                color: AppTheme.primaryColor,
+                size: 20,
+              ),
               const SizedBox(width: 12),
               const Text(
                 'THIS WEEK\'S CHECK-IN',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12, letterSpacing: 1.1),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 12,
+                  letterSpacing: 1.1,
+                ),
               ),
               const Spacer(),
               if (isSubmitted && !isFormMode)
-                const Icon(Icons.check_circle, color: AppTheme.primaryColor, size: 16),
+                const Icon(
+                  Icons.check_circle,
+                  color: AppTheme.primaryColor,
+                  size: 16,
+                ),
             ],
           ),
           const SizedBox(height: 16),
@@ -312,11 +386,17 @@ class _NutritionScreenState extends State<NutritionScreen> {
               children: [
                 Text(
                   checkin.status.label,
-                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ),
                 ),
                 Text(
                   'Submitted on ${DateFormat('MMM dd').format(checkin.createdAt)}',
-                  style: TextStyle(color: AppTheme.mutedTextColor, fontSize: 11),
+                  style: TextStyle(
+                    color: AppTheme.mutedTextColor,
+                    fontSize: 11,
+                  ),
                 ),
               ],
             ),
@@ -333,7 +413,11 @@ class _NutritionScreenState extends State<NutritionScreen> {
             ),
             child: Text(
               checkin.notes,
-              style: const TextStyle(fontSize: 13, height: 1.4, color: Colors.white70),
+              style: const TextStyle(
+                fontSize: 13,
+                height: 1.4,
+                color: Colors.white70,
+              ),
             ),
           ),
         ],
@@ -349,14 +433,23 @@ class _NutritionScreenState extends State<NutritionScreen> {
           style: TextButton.styleFrom(
             padding: EdgeInsets.all(12),
             backgroundColor: AppTheme.primaryColor.withOpacity(0.05),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
           ),
           child: const Row(
             mainAxisSize: MainAxisSize.min,
             children: [
               Icon(Icons.edit, size: 14, color: AppTheme.primaryColor),
               SizedBox(width: 8),
-              Text('EDIT CHECK-IN', style: TextStyle(color: AppTheme.primaryColor, fontSize: 12, fontWeight: FontWeight.bold)),
+              Text(
+                'EDIT CHECK-IN',
+                style: TextStyle(
+                  color: AppTheme.primaryColor,
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ],
           ),
         ),
@@ -375,7 +468,9 @@ class _NutritionScreenState extends State<NutritionScreen> {
         const SizedBox(height: 20),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: AdherenceStatus.values.map((s) => _buildStatusOption(s)).toList(),
+          children: AdherenceStatus.values
+              .map((s) => _buildStatusOption(s))
+              .toList(),
         ),
         const SizedBox(height: 24),
         TextField(
@@ -384,10 +479,16 @@ class _NutritionScreenState extends State<NutritionScreen> {
           style: const TextStyle(fontSize: 14),
           decoration: InputDecoration(
             hintText: 'Any challenges or notes? (optional)',
-            hintStyle: TextStyle(color: Colors.white.withOpacity(0.2), fontSize: 13),
+            hintStyle: TextStyle(
+              color: Colors.white.withOpacity(0.2),
+              fontSize: 13,
+            ),
             filled: true,
             fillColor: Colors.white.withOpacity(0.03),
-            border: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: BorderSide.none),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12),
+              borderSide: BorderSide.none,
+            ),
           ),
         ),
         const SizedBox(height: 20),
@@ -404,7 +505,10 @@ class _NutritionScreenState extends State<NutritionScreen> {
                     _selectedStatus = null;
                     _checkinController.clear();
                   }),
-                  child: const Text('CANCEL', style: TextStyle(color: AppTheme.mutedTextColor)),
+                  child: const Text(
+                    'CANCEL',
+                    style: TextStyle(color: AppTheme.mutedTextColor),
+                  ),
                 ),
               ),
               const SizedBox(width: 12),
@@ -412,17 +516,36 @@ class _NutritionScreenState extends State<NutritionScreen> {
             Expanded(
               flex: 2,
               child: ElevatedButton(
-                onPressed: (_selectedStatus == null || _isSavingCheckin) ? null : () => _submitCheckin(plan),
+                onPressed: (_selectedStatus == null || _isSavingCheckin)
+                    ? null
+                    : () => _submitCheckin(plan),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppTheme.primaryColor,
                   foregroundColor: Colors.black,
                   minimumSize: const Size(double.infinity, 45),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
                   disabledBackgroundColor: Colors.white10,
                 ),
-                child: _isSavingCheckin 
-                  ? const SizedBox(height: 20, width: 20, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.black54))
-                  : Text(_isEditing ? 'UPDATE CHECK-IN' : 'SUBMIT WEEKLY CHECK-IN', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
+                child: _isSavingCheckin
+                    ? const SizedBox(
+                        height: 20,
+                        width: 20,
+                        child: CircularProgressIndicator(
+                          strokeWidth: 2,
+                          color: Colors.black54,
+                        ),
+                      )
+                    : Text(
+                        _isEditing
+                            ? 'UPDATE CHECK-IN'
+                            : 'SUBMIT WEEKLY CHECK-IN',
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 13,
+                        ),
+                      ),
               ),
             ),
           ],
@@ -441,9 +564,13 @@ class _NutritionScreenState extends State<NutritionScreen> {
             duration: const Duration(milliseconds: 200),
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: isSelected ? AppTheme.primaryColor : Colors.white.withOpacity(0.05),
+              color: isSelected
+                  ? AppTheme.primaryColor
+                  : Colors.white.withOpacity(0.05),
               shape: BoxShape.circle,
-              border: Border.all(color: isSelected ? AppTheme.primaryColor : Colors.transparent),
+              border: Border.all(
+                color: isSelected ? AppTheme.primaryColor : Colors.transparent,
+              ),
             ),
             child: Text(status.emoji, style: const TextStyle(fontSize: 20)),
           ),
@@ -453,7 +580,9 @@ class _NutritionScreenState extends State<NutritionScreen> {
             style: TextStyle(
               fontSize: 10,
               fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-              color: isSelected ? AppTheme.primaryColor : AppTheme.mutedTextColor,
+              color: isSelected
+                  ? AppTheme.primaryColor
+                  : AppTheme.mutedTextColor,
             ),
           ),
         ],
@@ -463,7 +592,7 @@ class _NutritionScreenState extends State<NutritionScreen> {
 
   Future<void> _submitCheckin(NutritionPlan plan) async {
     setState(() => _isSavingCheckin = true);
-    
+
     final checkin = WeeklyNutritionCheckIn(
       id: _editingCheckinId,
       clientId: widget.clientId,
@@ -486,12 +615,22 @@ class _NutritionScreenState extends State<NutritionScreen> {
           _selectedStatus = null;
           _checkinController.clear();
         });
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(_editingCheckinId != null ? 'Weekly check-in updated!' : 'Weekly check-in submitted!')));
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              _editingCheckinId != null
+                  ? 'Weekly check-in updated!'
+                  : 'Weekly check-in submitted!',
+            ),
+          ),
+        );
       }
     } catch (e) {
       if (mounted) {
         setState(() => _isSavingCheckin = false);
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Error submitting check-in: $e')));
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Error submitting check-in: $e')),
+        );
       }
     }
   }
@@ -502,7 +641,10 @@ class _NutritionScreenState extends State<NutritionScreen> {
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [AppTheme.primaryColor.withOpacity(0.15), AppTheme.surfaceColor],
+          colors: [
+            AppTheme.primaryColor.withOpacity(0.15),
+            AppTheme.surfaceColor,
+          ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
@@ -520,13 +662,22 @@ class _NutritionScreenState extends State<NutritionScreen> {
             ),
             child: Text(
               plan.goal.label.toUpperCase(),
-              style: const TextStyle(color: AppTheme.primaryColor, fontSize: 10, fontWeight: FontWeight.bold, letterSpacing: 1),
+              style: const TextStyle(
+                color: AppTheme.primaryColor,
+                fontSize: 10,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 1,
+              ),
             ),
           ),
           const SizedBox(height: 16),
           Text(
             plan.title,
-            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
+            style: const TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
           ),
           const SizedBox(height: 8),
           const Text(
@@ -543,7 +694,12 @@ class _NutritionScreenState extends State<NutritionScreen> {
       padding: const EdgeInsets.only(left: 4, bottom: 16),
       child: Text(
         label,
-        style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: AppTheme.primaryColor, letterSpacing: 1.2),
+        style: const TextStyle(
+          fontSize: 12,
+          fontWeight: FontWeight.bold,
+          color: AppTheme.primaryColor,
+          letterSpacing: 1.2,
+        ),
       ),
     );
   }
@@ -561,7 +717,11 @@ class _NutritionScreenState extends State<NutritionScreen> {
         child: ExpansionTile(
           title: Text(
             section.title,
-            style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 16),
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+              fontSize: 16,
+            ),
           ),
           iconColor: AppTheme.primaryColor,
           collapsedIconColor: Colors.white38,
@@ -570,8 +730,14 @@ class _NutritionScreenState extends State<NutritionScreen> {
             Container(
               alignment: Alignment.topLeft,
               child: Text(
-                section.content.isEmpty ? 'No specific notes for this section.' : section.content,
-                style: const TextStyle(color: Colors.white70, height: 1.6, fontSize: 15),
+                section.content.isEmpty
+                    ? 'No specific notes for this section.'
+                    : section.content,
+                style: const TextStyle(
+                  color: Colors.white70,
+                  height: 1.6,
+                  fontSize: 15,
+                ),
               ),
             ),
           ],

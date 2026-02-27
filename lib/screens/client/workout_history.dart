@@ -4,6 +4,7 @@ import 'package:ptapp/models/log_model.dart';
 import 'package:ptapp/services/database_service.dart';
 import 'package:ptapp/utils/theme.dart';
 import 'package:intl/intl.dart';
+import 'package:ptapp/utils/navigation.dart';
 import 'package:ptapp/screens/common/workout_detail.dart';
 
 import 'package:ptapp/screens/client/completed_programs_screen.dart';
@@ -37,7 +38,7 @@ class _WorkoutHistoryScreenState extends State<WorkoutHistoryScreen> {
             return const Center(child: CircularProgressIndicator());
           }
           final logs = snapshot.data ?? [];
-          
+
           return ListView(
             padding: const EdgeInsets.all(16),
             children: [
@@ -47,7 +48,10 @@ class _WorkoutHistoryScreenState extends State<WorkoutHistoryScreen> {
                 const Center(
                   child: Padding(
                     padding: EdgeInsets.only(top: 100),
-                    child: Text('No workouts logged yet.', style: TextStyle(color: AppTheme.mutedTextColor)),
+                    child: Text(
+                      'No workouts logged yet.',
+                      style: TextStyle(color: AppTheme.mutedTextColor),
+                    ),
                   ),
                 )
               else
@@ -67,7 +71,10 @@ class _WorkoutHistoryScreenState extends State<WorkoutHistoryScreen> {
         border: Border.all(color: AppTheme.primaryColor.withOpacity(0.2)),
       ),
       child: ListTile(
-        onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const CompletedProgramsScreen())),
+        onTap: () => NavigationService.navigateTo(
+          const CompletedProgramsScreen(),
+          context: context,
+        ),
         leading: Container(
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
@@ -76,16 +83,29 @@ class _WorkoutHistoryScreenState extends State<WorkoutHistoryScreen> {
           ),
           child: const Icon(Icons.emoji_events, color: Colors.black, size: 20),
         ),
-        title: const Text('Completed Programs', style: TextStyle(fontWeight: FontWeight.bold)),
-        subtitle: const Text('View your finished training plans', style: TextStyle(fontSize: 12, color: AppTheme.mutedTextColor)),
+        title: const Text(
+          'Completed Programs',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        subtitle: const Text(
+          'View your finished training plans',
+          style: TextStyle(fontSize: 12, color: AppTheme.mutedTextColor),
+        ),
         trailing: const Icon(Icons.chevron_right, color: AppTheme.primaryColor),
       ),
     );
   }
 
-  Widget _buildLogCard(BuildContext context, DatabaseService dbService, WorkoutLog log) {
+  Widget _buildLogCard(
+    BuildContext context,
+    DatabaseService dbService,
+    WorkoutLog log,
+  ) {
     return CustomCard(
-      onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => WorkoutDetailScreen(log: log))),
+      onTap: () => NavigationService.navigateTo(
+        WorkoutDetailScreen(log: log),
+        context: context,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -94,32 +114,52 @@ class _WorkoutHistoryScreenState extends State<WorkoutHistoryScreen> {
             children: [
               Text(
                 DateFormat('EEEE, MMM d').format(log.date),
-                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
               ),
               Text(
                 DateFormat('HH:mm').format(log.date),
-                style: const TextStyle(color: AppTheme.mutedTextColor, fontSize: 12),
+                style: const TextStyle(
+                  color: AppTheme.mutedTextColor,
+                  fontSize: 12,
+                ),
               ),
             ],
           ),
           const SizedBox(height: 8),
           Text(
             log.workoutDayId.toUpperCase(),
-            style: const TextStyle(color: AppTheme.primaryColor, letterSpacing: 1.2, fontSize: 12),
+            style: const TextStyle(
+              color: AppTheme.primaryColor,
+              letterSpacing: 1.2,
+              fontSize: 12,
+            ),
           ),
           const Divider(),
-          ...log.exerciseLogs.map((ex) => Padding(
-            padding: const EdgeInsets.symmetric(vertical: 4.0),
-            child: Row(
-              children: [
-                Expanded(child: Text(ex.exerciseName, style: const TextStyle(fontSize: 14))),
-                Text(
-                  '${ex.sets.length} sets',
-                  style: const TextStyle(fontSize: 12, color: AppTheme.mutedTextColor),
-                ),
-              ],
+          ...log.exerciseLogs.map(
+            (ex) => Padding(
+              padding: const EdgeInsets.symmetric(vertical: 4.0),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      ex.exerciseName,
+                      style: const TextStyle(fontSize: 14),
+                    ),
+                  ),
+                  Text(
+                    '${ex.sets.length} sets',
+                    style: const TextStyle(
+                      fontSize: 12,
+                      color: AppTheme.mutedTextColor,
+                    ),
+                  ),
+                ],
+              ),
             ),
-          )),
+          ),
           if (log.notes != null && log.notes!.isNotEmpty) ...[
             const SizedBox(height: 8),
             Container(
@@ -130,12 +170,19 @@ class _WorkoutHistoryScreenState extends State<WorkoutHistoryScreen> {
               ),
               child: Row(
                 children: [
-                  const Icon(Icons.notes, size: 16, color: AppTheme.primaryColor),
+                  const Icon(
+                    Icons.notes,
+                    size: 16,
+                    color: AppTheme.primaryColor,
+                  ),
                   const SizedBox(width: 8),
                   Expanded(
                     child: Text(
                       log.notes!,
-                      style: const TextStyle(fontSize: 12, fontStyle: FontStyle.italic),
+                      style: const TextStyle(
+                        fontSize: 12,
+                        fontStyle: FontStyle.italic,
+                      ),
                     ),
                   ),
                 ],

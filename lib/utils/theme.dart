@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ptapp/utils/depth_manager.dart';
 
 class AppTheme {
   // Pure Black Theme Colors (Corrected from User Feedback)
@@ -8,16 +9,46 @@ class AppTheme {
   static const Color surfaceColor = Color(0xFF121212); // Deep Grey for cards
   static const Color mutedTextColor = Color(0xFF8E8E93);
   static const Color errorColor = Color(0xFFFF453A);
-  static const Color accentColor = Color(
-    0xFF007AFF,
-  ); // iOS Blue or any other accent
+  static const Color accentColor = Color(0xFF007AFF);
+  static const Color electricLime = Color(0xFFC0FF00);
+  static const Color roseBerry = Color(0xFFFB7185);
 
-  // Light Theme Colors (Placeholders)
-  static const Color lightPrimaryColor = Color(0xFF000000);
-  static const Color lightBackgroundColor = Color(0xFFF2F2F7);
-  static const Color lightSurfaceColor = Colors.white;
+  // Light Theme Colors (Modern Boutique Aesthetic)
+  static const Color lightPrimaryColor =
+      primaryColor; // Keep blue for highlights
+  static const Color lightBackgroundColor = Color.fromARGB(
+    255,
+    243,
+    228,
+    203,
+  ); // Premium Linen
+  static const Color lightSurfaceColor = Color.fromARGB(255, 247, 238, 225);
   static const Color lightTextColor = Color(0xFF1C1C1E);
-  static const Color lightMutedTextColor = Color(0xFF636366);
+  static const Color lightMutedTextColor = Color(0xFF706D69);
+
+  static Color getScaffoldColor(BuildContext context) {
+    final theme = Theme.of(context);
+    if (theme.brightness == Brightness.dark) {
+      return theme.scaffoldBackgroundColor;
+    }
+
+    // Precise Light Mode Progressive Darkening
+    final int depth = PageDepth.of(context);
+    // If depth is 0 (not found) or 1 (base), return base color
+    if (depth <= 1) return lightBackgroundColor;
+
+    final baseHSL = HSLColor.fromColor(lightBackgroundColor);
+
+    // As depth increases (2, 3, 4...), darkenAmount increases (0.1, 0.2, 0.3...)
+    // We reduced the step to 0.1 for more subtle progression
+    double darkenAmount = (depth - 1) * 0.07;
+    if (darkenAmount > 0.50) darkenAmount = 0.50; // Cap at 50% darkening
+
+    // Subtract from lightness to make it darker (closer to 0)
+    double newLightness = (baseHSL.lightness - darkenAmount).clamp(0.0, 1.0);
+
+    return baseHSL.withLightness(newLightness).toColor();
+  }
 
   static ThemeData darkTheme = _buildTheme(
     brightness: Brightness.dark,
@@ -55,14 +86,24 @@ class AppTheme {
       scaffoldBackgroundColor: background,
       cardTheme: CardThemeData(
         color: surface,
-        elevation: 0,
+        elevation: brightness == Brightness.dark ? 0 : 2,
+        shadowColor: brightness == Brightness.dark
+            ? Colors.transparent
+            : Colors.black.withOpacity(0.08),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-          side: BorderSide(color: text.withOpacity(0.1)),
+          borderRadius: BorderRadius.circular(20),
+          side: BorderSide(
+            color: brightness == Brightness.dark
+                ? text.withOpacity(0.1)
+                : Colors.transparent,
+          ),
         ),
       ),
+      iconTheme: IconThemeData(color: text),
       appBarTheme: AppBarTheme(
-        backgroundColor: background,
+        scrolledUnderElevation: 0,
+        backgroundColor:
+            Colors.transparent, // Let Scaffold background show through
         elevation: 0,
         centerTitle: true,
         iconTheme: IconThemeData(color: text),
@@ -71,6 +112,13 @@ class AppTheme {
           fontWeight: FontWeight.bold,
           color: text,
         ),
+      ),
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        backgroundColor: surface,
+        selectedItemColor: primary,
+        unselectedItemColor: mutedText,
+        type: BottomNavigationBarType.fixed,
+        elevation: 8,
       ),
       textTheme: GoogleFonts.outfitTextTheme(baseTheme.textTheme).copyWith(
         headlineMedium: TextStyle(
@@ -86,7 +134,7 @@ class AppTheme {
           backgroundColor: primary,
           foregroundColor: brightness == Brightness.dark
               ? Colors.black
-              : Colors.white, // Contrast text
+              : Colors.white,
           padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 32),
           elevation: 0,
           shape: RoundedRectangleBorder(
@@ -117,15 +165,15 @@ class AppTheme {
         brightness: brightness,
         primary: primary,
         onPrimary: brightness == Brightness.dark ? Colors.black : Colors.white,
-        secondary: primary,
-        onSecondary: brightness == Brightness.dark
-            ? Colors.black
-            : Colors.white,
+        secondary: brightness == Brightness.dark ? primary : electricLime,
+        onSecondary: Colors.black, // High visibility on Lime or Blue
+        tertiary: brightness == Brightness.dark ? accentColor : roseBerry,
         error: errorColor,
         onError: Colors.white,
         surface: surface,
         onSurface: text,
       ),
+      dividerColor: text.withOpacity(0.1),
     );
   }
 }

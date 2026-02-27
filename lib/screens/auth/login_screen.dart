@@ -5,7 +5,6 @@ import 'package:ptapp/utils/theme.dart';
 import 'package:ptapp/screens/auth/forgot_password_screen.dart';
 import 'package:ptapp/screens/auth/signup_screen.dart';
 
-
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -42,7 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
     final authProvider = Provider.of<AuthProvider>(context);
 
     return Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      backgroundColor: AppTheme.getScaffoldColor(context),
       body: Stack(
         children: [
           SafeArea(
@@ -63,9 +62,17 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         child: Row(
                           children: [
-                            const Icon(Icons.error_outline, color: Colors.redAccent),
+                            const Icon(
+                              Icons.error_outline,
+                              color: Colors.redAccent,
+                            ),
                             const SizedBox(width: 12),
-                            Expanded(child: Text(authProvider.authError!, style: const TextStyle(color: Colors.redAccent))),
+                            Expanded(
+                              child: Text(
+                                authProvider.authError!,
+                                style: const TextStyle(color: Colors.redAccent),
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -75,11 +82,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     Text(
                       'The Musa Effect',
                       textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                        fontSize: 32,
-                        fontWeight: FontWeight.bold,
-                        color: Theme.of(context).colorScheme.onSurface,
-                      ),
+                      style: Theme.of(context).textTheme.headlineMedium
+                          ?.copyWith(
+                            fontSize: 32,
+                            fontWeight: FontWeight.bold,
+                            color: Theme.of(context).colorScheme.onSurface,
+                          ),
                     ),
                     const SizedBox(height: 48),
                     TextField(
@@ -97,7 +105,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       decoration: InputDecoration(
                         labelText: 'Password',
                         filled: true,
-                        fillColor: const Color(0xFF1C2029),
+                        fillColor: Theme.of(context).cardTheme.color,
                         suffixIcon: IconButton(
                           icon: Icon(
                             _isPasswordVisible
@@ -122,7 +130,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           onChanged: (v) {},
                           activeColor: AppTheme.primaryColor,
                         ),
-                        const Text('Remember Me', style: TextStyle(fontSize: 14)),
+                        const Text(
+                          'Remember Me',
+                          style: TextStyle(fontSize: 14),
+                        ),
                       ],
                     ),
                     const SizedBox(height: 16),
@@ -131,14 +142,27 @@ class _LoginScreenState extends State<LoginScreen> {
                       style: ElevatedButton.styleFrom(
                         minimumSize: const Size(double.infinity, 56),
                         backgroundColor: AppTheme.primaryColor,
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
                       ),
-                      child: const Text('Sign In', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                      child: const Text(
+                        'Sign In',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                     const SizedBox(height: 24),
                     Center(
                       child: TextButton(
-                        onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const SignUpScreen())),
+                        onPressed: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => const SignUpScreen(),
+                          ),
+                        ),
                         child: RichText(
                           text: const TextSpan(
                             text: "Don't have an account? ",
@@ -146,7 +170,10 @@ class _LoginScreenState extends State<LoginScreen> {
                             children: [
                               TextSpan(
                                 text: 'Sign Up',
-                                style: TextStyle(color: AppTheme.primaryColor, fontWeight: FontWeight.bold),
+                                style: TextStyle(
+                                  color: AppTheme.primaryColor,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ],
                           ),
@@ -155,8 +182,16 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     Center(
                       child: TextButton(
-                        onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const ForgotPasswordScreen())),
-                        child: const Text('Forgot Password?', style: TextStyle(color: AppTheme.mutedTextColor)),
+                        onPressed: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => const ForgotPasswordScreen(),
+                          ),
+                        ),
+                        child: const Text(
+                          'Forgot Password?',
+                          style: TextStyle(color: AppTheme.mutedTextColor),
+                        ),
                       ),
                     ),
                   ],
@@ -167,13 +202,10 @@ class _LoginScreenState extends State<LoginScreen> {
           if (authProvider.isSigningIn)
             Container(
               color: Colors.black.withOpacity(0.5),
-              child: const Center(
-                child: CircularProgressIndicator(),
-              ),
+              child: const Center(child: CircularProgressIndicator()),
             ),
         ],
       ),
     );
   }
-
 }

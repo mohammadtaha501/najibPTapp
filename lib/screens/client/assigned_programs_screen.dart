@@ -90,8 +90,9 @@ class _AssignedProgramsScreenState extends State<AssignedProgramsScreen>
     final dbService = _dbService;
 
     return Scaffold(
+      backgroundColor: AppTheme.getScaffoldColor(context),
       appBar: AppBar(
-        title: const Text('My Programs'),
+        title: const Text('MY PROGRAMS'),
         elevation: 0,
         backgroundColor: Colors.transparent,
         bottom: PreferredSize(
@@ -483,10 +484,10 @@ class _AssignedProgramsScreenState extends State<AssignedProgramsScreen>
                 ),
                 child: Text(
                   buttonLabel,
-                  style: const TextStyle(
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.onSurface,
                     fontWeight: FontWeight.bold,
-                    fontSize: 15,
-                    color: Colors.black,
+                    fontSize: 18,
                   ),
                 ),
               ),
