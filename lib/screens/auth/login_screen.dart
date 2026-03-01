@@ -56,21 +56,27 @@ class _LoginScreenState extends State<LoginScreen> {
                       Container(
                         padding: const EdgeInsets.all(12),
                         decoration: BoxDecoration(
-                          color: Colors.redAccent.withOpacity(0.1),
+                          color: Theme.of(
+                            context,
+                          ).colorScheme.error.withValues(alpha: 0.1),
                           borderRadius: BorderRadius.circular(8),
-                          border: Border.all(color: Colors.redAccent),
+                          border: Border.all(
+                            color: Theme.of(context).colorScheme.error,
+                          ),
                         ),
                         child: Row(
                           children: [
-                            const Icon(
+                            Icon(
                               Icons.error_outline,
-                              color: Colors.redAccent,
+                              color: Theme.of(context).colorScheme.error,
                             ),
                             const SizedBox(width: 12),
                             Expanded(
                               child: Text(
                                 authProvider.authError!,
-                                style: const TextStyle(color: Colors.redAccent),
+                                style: TextStyle(
+                                  color: Theme.of(context).colorScheme.error,
+                                ),
                               ),
                             ),
                           ],
@@ -111,7 +117,9 @@ class _LoginScreenState extends State<LoginScreen> {
                             _isPasswordVisible
                                 ? Icons.visibility
                                 : Icons.visibility_off,
-                            color: AppTheme.mutedTextColor,
+                            color: Theme.of(
+                              context,
+                            ).colorScheme.onSurface.withValues(alpha: 0.4),
                           ),
                           onPressed: () {
                             setState(() {
@@ -164,13 +172,17 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                         child: RichText(
-                          text: const TextSpan(
+                          text: TextSpan(
                             text: "Don't have an account? ",
-                            style: TextStyle(color: AppTheme.mutedTextColor),
+                            style: TextStyle(
+                              color: Theme.of(
+                                context,
+                              ).colorScheme.onSurface.withOpacity(0.6),
+                            ),
                             children: [
                               TextSpan(
                                 text: 'Sign Up',
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: AppTheme.primaryColor,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -188,9 +200,13 @@ class _LoginScreenState extends State<LoginScreen> {
                             builder: (_) => const ForgotPasswordScreen(),
                           ),
                         ),
-                        child: const Text(
+                        child: Text(
                           'Forgot Password?',
-                          style: TextStyle(color: AppTheme.mutedTextColor),
+                          style: TextStyle(
+                            color: Theme.of(
+                              context,
+                            ).colorScheme.onSurface.withOpacity(0.6),
+                          ),
                         ),
                       ),
                     ),
@@ -201,7 +217,9 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
           if (authProvider.isSigningIn)
             Container(
-              color: Colors.black.withOpacity(0.5),
+              color: Theme.of(
+                context,
+              ).colorScheme.surface.withValues(alpha: 0.7),
               child: const Center(child: CircularProgressIndicator()),
             ),
         ],

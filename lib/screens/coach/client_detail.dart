@@ -1558,6 +1558,7 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
                 const SizedBox(height: 16),
                 DropdownButtonFormField<String>(
                   value: selectedGender,
+                  borderRadius: BorderRadius.circular(16),
                   items: ['Male', 'Female', 'Other']
                       .map((i) => DropdownMenuItem(value: i, child: Text(i)))
                       .toList(),
@@ -1623,6 +1624,7 @@ class _ClientDetailScreenState extends State<ClientDetailScreen> {
               children: [
                 DropdownButtonFormField<String>(
                   value: selectedGoal,
+                  borderRadius: BorderRadius.circular(16),
                   items:
                       [
                             'Fat Loss',

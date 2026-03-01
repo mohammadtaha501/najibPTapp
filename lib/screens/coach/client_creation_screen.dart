@@ -15,6 +15,7 @@ class _ClientCreationScreenState extends State<ClientCreationScreen> {
   final _nameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  bool _isPasswordVisible = false;
 
   // Onboarding Fields (Optional)
   final _ageController = TextEditingController();
@@ -71,7 +72,20 @@ class _ClientCreationScreenState extends State<ClientCreationScreen> {
                 _passwordController,
                 'Password',
                 Icons.lock_outline,
-                obscureText: true,
+                obscureText: !_isPasswordVisible,
+                suffixIcon: IconButton(
+                  icon: Icon(
+                    _isPasswordVisible
+                        ? Icons.visibility
+                        : Icons.visibility_off,
+                    color: AppTheme.mutedTextColor,
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      _isPasswordVisible = !_isPasswordVisible;
+                    });
+                  },
+                ),
               ),
 
               const SizedBox(height: 32),
@@ -230,16 +244,17 @@ class _ClientCreationScreenState extends State<ClientCreationScreen> {
     TextInputType keyboardType = TextInputType.text,
     bool obscureText = false,
     int maxLines = 1,
+    Widget? suffixIcon,
   }) {
     return TextField(
       controller: controller,
       keyboardType: keyboardType,
       obscureText: obscureText,
       maxLines: maxLines,
-      style: const TextStyle(fontSize: 16, color: Colors.white),
       decoration: InputDecoration(
         labelText: label,
         prefixIcon: Icon(icon, size: 20, color: AppTheme.primaryColor),
+        suffixIcon: suffixIcon,
         alignLabelWithHint: maxLines > 1,
       ),
     );
@@ -253,6 +268,7 @@ class _ClientCreationScreenState extends State<ClientCreationScreen> {
   ) {
     return DropdownButtonFormField<String>(
       value: value,
+      borderRadius: BorderRadius.circular(16),
       items: items
           .map(
             (i) => DropdownMenuItem(
@@ -270,7 +286,7 @@ class _ClientCreationScreenState extends State<ClientCreationScreen> {
           color: AppTheme.primaryColor,
         ),
       ),
-      dropdownColor: AppTheme.surfaceColor,
+      dropdownColor: Theme.of(context).cardTheme.color,
     );
   }
 

@@ -58,7 +58,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
       if (mounted) {
         String message = e.toString().replaceAll('Exception: ', '');
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(message), backgroundColor: Colors.redAccent),
+          SnackBar(
+            content: Text(message),
+            backgroundColor: Theme.of(context).colorScheme.error,
+          ),
         );
       }
     } finally {
@@ -93,11 +96,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                 ),
                 const SizedBox(height: 8),
-                const Text(
+                Text(
                   'Start your journey with a professional coach',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: AppTheme.mutedTextColor,
+                    color: Theme.of(
+                      context,
+                    ).colorScheme.onSurface.withValues(alpha: 0.6),
                     fontSize: 14,
                   ),
                 ),
@@ -106,9 +111,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   controller: _nameController,
                   decoration: InputDecoration(
                     labelText: 'Full Name',
-                    prefixIcon: const Icon(
+                    prefixIcon: Icon(
                       Icons.person_outline,
-                      color: AppTheme.mutedTextColor,
+                      color: Theme.of(
+                        context,
+                      ).colorScheme.onSurface.withValues(alpha: 0.4),
                     ),
                     filled: true,
                     fillColor: Theme.of(context).cardTheme.color,
@@ -119,9 +126,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   controller: _emailController,
                   decoration: InputDecoration(
                     labelText: 'Email',
-                    prefixIcon: const Icon(
+                    prefixIcon: Icon(
                       Icons.email_outlined,
-                      color: AppTheme.mutedTextColor,
+                      color: Theme.of(
+                        context,
+                      ).colorScheme.onSurface.withValues(alpha: 0.4),
                     ),
                     filled: true,
                     fillColor: Theme.of(context).cardTheme.color,
@@ -133,9 +142,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   controller: _passwordController,
                   decoration: InputDecoration(
                     labelText: 'Password',
-                    prefixIcon: const Icon(
+                    prefixIcon: Icon(
                       Icons.lock_outline,
-                      color: AppTheme.mutedTextColor,
+                      color: Theme.of(
+                        context,
+                      ).colorScheme.onSurface.withValues(alpha: 0.4),
                     ),
                     filled: true,
                     fillColor: Theme.of(context).cardTheme.color,
@@ -144,7 +155,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         _isPasswordVisible
                             ? Icons.visibility
                             : Icons.visibility_off,
-                        color: AppTheme.mutedTextColor,
+                        color: Theme.of(
+                          context,
+                        ).colorScheme.onSurface.withValues(alpha: 0.4),
                       ),
                       onPressed: () => setState(
                         () => _isPasswordVisible = !_isPasswordVisible,
@@ -164,13 +177,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                   ),
                   child: _isLoading
-                      ? const CircularProgressIndicator(color: Colors.black)
-                      : const Text(
+                      ? CircularProgressIndicator(
+                          color: Theme.of(context).colorScheme.onPrimary,
+                        )
+                      : Text(
                           'Sign Up',
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: Colors.black,
+                            color: Theme.of(context).colorScheme.onPrimary,
                           ),
                         ),
                 ),
@@ -178,9 +193,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
+                    Text(
                       'Already have an account? ',
-                      style: TextStyle(color: AppTheme.mutedTextColor),
+                      style: TextStyle(
+                        color: Theme.of(
+                          context,
+                        ).colorScheme.onSurface.withValues(alpha: 0.6),
+                      ),
                     ),
                     TextButton(
                       onPressed: () => Navigator.pop(context),

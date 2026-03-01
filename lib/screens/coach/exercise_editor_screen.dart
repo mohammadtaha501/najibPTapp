@@ -194,6 +194,7 @@ class _ExerciseEditorScreenState extends State<ExerciseEditorScreen> {
                   const SizedBox(height: 16),
                   DropdownButtonFormField<String>(
                     value: _selectedMuscleGroup,
+                    borderRadius: BorderRadius.circular(16),
                     hint: const Text('Select Muscle Group Focus *'),
                     items: Exercise.muscleGroups
                         .map(
@@ -217,10 +218,6 @@ class _ExerciseEditorScreenState extends State<ExerciseEditorScreen> {
                       ),
                       filled: true,
                       fillColor: Theme.of(context).colorScheme.surface,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide.none,
-                      ),
                     ),
                   ),
                   const SizedBox(height: 16),

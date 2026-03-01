@@ -211,9 +211,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             borderRadius: BorderRadius.circular(10),
             child: LinearProgressIndicator(
               value: (_currentStep + 1) / _totalSteps,
-              backgroundColor: AppTheme.surfaceColor,
-              valueColor: const AlwaysStoppedAnimation<Color>(
-                AppTheme.primaryColor,
+              backgroundColor: Theme.of(
+                context,
+              ).dividerColor.withValues(alpha: 0.1),
+              valueColor: AlwaysStoppedAnimation<Color>(
+                Theme.of(context).colorScheme.primary,
               ),
               minHeight: 8,
             ),
@@ -242,12 +244,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
           ),
           const SizedBox(height: 24),
-          const Align(
+          Align(
             alignment: Alignment.centerLeft,
             child: Text(
               'Gender',
               style: TextStyle(
-                color: Colors.white,
+                color: Theme.of(context).colorScheme.onSurface,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -336,15 +338,18 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   const SizedBox(height: 24),
                   Container(
                     decoration: BoxDecoration(
-                      color: AppTheme.surfaceColor,
+                      color: Theme.of(context).colorScheme.surface,
                       borderRadius: BorderRadius.circular(20),
-                      border: Border.all(color: Colors.white.withOpacity(0.05)),
+                      border: Border.all(
+                        color: Theme.of(
+                          context,
+                        ).dividerColor.withValues(alpha: 0.05),
+                      ),
                     ),
                     child: TextField(
                       controller: _goalDetailsController,
                       inputFormatters: [LengthLimitingTextInputFormatter(300)],
                       maxLines: 1,
-                      style: const TextStyle(color: Colors.white, fontSize: 15),
                       decoration: InputDecoration(
                         labelText: _selectedGoal == 'Event Specific'
                             ? 'Event Details'
@@ -359,13 +364,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         enabledBorder: InputBorder.none,
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20),
-                          borderSide: const BorderSide(
-                            color: AppTheme.primaryColor,
+                          borderSide: BorderSide(
+                            color: Theme.of(context).colorScheme.primary,
                             width: 2,
                           ),
                         ),
-                        floatingLabelStyle: const TextStyle(
-                          color: AppTheme.primaryColor,
+                        floatingLabelStyle: TextStyle(
+                          color: Theme.of(context).colorScheme.primary,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -395,46 +400,51 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Icon(
+              Icon(
                 Icons.calendar_month_outlined,
                 size: 48,
-                color: AppTheme.primaryColor,
+                color: Theme.of(context).colorScheme.primary,
               ),
               const SizedBox(height: 16),
-              const Text(
+              Text(
                 'The Commitment Plan',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: Theme.of(context).colorScheme.onSurface,
                 ),
               ),
               const SizedBox(height: 24),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text(
+                  Text(
                     'I commit to minimum of ',
-                    style: TextStyle(color: Colors.white, fontSize: 16),
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.onSurface,
+                      fontSize: 16,
+                    ),
                   ),
                   Container(
                     width: 70,
                     decoration: BoxDecoration(
-                      color: Colors.black,
+                      color: Theme.of(context).colorScheme.surface,
                       borderRadius: BorderRadius.circular(12),
                       border: Border.all(
-                        color: AppTheme.primaryColor.withOpacity(0.5),
+                        color: Theme.of(
+                          context,
+                        ).colorScheme.primary.withValues(alpha: 0.5),
                       ),
                     ),
                     child: TextField(
                       controller: _commitmentController,
                       keyboardType: TextInputType.number,
                       textAlign: TextAlign.center,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
-                        color: AppTheme.primaryColor,
+                        color: Theme.of(context).colorScheme.primary,
                       ),
                       inputFormatters: [
                         FilteringTextInputFormatter.digitsOnly,
@@ -448,9 +458,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       ),
                     ),
                   ),
-                  const Text(
+                  Text(
                     ' months',
-                    style: TextStyle(color: Colors.white, fontSize: 16),
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.onSurface,
+                      fontSize: 16,
+                    ),
                   ),
                 ],
               ),
@@ -475,13 +488,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   ),
                   decoration: BoxDecoration(
                     color: _commitmentAgreed
-                        ? AppTheme.primaryColor.withOpacity(0.1)
+                        ? Theme.of(
+                            context,
+                          ).colorScheme.primary.withValues(alpha: 0.1)
                         : Colors.transparent,
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(
                       color: _commitmentAgreed
-                          ? AppTheme.primaryColor
-                          : Colors.white.withOpacity(0.1),
+                          ? Theme.of(context).colorScheme.primary
+                          : Theme.of(
+                              context,
+                            ).dividerColor.withValues(alpha: 0.1),
                     ),
                   ),
                   child: Row(
@@ -491,29 +508,30 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         height: 20,
                         decoration: BoxDecoration(
                           color: _commitmentAgreed
-                              ? AppTheme.primaryColor
+                              ? Theme.of(context).colorScheme.primary
                               : Colors.transparent,
                           border: Border.all(
                             color: _commitmentAgreed
-                                ? AppTheme.primaryColor
-                                : AppTheme.mutedTextColor,
+                                ? Theme.of(context).colorScheme.primary
+                                : Theme.of(context).colorScheme.onSurface
+                                      .withValues(alpha: 0.4),
                           ),
                           borderRadius: BorderRadius.circular(6),
                         ),
                         child: _commitmentAgreed
-                            ? const Icon(
+                            ? Icon(
                                 Icons.check,
                                 size: 14,
-                                color: Colors.black,
+                                color: Theme.of(context).colorScheme.onPrimary,
                               )
                             : null,
                       ),
                       const SizedBox(width: 12),
-                      const Expanded(
+                      Expanded(
                         child: Text(
                           'I am ready to commit to this journey.',
                           style: TextStyle(
-                            color: Colors.white,
+                            color: Theme.of(context).colorScheme.onSurface,
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
                           ),
@@ -543,10 +561,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           const SizedBox(height: 20),
           Text(
             title,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 28,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.onSurface,
             ),
           ),
           const SizedBox(height: 8),
@@ -571,13 +589,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
         decoration: BoxDecoration(
-          color: isSelected ? AppTheme.primaryColor : AppTheme.surfaceColor,
+          color: isSelected
+              ? Theme.of(context).colorScheme.primary
+              : Theme.of(context).colorScheme.surface,
           borderRadius: BorderRadius.circular(12),
         ),
         child: Text(
           label,
           style: TextStyle(
-            color: isSelected ? Colors.black : Colors.white,
+            color: isSelected
+                ? Colors.black
+                : Theme.of(context).colorScheme.onSurface,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -592,16 +614,22 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         decoration: BoxDecoration(
-          color: isSelected ? AppTheme.primaryColor : AppTheme.surfaceColor,
+          color: isSelected
+              ? Theme.of(context).colorScheme.primary
+              : Theme.of(context).colorScheme.surface,
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
-            color: isSelected ? AppTheme.primaryColor : Colors.white10,
+            color: isSelected
+                ? Theme.of(context).colorScheme.primary
+                : Theme.of(context).dividerColor.withValues(alpha: 0.05),
           ),
         ),
         child: Text(
           label,
           style: TextStyle(
-            color: isSelected ? Colors.black : Colors.white,
+            color: isSelected
+                ? Theme.of(context).colorScheme.onPrimary
+                : Theme.of(context).colorScheme.onSurface,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -646,8 +674,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               ),
               child: Text(
                 _currentStep == _totalSteps - 1 ? 'FINISH' : 'NEXT',
-                style: const TextStyle(
-                  color: Colors.black,
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.onPrimary,
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
                 ),

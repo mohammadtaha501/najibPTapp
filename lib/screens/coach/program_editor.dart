@@ -1300,6 +1300,47 @@ class _ProgramEditorState extends State<ProgramEditor> {
       );
       return;
     }
+    // Validate that every week has at least one day
+    for (int week = 1; week <= _weeks; week++) {
+      final hasDays = _days.any((d) => d.week == week);
+      if (!hasDays) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              'Week $week has no workout days. '
+              'Please add at least one day to every week.',
+            ),
+            backgroundColor: Theme.of(context).colorScheme.error,
+            duration: const Duration(seconds: 4),
+          ),
+        );
+        // Jump to the empty week so the coach can fix it immediately
+        setState(() => _selectedWeek = week);
+        return;
+      }
+    }
+
+    // Validate that every day has at least one exercise
+    final emptyDay = _days.firstWhere(
+      (d) => d.exercises.isEmpty,
+      orElse: () =>
+          WorkoutDay(week: -1, day: -1, muscleGroup: '', exercises: []),
+    );
+    if (emptyDay.week != -1) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            'Week ${emptyDay.week} · Day ${emptyDay.day} (${emptyDay.muscleGroup}) has no exercises. '
+            'Please add at least one exercise to every day.',
+          ),
+          backgroundColor: Theme.of(context).colorScheme.error,
+          duration: const Duration(seconds: 4),
+        ),
+      );
+      // Jump to the week that has the empty day so the coach can fix it
+      setState(() => _selectedWeek = emptyDay.week);
+      return;
+    }
 
     if (_selectedType == null) {
       ScaffoldMessenger.of(context).showSnackBar(

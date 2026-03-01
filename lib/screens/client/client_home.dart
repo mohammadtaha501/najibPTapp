@@ -68,8 +68,31 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
       body: StreamBuilder<List<Program>>(
         stream: _programsStream,
         builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting)
+          if (snapshot.hasError) {
+            return Center(
+              child: Padding(
+                padding: const EdgeInsets.all(32.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(
+                      Icons.error_outline,
+                      color: Colors.red,
+                      size: 48,
+                    ),
+                    const SizedBox(height: 16),
+                    Text(
+                      'Unable to load programs. ${snapshot.error.toString().contains('quota') ? 'Daily limit reached. Please try again tomorrow.' : 'Please check your connection.'}',
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+              ),
+            );
+          }
+          if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
+          }
           final programs = snapshot.data ?? [];
           debugPrint(
             '[ClientHome] Stream emitted ${programs.length} programs for User: ${user.uid}',
@@ -436,11 +459,12 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
             child: ElevatedButton(
               onPressed: () async {
                 if (isAssigned) await dbService.startProgram(activeProgram.id!);
-                if (context.mounted)
+                if (context.mounted) {
                   NavigationService.navigateTo(
                     WorkoutProgressionScreen(program: activeProgram),
                     context: context,
                   );
+                }
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppTheme.primaryColor,

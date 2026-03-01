@@ -55,7 +55,9 @@ class _NutritionManagementScreenState extends State<NutritionManagementScreen> {
                     Icon(
                       Icons.restaurant,
                       size: 80,
-                      color: Colors.white.withOpacity(0.05),
+                      color: Theme.of(
+                        context,
+                      ).colorScheme.onSurface.withValues(alpha: 0.05),
                     ),
                     const SizedBox(height: 24),
                     const Text(
@@ -126,9 +128,10 @@ class _NutritionManagementScreenState extends State<NutritionManagementScreen> {
                     const SizedBox(height: 16),
                     Text(
                       plan.title,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
+                        color: Theme.of(context).colorScheme.onSurface,
                       ),
                     ),
                     const SizedBox(height: 8),
@@ -139,7 +142,10 @@ class _NutritionManagementScreenState extends State<NutritionManagementScreen> {
                         fontSize: 14,
                       ),
                     ),
-                    const Divider(height: 32, color: Colors.white10),
+                    Divider(
+                      height: 32,
+                      color: Theme.of(context).dividerColor.withOpacity(0.05),
+                    ),
                     Row(
                       children: [
                         const Icon(
@@ -185,7 +191,9 @@ class _NutritionManagementScreenState extends State<NutritionManagementScreen> {
                       style: ElevatedButton.styleFrom(
                         minimumSize: const Size(double.infinity, 50),
                         backgroundColor: AppTheme.primaryColor,
-                        foregroundColor: Colors.black,
+                        foregroundColor: Theme.of(
+                          context,
+                        ).colorScheme.onPrimary,
                       ),
                       child: const Text(
                         'EDIT PLAN',

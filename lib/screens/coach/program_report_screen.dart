@@ -83,11 +83,12 @@ class _ProgramReportScreenState extends State<ProgramReportScreen> {
                 final days = allDays
                     .where((d) => d.week <= widget.program.totalWeeks)
                     .toList();
-                if (days.isEmpty)
+                if (days.isEmpty) {
                   return const Text(
                     'No workout data found.',
                     style: TextStyle(color: AppTheme.mutedTextColor),
                   );
+                }
 
                 return Column(
                   children: days
@@ -106,9 +107,11 @@ class _ProgramReportScreenState extends State<ProgramReportScreen> {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: AppTheme.surfaceColor,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Colors.white.withOpacity(0.05)),
+        border: Border.all(
+          color: Theme.of(context).dividerColor.withOpacity(0.05),
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -129,7 +132,7 @@ class _ProgramReportScreenState extends State<ProgramReportScreen> {
                 decoration: BoxDecoration(
                   color: widget.program.status == ProgramStatus.active
                       ? AppTheme.primaryColor.withOpacity(0.2)
-                      : Colors.white10,
+                      : Theme.of(context).dividerColor.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Text(
@@ -139,7 +142,9 @@ class _ProgramReportScreenState extends State<ProgramReportScreen> {
                     fontWeight: FontWeight.bold,
                     color: widget.program.status == ProgramStatus.active
                         ? AppTheme.primaryColor
-                        : Colors.white60,
+                        : Theme.of(
+                            context,
+                          ).colorScheme.onSurface.withOpacity(0.6),
                   ),
                 ),
               ),
@@ -157,7 +162,7 @@ class _ProgramReportScreenState extends State<ProgramReportScreen> {
           ),
           if (widget.program.coachNotes != null &&
               widget.program.coachNotes!.isNotEmpty) ...[
-            const Divider(color: Colors.white10, height: 32),
+            const Divider(height: 32),
             const Text(
               'COACH NOTES',
               style: TextStyle(
@@ -170,9 +175,9 @@ class _ProgramReportScreenState extends State<ProgramReportScreen> {
             const SizedBox(height: 8),
             Text(
               widget.program.coachNotes!,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 14,
-                color: Colors.white70,
+                color: Theme.of(context).colorScheme.onSurface.withOpacity(0.8),
                 fontStyle: FontStyle.italic,
               ),
             ),
@@ -212,138 +217,146 @@ class _ProgramReportScreenState extends State<ProgramReportScreen> {
         return Container(
           margin: const EdgeInsets.only(bottom: 12),
           decoration: BoxDecoration(
-            color: AppTheme.surfaceColor,
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: Colors.white.withOpacity(0.05)),
+            color: Theme.of(context).colorScheme.surface,
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(
+              color: Theme.of(context).dividerColor.withOpacity(0.05),
+            ),
           ),
-          child: Theme(
-            data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
-            child: ExpansionTile(
-              leading: _buildStatusIcon(logs, totalEx, isFuture),
-              title: Text(
-                'W${day.week} D${day.day}: ${day.muscleGroup}',
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 15,
-                ),
+          child: ExpansionTile(
+            leading: _buildStatusIcon(logs, totalEx, isFuture),
+            title: Text(
+              'W${day.week} D${day.day}: ${day.muscleGroup}',
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 15,
               ),
-              subtitle: Text(
-                sessionStart != null
-                    ? 'Completed: ${DateFormat('MMM d').format(sessionStart)} • ${totalVolume.toInt()}kg Volume'
-                    : (isFuture ? 'Future Session' : 'Not started yet'),
-                style: const TextStyle(
-                  fontSize: 12,
-                  color: AppTheme.mutedTextColor,
-                ),
+            ),
+            subtitle: Text(
+              sessionStart != null
+                  ? 'Completed: ${DateFormat('MMM d').format(sessionStart)} • ${totalVolume.toInt()}kg Volume'
+                  : (isFuture ? 'Future Session' : 'Not started yet'),
+              style: const TextStyle(
+                fontSize: 12,
+                color: AppTheme.mutedTextColor,
               ),
-              children: [
-                const Divider(color: Colors.white10, height: 1),
-                StreamBuilder<WorkoutLog?>(
-                  stream: _getWorkoutLogStream(day.id ?? day.muscleGroup),
-                  builder: (context, logSnapshot) {
-                    final workoutLog = logSnapshot.data;
-                    return Padding(
-                      padding: const EdgeInsets.all(16),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              _buildSummaryStat(
-                                'COMPLETED',
-                                '$completedEx/$totalEx',
-                              ),
-                              _buildSummaryStat('SKIPPED', '$skippedEx'),
-                              _buildSummaryStat(
-                                'VOLUME',
-                                '${totalVolume.toInt()} kg',
-                              ),
-                            ],
-                          ),
-                          if (workoutLog?.sessionRating != null ||
-                              (workoutLog?.feedback != null &&
-                                  workoutLog!.feedback!.isNotEmpty) ||
-                              (workoutLog?.notes != null &&
-                                  workoutLog!.notes!.isNotEmpty)) ...[
-                            const SizedBox(height: 16),
-                            Container(
-                              padding: const EdgeInsets.all(16),
-                              decoration: BoxDecoration(
-                                color: AppTheme.primaryColor.withOpacity(0.05),
-                                borderRadius: BorderRadius.circular(12),
-                                border: Border.all(
-                                  color: AppTheme.primaryColor.withOpacity(0.2),
-                                ),
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    children: [
-                                      const Icon(
-                                        Icons.star,
-                                        color: Colors.amber,
-                                        size: 20,
-                                      ),
-                                      const SizedBox(width: 8),
-                                      Text(
-                                        'Client Rating: ${workoutLog?.sessionRating ?? "-"}/10',
-                                        style: const TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          color: AppTheme.primaryColor,
-                                          fontSize: 14,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  if (workoutLog?.notes != null &&
-                                      workoutLog!.notes!.isNotEmpty) ...[
-                                    const SizedBox(height: 12),
-                                    Text(
-                                      'Client Notes:\n${workoutLog.notes!}',
-                                      style: const TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 13,
-                                      ),
-                                    ),
-                                  ],
-                                  if (workoutLog?.feedback != null &&
-                                      workoutLog!.feedback!.isNotEmpty) ...[
-                                    const SizedBox(height: 12),
-                                    Text(
-                                      'Your Feedback:\n${workoutLog.feedback!}',
-                                      style: const TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 13,
-                                        fontStyle: FontStyle.italic,
-                                      ),
-                                    ),
-                                  ],
-                                ],
-                              ),
+            ),
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal:16.0),
+                child: const Divider(height: 0.5),
+              ),
+              StreamBuilder<WorkoutLog?>(
+                stream: _getWorkoutLogStream(day.id ?? day.muscleGroup),
+                builder: (context, logSnapshot) {
+                  final workoutLog = logSnapshot.data;
+                  return Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            _buildSummaryStat(
+                              'COMPLETED',
+                              '$completedEx/$totalEx',
+                            ),
+                            _buildSummaryStat('SKIPPED', '$skippedEx'),
+                            _buildSummaryStat(
+                              'VOLUME',
+                              '${totalVolume.toInt()} kg',
                             ),
                           ],
+                        ),
+                        if (workoutLog?.sessionRating != null ||
+                            (workoutLog?.feedback != null &&
+                                workoutLog!.feedback!.isNotEmpty) ||
+                            (workoutLog?.notes != null &&
+                                workoutLog!.notes!.isNotEmpty)) ...[
                           const SizedBox(height: 16),
-                          ...day.exercises.map((ex) {
-                            final log = logs.firstWhere(
-                              (l) => l.exerciseName == ex.name,
-                              orElse: () => ExerciseLog(
-                                exerciseName: ex.name,
-                                sets: [],
-                                timestamp: DateTime.now(),
-                                status: ExerciseStatus.notStarted,
+                          Container(
+                            padding: const EdgeInsets.all(16),
+                            decoration: BoxDecoration(
+                              color: AppTheme.primaryColor.withOpacity(0.05),
+                              borderRadius: BorderRadius.circular(12),
+                              border: Border.all(
+                                color: AppTheme.primaryColor.withOpacity(0.2),
                               ),
-                            );
-                            return _buildExerciseLogDetail(ex, log);
-                          }).toList(),
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.star,
+                                      color: Colors.amber,
+                                      size: 20,
+                                    ),
+                                    const SizedBox(width: 8),
+                                    Text(
+                                      'Client Rating: ${workoutLog?.sessionRating ?? "-"}/10',
+                                      style: const TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: AppTheme.primaryColor,
+                                        fontSize: 14,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                if (workoutLog?.notes != null &&
+                                    workoutLog!.notes!.isNotEmpty) ...[
+                                  const SizedBox(height: 12),
+                                  Text(
+                                    'Client Notes:\n${workoutLog.notes!}',
+                                    style: TextStyle(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onSurface
+                                          .withOpacity(0.7),
+                                      fontSize: 13,
+                                    ),
+                                  ),
+                                ],
+                                if (workoutLog?.feedback != null &&
+                                    workoutLog!.feedback!.isNotEmpty) ...[
+                                  const SizedBox(height: 12),
+                                  Text(
+                                    'Your Feedback:\n${workoutLog.feedback!}',
+                                    style: TextStyle(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onSurface
+                                          .withOpacity(0.7),
+                                      fontSize: 13,
+                                      fontStyle: FontStyle.italic,
+                                    ),
+                                  ),
+                                ],
+                              ],
+                            ),
+                          ),
                         ],
-                      ),
-                    );
-                  },
-                ),
-              ],
-            ),
+                        const SizedBox(height: 16),
+                        ...day.exercises.map((ex) {
+                          final log = logs.firstWhere(
+                            (l) => l.exerciseName == ex.name,
+                            orElse: () => ExerciseLog(
+                              exerciseName: ex.name,
+                              sets: [],
+                              timestamp: DateTime.now(),
+                              status: ExerciseStatus.notStarted,
+                            ),
+                          );
+                          return _buildExerciseLogDetail(ex, log);
+                        }).toList(),
+                      ],
+                    ),
+                  );
+                },
+              ),
+            ],
           ),
         );
       },
@@ -354,7 +367,7 @@ class _ProgramReportScreenState extends State<ProgramReportScreen> {
     if (logs.isEmpty) {
       return Icon(
         isFuture ? Icons.lock_outline : Icons.radio_button_unchecked,
-        color: Colors.white24,
+        color: Theme.of(context).dividerColor,
         size: 20,
       );
     }
@@ -371,9 +384,9 @@ class _ProgramReportScreenState extends State<ProgramReportScreen> {
         size: 22,
       );
     }
-    return const Icon(
+    return Icon(
       Icons.radio_button_unchecked,
-      color: Colors.white24,
+      color: Theme.of(context).dividerColor,
       size: 20,
     );
   }
@@ -393,10 +406,10 @@ class _ProgramReportScreenState extends State<ProgramReportScreen> {
         const SizedBox(height: 4),
         Text(
           value,
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.bold,
-            color: Colors.white,
+            color: Theme.of(context).colorScheme.onSurface,
           ),
         ),
       ],
@@ -411,7 +424,7 @@ class _ProgramReportScreenState extends State<ProgramReportScreen> {
       margin: const EdgeInsets.only(bottom: 8),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.02),
+        color: Theme.of(context).dividerColor.withOpacity(0.05),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Column(
@@ -439,9 +452,14 @@ class _ProgramReportScreenState extends State<ProgramReportScreen> {
                   ),
                 )
               else
-                const Text(
+                Text(
                   'NOT DONE',
-                  style: TextStyle(color: Colors.white24, fontSize: 10),
+                  style: TextStyle(
+                    color: Theme.of(
+                      context,
+                    ).colorScheme.onSurface.withOpacity(0.2),
+                    fontSize: 10,
+                  ),
                 ),
             ],
           ),

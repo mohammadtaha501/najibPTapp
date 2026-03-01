@@ -1,6 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 import 'package:ptapp/providers/auth_provider.dart';
 import 'package:ptapp/screens/auth/login_screen.dart';
@@ -35,8 +34,9 @@ void main() async {
         builder: (context, child) {
           return PageDepth(
             depth: 1,
-            child: Listener(
-              onPointerDown: (PointerDownEvent event) {
+            child: GestureDetector(
+              behavior: HitTestBehavior.translucent,
+              onTap: () {
                 final FocusScopeNode currentFocus = FocusScope.of(context);
                 if (!currentFocus.hasPrimaryFocus && currentFocus.hasFocus) {
                   FocusManager.instance.primaryFocus?.unfocus();

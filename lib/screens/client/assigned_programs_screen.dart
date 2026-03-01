@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:ptapp/models/program_model.dart';
 import 'package:ptapp/services/database_service.dart';
@@ -21,6 +22,7 @@ class _AssignedProgramsScreenState extends State<AssignedProgramsScreen>
   late Stream<List<Program>> _newPlansUnfilteredStream;
   late Stream<List<Program>> _publicProgramsStream;
   final _dbService = DatabaseService();
+  bool _isProcessing = false;
 
   @override
   void initState() {
@@ -37,7 +39,6 @@ class _AssignedProgramsScreenState extends State<AssignedProgramsScreen>
     final user = Provider.of<AuthProvider>(context).userProfile;
 
     if (user == null) {
-      // If user logs out or is null, reset streams if they weren't already
       if (_lastUserId != null) {
         _inProgressStream = Stream.value([]);
         _newPlansUnfilteredStream = Stream.value([]);
@@ -50,17 +51,7 @@ class _AssignedProgramsScreenState extends State<AssignedProgramsScreen>
 
     final currentCoachId = user.coachId ?? '';
 
-    // Only re-initialize if identifying data has changed
     if (user.uid != _lastUserId || currentCoachId != _lastCoachId) {
-      debugPrint(
-        '[AssignedPrograms] Initializing streams for User: ${user.uid}, Coach: $currentCoachId',
-      );
-
-      // We create TWO separate streams for two separate tabs to ensure
-      // that each StreamBuilder gets a fresh "listen" and receives the
-      // current value immediately.
-      // Firestore handles the underlying efficiency/caching.
-
       _inProgressStream = _dbService.getClientPrograms(user.uid);
       _newPlansUnfilteredStream = _dbService.getClientPrograms(user.uid);
 
@@ -68,7 +59,11 @@ class _AssignedProgramsScreenState extends State<AssignedProgramsScreen>
           .getPublicPrograms(currentCoachId)
           .handleError((error) {
             debugPrint('[AssignedPrograms] getPublicPrograms error: $error');
-          });
+          })
+          .timeout(
+            const Duration(seconds: 15),
+            onTimeout: (sink) => sink.add([]),
+          );
 
       _lastUserId = user.uid;
       _lastCoachId = currentCoachId;
@@ -91,128 +86,169 @@ class _AssignedProgramsScreenState extends State<AssignedProgramsScreen>
 
     return Scaffold(
       backgroundColor: AppTheme.getScaffoldColor(context),
-      appBar: AppBar(
-        title: const Text('MY PROGRAMS'),
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(60),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            child: Container(
-              height: 44,
-              padding: const EdgeInsets.all(4),
-              decoration: BoxDecoration(
-                color: AppTheme.surfaceColor,
-                borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: Colors.white.withOpacity(0.05)),
-              ),
-              child: AnimatedBuilder(
-                animation: _tabController,
-                builder: (context, _) {
-                  return Row(
+      body: SafeArea(
+        child: Column(
+          children: [
+            // --- Premium Header ---
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 32, 20, 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      _buildToggleButton(0, 'IN PROGRESS'),
-                      _buildToggleButton(1, 'NEW PLANS'),
+                      const Text(
+                        'MY TRAINING',
+                        style: TextStyle(
+                          color: AppTheme.primaryColor,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w900,
+                          letterSpacing: 1.5,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        'Programs',
+                        style: TextStyle(
+                          color: Theme.of(context).colorScheme.onSurface,
+                          fontSize: 32,
+                          fontWeight: FontWeight.w900,
+                          letterSpacing: -1,
+                        ),
+                      ),
                     ],
-                  );
-                },
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(12),
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).colorScheme.surface,
+                      borderRadius: BorderRadius.circular(16),
+                      border: Border.all(
+                        color: Theme.of(context).dividerColor.withOpacity(0.05),
+                      ),
+                    ),
+                    child: Icon(
+                      Icons.fitness_center_rounded,
+                      color: Theme.of(
+                        context,
+                      ).colorScheme.onSurface.withOpacity(0.5),
+                    ),
+                  ),
+                ],
               ),
             ),
-          ),
+
+            // --- Modern Tab Toggle ---
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+              child: Container(
+                height: 52,
+                padding: const EdgeInsets.all(4),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).cardTheme.color,
+                  borderRadius: BorderRadius.circular(16),
+                  border: Border.all(
+                    color: Theme.of(context).dividerColor.withOpacity(0.05),
+                  ),
+                ),
+                child: AnimatedBuilder(
+                  animation: _tabController,
+                  builder: (context, _) => Row(
+                    children: [
+                      _buildToggleButton(0, 'ACTIVE'),
+                      _buildToggleButton(1, 'NEW PLANS'),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 8),
+
+            // --- Content ---
+            Expanded(
+              child: TabBarView(
+                controller: _tabController,
+                physics: const BouncingScrollPhysics(),
+                children: [
+                  _buildProgramList(
+                    dbService,
+                    user,
+                    stream: _inProgressStream,
+                    filter: (p) => p.status == ProgramStatus.active,
+                    emptyMessage: 'No active programs yet.',
+                    buttonLabel: "CONTINUE WORKOUT",
+                  ),
+                  _buildNewPlansTab(dbService, user),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
-      body: TabBarView(
-        controller: _tabController,
-        children: [
-          // 1. IN PROGRESS TAB
-          _buildProgramList(
-            dbService,
-            user,
-            stream: _inProgressStream,
-            filter: (p) => p.status == ProgramStatus.active,
-            emptyMessage: 'No programs currently in progress.',
-            buttonLabel: "START TODAY'S WORKOUT",
-          ),
+    );
+  }
 
-          // 2. NEW PLANS TAB
-          StreamBuilder<List<Program>>(
-            stream: _newPlansUnfilteredStream,
-            builder: (context, personalSnapshot) {
-              return StreamBuilder<List<Program>>(
-                stream: _publicProgramsStream,
-                builder: (context, publicSnapshot) {
-                  final personal = personalSnapshot.data ?? [];
-                  final public = publicSnapshot.data ?? [];
+  Widget _buildNewPlansTab(DatabaseService dbService, dynamic user) {
+    return StreamBuilder<List<Program>>(
+      stream: _newPlansUnfilteredStream,
+      builder: (context, personalSnapshot) {
+        return StreamBuilder<List<Program>>(
+          stream: _publicProgramsStream,
+          builder: (context, publicSnapshot) {
+            if ((personalSnapshot.connectionState == ConnectionState.waiting &&
+                    !personalSnapshot.hasData) ||
+                (publicSnapshot.connectionState == ConnectionState.waiting &&
+                    !publicSnapshot.hasData)) {
+              return const Center(child: CircularProgressIndicator());
+            }
 
-                  // Debug prints removed for cleaner code, as issue is identified.
+            final personal = personalSnapshot.data ?? [];
+            final public = publicSnapshot.data ?? [];
+            final unstartedPersonal = personal
+                .where((p) => p.status == ProgramStatus.assigned)
+                .toList();
 
-                  final unstartedPersonal = personal
-                      .where((p) => p.status == ProgramStatus.assigned)
-                      .toList();
+            final claimingActiveOrAssignedIds = personal
+                .where(
+                  (p) =>
+                      p.parentProgramId != null &&
+                      (p.status == ProgramStatus.active ||
+                          p.status == ProgramStatus.assigned),
+                )
+                .map((p) => p.parentProgramId!)
+                .toSet();
 
-                  // debugPrint('[AssignedPrograms] Unstarted Personal: ${unstartedPersonal.length}');
+            final availablePublic = public
+                .where((p) => !claimingActiveOrAssignedIds.contains(p.id))
+                .toList();
+            final allNewPlans = [...unstartedPersonal, ...availablePublic];
 
-                  // Filter public programs:
-                  // Don't show if user has an ACTIVE or ASSIGNED (unstarted) copy of it.
-                  // IF they have a COMPLETED copy, they CAN see it again to restart.
-                  final claimingActiveOrAssignedIds = personal
-                      .where(
-                        (p) =>
-                            p.parentProgramId != null &&
-                            (p.status == ProgramStatus.active ||
-                                p.status == ProgramStatus.assigned),
-                      )
-                      .map((p) => p.parentProgramId!)
-                      .toSet();
-
-                  final availablePublic = public
-                      .where((p) => !claimingActiveOrAssignedIds.contains(p.id))
-                      .toList();
-
-                  // debugPrint('[AssignedPrograms] Available Public: ${availablePublic.length} (Original: ${public.length})');
-
-                  final allNewPlans = [
-                    ...unstartedPersonal,
-                    ...availablePublic,
-                  ];
-
-                  if (allNewPlans.isEmpty) {
-                    return const _EmptyPlaceholder(
-                      message: 'No new plans available.',
-                    );
-                  }
-
-                  return ListView.builder(
-                    padding: const EdgeInsets.all(20),
-                    itemCount: allNewPlans.length,
-                    itemBuilder: (context, index) {
-                      final program = allNewPlans[index];
-                      // If it's in the 'public' list, it's a general program.
-                      // If it's in the 'unstartedPersonal' list, it's a customized plan (or a re-assigned one).
-                      // final bool isGeneral = program.isPublic || (program.parentProgramId != null && program.isPublic == false);
-                      // Actually, if it's from availablePublic, it isGeneral = true.
-                      // If it's from unstartedPersonal, it's customized (or specifically assigned).
-                      final bool fromPublicList = availablePublic.contains(
-                        program,
-                      );
-
-                      return _buildProgramCard(
-                        context,
-                        program,
-                        dbService,
-                        isPublic: fromPublicList,
-                        buttonLabel: "START PROGRAM",
-                        isGeneralLabel: fromPublicList,
-                      );
-                    },
-                  );
-                },
+            if (allNewPlans.isEmpty) {
+              return const _EmptyPlaceholder(
+                message: 'Ready for a new routine? Check back later.',
               );
-            },
-          ),
-        ],
-      ),
+            }
+
+            return ListView.builder(
+              padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
+              itemCount: allNewPlans.length,
+              itemBuilder: (context, index) {
+                final program = allNewPlans[index];
+                final bool fromPublicList = availablePublic.contains(program);
+                return _buildProgramCard(
+                  context,
+                  program,
+                  dbService,
+                  isPublic: fromPublicList,
+                  buttonLabel: "START PROGRAM",
+                  isGeneralLabel: fromPublicList,
+                );
+              },
+            );
+          },
+        );
+      },
     );
   }
 
@@ -221,19 +257,31 @@ class _AssignedProgramsScreenState extends State<AssignedProgramsScreen>
     return Expanded(
       child: GestureDetector(
         onTap: () => setState(() => _tabController.animateTo(index)),
-        child: Container(
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 200),
           decoration: BoxDecoration(
             color: isSelected ? AppTheme.primaryColor : Colors.transparent,
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(12),
+            boxShadow: isSelected
+                ? [
+                    BoxShadow(
+                      color: AppTheme.primaryColor.withOpacity(0.2),
+                      blurRadius: 8,
+                      offset: const Offset(0, 2),
+                    ),
+                  ]
+                : [],
           ),
           alignment: Alignment.center,
           child: Text(
             label,
             style: TextStyle(
-              color: isSelected ? Colors.black : AppTheme.mutedTextColor,
-              fontWeight: FontWeight.bold,
-              fontSize: 12,
-              letterSpacing: 0.5,
+              color: isSelected
+                  ? Colors.black
+                  : Theme.of(context).colorScheme.onSurface.withOpacity(0.4),
+              fontWeight: FontWeight.w900,
+              fontSize: 11,
+              letterSpacing: 1,
             ),
           ),
         ),
@@ -252,15 +300,12 @@ class _AssignedProgramsScreenState extends State<AssignedProgramsScreen>
     return StreamBuilder<List<Program>>(
       stream: stream,
       builder: (context, snapshot) {
-        // Only show spinner on first load (waiting + no data yet)
         if (snapshot.connectionState == ConnectionState.waiting &&
             !snapshot.hasData) {
           return const Center(child: CircularProgressIndicator());
         }
 
-        // If there's a Firestore error, show empty state instead of spinning
         if (snapshot.hasError) {
-          debugPrint('[AssignedPrograms] Stream error: ${snapshot.error}');
           return _EmptyPlaceholder(message: emptyMessage);
         }
 
@@ -271,7 +316,7 @@ class _AssignedProgramsScreenState extends State<AssignedProgramsScreen>
         }
 
         return ListView.builder(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
           itemCount: filtered.length,
           itemBuilder: (context, index) {
             return _buildProgramCard(
@@ -296,204 +341,300 @@ class _AssignedProgramsScreenState extends State<AssignedProgramsScreen>
     bool isGeneralLabel = false,
   }) {
     final user = Provider.of<AuthProvider>(context, listen: false).userProfile!;
-    return GestureDetector(
-      onTap: () {
-        // Tapping the card previews the program detail screen
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (_) => WorkoutProgressionScreen(program: program),
-          ),
-        );
-      },
-      child: Container(
-        margin: const EdgeInsets.only(bottom: 16),
-        decoration: BoxDecoration(
-          color: AppTheme.surfaceColor,
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: AppTheme.primaryColor.withOpacity(0.2)),
+    return Container(
+      margin: const EdgeInsets.only(bottom: 20),
+      decoration: BoxDecoration(
+        color: Theme.of(context).cardTheme.color,
+        borderRadius: BorderRadius.circular(24),
+        border: Border.all(
+          color: Theme.of(context).dividerColor.withOpacity(0.05),
         ),
-        child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                      color: AppTheme.primaryColor.withOpacity(0.1),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: const Icon(
-                      Icons.fitness_center,
-                      color: AppTheme.primaryColor,
-                      size: 24,
-                    ),
-                  ),
-                  const SizedBox(width: 16),
-                  Expanded(
-                    child: Column(
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.02),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      clipBehavior: Clip.antiAlias,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Material(
+            color: Colors.transparent,
+            child: InkWell(
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => WorkoutProgressionScreen(program: program),
+                ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(24),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Expanded(
-                              child: Text(
-                                program.name,
-                                style: const TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                            Container(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 8,
-                                vertical: 4,
-                              ),
-                              decoration: BoxDecoration(
-                                color: isGeneralLabel
-                                    ? Colors.blueAccent.withOpacity(0.1)
-                                    : AppTheme.primaryColor.withOpacity(0.1),
-                                borderRadius: BorderRadius.circular(6),
-                                border: Border.all(
-                                  color: isGeneralLabel
-                                      ? Colors.blueAccent.withOpacity(0.3)
-                                      : AppTheme.primaryColor.withOpacity(0.3),
-                                ),
-                              ),
-                              child: Text(
-                                isGeneralLabel ? 'GENERAL' : 'CUSTOMIZED',
-                                style: TextStyle(
-                                  fontSize: 9,
-                                  fontWeight: FontWeight.bold,
-                                  color: isGeneralLabel
-                                      ? Colors.blueAccent
-                                      : AppTheme.primaryColor,
-                                  letterSpacing: 0.5,
-                                ),
-                              ),
-                            ),
-                          ],
+                        Container(
+                          padding: const EdgeInsets.all(12),
+                          decoration: BoxDecoration(
+                            color:
+                                (isGeneralLabel
+                                        ? Colors.blueAccent
+                                        : AppTheme.primaryColor)
+                                    .withOpacity(0.1),
+                            borderRadius: BorderRadius.circular(14),
+                          ),
+                          child: Icon(
+                            isPublic
+                                ? Icons.explore_rounded
+                                : Icons.bolt_rounded,
+                            color: isGeneralLabel
+                                ? Colors.blueAccent
+                                : AppTheme.primaryColor,
+                            size: 24,
+                          ),
                         ),
-                        const SizedBox(height: 4),
-                        Text(
-                          '${program.totalWeeks} weeks',
-                          style: const TextStyle(
-                            color: AppTheme.mutedTextColor,
-                            fontSize: 13,
+                        const SizedBox(width: 16),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 8,
+                                      vertical: 4,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color:
+                                          (isGeneralLabel
+                                                  ? Colors.blueAccent
+                                                  : AppTheme.primaryColor)
+                                              .withOpacity(0.1),
+                                      borderRadius: BorderRadius.circular(6),
+                                    ),
+                                    child: Text(
+                                      isGeneralLabel
+                                          ? 'LIBRARY'
+                                          : 'PERSONALIZED',
+                                      style: TextStyle(
+                                        fontSize: 9,
+                                        fontWeight: FontWeight.w900,
+                                        color: isGeneralLabel
+                                            ? Colors.blueAccent
+                                            : AppTheme.primaryColor,
+                                        letterSpacing: 1,
+                                      ),
+                                    ),
+                                  ),
+                                  Text(
+                                    '${program.totalWeeks} WEEKS',
+                                    style: TextStyle(
+                                      color: Theme.of(
+                                        context,
+                                      ).colorScheme.onSurface.withOpacity(0.3),
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w900,
+                                      letterSpacing: 0.5,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(height: 8),
+                              Text(
+                                program.name,
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w900,
+                                  color: Theme.of(
+                                    context,
+                                  ).colorScheme.onSurface,
+                                  letterSpacing: -0.5,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ],
                     ),
-                  ),
-                ],
-              ),
-              if (program.startDate != null && !isPublic) ...[
-                const SizedBox(height: 16),
-                Row(
-                  children: [
-                    const Icon(
-                      Icons.calendar_today_outlined,
-                      size: 14,
-                      color: AppTheme.mutedTextColor,
-                    ),
-                    const SizedBox(width: 8),
-                    Text(
-                      'Assigned ${DateFormat('MMM d, yyyy').format(program.startDate!)}',
-                      style: const TextStyle(
-                        color: AppTheme.mutedTextColor,
-                        fontSize: 12,
+                    if (program.startDate != null && !isPublic) ...[
+                      const SizedBox(height: 16),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 12,
+                          vertical: 8,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Theme.of(
+                            context,
+                          ).colorScheme.onSurface.withOpacity(0.03),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(
+                              Icons.calendar_today_rounded,
+                              size: 14,
+                              color: Theme.of(
+                                context,
+                              ).colorScheme.onSurface.withOpacity(0.4),
+                            ),
+                            const SizedBox(width: 8),
+                            Text(
+                              'Started ${DateFormat('MMM d').format(program.startDate!)}',
+                              style: TextStyle(
+                                color: Theme.of(
+                                  context,
+                                ).colorScheme.onSurface.withOpacity(0.4),
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
+                    ],
                   ],
                 ),
-              ],
-              const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () async {
-                  showDialog(
-                    context: context,
-                    barrierDismissible: false,
-                    builder: (_) => const Center(
-                      child: CircularProgressIndicator(
-                        color: AppTheme.primaryColor,
-                      ),
-                    ),
-                  );
-                  try {
-                    if (isPublic) {
-                      final newProgramId = await dbService.claimPublicProgram(
-                        program.id!,
-                        user.uid,
-                      );
-                      if (context.mounted) {
-                        Navigator.pop(context);
-                        final newProgram = Program(
-                          id: newProgramId,
-                          name: program.name,
-                          coachId: program.coachId,
-                          assignedClientId: user.uid,
-                          totalWeeks: program.totalWeeks,
-                          status: ProgramStatus.active,
-                          currentWeek: 1,
-                          currentDay: 1,
-                        );
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) =>
-                                WorkoutProgressionScreen(program: newProgram),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(24, 0, 24, 24),
+            child: ElevatedButton(
+              onPressed: _isProcessing
+                  ? null
+                  : () async {
+                      setState(() => _isProcessing = true);
+                      bool dialogShown = false;
+                      showDialog(
+                        context: context,
+                        barrierDismissible: false,
+                        builder: (_) => const Center(
+                          child: CircularProgressIndicator(
+                            color: AppTheme.primaryColor,
                           ),
-                        );
-                      }
-                    } else {
-                      if (program.status == ProgramStatus.assigned) {
-                        await dbService.startProgram(program.id!);
-                      }
-                      if (context.mounted) {
-                        Navigator.pop(context);
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) =>
-                                WorkoutProgressionScreen(program: program),
-                          ),
-                        );
-                      }
-                    }
-                  } catch (e) {
-                    if (context.mounted) {
-                      Navigator.pop(context);
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('Error starting program: $e')),
+                        ),
                       );
-                    }
-                  }
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppTheme.primaryColor,
-                  minimumSize: const Size(double.infinity, 50),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
+                      dialogShown = true;
+
+                      try {
+                        if (isPublic) {
+                          final newProgramId = await dbService
+                              .claimPublicProgram(program.id!, user.uid)
+                              .timeout(const Duration(seconds: 30));
+
+                          await Future.delayed(
+                            const Duration(milliseconds: 500),
+                          );
+
+                          if (context.mounted) {
+                            if (dialogShown) {
+                              Navigator.pop(context);
+                              dialogShown = false;
+                            }
+
+                            final newProgram = Program(
+                              id: newProgramId,
+                              name: program.name,
+                              coachId: program.coachId,
+                              assignedClientId: user.uid,
+                              totalWeeks: program.totalWeeks,
+                              status: ProgramStatus.active,
+                              currentWeek: 1,
+                              currentDay: 1,
+                            );
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => WorkoutProgressionScreen(
+                                  program: newProgram,
+                                ),
+                              ),
+                            );
+                          }
+                        } else {
+                          if (program.status == ProgramStatus.assigned) {
+                            await dbService
+                                .startProgram(program.id!)
+                                .timeout(const Duration(seconds: 30));
+                          }
+
+                          await Future.delayed(
+                            const Duration(milliseconds: 500),
+                          );
+
+                          if (context.mounted) {
+                            if (dialogShown) {
+                              Navigator.pop(context);
+                              dialogShown = false;
+                            }
+
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) =>
+                                    WorkoutProgressionScreen(program: program),
+                              ),
+                            );
+                          }
+                        }
+                      } catch (e) {
+                        debugPrint(
+                          '[AssignedPrograms] Error starting program: $e',
+                        );
+                        String errorMessage = e.toString();
+                        if (e is TimeoutException) {
+                          errorMessage = 'Request timed out. Please try again.';
+                        }
+
+                        if (context.mounted) {
+                          if (dialogShown) {
+                            Navigator.pop(context);
+                            dialogShown = false;
+                          }
+                          ScaffoldMessenger.of(
+                            context,
+                          ).showSnackBar(SnackBar(content: Text(errorMessage)));
+                        }
+                      } finally {
+                        if (mounted) {
+                          setState(() => _isProcessing = false);
+                          if (dialogShown) {
+                            Navigator.pop(context);
+                            dialogShown = false;
+                          }
+                        }
+                      }
+                    },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppTheme.primaryColor,
+                foregroundColor: Colors.black,
+                minimumSize: const Size(double.infinity, 56),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
                 ),
-                child: Text(
-                  buttonLabel,
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.onSurface,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                  ),
+                elevation: 0,
+              ),
+              child: Text(
+                buttonLabel,
+                style: const TextStyle(
+                  fontWeight: FontWeight.w900,
+                  fontSize: 14,
+                  letterSpacing: 1,
                 ),
               ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
@@ -506,23 +647,37 @@ class _EmptyPlaceholder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            Icons.fitness_center_outlined,
-            size: 80,
-            color: AppTheme.mutedTextColor.withOpacity(0.3),
-          ),
-          const SizedBox(height: 16),
-          Text(
-            message,
-            style: const TextStyle(
-              color: AppTheme.mutedTextColor,
-              fontSize: 14,
+      child: Padding(
+        padding: const EdgeInsets.all(40.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              padding: const EdgeInsets.all(24),
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.surface,
+                shape: BoxShape.circle,
+              ),
+              child: Icon(
+                Icons.fitness_center_rounded,
+                size: 64,
+                color: Theme.of(
+                  context,
+                ).colorScheme.onSurface.withOpacity(0.05),
+              ),
             ),
-          ),
-        ],
+            const SizedBox(height: 24),
+            Text(
+              message,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.onSurface.withOpacity(0.5),
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

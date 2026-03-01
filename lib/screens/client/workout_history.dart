@@ -30,6 +30,7 @@ class _WorkoutHistoryScreenState extends State<WorkoutHistoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppTheme.getScaffoldColor(context),
       appBar: AppBar(title: const Text('WORKOUT HISTORY')),
       body: StreamBuilder<List<WorkoutLog>>(
         stream: _logsStream,
@@ -45,12 +46,16 @@ class _WorkoutHistoryScreenState extends State<WorkoutHistoryScreen> {
               _buildCompletedProgramsShortcut(context),
               const SizedBox(height: 16),
               if (logs.isEmpty)
-                const Center(
+                Center(
                   child: Padding(
-                    padding: EdgeInsets.only(top: 100),
+                    padding: const EdgeInsets.only(top: 100),
                     child: Text(
                       'No workouts logged yet.',
-                      style: TextStyle(color: AppTheme.mutedTextColor),
+                      style: TextStyle(
+                        color: Theme.of(
+                          context,
+                        ).colorScheme.onSurface.withValues(alpha: 0.6),
+                      ),
                     ),
                   ),
                 )
@@ -81,15 +86,27 @@ class _WorkoutHistoryScreenState extends State<WorkoutHistoryScreen> {
             color: AppTheme.primaryColor,
             borderRadius: BorderRadius.circular(10),
           ),
-          child: const Icon(Icons.emoji_events, color: Colors.black, size: 20),
+          child: Icon(
+            Icons.emoji_events,
+            color: Theme.of(context).colorScheme.onPrimary,
+            size: 20,
+          ),
         ),
-        title: const Text(
+        title: Text(
           'Completed Programs',
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Theme.of(context).colorScheme.onSurface,
+          ),
         ),
-        subtitle: const Text(
+        subtitle: Text(
           'View your finished training plans',
-          style: TextStyle(fontSize: 12, color: AppTheme.mutedTextColor),
+          style: TextStyle(
+            fontSize: 12,
+            color: Theme.of(
+              context,
+            ).colorScheme.onSurface.withValues(alpha: 0.6),
+          ),
         ),
         trailing: const Icon(Icons.chevron_right, color: AppTheme.primaryColor),
       ),
@@ -114,15 +131,18 @@ class _WorkoutHistoryScreenState extends State<WorkoutHistoryScreen> {
             children: [
               Text(
                 DateFormat('EEEE, MMM d').format(log.date),
-                style: const TextStyle(
+                style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
+                  color: Theme.of(context).colorScheme.onSurface,
                 ),
               ),
               Text(
                 DateFormat('HH:mm').format(log.date),
-                style: const TextStyle(
-                  color: AppTheme.mutedTextColor,
+                style: TextStyle(
+                  color: Theme.of(
+                    context,
+                  ).colorScheme.onSurface.withValues(alpha: 0.5),
                   fontSize: 12,
                 ),
               ),
@@ -137,7 +157,9 @@ class _WorkoutHistoryScreenState extends State<WorkoutHistoryScreen> {
               fontSize: 12,
             ),
           ),
-          const Divider(),
+          Divider(
+            color: Theme.of(context).dividerColor.withValues(alpha: 0.05),
+          ),
           ...log.exerciseLogs.map(
             (ex) => Padding(
               padding: const EdgeInsets.symmetric(vertical: 4.0),
@@ -146,14 +168,21 @@ class _WorkoutHistoryScreenState extends State<WorkoutHistoryScreen> {
                   Expanded(
                     child: Text(
                       ex.exerciseName,
-                      style: const TextStyle(fontSize: 14),
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Theme.of(
+                          context,
+                        ).colorScheme.onSurface.withValues(alpha: 0.9),
+                      ),
                     ),
                   ),
                   Text(
                     '${ex.sets.length} sets',
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 12,
-                      color: AppTheme.mutedTextColor,
+                      color: Theme.of(
+                        context,
+                      ).colorScheme.onSurface.withValues(alpha: 0.5),
                     ),
                   ),
                 ],
@@ -165,7 +194,7 @@ class _WorkoutHistoryScreenState extends State<WorkoutHistoryScreen> {
             Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: AppTheme.primaryColor.withOpacity(0.05),
+                color: Theme.of(context).dividerColor.withValues(alpha: 0.05),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Row(
@@ -179,9 +208,12 @@ class _WorkoutHistoryScreenState extends State<WorkoutHistoryScreen> {
                   Expanded(
                     child: Text(
                       log.notes!,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 12,
                         fontStyle: FontStyle.italic,
+                        color: Theme.of(
+                          context,
+                        ).colorScheme.onSurface.withValues(alpha: 0.7),
                       ),
                     ),
                   ),

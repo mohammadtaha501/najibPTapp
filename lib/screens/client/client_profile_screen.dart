@@ -102,7 +102,7 @@ class _ClientProfileScreenState extends State<ClientProfileScreen> {
             ),
             child: CircleAvatar(
               radius: 50,
-              backgroundColor: AppTheme.surfaceColor,
+              backgroundColor: Theme.of(context).colorScheme.surface,
               child: Text(
                 (user.name.isNotEmpty ? user.name[0] : 'U').toUpperCase(),
                 style: const TextStyle(
@@ -125,7 +125,9 @@ class _ClientProfileScreenState extends State<ClientProfileScreen> {
           Text(
             user.email.toLowerCase(),
             style: TextStyle(
-              color: AppTheme.mutedTextColor.withOpacity(0.7),
+              color: Theme.of(
+                context,
+              ).colorScheme.onSurface.withValues(alpha: 0.5),
               fontSize: 14,
             ),
           ),
@@ -150,7 +152,6 @@ class _ClientProfileScreenState extends State<ClientProfileScreen> {
                 ? TextField(
                     controller: _nameController,
                     autofocus: true,
-                    style: const TextStyle(color: Colors.white),
                     decoration: const InputDecoration(
                       border: InputBorder.none,
                       hintText: 'Enter name',
@@ -163,7 +164,11 @@ class _ClientProfileScreenState extends State<ClientProfileScreen> {
             trailing: IconButton(
               icon: Icon(
                 _isEditingName ? Icons.check_circle : Icons.edit_outlined,
-                color: _isEditingName ? Colors.greenAccent : Colors.white54,
+                color: _isEditingName
+                    ? Colors.greenAccent
+                    : Theme.of(
+                        context,
+                      ).colorScheme.onSurface.withValues(alpha: 0.3),
               ),
               onPressed: () {
                 if (_isEditingName) {
@@ -197,19 +202,28 @@ class _ClientProfileScreenState extends State<ClientProfileScreen> {
                 'Age',
                 '${user.age ?? '--'} years',
               ),
-              const Divider(color: Colors.white10, height: 24),
+              Divider(
+                color: Theme.of(context).dividerColor.withValues(alpha: 0.05),
+                height: 24,
+              ),
               _buildStatRow(
                 Icons.height,
                 'Height',
                 '${user.height ?? '--'} cm',
               ),
-              const Divider(color: Colors.white10, height: 24),
+              Divider(
+                color: Theme.of(context).dividerColor.withValues(alpha: 0.05),
+                height: 24,
+              ),
               _buildStatRow(
                 Icons.monitor_weight_outlined,
                 'Weight',
                 '${user.weight ?? '--'} kg',
               ),
-              const Divider(color: Colors.white10, height: 24),
+              Divider(
+                color: Theme.of(context).dividerColor.withValues(alpha: 0.05),
+                height: 24,
+              ),
               _buildStatRow(Icons.flag_outlined, 'Goal', user.goal ?? '--'),
             ],
           ),
@@ -221,13 +235,28 @@ class _ClientProfileScreenState extends State<ClientProfileScreen> {
   Widget _buildStatRow(IconData icon, String label, String value) {
     return Row(
       children: [
-        Icon(icon, size: 20, color: AppTheme.primaryColor.withOpacity(0.7)),
+        Icon(
+          icon,
+          size: 20,
+          color: AppTheme.primaryColor.withValues(alpha: 0.7),
+        ),
         const SizedBox(width: 16),
-        Text(label, style: const TextStyle(color: AppTheme.mutedTextColor)),
+        Text(
+          label,
+          style: TextStyle(
+            color: Theme.of(
+              context,
+            ).colorScheme.onSurface.withValues(alpha: 0.6),
+          ),
+        ),
         const Spacer(),
         Text(
           value,
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 15,
+            color: Theme.of(context).colorScheme.onSurface,
+          ),
         ),
       ],
     );
@@ -249,7 +278,12 @@ class _ClientProfileScreenState extends State<ClientProfileScreen> {
               'Change Password',
               style: TextStyle(fontWeight: FontWeight.w600),
             ),
-            trailing: const Icon(Icons.chevron_right, color: Colors.white24),
+            trailing: Icon(
+              Icons.chevron_right,
+              color: Theme.of(
+                context,
+              ).colorScheme.onSurface.withValues(alpha: 0.2),
+            ),
             onTap: () => Navigator.push(
               context,
               MaterialPageRoute(builder: (_) => const ChangePasswordScreen()),
@@ -276,7 +310,12 @@ class _ClientProfileScreenState extends State<ClientProfileScreen> {
               'Program History',
               style: TextStyle(fontWeight: FontWeight.w600),
             ),
-            trailing: const Icon(Icons.chevron_right, color: Colors.white24),
+            trailing: Icon(
+              Icons.chevron_right,
+              color: Theme.of(
+                context,
+              ).colorScheme.onSurface.withValues(alpha: 0.2),
+            ),
             onTap: () => Navigator.push(
               context,
               MaterialPageRoute(
@@ -344,7 +383,10 @@ class _ClientProfileScreenState extends State<ClientProfileScreen> {
                 title: const Text('Log Out'),
                 onTap: () => _showLogoutConfirmation(context),
               ),
-              const Divider(color: Colors.white10, height: 1),
+              Divider(
+                color: Theme.of(context).dividerColor.withValues(alpha: 0.05),
+                height: 1,
+              ),
               ListTile(
                 leading: const Icon(
                   Icons.delete_forever_outlined,
@@ -357,9 +399,14 @@ class _ClientProfileScreenState extends State<ClientProfileScreen> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                subtitle: const Text(
+                subtitle: Text(
                   'Permanently remove your data',
-                  style: TextStyle(fontSize: 12),
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Theme.of(
+                      context,
+                    ).colorScheme.onSurface.withValues(alpha: 0.6),
+                  ),
                 ),
                 onTap: () => _showDeleteAccountConfirmation(context),
               ),
@@ -387,9 +434,9 @@ class _ClientProfileScreenState extends State<ClientProfileScreen> {
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
       builder: (context) => Container(
-        decoration: const BoxDecoration(
-          color: AppTheme.surfaceColor,
-          borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.surface,
+          borderRadius: const BorderRadius.vertical(top: Radius.circular(28)),
         ),
         padding: EdgeInsets.only(
           left: 24,
@@ -401,14 +448,22 @@ class _ClientProfileScreenState extends State<ClientProfileScreen> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+            Text(
               'Update Body Stats',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Theme.of(context).colorScheme.onSurface,
+              ),
             ),
             const SizedBox(height: 8),
-            const Text(
+            Text(
               'Keep your physical metrics up to date for better tracking.',
-              style: TextStyle(color: AppTheme.mutedTextColor),
+              style: TextStyle(
+                color: Theme.of(
+                  context,
+                ).colorScheme.onSurface.withValues(alpha: 0.6),
+              ),
             ),
             const SizedBox(height: 32),
             Row(
@@ -472,7 +527,7 @@ class _ClientProfileScreenState extends State<ClientProfileScreen> {
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppTheme.primaryColor,
-                  foregroundColor: Colors.black,
+                  foregroundColor: Theme.of(context).colorScheme.onPrimary,
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16),
@@ -501,22 +556,27 @@ class _ClientProfileScreenState extends State<ClientProfileScreen> {
       children: [
         Text(
           label,
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 12,
             fontWeight: FontWeight.bold,
-            color: AppTheme.mutedTextColor,
+            color: Theme.of(
+              context,
+            ).colorScheme.onSurface.withValues(alpha: 0.6),
           ),
         ),
         const SizedBox(height: 8),
         Container(
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.05),
+            color: Theme.of(context).cardTheme.color,
             borderRadius: BorderRadius.circular(12),
           ),
           child: TextField(
             controller: controller,
             keyboardType: keyboardType,
-            style: const TextStyle(fontWeight: FontWeight.bold),
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Theme.of(context).colorScheme.onSurface,
+            ),
             decoration: InputDecoration(
               prefixIcon: Icon(icon, size: 18, color: AppTheme.primaryColor),
               border: InputBorder.none,
@@ -555,21 +615,33 @@ class _ClientProfileScreenState extends State<ClientProfileScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        backgroundColor: AppTheme.surfaceColor,
+        backgroundColor: Theme.of(context).colorScheme.surface,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        title: const Text(
+        title: Text(
           'Log Out',
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Theme.of(context).colorScheme.onSurface,
+          ),
         ),
-        content: const Text(
+        content: Text(
           'Are you sure you want to end your current session?',
+          style: TextStyle(
+            color: Theme.of(
+              context,
+            ).colorScheme.onSurface.withValues(alpha: 0.8),
+          ),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text(
+            child: Text(
               'Cancel',
-              style: TextStyle(color: AppTheme.mutedTextColor),
+              style: TextStyle(
+                color: Theme.of(
+                  context,
+                ).colorScheme.onSurface.withValues(alpha: 0.5),
+              ),
             ),
           ),
           ElevatedButton(
@@ -578,7 +650,7 @@ class _ClientProfileScreenState extends State<ClientProfileScreen> {
               Provider.of<AuthProvider>(context, listen: false).signOut();
             },
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.redAccent.withOpacity(0.2),
+              backgroundColor: Colors.redAccent.withValues(alpha: 0.2),
               foregroundColor: Colors.redAccent,
               elevation: 0,
             ),
@@ -596,7 +668,7 @@ class _ClientProfileScreenState extends State<ClientProfileScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        backgroundColor: AppTheme.surfaceColor,
+        backgroundColor: Theme.of(context).colorScheme.surface,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         title: const Text(
           'DELETE ACCOUNT',
@@ -614,24 +686,36 @@ class _ClientProfileScreenState extends State<ClientProfileScreen> {
               size: 48,
             ),
             const SizedBox(height: 16),
-            const Text(
+            Text(
               'This action is permanent and cannot be undone. All your progress, history, and records will be deleted.',
               textAlign: TextAlign.center,
-              style: TextStyle(height: 1.5),
+              style: TextStyle(
+                height: 1.5,
+                color: Theme.of(
+                  context,
+                ).colorScheme.onSurface.withValues(alpha: 0.8),
+              ),
             ),
             const SizedBox(height: 16),
-            const Text(
+            Text(
               'Are you absolutely sure?',
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Theme.of(context).colorScheme.onSurface,
+              ),
             ),
           ],
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text(
+            child: Text(
               'Keep My Account',
-              style: TextStyle(color: Colors.white70),
+              style: TextStyle(
+                color: Theme.of(
+                  context,
+                ).colorScheme.onSurface.withValues(alpha: 0.5),
+              ),
             ),
           ),
           ElevatedButton(
@@ -648,7 +732,11 @@ class _ClientProfileScreenState extends State<ClientProfileScreen> {
                     SnackBar(
                       content: Text(
                         'Error: $e. You might need to re-login to delete.',
+                        style: TextStyle(
+                          color: Theme.of(context).colorScheme.onError,
+                        ),
                       ),
+                      backgroundColor: Theme.of(context).colorScheme.error,
                     ),
                   );
                 }

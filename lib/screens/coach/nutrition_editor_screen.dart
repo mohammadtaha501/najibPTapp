@@ -145,11 +145,7 @@ class _NutritionEditorScreenState extends State<NutritionEditorScreen> {
                     labelText: 'Plan Title',
                     hintText: 'e.g. Fat Loss Phase 1',
                     filled: true,
-                    fillColor: AppTheme.surfaceColor,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
-                      borderSide: BorderSide.none,
-                    ),
+                    fillColor: Theme.of(context).colorScheme.surface,
                   ),
                 ),
                 const SizedBox(height: 24),
@@ -235,9 +231,11 @@ class _NutritionEditorScreenState extends State<NutritionEditorScreen> {
     return Container(
       padding: const EdgeInsets.all(4),
       decoration: BoxDecoration(
-        color: AppTheme.surfaceColor,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.white.withOpacity(0.05)),
+        color: Theme.of(context).colorScheme.surface,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(
+          color: Theme.of(context).dividerColor.withOpacity(0.05),
+        ),
       ),
       child: Row(
         children: [
@@ -295,7 +293,7 @@ class _NutritionEditorScreenState extends State<NutritionEditorScreen> {
           padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
           decoration: BoxDecoration(
             color: isSelected ? AppTheme.primaryColor : Colors.transparent,
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(12),
           ),
           child: Column(
             children: [
@@ -359,16 +357,22 @@ class _NutritionEditorScreenState extends State<NutritionEditorScreen> {
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
             decoration: BoxDecoration(
-              color: isSelected ? AppTheme.primaryColor : AppTheme.surfaceColor,
+              color: isSelected
+                  ? AppTheme.primaryColor
+                  : Theme.of(context).colorScheme.surface,
               borderRadius: BorderRadius.circular(20),
               border: Border.all(
-                color: isSelected ? AppTheme.primaryColor : Colors.white10,
+                color: isSelected
+                    ? AppTheme.primaryColor
+                    : Theme.of(context).dividerColor.withOpacity(0.1),
               ),
             ),
             child: Text(
               g.label.toUpperCase(),
               style: TextStyle(
-                color: isSelected ? Colors.black : Colors.white70,
+                color: isSelected
+                    ? Colors.black
+                    : Theme.of(context).textTheme.bodyMedium?.color,
                 fontSize: 11,
                 fontWeight: FontWeight.bold,
               ),
@@ -383,9 +387,11 @@ class _NutritionEditorScreenState extends State<NutritionEditorScreen> {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: AppTheme.surfaceColor,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Colors.white.withOpacity(0.05)),
+        border: Border.all(
+          color: Theme.of(context).dividerColor.withOpacity(0.05),
+        ),
       ),
       child: Column(
         children: [
@@ -393,9 +399,9 @@ class _NutritionEditorScreenState extends State<NutritionEditorScreen> {
             children: [
               ReorderableDragStartListener(
                 index: index,
-                child: const Icon(
+                child: Icon(
                   Icons.drag_indicator,
-                  color: Colors.white24,
+                  color: Theme.of(context).dividerColor,
                   size: 20,
                 ),
               ),
@@ -412,9 +418,12 @@ class _NutritionEditorScreenState extends State<NutritionEditorScreen> {
                     ..selection = TextSelection.fromPosition(
                       TextPosition(offset: section.title.length),
                     ),
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     hintText: 'Section Title (e.g. Protein)',
-                    hintStyle: TextStyle(color: Colors.white24, fontSize: 14),
+                    hintStyle: TextStyle(
+                      color: Theme.of(context).hintColor,
+                      fontSize: 14,
+                    ),
                     border: InputBorder.none,
                   ),
                   style: const TextStyle(
@@ -433,7 +442,7 @@ class _NutritionEditorScreenState extends State<NutritionEditorScreen> {
               ),
             ],
           ),
-          const Divider(color: Colors.white10),
+          Divider(color: Theme.of(context).dividerColor.withOpacity(0.05)),
           TextField(
             onChanged: (v) {
               _sections[index] = NutritionSection(
@@ -446,9 +455,12 @@ class _NutritionEditorScreenState extends State<NutritionEditorScreen> {
                 TextPosition(offset: section.content.length),
               ),
             maxLines: null,
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
               hintText: 'Enter guidance notes here...',
-              hintStyle: TextStyle(color: Colors.white24, fontSize: 14),
+              hintStyle: TextStyle(
+                color: Theme.of(context).hintColor,
+                fontSize: 14,
+              ),
               border: InputBorder.none,
             ),
             style: const TextStyle(fontSize: 14, height: 1.5),

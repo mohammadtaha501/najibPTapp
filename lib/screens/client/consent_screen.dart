@@ -22,7 +22,6 @@ class _ConsentScreenState extends State<ConsentScreen> {
         consentGiven: true,
         consentVersion: '1.0 (UK GDPR)',
       );
-      // Navigation is handled by AuthWrapper in main.dart
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -41,21 +40,29 @@ class _ConsentScreenState extends State<ConsentScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        backgroundColor: AppTheme.surfaceColor,
-        title: const Text(
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        title: Text(
           'Consent Required',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
         ),
-        content: const Text(
+        content: Text(
           'Without your consent to collect and process data, we cannot create personalized programs for you. You can logout and return later if you change your mind.',
-          style: TextStyle(color: AppTheme.mutedTextColor),
+          style: TextStyle(
+            color: Theme.of(
+              context,
+            ).colorScheme.onSurface.withValues(alpha: 0.6),
+          ),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text(
+            child: Text(
               'CANCEL',
-              style: TextStyle(color: AppTheme.mutedTextColor),
+              style: TextStyle(
+                color: Theme.of(
+                  context,
+                ).colorScheme.onSurface.withValues(alpha: 0.5),
+              ),
             ),
           ),
           ElevatedButton(
@@ -76,7 +83,7 @@ class _ConsentScreenState extends State<ConsentScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.backgroundColor,
+      backgroundColor: AppTheme.getScaffoldColor(context),
       body: SafeArea(
         child: _isLoading
             ? const Center(child: CircularProgressIndicator())
@@ -86,26 +93,28 @@ class _ConsentScreenState extends State<ConsentScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(height: 48),
-                    const Icon(
+                    Icon(
                       Icons.security_outlined,
                       size: 64,
-                      color: AppTheme.primaryColor,
+                      color: Theme.of(context).colorScheme.primary,
                     ),
                     const SizedBox(height: 32),
-                    const Text(
+                    Text(
                       'Your Data & Privacy',
                       style: TextStyle(
                         fontSize: 32,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: Theme.of(context).colorScheme.onSurface,
                       ),
                     ),
                     const SizedBox(height: 16),
-                    const Text(
+                    Text(
                       'To provide you with a personalized coaching experience, we need to collect and process some of your data.',
                       style: TextStyle(
                         fontSize: 16,
-                        color: AppTheme.mutedTextColor,
+                        color: Theme.of(
+                          context,
+                        ).colorScheme.onSurface.withValues(alpha: 0.6),
                         height: 1.5,
                       ),
                     ),
@@ -145,10 +154,10 @@ class _ConsentScreenState extends State<ConsentScreen> {
                                   ),
                                 );
                               },
-                              child: const Text(
+                              child: Text(
                                 'Read our full Privacy Policy',
                                 style: TextStyle(
-                                  color: AppTheme.primaryColor,
+                                  color: Theme.of(context).colorScheme.primary,
                                   decoration: TextDecoration.underline,
                                 ),
                               ),
@@ -178,9 +187,13 @@ class _ConsentScreenState extends State<ConsentScreen> {
                             style: TextButton.styleFrom(
                               minimumSize: const Size(double.infinity, 50),
                             ),
-                            child: const Text(
+                            child: Text(
                               'I DO NOT AGREE',
-                              style: TextStyle(color: AppTheme.mutedTextColor),
+                              style: TextStyle(
+                                color: Theme.of(
+                                  context,
+                                ).colorScheme.onSurface.withValues(alpha: 0.6),
+                              ),
                             ),
                           ),
                         ],
@@ -202,10 +215,14 @@ class _ConsentScreenState extends State<ConsentScreen> {
           Container(
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: AppTheme.surfaceColor,
+              color: Theme.of(context).colorScheme.surface,
               borderRadius: BorderRadius.circular(12),
             ),
-            child: Icon(icon, size: 24, color: AppTheme.primaryColor),
+            child: Icon(
+              icon,
+              size: 24,
+              color: Theme.of(context).colorScheme.primary,
+            ),
           ),
           const SizedBox(width: 16),
           Expanded(
@@ -214,18 +231,20 @@ class _ConsentScreenState extends State<ConsentScreen> {
               children: [
                 Text(
                   title,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.onSurface,
                   ),
                 ),
                 const SizedBox(height: 4),
                 Text(
                   description,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 14,
-                    color: AppTheme.mutedTextColor,
+                    color: Theme.of(
+                      context,
+                    ).colorScheme.onSurface.withValues(alpha: 0.6),
                     height: 1.4,
                   ),
                 ),

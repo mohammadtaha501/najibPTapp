@@ -126,6 +126,7 @@ class AppTheme {
           fontWeight: FontWeight.bold,
           color: text,
         ),
+        titleMedium: TextStyle(fontSize: 16, color: text),
         bodyLarge: TextStyle(fontSize: 16, color: text),
         bodyMedium: TextStyle(fontSize: 14, color: mutedText),
       ),
@@ -138,7 +139,7 @@ class AppTheme {
           padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 32),
           elevation: 0,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(16),
           ),
           textStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
         ),
@@ -147,15 +148,15 @@ class AppTheme {
         filled: true,
         fillColor: surface,
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(16),
           borderSide: const BorderSide(color: Colors.transparent, width: 2),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(16),
           borderSide: const BorderSide(color: Colors.transparent, width: 2),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(16),
           borderSide: BorderSide(color: primary, width: 2),
         ),
         labelStyle: TextStyle(color: mutedText),

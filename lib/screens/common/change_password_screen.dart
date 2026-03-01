@@ -104,7 +104,6 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
               TextFormField(
                 controller: _oldPasswordController,
                 obscureText: _obscureOld,
-                style: const TextStyle(color: Colors.white),
                 decoration: InputDecoration(
                   labelText: 'Current Password',
                   prefixIcon: const Icon(Icons.lock_open, size: 20),
@@ -139,7 +138,6 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
               TextFormField(
                 controller: _newPasswordController,
                 obscureText: _obscureNew,
-                style: const TextStyle(color: Colors.white),
                 decoration: InputDecoration(
                   labelText: 'New Password',
                   prefixIcon: const Icon(Icons.lock_outline, size: 20),
@@ -173,7 +171,6 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
               TextFormField(
                 controller: _confirmPasswordController,
                 obscureText: _obscureConfirm,
-                style: const TextStyle(color: Colors.white),
                 decoration: InputDecoration(
                   labelText: 'Confirm New Password',
                   prefixIcon: const Icon(Icons.check_circle_outline, size: 20),

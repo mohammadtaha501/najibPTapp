@@ -66,6 +66,94 @@ class DatabaseService {
   }
 
   Future<void> deleteClient(String clientId) async {
+    // 1. Delete all programs assigned to this client (including their sub-collections and logs)
+    final clientPrograms = await _db
+        .collection('programs')
+        .where('assignedClientId', isEqualTo: clientId)
+        .get();
+    for (var programDoc in clientPrograms.docs) {
+      await deleteProgramCompletely(programDoc.id);
+    }
+
+    // 2. Delete all workout logs for this client
+    final logsSnapshot = await _db
+        .collection('logs')
+        .where('clientId', isEqualTo: clientId)
+        .get();
+    final logBatch = _db.batch();
+    for (var doc in logsSnapshot.docs) {
+      logBatch.delete(doc.reference);
+    }
+    await logBatch.commit();
+
+    // 3. Delete all chat messages (both sent and received)
+    final sentChats = await _db
+        .collection('chats')
+        .where('senderId', isEqualTo: clientId)
+        .get();
+    final receivedChats = await _db
+        .collection('chats')
+        .where('receiverId', isEqualTo: clientId)
+        .get();
+    final chatBatch = _db.batch();
+    for (var doc in sentChats.docs) {
+      chatBatch.delete(doc.reference);
+    }
+    for (var doc in receivedChats.docs) {
+      chatBatch.delete(doc.reference);
+    }
+    await chatBatch.commit();
+
+    // 4. Delete all nutrition logs
+    final nutritionLogs = await _db
+        .collection('nutrition_logs')
+        .where('clientId', isEqualTo: clientId)
+        .get();
+    final nutritionBatch = _db.batch();
+    for (var doc in nutritionLogs.docs) {
+      nutritionBatch.delete(doc.reference);
+    }
+    await nutritionBatch.commit();
+
+    // 5. Delete all notifications sent to or from the client
+    final notifAsRecipient = await _db
+        .collection('notifications')
+        .where('recipientId', isEqualTo: clientId)
+        .get();
+    final notifAsSender = await _db
+        .collection('notifications')
+        .where('senderId', isEqualTo: clientId)
+        .get();
+    final notifBatch = _db.batch();
+    for (var doc in notifAsRecipient.docs) {
+      notifBatch.delete(doc.reference);
+    }
+    for (var doc in notifAsSender.docs) {
+      notifBatch.delete(doc.reference);
+    }
+    await notifBatch.commit();
+
+    // 6. Delete user sub-collections (nutrition_plans, nutrition_checkins)
+    final nutritionPlans = await _db
+        .collection('users')
+        .doc(clientId)
+        .collection('nutrition_plans')
+        .get();
+    final nutritionCheckins = await _db
+        .collection('users')
+        .doc(clientId)
+        .collection('nutrition_checkins')
+        .get();
+    final subColBatch = _db.batch();
+    for (var doc in nutritionPlans.docs) {
+      subColBatch.delete(doc.reference);
+    }
+    for (var doc in nutritionCheckins.docs) {
+      subColBatch.delete(doc.reference);
+    }
+    await subColBatch.commit();
+
+    // 7. Finally, delete the user document itself
     await _db.collection('users').doc(clientId).delete();
   }
 
@@ -340,34 +428,59 @@ class DatabaseService {
         .collection('programs')
         .add(newProgram.toMap());
 
-    // 3. Copy workout days (templates)
+    // 3. Fetch all workout days from the public program
     final daysSnapshot = await _db
         .collection('programs')
         .doc(publicProgramId)
         .collection('days')
         .get();
 
-    for (var dayDoc in daysSnapshot.docs) {
-      final dayData = dayDoc.data();
-      // Add the day to the new program
-      final newDayRef = await newProgramRef.collection('days').add(dayData);
+    final stopwatch = Stopwatch()..start();
+    print(
+      '[DatabaseService] Claiming program $publicProgramId. Copying ${daysSnapshot.docs.length} days...',
+    );
 
-      // 4. Copy exercise logs (templates/targets) if they exist
-      final exerciseLogsSnapshot = await dayDoc.reference
-          .collection('exercise_logs')
-          .get();
+    // 4. Fetch all exercise logs for ALL days in parallel to avoid sequential network lag
+    final allExerciseLogsResults = await Future.wait(
+      daysSnapshot.docs.map(
+        (dayDoc) => dayDoc.reference.collection('exercise_logs').get(),
+      ),
+    );
+
+    // 5. Use a single batch to copy everything
+    final batch = _db.batch();
+
+    for (int i = 0; i < daysSnapshot.docs.length; i++) {
+      final dayDoc = daysSnapshot.docs[i];
+      final dayData = dayDoc.data();
+      final exerciseLogsSnapshot = allExerciseLogsResults[i];
+
+      final newDayRef = newProgramRef.collection('days').doc();
+      batch.set(newDayRef, dayData);
+
       for (var exerciseDoc in exerciseLogsSnapshot.docs) {
-        await newDayRef.collection('exercise_logs').add(exerciseDoc.data());
+        final newExLogRef = newDayRef.collection('exercise_logs').doc();
+        batch.set(newExLogRef, exerciseDoc.data());
       }
     }
 
-    await sendPushNotification(
-      recipientId: clientId,
-      title: 'New Program Assigned',
-      body:
-          'Your coach has assigned you a new program: ${publicProgram.name}. Tap to view.',
-      data: {'type': 'new_program'},
+    // Commit all day + exercise_log writes in one network call
+    await batch.commit();
+    print(
+      '[DatabaseService] Claimed program successfully in ${stopwatch.elapsedMilliseconds}ms',
     );
+
+    try {
+      await sendPushNotification(
+        recipientId: clientId,
+        title: 'New Program Assigned',
+        body:
+            'Your coach has assigned you a new program: ${publicProgram.name}. Tap to view.',
+        data: {'type': 'new_program'},
+      );
+    } catch (e) {
+      print('[DatabaseService] Error sending notification: $e');
+    }
     return newProgramRef.id;
   }
 

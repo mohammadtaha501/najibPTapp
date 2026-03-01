@@ -44,10 +44,10 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
 
     try {
       final authProvider = Provider.of<AuthProvider>(context, listen: false);
-      
+
       // Check if user exists
       final userExists = await authProvider.checkUserExists(email);
-      
+
       if (!userExists) {
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
@@ -59,14 +59,16 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
         }
         return;
       }
-      
+
       // Send password reset email
       await authProvider.sentPasswordResetEmail(email);
-      
+
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Password reset link sent to $email. Please check your inbox.'),
+            content: Text(
+              'Password reset link sent to $email. Please check your inbox.',
+            ),
             backgroundColor: Colors.green,
             duration: const Duration(seconds: 4),
           ),
@@ -101,26 +103,42 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const Text(
+            Text(
               'Forgot your password?',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Theme.of(context).colorScheme.onSurface,
+              ),
             ),
             const SizedBox(height: 16),
-            const Text(
+            Text(
               'Enter your email address below and we will send you a link to reset your password.',
-              style: TextStyle(color: AppTheme.mutedTextColor, fontSize: 16),
+              style: TextStyle(
+                color: Theme.of(
+                  context,
+                ).colorScheme.onSurface.withValues(alpha: 0.6),
+                fontSize: 16,
+              ),
             ),
             const SizedBox(height: 32),
             TextField(
               controller: _emailController,
               keyboardType: TextInputType.emailAddress,
-              style: const TextStyle(color: Colors.white),
               decoration: InputDecoration(
                 labelText: 'Email Address',
                 filled: true,
                 fillColor: Theme.of(context).cardTheme.color,
-                prefixIcon: const Icon(Icons.email_outlined, color: AppTheme.mutedTextColor),
-                border: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: BorderSide.none),
+                prefixIcon: Icon(
+                  Icons.email_outlined,
+                  color: Theme.of(
+                    context,
+                  ).colorScheme.onSurface.withValues(alpha: 0.4),
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide.none,
+                ),
               ),
             ),
             const SizedBox(height: 32),
@@ -129,12 +147,27 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size(double.infinity, 56),
                 backgroundColor: AppTheme.primaryColor,
-                foregroundColor: Colors.black,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                foregroundColor: Theme.of(context).colorScheme.onPrimary,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
               ),
-              child: _isLoading 
-                ? const SizedBox(width: 24, height: 24, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.black))
-                : const Text('SEND RESET LINK', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+              child: _isLoading
+                  ? SizedBox(
+                      width: 24,
+                      height: 24,
+                      child: CircularProgressIndicator(
+                        strokeWidth: 2,
+                        color: Theme.of(context).colorScheme.onPrimary,
+                      ),
+                    )
+                  : const Text(
+                      'SEND RESET LINK',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
             ),
           ],
         ),

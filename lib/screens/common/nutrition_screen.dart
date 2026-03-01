@@ -121,7 +121,9 @@ class _NutritionScreenState extends State<NutritionScreen> {
             Icon(
               Icons.restaurant_menu,
               size: 80,
-              color: Colors.white.withOpacity(0.05),
+              color: Theme.of(
+                context,
+              ).colorScheme.onSurface.withValues(alpha: 0.05),
             ),
             const SizedBox(height: 24),
             Text(
@@ -226,9 +228,11 @@ class _NutritionScreenState extends State<NutritionScreen> {
               return Container(
                 padding: const EdgeInsets.all(24),
                 decoration: BoxDecoration(
-                  color: AppTheme.surfaceColor,
+                  color: Theme.of(context).colorScheme.surface,
                   borderRadius: BorderRadius.circular(16),
-                  border: Border.all(color: Colors.white.withOpacity(0.05)),
+                  border: Border.all(
+                    color: Theme.of(context).dividerColor.withOpacity(0.05),
+                  ),
                 ),
                 child: const Text(
                   'No adherence check-ins submitted yet.',
@@ -255,9 +259,11 @@ class _NutritionScreenState extends State<NutritionScreen> {
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: AppTheme.surfaceColor,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Colors.white.withOpacity(0.05)),
+        border: Border.all(
+          color: Theme.of(context).dividerColor.withOpacity(0.05),
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -287,7 +293,9 @@ class _NutritionScreenState extends State<NutritionScreen> {
             Text(
               checkin.notes,
               style: TextStyle(
-                color: Colors.white.withOpacity(0.7),
+                color: Theme.of(
+                  context,
+                ).colorScheme.onSurface.withValues(alpha: 0.7),
                 fontSize: 12,
                 height: 1.4,
               ),
@@ -317,12 +325,12 @@ class _NutritionScreenState extends State<NutritionScreen> {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: AppTheme.surfaceColor,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
           color: (isSubmitted && !isFormMode)
               ? AppTheme.primaryColor.withOpacity(0.2)
-              : Colors.white10,
+              : Theme.of(context).dividerColor.withOpacity(0.05),
           width: (isSubmitted && !isFormMode) ? 1.5 : 1,
         ),
         boxShadow: (isSubmitted && !isFormMode)
@@ -408,15 +416,17 @@ class _NutritionScreenState extends State<NutritionScreen> {
             width: double.infinity,
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.03),
+              color: Theme.of(context).dividerColor.withOpacity(0.03),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Text(
               checkin.notes,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 13,
                 height: 1.4,
-                color: Colors.white70,
+                color: Theme.of(
+                  context,
+                ).colorScheme.onSurface.withValues(alpha: 0.7),
               ),
             ),
           ),
@@ -480,11 +490,13 @@ class _NutritionScreenState extends State<NutritionScreen> {
           decoration: InputDecoration(
             hintText: 'Any challenges or notes? (optional)',
             hintStyle: TextStyle(
-              color: Colors.white.withOpacity(0.2),
+              color: Theme.of(
+                context,
+              ).colorScheme.onSurface.withValues(alpha: 0.2),
               fontSize: 13,
             ),
             filled: true,
-            fillColor: Colors.white.withOpacity(0.03),
+            fillColor: Theme.of(context).dividerColor.withOpacity(0.03),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
               borderSide: BorderSide.none,
@@ -526,7 +538,9 @@ class _NutritionScreenState extends State<NutritionScreen> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  disabledBackgroundColor: Colors.white10,
+                  disabledBackgroundColor: Theme.of(
+                    context,
+                  ).dividerColor.withOpacity(0.1),
                 ),
                 child: _isSavingCheckin
                     ? const SizedBox(
@@ -566,7 +580,7 @@ class _NutritionScreenState extends State<NutritionScreen> {
             decoration: BoxDecoration(
               color: isSelected
                   ? AppTheme.primaryColor
-                  : Colors.white.withOpacity(0.05),
+                  : Theme.of(context).dividerColor.withOpacity(0.05),
               shape: BoxShape.circle,
               border: Border.all(
                 color: isSelected ? AppTheme.primaryColor : Colors.transparent,
@@ -642,14 +656,14 @@ class _NutritionScreenState extends State<NutritionScreen> {
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            AppTheme.primaryColor.withOpacity(0.15),
-            AppTheme.surfaceColor,
+            AppTheme.primaryColor.withValues(alpha: 0.15),
+            Theme.of(context).colorScheme.surface,
           ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
         borderRadius: BorderRadius.circular(24),
-        border: Border.all(color: AppTheme.primaryColor.withOpacity(0.2)),
+        border: Border.all(color: AppTheme.primaryColor.withValues(alpha: 0.2)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -673,10 +687,10 @@ class _NutritionScreenState extends State<NutritionScreen> {
           const SizedBox(height: 16),
           Text(
             plan.title,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.onSurface,
             ),
           ),
           const SizedBox(height: 8),
@@ -708,23 +722,27 @@ class _NutritionScreenState extends State<NutritionScreen> {
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
-        color: AppTheme.surfaceColor,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Colors.white.withOpacity(0.05)),
+        border: Border.all(
+          color: Theme.of(context).dividerColor.withOpacity(0.05),
+        ),
       ),
       child: Theme(
         data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
         child: ExpansionTile(
           title: Text(
             section.title,
-            style: const TextStyle(
+            style: TextStyle(
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.onSurface,
               fontSize: 16,
             ),
           ),
           iconColor: AppTheme.primaryColor,
-          collapsedIconColor: Colors.white38,
+          collapsedIconColor: Theme.of(
+            context,
+          ).colorScheme.onSurface.withValues(alpha: 0.4),
           childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 20),
           children: [
             Container(
@@ -733,8 +751,10 @@ class _NutritionScreenState extends State<NutritionScreen> {
                 section.content.isEmpty
                     ? 'No specific notes for this section.'
                     : section.content,
-                style: const TextStyle(
-                  color: Colors.white70,
+                style: TextStyle(
+                  color: Theme.of(
+                    context,
+                  ).colorScheme.onSurface.withValues(alpha: 0.7),
                   height: 1.6,
                   fontSize: 15,
                 ),

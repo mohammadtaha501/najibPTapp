@@ -21,7 +21,6 @@ class ExerciseTrackingScreen extends StatefulWidget {
 
 class _ExerciseTrackingScreenState extends State<ExerciseTrackingScreen> {
   final Map<String, ExerciseLog> _logs = {};
-  bool _isLoading = false;
   late DateTime _sessionStartTime;
   bool _hasAutoPrompted = false;
 
@@ -92,53 +91,176 @@ class _ExerciseTrackingScreenState extends State<ExerciseTrackingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final totalExercises = widget.workoutDay.exercises.length;
+    int completedCount = 0;
+    for (var ex in widget.workoutDay.exercises) {
+      final log = _logs[ex.name];
+      if (log != null &&
+          (log.status == ExerciseStatus.completed ||
+              log.status == ExerciseStatus.skipped)) {
+        completedCount++;
+      }
+    }
+    final double progress = totalExercises > 0
+        ? completedCount / totalExercises
+        : 0;
+
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Day ${widget.workoutDay.day}: ${widget.workoutDay.muscleGroup}',
-        ),
-      ),
-      body: Stack(
-        children: [
-          ListView(
-            padding: const EdgeInsets.all(16),
-            children: [
-              ...widget.workoutDay.exercises.map((ex) {
+      backgroundColor: AppTheme.getScaffoldColor(context),
+      body: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
+        slivers: [
+          // --- Immersive Header ---
+          SliverAppBar(
+            expandedHeight: 220.0,
+            pinned: true,
+            stretch: true,
+            backgroundColor: AppTheme.getScaffoldColor(context),
+            elevation: 0,
+            leading: IconButton(
+              icon: Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.surface.withOpacity(0.4),
+                  shape: BoxShape.circle,
+                ),
+                child: Icon(
+                  Icons.arrow_back_ios_new,
+                  size: 16,
+                  color: Theme.of(context).colorScheme.onSurface,
+                ),
+              ),
+              onPressed: () => Navigator.pop(context),
+            ),
+            flexibleSpace: FlexibleSpaceBar(
+              stretchModes: const [
+                StretchMode.zoomBackground,
+                StretchMode.blurBackground,
+              ],
+              background: Stack(
+                fit: StackFit.expand,
+                children: [
+                  // Gradient Overlay
+                  Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [
+                          AppTheme.primaryColor.withOpacity(0.2),
+                          AppTheme.getScaffoldColor(context),
+                        ],
+                      ),
+                    ),
+                  ),
+                  // Progress Content
+                  Positioned(
+                    bottom: 24,
+                    left: 20,
+                    right: 20,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'DAY ${widget.workoutDay.day}',
+                          style: const TextStyle(
+                            color: AppTheme.primaryColor,
+                            fontSize: 10,
+                            fontWeight: FontWeight.w900,
+                            letterSpacing: 2,
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          widget.workoutDay.muscleGroup.toUpperCase(),
+                          style: TextStyle(
+                            color: Theme.of(context).colorScheme.onSurface,
+                            fontSize: 28,
+                            fontWeight: FontWeight.w900,
+                            letterSpacing: -1,
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(4),
+                                child: LinearProgressIndicator(
+                                  value: progress,
+                                  backgroundColor: Theme.of(
+                                    context,
+                                  ).colorScheme.onSurface.withOpacity(0.05),
+                                  valueColor:
+                                      const AlwaysStoppedAnimation<Color>(
+                                        AppTheme.primaryColor,
+                                      ),
+                                  minHeight: 6,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 16),
+                            Text(
+                              '${(progress * 100).toInt()}%',
+                              style: TextStyle(
+                                color: Theme.of(context).colorScheme.onSurface,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w900,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+
+          // --- Exercise List ---
+          SliverPadding(
+            padding: const EdgeInsets.fromLTRB(20, 24, 20, 100),
+            sliver: SliverList(
+              delegate: SliverChildBuilderDelegate((context, index) {
+                final ex = widget.workoutDay.exercises[index];
                 final log = _logs[ex.name];
                 return _buildExerciseCard(ex, log);
-              }),
-              const SizedBox(height: 32),
-              // Manual Finish Button (in case they cancelled the auto-prompt)
-              // if (widget.program.status != ProgramStatus.completed)
-              //   SizedBox(
-              //     width: double.infinity,
-              //     child: ElevatedButton(
-              //       onPressed: _confirmFinishWorkout,
-              //       style: ElevatedButton.styleFrom(
-              //         backgroundColor: AppTheme.primaryColor,
-              //         foregroundColor: Colors.black,
-              //         padding: const EdgeInsets.symmetric(vertical: 16),
-              //         shape: RoundedRectangleBorder(
-              //           borderRadius: BorderRadius.circular(16),
-              //         ),
-              //         elevation: 0,
-              //       ),
-              //       child: const Text(
-              //         'FINISH WORKOUT',
-              //         style: TextStyle(
-              //           fontWeight: FontWeight.bold,
-              //           fontSize: 16,
-              //           letterSpacing: 0.5,
-              //         ),
-              //       ),
-              //     ),
-              //   ),
-              const SizedBox(height: 32),
-            ],
+              }, childCount: widget.workoutDay.exercises.length),
+            ),
           ),
-          if (_isLoading) const Center(child: CircularProgressIndicator()),
         ],
       ),
+      // --- Floating Finish Button ---
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton:
+          (progress >= 1.0 && widget.program.status != ProgramStatus.completed)
+          ? Container(
+              margin: const EdgeInsets.symmetric(horizontal: 20),
+              width: double.infinity,
+              height: 56,
+              child: ElevatedButton(
+                onPressed: _confirmFinishWorkout,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppTheme.primaryColor,
+                  foregroundColor: Colors.black,
+                  elevation: 8,
+                  shadowColor: AppTheme.primaryColor.withOpacity(0.4),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                ),
+                child: const Text(
+                  'FINISH WORKOUT',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w900,
+                    fontSize: 14,
+                    letterSpacing: 1,
+                  ),
+                ),
+              ),
+            )
+          : null,
     );
   }
 
@@ -149,22 +271,25 @@ class _ExerciseTrackingScreenState extends State<ExerciseTrackingScreen> {
 
     showDialog(
       context: context,
-      barrierDismissible: false, // Prevent tap outside
+      barrierDismissible: false,
       builder: (context) => PopScope(
-        canPop: false, // Prevent back button
+        canPop: false,
         child: StatefulBuilder(
           builder: (context, setDialogState) {
+            final bool isDark = Theme.of(context).brightness == Brightness.dark;
             return Dialog(
               backgroundColor: Colors.transparent,
               insetPadding: const EdgeInsets.all(20),
               child: Container(
                 decoration: BoxDecoration(
-                  color: const Color(0xFF1E1E2C), // Dark surface
-                  borderRadius: BorderRadius.circular(24),
-                  border: Border.all(color: Colors.white.withOpacity(0.1)),
+                  color: Theme.of(context).colorScheme.surface,
+                  borderRadius: BorderRadius.circular(28),
+                  border: Border.all(
+                    color: Theme.of(context).dividerColor.withOpacity(0.05),
+                  ),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.5),
+                      color: Colors.black.withOpacity(0.2),
                       blurRadius: 30,
                       offset: const Offset(0, 10),
                     ),
@@ -176,51 +301,49 @@ class _ExerciseTrackingScreenState extends State<ExerciseTrackingScreen> {
                     // Header
                     Container(
                       padding: const EdgeInsets.symmetric(
-                        vertical: 24,
+                        vertical: 32,
                         horizontal: 24,
                       ),
                       decoration: BoxDecoration(
                         color: AppTheme.primaryColor.withOpacity(0.1),
                         borderRadius: const BorderRadius.vertical(
-                          top: Radius.circular(24),
+                          top: Radius.circular(28),
                         ),
                       ),
-                      child: Row(
+                      child: Column(
                         children: [
                           Container(
-                            padding: const EdgeInsets.all(12),
+                            padding: const EdgeInsets.all(16),
                             decoration: const BoxDecoration(
                               color: AppTheme.primaryColor,
                               shape: BoxShape.circle,
                             ),
                             child: const Icon(
-                              Icons.emoji_events,
+                              Icons.emoji_events_rounded,
                               color: Colors.black,
-                              size: 24,
+                              size: 32,
                             ),
                           ),
-                          const SizedBox(width: 16),
-                          const Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Workout Complete!',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                SizedBox(height: 4),
-                                Text(
-                                  'Great job today.',
-                                  style: TextStyle(
-                                    color: AppTheme.mutedTextColor,
-                                    fontSize: 13,
-                                  ),
-                                ),
-                              ],
+                          const SizedBox(height: 20),
+                          Text(
+                            'Workout Complete!',
+                            style: TextStyle(
+                              fontWeight: FontWeight.w900,
+                              fontSize: 24,
+                              color: Theme.of(context).colorScheme.onSurface,
+                              letterSpacing: -0.5,
+                            ),
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                            'UNBELIEVABLE EFFORT TODAY.',
+                            style: TextStyle(
+                              color: Theme.of(
+                                context,
+                              ).colorScheme.onSurface.withOpacity(0.4),
+                              fontSize: 10,
+                              fontWeight: FontWeight.w900,
+                              letterSpacing: 1,
                             ),
                           ),
                         ],
@@ -228,7 +351,7 @@ class _ExerciseTrackingScreenState extends State<ExerciseTrackingScreen> {
                     ),
 
                     Padding(
-                      padding: const EdgeInsets.all(24),
+                      padding: const EdgeInsets.all(32),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -236,54 +359,55 @@ class _ExerciseTrackingScreenState extends State<ExerciseTrackingScreen> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const Text(
-                                'SESSION RATING',
+                              Text(
+                                'SESSION INTENSITY',
                                 style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 12,
-                                  color: AppTheme.mutedTextColor,
+                                  fontWeight: FontWeight.w900,
+                                  fontSize: 11,
+                                  color: Theme.of(
+                                    context,
+                                  ).colorScheme.onSurface.withOpacity(0.4),
                                   letterSpacing: 1,
                                 ),
                               ),
                               Container(
                                 padding: const EdgeInsets.symmetric(
-                                  horizontal: 12,
-                                  vertical: 6,
+                                  horizontal: 10,
+                                  vertical: 4,
                                 ),
                                 decoration: BoxDecoration(
                                   color: _getRatingColor(
                                     currentRating,
-                                  ).withOpacity(0.2),
-                                  borderRadius: BorderRadius.circular(12),
-                                  border: Border.all(
-                                    color: _getRatingColor(
-                                      currentRating,
-                                    ).withOpacity(0.5),
-                                  ),
+                                  ).withOpacity(0.15),
+                                  borderRadius: BorderRadius.circular(8),
                                 ),
                                 child: Text(
                                   '${currentRating.toInt()}/10',
                                   style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16,
+                                    fontWeight: FontWeight.w900,
+                                    fontSize: 14,
                                     color: _getRatingColor(currentRating),
                                   ),
                                 ),
                               ),
                             ],
                           ),
-                          const SizedBox(height: 16),
+                          const SizedBox(height: 12),
                           SliderTheme(
                             data: SliderTheme.of(context).copyWith(
                               activeTrackColor: _getRatingColor(currentRating),
-                              inactiveTrackColor: Colors.white10,
-                              thumbColor: Colors.white,
+                              inactiveTrackColor: Theme.of(
+                                context,
+                              ).dividerColor.withOpacity(0.1),
+                              thumbColor: isDark
+                                  ? Colors.white
+                                  : AppTheme.primaryColor,
                               overlayColor: _getRatingColor(
                                 currentRating,
                               ).withOpacity(0.2),
-                              trackHeight: 6,
+                              trackHeight: 8,
                               thumbShape: const RoundSliderThumbShape(
-                                enabledThumbRadius: 10,
+                                enabledThumbRadius: 12,
                               ),
                             ),
                             child: Slider(
@@ -295,62 +419,41 @@ class _ExerciseTrackingScreenState extends State<ExerciseTrackingScreen> {
                                   setDialogState(() => currentRating = val),
                             ),
                           ),
-                          const SizedBox(height: 8),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: const [
-                              Text(
-                                'Light',
-                                style: TextStyle(
-                                  color: Colors.white24,
-                                  fontSize: 10,
-                                ),
-                              ),
-                              Text(
-                                'Moderate',
-                                style: TextStyle(
-                                  color: Colors.white24,
-                                  fontSize: 10,
-                                ),
-                              ),
-                              Text(
-                                'Max Effort',
-                                style: TextStyle(
-                                  color: Colors.white24,
-                                  fontSize: 10,
-                                ),
-                              ),
-                            ],
-                          ),
 
-                          const SizedBox(height: 24),
+                          const SizedBox(height: 32),
 
                           // Notes Section
-                          const Text(
-                            'ADDITIONAL NOTES',
+                          Text(
+                            'COACH RECAP',
                             style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 12,
-                              color: AppTheme.mutedTextColor,
+                              fontWeight: FontWeight.w900,
+                              fontSize: 11,
+                              color: Theme.of(
+                                context,
+                              ).colorScheme.onSurface.withOpacity(0.4),
                               letterSpacing: 1,
                             ),
                           ),
                           const SizedBox(height: 12),
                           TextField(
                             controller: notesController,
-                            maxLines: 3,
-                            style: const TextStyle(
-                              color: Colors.white,
+                            maxLines: 2,
+                            style: TextStyle(
+                              color: Theme.of(context).colorScheme.onSurface,
                               fontSize: 14,
                             ),
                             decoration: InputDecoration(
-                              hintText: 'How did it feel? (Optional)',
+                              hintText: 'Any pain or PRs?',
                               hintStyle: TextStyle(
-                                color: Colors.white.withOpacity(0.3),
+                                color: Theme.of(
+                                  context,
+                                ).colorScheme.onSurface.withOpacity(0.2),
                                 fontSize: 14,
                               ),
                               filled: true,
-                              fillColor: Colors.black26,
+                              fillColor: Theme.of(
+                                context,
+                              ).colorScheme.onSurface.withOpacity(0.03),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(16),
                                 borderSide: BorderSide.none,
@@ -359,7 +462,7 @@ class _ExerciseTrackingScreenState extends State<ExerciseTrackingScreen> {
                             ),
                           ),
 
-                          const SizedBox(height: 32),
+                          const SizedBox(height: 40),
 
                           // Action Buttons
                           Row(
@@ -368,19 +471,26 @@ class _ExerciseTrackingScreenState extends State<ExerciseTrackingScreen> {
                                 child: TextButton(
                                   onPressed: isSubmitting
                                       ? null
-                                      : () => Navigator.pop(
-                                          context,
-                                        ), // Allows checking logs
+                                      : () => Navigator.pop(context),
                                   style: TextButton.styleFrom(
                                     padding: const EdgeInsets.symmetric(
-                                      vertical: 16,
+                                      vertical: 20,
                                     ),
-                                    foregroundColor: AppTheme.mutedTextColor,
+                                    foregroundColor: Theme.of(
+                                      context,
+                                    ).colorScheme.onSurface.withOpacity(0.4),
                                   ),
-                                  child: const Text('Review Logs'),
+                                  child: const Text(
+                                    'REVIEW',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w900,
+                                      fontSize: 12,
+                                      letterSpacing: 1,
+                                    ),
+                                  ),
                                 ),
                               ),
-                              const SizedBox(width: 12),
+                              const SizedBox(width: 16),
                               Expanded(
                                 flex: 2,
                                 child: ElevatedButton(
@@ -405,7 +515,7 @@ class _ExerciseTrackingScreenState extends State<ExerciseTrackingScreen> {
                                     backgroundColor: AppTheme.primaryColor,
                                     foregroundColor: Colors.black,
                                     padding: const EdgeInsets.symmetric(
-                                      vertical: 16,
+                                      vertical: 20,
                                     ),
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(16),
@@ -422,9 +532,11 @@ class _ExerciseTrackingScreenState extends State<ExerciseTrackingScreen> {
                                           ),
                                         )
                                       : const Text(
-                                          'SAVE & CLOSE',
+                                          'COMPLETE',
                                           style: TextStyle(
-                                            fontWeight: FontWeight.bold,
+                                            fontWeight: FontWeight.w900,
+                                            fontSize: 14,
+                                            letterSpacing: 1,
                                           ),
                                         ),
                                 ),
@@ -457,15 +569,11 @@ class _ExerciseTrackingScreenState extends State<ExerciseTrackingScreen> {
   }) async {
     // If NOT called from dialog (i.e. manual button), show screen loading.
     // If called from dialog, the dialog handles its own loading state.
-    if (!fromDialog) {
-      setState(() => _isLoading = true);
-    }
 
     final dbService = DatabaseService();
     // Re-verify program assignment
     if (widget.program.assignedClientId == null) {
       if (mounted) {
-        setState(() => _isLoading = false);
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text('Error: No client assigned to this program.'),
@@ -497,9 +605,6 @@ class _ExerciseTrackingScreenState extends State<ExerciseTrackingScreen> {
       if (mounted) {
         // If from dialog, we just stop the dialog loading (handled by caller's await)
         // If normal screen, we stop screen loading
-        if (!fromDialog) {
-          setState(() => _isLoading = false);
-        }
 
         // Show error regardless
         ScaffoldMessenger.of(
@@ -520,100 +625,159 @@ class _ExerciseTrackingScreenState extends State<ExerciseTrackingScreen> {
         widget.program.status == ProgramStatus.completed;
 
     return Container(
-      margin: const EdgeInsets.only(bottom: 12),
+      margin: const EdgeInsets.only(bottom: 16),
       decoration: BoxDecoration(
-        color: AppTheme.surfaceColor,
-        borderRadius: BorderRadius.circular(16),
+        color: Theme.of(context).cardTheme.color,
+        borderRadius: BorderRadius.circular(24),
         border: Border.all(
           color: (isCompleted || isSkipped)
-              ? Colors.green.withOpacity(0.3)
-              : Colors.white.withOpacity(0.05),
+              ? (isCompleted ? Colors.greenAccent : Colors.redAccent)
+                    .withOpacity(0.2)
+              : Theme.of(context).dividerColor.withOpacity(0.05),
+          width: 1.5,
         ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.02),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
+          ),
+        ],
       ),
-      child: ListTile(
-        contentPadding: const EdgeInsets.all(16),
-        onTap: isProgramCompleted
-            ? null
-            : () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => ExerciseDetailLoggingScreen(
-                      program: widget.program,
-                      workoutDay: widget.workoutDay,
-                      exercise: ex,
-                      existingLog: log,
-                      sessionStartTime: _sessionStartTime,
-                    ),
-                  ),
-                ).then((_) {
-                  if (mounted && ModalRoute.of(context)?.isCurrent == true) {
-                    _checkAutoPrompt();
-                  }
-                });
-              },
-        title: Text(
-          ex.name,
-          style: const TextStyle(fontWeight: FontWeight.bold),
-        ),
-        subtitle: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 4),
-            Text(
-              '${ex.sets} Sets x ${ex.reps} Reps',
-              style: const TextStyle(
-                color: AppTheme.primaryColor,
-                fontSize: 13,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            if (ex.tempo != null && ex.tempo!.isNotEmpty)
-              Text(
-                'Tempo: ${ex.tempo}',
-                style: const TextStyle(
-                  fontSize: 12,
-                  color: AppTheme.mutedTextColor,
-                ),
-              ),
-            if (isProgramCompleted)
-              Padding(
-                padding: const EdgeInsets.only(top: 8),
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.lock_outline,
-                      size: 14,
-                      color: AppTheme.mutedTextColor.withOpacity(0.6),
-                    ),
-                    const SizedBox(width: 6),
-                    Text(
-                      'View Only',
-                      style: TextStyle(
-                        color: AppTheme.mutedTextColor.withOpacity(0.6),
-                        fontSize: 11,
-                        fontStyle: FontStyle.italic,
+      clipBehavior: Clip.antiAlias,
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: isProgramCompleted
+              ? null
+              : () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => ExerciseDetailLoggingScreen(
+                        program: widget.program,
+                        workoutDay: widget.workoutDay,
+                        exercise: ex,
+                        existingLog: log,
+                        sessionStartTime: _sessionStartTime,
                       ),
                     ),
-                  ],
+                  ).then((_) {
+                    if (mounted && ModalRoute.of(context)?.isCurrent == true) {
+                      _checkAutoPrompt();
+                    }
+                  });
+                },
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: Row(
+              children: [
+                // Exercise Status Avatar
+                Container(
+                  width: 48,
+                  height: 48,
+                  decoration: BoxDecoration(
+                    color: isCompleted
+                        ? Colors.greenAccent.withOpacity(0.12)
+                        : isSkipped
+                        ? Colors.redAccent.withOpacity(0.12)
+                        : AppTheme.primaryColor.withOpacity(0.1),
+                    shape: BoxShape.circle,
+                  ),
+                  child: Center(
+                    child: Icon(
+                      isCompleted
+                          ? Icons.check_rounded
+                          : isSkipped
+                          ? Icons.close_rounded
+                          : Icons.fitness_center_rounded,
+                      color: isCompleted
+                          ? Colors.greenAccent
+                          : isSkipped
+                          ? Colors.redAccent
+                          : AppTheme.primaryColor,
+                      size: 20,
+                    ),
+                  ),
                 ),
-              ),
-          ],
+                const SizedBox(width: 20),
+                // Exercise Info
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        ex.name.toUpperCase(),
+                        style: TextStyle(
+                          fontWeight: FontWeight.w900,
+                          fontSize: 16,
+                          color: Theme.of(context).colorScheme.onSurface,
+                          letterSpacing: -0.2,
+                        ),
+                      ),
+                      const SizedBox(height: 6),
+                      Row(
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 8,
+                              vertical: 4,
+                            ),
+                            decoration: BoxDecoration(
+                              color: Theme.of(
+                                context,
+                              ).colorScheme.onSurface.withOpacity(0.04),
+                              borderRadius: BorderRadius.circular(6),
+                            ),
+                            child: Text(
+                              '${ex.sets} SETS × ${ex.reps} REPS',
+                              style: TextStyle(
+                                color: Theme.of(
+                                  context,
+                                ).colorScheme.onSurface.withOpacity(0.5),
+                                fontSize: 10,
+                                fontWeight: FontWeight.w900,
+                                letterSpacing: 0.5,
+                              ),
+                            ),
+                          ),
+                          if (ex.restTime != null) ...[
+                            const SizedBox(width: 8),
+                            Text(
+                              '${ex.restTime}s REST',
+                              style: TextStyle(
+                                color: AppTheme.primaryColor.withOpacity(0.6),
+                                fontSize: 10,
+                                fontWeight: FontWeight.w900,
+                              ),
+                            ),
+                          ],
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                // End Action / Lock
+                if (isProgramCompleted)
+                  Icon(
+                    Icons.lock_outline_rounded,
+                    size: 18,
+                    color: Theme.of(
+                      context,
+                    ).colorScheme.onSurface.withOpacity(0.2),
+                  )
+                else
+                  Icon(
+                    Icons.arrow_forward_ios_rounded,
+                    size: 14,
+                    color: Theme.of(
+                      context,
+                    ).colorScheme.onSurface.withOpacity(0.15),
+                  ),
+              ],
+            ),
+          ),
         ),
-        trailing: isProgramCompleted
-            ? const Icon(Icons.visibility_outlined, color: Colors.white24)
-            : (isCompleted
-                  ? const Icon(Icons.check_circle, color: Colors.green)
-                  : (isSkipped
-                        ? const Icon(
-                            Icons.block,
-                            color: Colors.redAccent,
-                            size: 20,
-                          )
-                        : const Icon(
-                            Icons.chevron_right,
-                            color: Colors.white24,
-                          ))),
       ),
     );
   }

@@ -34,6 +34,11 @@ class _CoachHomeScreenState extends State<CoachHomeScreen> {
   @override
   void initState() {
     super.initState();
+    // Pre-initialize streams to empty so late fields are never uninitialized
+    _clientsStream = const Stream.empty();
+    _programsStream = const Stream.empty();
+    _publicProgramsStream = const Stream.empty();
+    _unreadCountsStream = const Stream.empty();
   }
 
   @override
@@ -46,7 +51,16 @@ class _CoachHomeScreenState extends State<CoachHomeScreen> {
         _clientsStream = _dbService.getClients(coachId);
         _programsStream = _dbService.getActiveCoachPrograms(coachId);
         _publicProgramsStream = _dbService.getPublicPrograms(coachId);
-        _unreadCountsStream = _dbService.getUnreadCountsPerClient(coachId);
+        // Guard unread counts stream against errors or hangs
+        _unreadCountsStream = _dbService
+            .getUnreadCountsPerClient(coachId)
+            .handleError((e) {
+              debugPrint('[CoachHome] Unread counts stream error: $e');
+            })
+            .timeout(
+              const Duration(seconds: 15),
+              onTimeout: (sink) => sink.add({}),
+            );
         _streamsInitialized = true;
       }
     }
@@ -554,12 +568,15 @@ class _CoachHomeScreenState extends State<CoachHomeScreen> {
             ),
           );
         }
-        if (clientsSnapshot.connectionState == ConnectionState.waiting)
+        if (clientsSnapshot.connectionState == ConnectionState.waiting &&
+            !clientsSnapshot.hasData) {
           return const Center(child: CircularProgressIndicator());
+        }
 
         return StreamBuilder<Map<String, int>>(
           stream: _unreadCountsStream,
           builder: (context, unreadSnapshot) {
+            // Never block on unread counts — fall back to empty map on any issue
             final unreadCounts = unreadSnapshot.data ?? {};
             var clients = clientsSnapshot.data ?? [];
 
@@ -586,7 +603,7 @@ class _CoachHomeScreenState extends State<CoachHomeScreen> {
                 child: Text(
                   _searchQuery.isEmpty
                       ? 'No clients found.'
-                      : 'No clients found.',
+                      : 'No clients match your search.',
                   style: const TextStyle(color: AppTheme.mutedTextColor),
                 ),
               );

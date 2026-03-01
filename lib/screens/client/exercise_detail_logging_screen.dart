@@ -202,23 +202,30 @@ class _ExerciseDetailLoggingScreenState
               SliverAppBar(
                 expandedHeight: _hasVideo ? 56 : 56,
                 pinned: true,
-                backgroundColor: AppTheme.backgroundColor,
+                backgroundColor: AppTheme.getScaffoldColor(context),
                 leading: IconButton(
                   icon: Container(
                     padding: const EdgeInsets.all(6),
                     decoration: BoxDecoration(
-                      color: Colors.white.withValues(alpha: 0.08),
+                      color: Theme.of(
+                        context,
+                      ).colorScheme.onSurface.withValues(alpha: 0.08),
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    child: const Icon(Icons.arrow_back_ios_new, size: 16),
+                    child: Icon(
+                      Icons.arrow_back_ios_new,
+                      size: 16,
+                      color: Theme.of(context).colorScheme.onSurface,
+                    ),
                   ),
                   onPressed: () => Navigator.pop(context),
                 ),
                 title: Text(
                   widget.exercise.name,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
+                    color: Theme.of(context).colorScheme.onSurface,
                   ),
                 ),
                 centerTitle: true,
@@ -254,7 +261,9 @@ class _ExerciseDetailLoggingScreenState
                             widget.exercise.description!,
                             style: TextStyle(
                               fontSize: 13.5,
-                              color: Colors.white.withValues(alpha: 0.7),
+                              color: Theme.of(
+                                context,
+                              ).colorScheme.onSurface.withValues(alpha: 0.7),
                               height: 1.5,
                             ),
                           ),
@@ -272,7 +281,9 @@ class _ExerciseDetailLoggingScreenState
                             widget.exercise.note!,
                             style: TextStyle(
                               fontSize: 13.5,
-                              color: Colors.white.withValues(alpha: 0.7),
+                              color: Theme.of(
+                                context,
+                              ).colorScheme.onSurface.withValues(alpha: 0.7),
                               height: 1.5,
                               fontStyle: FontStyle.italic,
                             ),
@@ -299,13 +310,13 @@ class _ExerciseDetailLoggingScreenState
                             ),
                           ),
                           const SizedBox(width: 8),
-                          const Text(
+                          Text(
                             'LOG YOUR SETS',
                             style: TextStyle(
                               fontSize: 13,
                               fontWeight: FontWeight.w700,
                               letterSpacing: 1.1,
-                              color: Colors.white,
+                              color: Theme.of(context).colorScheme.onSurface,
                             ),
                           ),
                         ],
@@ -323,25 +334,29 @@ class _ExerciseDetailLoggingScreenState
                       // ── Exercise Notes ──
                       Container(
                         decoration: BoxDecoration(
-                          color: AppTheme.surfaceColor,
+                          color: Theme.of(context).colorScheme.surface,
                           borderRadius: BorderRadius.circular(14),
                           border: Border.all(
-                            color: Colors.white.withValues(alpha: 0.06),
+                            color: Theme.of(
+                              context,
+                            ).colorScheme.onSurface.withValues(alpha: 0.06),
                           ),
                         ),
                         child: TextField(
                           controller: _notesController,
                           maxLines: 2,
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 14,
-                            color: Colors.white,
+                            color: Theme.of(context).colorScheme.onSurface,
                           ),
                           decoration: InputDecoration(
                             labelText: 'Exercise Notes',
                             hintText: 'e.g. "Felt tight in hamstrings..."',
                             prefixIcon: Icon(
                               Icons.edit_note,
-                              color: Colors.white.withValues(alpha: 0.3),
+                              color: Theme.of(
+                                context,
+                              ).colorScheme.onSurface.withValues(alpha: 0.3),
                               size: 20,
                             ),
                             border: InputBorder.none,
@@ -416,18 +431,20 @@ class _ExerciseDetailLoggingScreenState
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            AppTheme.primaryColor.withValues(alpha: 0.08),
-            AppTheme.surfaceColor,
-          ],
-        ),
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: AppTheme.primaryColor.withValues(alpha: 0.15),
+          color: Theme.of(context).dividerColor.withOpacity(0.05),
         ),
+        boxShadow: [
+          BoxShadow(
+            color: Theme.of(context).brightness == Brightness.dark
+                ? Colors.black.withOpacity(0.2)
+                : Colors.grey.withOpacity(0.1),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
+          ),
+        ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -468,9 +485,11 @@ class _ExerciseDetailLoggingScreenState
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
       decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.05),
+        color: Theme.of(context).dividerColor.withOpacity(0.05),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.white.withValues(alpha: 0.08)),
+        border: Border.all(
+          color: Theme.of(context).dividerColor.withOpacity(0.05),
+        ),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -486,17 +505,19 @@ class _ExerciseDetailLoggingScreenState
                 style: TextStyle(
                   fontSize: 9,
                   fontWeight: FontWeight.w600,
-                  color: Colors.white.withValues(alpha: 0.4),
+                  color: Theme.of(
+                    context,
+                  ).colorScheme.onSurface.withValues(alpha: 0.4),
                   letterSpacing: 0.8,
                 ),
               ),
               const SizedBox(height: 2),
               Text(
                 item.value,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: Theme.of(context).colorScheme.onSurface,
                 ),
               ),
             ],
@@ -519,9 +540,11 @@ class _ExerciseDetailLoggingScreenState
       width: double.infinity,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: AppTheme.surfaceColor,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: Colors.white.withValues(alpha: 0.06)),
+        border: Border.all(
+          color: Theme.of(context).dividerColor.withOpacity(0.05),
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -556,9 +579,11 @@ class _ExerciseDetailLoggingScreenState
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
       decoration: BoxDecoration(
-        color: AppTheme.surfaceColor,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: Colors.white.withValues(alpha: 0.06)),
+        border: Border.all(
+          color: Theme.of(context).dividerColor.withOpacity(0.05),
+        ),
       ),
       child: Row(
         children: [
@@ -597,10 +622,9 @@ class _ExerciseDetailLoggingScreenState
               ],
             ),
           ),
-          // Duration adjuster
           Container(
             decoration: BoxDecoration(
-              color: Colors.white.withValues(alpha: 0.05),
+              color: Theme.of(context).dividerColor.withOpacity(0.05),
               borderRadius: BorderRadius.circular(10),
             ),
             child: Row(
@@ -631,16 +655,16 @@ class _ExerciseDetailLoggingScreenState
                   decoration: BoxDecoration(
                     border: Border.symmetric(
                       vertical: BorderSide(
-                        color: Colors.white.withValues(alpha: 0.08),
+                        color: Theme.of(context).dividerColor.withOpacity(0.08),
                       ),
                     ),
                   ),
                   child: Text(
                     '${_restDuration}s',
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 14,
-                      color: Colors.white,
+                      color: Theme.of(context).colorScheme.onSurface,
                     ),
                   ),
                 ),
@@ -690,8 +714,8 @@ class _ExerciseDetailLoggingScreenState
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              const Color(0xFF1A1A2E).withValues(alpha: 0.95),
-              const Color(0xFF151528),
+              Theme.of(context).scaffoldBackgroundColor.withValues(alpha: 0.95),
+              Theme.of(context).scaffoldBackgroundColor,
             ],
           ),
           border: Border(
@@ -716,7 +740,9 @@ class _ExerciseDetailLoggingScreenState
                 children: [
                   CircularProgressIndicator(
                     value: progress,
-                    backgroundColor: Colors.white10,
+                    backgroundColor: Theme.of(
+                      context,
+                    ).colorScheme.onSurface.withValues(alpha: 0.1),
                     valueColor: AlwaysStoppedAnimation<Color>(timerColor),
                     strokeWidth: 4,
                     strokeCap: StrokeCap.round,
@@ -740,19 +766,21 @@ class _ExerciseDetailLoggingScreenState
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const Text(
+                  Text(
                     'Resting...',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
-                      color: Colors.white,
+                      color: Theme.of(context).colorScheme.onSurface,
                     ),
                   ),
                   const SizedBox(height: 2),
                   Text(
                     'Next set in ${_restRemaining}s',
                     style: TextStyle(
-                      color: Colors.white.withValues(alpha: 0.45),
+                      color: Theme.of(
+                        context,
+                      ).colorScheme.onSurface.withValues(alpha: 0.45),
                       fontSize: 12,
                     ),
                   ),
@@ -764,14 +792,20 @@ class _ExerciseDetailLoggingScreenState
               icon: const Icon(Icons.skip_next, size: 18),
               label: const Text('SKIP'),
               style: TextButton.styleFrom(
-                foregroundColor: Colors.white54,
+                foregroundColor: Theme.of(
+                  context,
+                ).colorScheme.onSurface.withValues(alpha: 0.54),
                 padding: const EdgeInsets.symmetric(
                   horizontal: 16,
                   vertical: 10,
                 ),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
-                  side: BorderSide(color: Colors.white.withValues(alpha: 0.1)),
+                  side: BorderSide(
+                    color: Theme.of(
+                      context,
+                    ).colorScheme.onSurface.withValues(alpha: 0.1),
+                  ),
                 ),
               ),
             ),
@@ -799,9 +833,11 @@ class _ExerciseDetailLoggingScreenState
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color: AppTheme.surfaceColor,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: Colors.white.withValues(alpha: 0.06)),
+        border: Border.all(
+          color: Theme.of(context).dividerColor.withOpacity(0.05),
+        ),
       ),
       child: Column(
         children: [
@@ -829,10 +865,10 @@ class _ExerciseDetailLoggingScreenState
               const SizedBox(width: 10),
               Text(
                 'Set ${index + 1}',
-                style: const TextStyle(
+                style: TextStyle(
                   fontWeight: FontWeight.w600,
                   fontSize: 14,
-                  color: Colors.white,
+                  color: Theme.of(context).colorScheme.onSurface,
                 ),
               ),
               if (target.isNotEmpty) ...[
@@ -843,7 +879,9 @@ class _ExerciseDetailLoggingScreenState
                     vertical: 3,
                   ),
                   decoration: BoxDecoration(
-                    color: Colors.white.withValues(alpha: 0.05),
+                    color: Theme.of(
+                      context,
+                    ).colorScheme.onSurface.withValues(alpha: 0.05),
                     borderRadius: BorderRadius.circular(6),
                   ),
                   child: Text(
@@ -917,24 +955,28 @@ class _ExerciseDetailLoggingScreenState
   }) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.04),
+        color: Theme.of(context).dividerColor.withOpacity(0.05),
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: Colors.white.withValues(alpha: 0.08)),
+        border: Border.all(
+          color: Theme.of(context).dividerColor.withOpacity(0.05),
+        ),
       ),
       child: TextField(
         controller: controller,
         keyboardType: TextInputType.number,
         textAlign: TextAlign.center,
-        style: const TextStyle(
+        style: TextStyle(
           fontSize: 15,
           fontWeight: FontWeight.w600,
-          color: Colors.white,
+          color: Theme.of(context).colorScheme.onSurface,
         ),
         decoration: InputDecoration(
           labelText: label,
           labelStyle: TextStyle(
             fontSize: 11,
-            color: Colors.white.withValues(alpha: 0.35),
+            color: Theme.of(
+              context,
+            ).colorScheme.onSurface.withValues(alpha: 0.35),
           ),
           border: InputBorder.none,
           contentPadding: const EdgeInsets.symmetric(
@@ -964,19 +1006,19 @@ class _ExerciseDetailLoggingScreenState
                 : () => _saveProgress(markAsTerminal: true),
             style: ElevatedButton.styleFrom(
               backgroundColor: AppTheme.primaryColor,
-              foregroundColor: Colors.black,
+              foregroundColor: Theme.of(context).colorScheme.onPrimary,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(14),
               ),
               elevation: 0,
             ),
             child: _isLoading
-                ? const SizedBox(
+                ? SizedBox(
                     height: 20,
                     width: 20,
                     child: CircularProgressIndicator(
                       strokeWidth: 2,
-                      color: Colors.black,
+                      color: Theme.of(context).colorScheme.onPrimary,
                     ),
                   )
                 : const Row(
@@ -1013,9 +1055,13 @@ class _ExerciseDetailLoggingScreenState
                     style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13),
                   ),
                   style: OutlinedButton.styleFrom(
-                    foregroundColor: Colors.white70,
+                    foregroundColor: Theme.of(
+                      context,
+                    ).colorScheme.onSurface.withValues(alpha: 0.7),
                     side: BorderSide(
-                      color: Colors.white.withValues(alpha: 0.12),
+                      color: Theme.of(
+                        context,
+                      ).colorScheme.onSurface.withValues(alpha: 0.12),
                     ),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
